@@ -1,0 +1,54 @@
+@charset "utf-8"; /* 文字化けしないために書く */
+.title {
+    text-align: center;
+}
+.title h3{
+    font-size: 3.5rem;
+    font-weight: 300;
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.title span {
+    color: #5CB200;
+}
+.ja {
+    font-size: 1.5rem;
+}
+.content h3 {
+    font-size: 2rem;
+    font-weight: normal;
+    margin-bottom: 0;
+    padding-top: 0;
+    margin-top: 0;
+}
+.content1 {
+    width: 100%;
+}
+.content1 img{
+    width: 80%;
+    height: auto;
+    margin-left: 10%;
+}
+.content span:not(.faq_en){
+    color: #5CB200;
+}
+.content p{
+    margin-left: 5%;
+    padding-top: 0;
+}
+.q {
+    border-bottom: 0.5px solid #b3b3b3;
+}
+.q:hover {
+    cursor: pointer;
+}
+.q span{
+    transform: translate(0, 30%);
+}
+.a {
+    display: none;
+}
+.faq_en {
+    font-size: 0.8rem;
+}

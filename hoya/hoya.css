@@ -1,0 +1,164 @@
+@charset "utf-8";
+html {
+    font-size: 1.2vw;/* rem*/
+}
+body {
+    background-image: url('./_img/background.webp');
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+a {
+    text-decoration: none;
+    display: inline-block;
+    /* color: #5CB200; */
+    font-size: 1rem;
+    transition: 0.5s;
+}
+p, li{
+    font-size: 1rem;
+    color: #181818;
+}
+
+
+.fade_hoya {
+    width: 60%;
+    margin-top: 90px;
+    margin-left: 20%;
+    margin-bottom: 0px;
+    background-color: #fff;
+}
+.logo {
+    width: 62%;
+    height: auto;
+    margin-top: 85px;
+    margin-left: 19%;
+}
+.explanation{
+    width: 80%;
+    margin-top: 30px;
+    margin-left: 10%;;
+    text-align: center;
+}
+.explanation p{
+    font-weight: bold;
+}
+.jiyu{
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 500px;
+    margin-top: 50px;
+    background-color: #407c51;
+}
+.jiyu img{
+    position: absolute;
+    width: 30%;
+    height: auto;
+    transform: translate(0, -50%);
+    top: 50%;
+    left: 5%;
+}
+.jiyu p{
+    position: absolute;
+    width: 58%;
+    transform: translate(0, -50%);
+    top: 50%;
+    left: 40%;
+    padding: 0;
+    margin: 0;
+    color: #fff;
+}
+.archive{
+    margin-top: 80px;
+    margin-left: 5%;
+    width:90%;
+}
+.subtitle{
+    font-size: 2rem;
+    color: #550e98;
+}
+.archive_text {
+    color: #407c51;
+}
+.items {
+    display: flex;
+    width: 90%;
+    margin-left: 5%;
+}
+.vol {
+    width: 25%;
+    text-align: center;
+}
+.vol img{
+    margin-bottom: 1px;
+    width:80%;
+    height: auto;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+.part{
+    width: 90%;
+    margin-top: 50px;
+    margin-left: 5%;
+}
+.part_item {
+    position: relative;
+    width: 100%;
+    height: 22vw;
+    display: flex;
+}
+.part_item img{
+    position: absolute;
+    transform: translate(0, -50%);
+    width: 30%;
+    height: auto;
+    top: 50%;
+    left: 0;
+}
+.part_item p{
+    position: absolute;
+    transform: translate(0, -50%);
+    width: 66%;
+    top: 50%;
+    left: 32%;
+    padding: 0;
+    margin: 0;
+}
+.edit {
+    background-color: #d8eaf5;
+}
+.project {
+    background-color: #e9c2da;
+}
+.btn {
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+}
+.btn a{
+    position: absolute;
+    display: block;
+    transform: translate(-50%, 0);
+    left: 50%;
+    text-decoration: none;
+    color: #181818;
+    padding: 1rem;
+    background-color: #fae57d;
+    border: 1px solid #fae57d;
+    border-radius: 100px;
+    box-shadow: 0 2px 0 0 #777;
+}
+.btn a:hover{
+    box-shadow: 0 0px 0 0 #666;
+}
+.ad {
+    margin-top: 100px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+.qa {
+    margin-top: 130px;
+    margin-left: 40px;
+    padding-bottom: 30px;
+}

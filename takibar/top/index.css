@@ -1,0 +1,17 @@
+.body{
+    background-color: aliceblue;
+    width: 70%;
+    height: 2000px;
+    display: block;
+    margin-left: 15%;  /* 中央揃え */
+
+    /* 本文の書式 */
+    font-size: 18px;
+}
+
+
+
+.title1 {
+    font-size: 35px;
+}
+

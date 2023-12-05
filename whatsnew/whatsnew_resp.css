@@ -1,0 +1,37 @@
+@charset "utf-8"; /* 文字化けしないために書く */
+/* 表示幅設定など他カテゴリ共通部分はcommons/common_resop.css */
+
+@media screen and (max-width: 1024px) {
+    .titles, .titles img {
+        height: 30vw;
+    }
+}
+@media screen and (max-width: 670px) {
+    .titles {
+        width: 100%;
+        height: 80vw;
+    }
+    .titles img{
+        top: 20px;
+        bottom: none;
+        width: 100%;
+        height: 50vw;
+        object-fit: cover;
+    }
+    .title {
+        width: 100%;
+        top: 60vw;
+        bottom: none;
+    }
+    .title h3{
+        font-size: 1.2rem;
+        font-weight: normal;
+    }
+    .images img{
+        width: 100%;
+        height: auto;
+    }
+    .bottom_btn {
+        display: none;
+    }
+}

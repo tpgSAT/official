@@ -1,0 +1,70 @@
+@charset "utf-8"; /* 文字化けしないために書く */
+.title {
+    text-align: center;
+}
+.title h3{
+    font-size: 3.5rem;
+    font-weight: 300;
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.title span {
+    color: #5CB200;
+}
+.articles{
+    width: 100%;
+}
+.article {
+    width: 100%;
+    height: 210px;
+    border-bottom: 0.5px solid #c8c8c8;
+    margin-top: 10px;
+}
+.items {
+    position: relative;
+    width: 100%;
+    height: 145px;
+}
+/* .items h3{
+    position: absolute;
+    width: 28%;
+    top: 0;
+    left: 0;
+    margin-top: 0;
+    padding-top: 0;
+    white-space: nowrap;
+} */
+/* .items p:not(.btn){
+    position: absolute;
+    width: 34%;
+    top: 0;
+    left: 33%;
+    margin-top: 0;
+    padding-top: 0;
+} */
+.items img{
+    position: absolute;
+    width: 28%;
+    height: 145px;
+    object-fit: cover;/* 画像を領域サイズに合わせて切り取り */
+    top: 0;
+    left: 72%;
+}
+.items a{/* 画像以外をリンクに */
+    position: absolute;
+    display: block;
+    height: 145px;
+    width: 72%;
+    top: 0;
+    left: 0;
+}
+.btn {
+    position: absolute;
+    left: 33%;
+    bottom: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    color: #5CB200;
+    font-weight: bold;
+}

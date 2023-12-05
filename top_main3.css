@@ -1,0 +1,79 @@
+@charset "utf-8"; /* 文字化けしないために書く */
+.aboutus {/* ヘッダーのリンクで飛んだときに、ヘッダー分ずれるのを修正するため */
+    padding-top: 90px;
+    margin-top: -90px;
+}
+.links {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    row-gap: 20px;
+}
+.link {
+    position: relative;
+    width: 45%;
+    height: 45vh;
+    margin-top: 0px;
+}
+.link:hover {
+    transform: translateX(-1px);
+    transform: translateY(-1px);
+}
+.link img {
+    position: absolute;
+    right: 0;
+    width: 45%;
+    height: 70%;
+    top: 29%;
+    object-fit: cover;
+}
+.shoukai {
+    position: absolute;
+    width: 45%;
+    height: 84%;
+    top: 8%;
+    left: 7%;
+}
+.shoukai h3 {
+    font-size: 1.8rem;
+    color: #fff;
+    margin: 0;
+    white-space: nowrap;
+}
+.shoukai p {
+    font-weight: bold;
+    color: #fff;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 5px;
+    /* line-height: 0.6em; */
+    top: 20%;
+    left: 0;
+}
+.shoukai a{
+    position: absolute;
+    color: transparent;
+    padding: 1rem 2rem;
+    bottom: 5%;
+    border: 0.5px solid transparent;
+}
+.link:hover a{
+    color: #fff;
+    border-color: #fff;
+}
+.link a:hover {
+    color: #282626;
+    background-color: #fff;
+}
+.link1, .link5 {
+    background-color: #5956B0;
+}
+.link2, .link6 {
+    background-color: #9D6D00;
+}
+.link3, .link7 {
+    background-color: #993500;
+}
+.link4, .link8 {
+    background-color: #5956B0;
+}

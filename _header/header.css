@@ -1,0 +1,158 @@
+@charset "utf-8"; /* 文字化けしないために書く */
+
+/* Google Icon */
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+
+html {/* ページ内リンクをスクロールで飛ぶようにする */
+    scroll-behavior: smooth;
+}
+
+header {
+    font-family: 'Open Sans', sans-serif;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    height: 90px;
+    width: 100%;
+    margin: 0;
+    background-color: #fff;
+    border-bottom: 2px solid #BADA55;
+}
+.header_items {
+    width: 70%;
+    height: 90px;
+    margin-left: 15%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+.header_logo {
+    display: block;
+    height: 60px;
+    width: auto;
+    margin: 15px 15px 15px 0px;
+}
+.header_item{
+    display: inline-block;
+    flex-grow: 1;
+    color: #181818;
+    font-size: 1rem;
+    border-bottom: 2px solid #fff;
+    letter-spacing: 0.12em;
+    padding-bottom: 0.75vw;
+    white-space: nowrap;
+}
+.header_item:hover {
+    border-bottom: 2px solid #181818;
+}
+
+.keijibutu {
+    background-color: #E60693;
+    font-weight: bold;
+    padding: 1em 1.5em;
+    margin-left: 1.5vw;
+    color: #fff;
+}
+.keijibutu:hover {
+    color: #E60693;
+    background-color: #fff;
+    border: 0.5px solid #181818;
+}
+.header_items_phone, .phone_items, .menu_haikei {
+    display: none;
+}
+.phone_item{
+    color: transparent;
+}
+@media screen and (min-width: 670px){
+    .menu_sns a, .menu_sns_icon{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .header_items{
+        width: 80%;
+        margin-left: 10%;
+    }
+}
+@media screen and (max-width: 670px) {
+    header {
+        position: fixed;
+        width: 100%;
+        height: 60px;
+        border-bottom: 3.5px solid #BADA55;
+    }
+    .header_items {
+        display: none;
+    }   
+    .header_items_phone {
+        display: flex;
+    }
+    .header_items_phone img{
+        display: block;
+        height: 45px;
+        width: auto;
+        transform: translate(-50%, -50%);
+        margin-top: 30px;
+        margin-left: 50vw;
+    }
+    .material-symbols-outlined{
+        z-index: 10;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        right: 3px;
+        font-size: 40px;
+        cursor: pointer;
+    }
+
+    .btn_hyouji {
+        display: block;
+    }
+    .btn_hihyouji {
+        display: none;
+    }
+    .menu_haikei {
+        position: fixed;
+        display: none;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        background-color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+    }
+    .menu_items{
+        padding-top: 100px;
+        margin-left: 20%;
+        margin-right: 20%;
+        /* marginだと白背景も下がっちゃうのでだめ */
+    }
+    .phone_item {
+        display: block;
+        color: #181818;
+        font-size: 2rem;
+        margin-top: 15px;
+        padding-bottom: 0px 10px 3px 10px;
+        border-bottom: 1px solid #c3c3c3;
+    }
+    .menu_sns {
+        display: flex;
+        width: 80%;
+        height: 18vw;
+        margin-top: 30px;
+        margin-left: 10%;
+        opacity: 1;
+        justify-content: space-evenly;
+        background-color: #ffffffaa;
+    }
+    .menu_sns a{
+        display: block;
+        width: 18vw;
+        height: 18vw;
+    }
+    .menu_sns img{
+        width: 100%;
+        height: auto;
+    }
+}

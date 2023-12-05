@@ -1,0 +1,77 @@
+@charset "utf-8"; /* 文字化けしないために書く */
+.btns {
+    display: block;
+    font-size: 0.8rem;
+    color: #181818;
+}
+p {
+    font-size: 1rem;
+    color: #181818;
+}
+a {
+    display: block;
+    color: #5CB200;
+}
+.bd {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.list_btn {
+    margin-left: 0;
+}
+
+.titles {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 22vw;
+    margin-bottom: 50px;
+}
+.title {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+}
+.title h3{
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.titles img{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: block;
+    width: 50%;
+    height: 22vw;
+    object-fit: cover;
+}
+
+.images {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    row-gap: 1vw;
+}
+.images img {
+    display: block;
+    width: 40%;
+    height: auto;
+}
+.bottom_btn {
+    position: relative;
+    display: flex;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 90px;
+}
+.back_btn {
+    position: absolute;
+    left: 0;
+}
+.next_btn {
+    position: absolute;
+    right: 0;
+}
