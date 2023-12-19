@@ -27,19 +27,19 @@
     background-size: cover;
 }
 .news2 {
-    background-image: url(/whatsnew/20230705_takimatsuri/_img/hp_top.webp);
+    background-image: url(/whatsnew/20231021_koudaisai/_img/koudaisai2023.webp);
 }
 .news3 {
-    background-image: url(/whatsnew/20230621_takifes/_img/takifes_logo.webp);
+    background-image: url(/whatsnew/20230705_takimatsuri/_img/hp_top.webp);
 }
 .news4 {
-    background-image: url(/whatsnew/20230226_wakabasai/_img/wakabasai_poster.webp);
+    background-image: url(/whatsnew/20230621_takifes/_img/takifes_logo.webp);
 }
 .news5 {
-    background-image: url(/whatsnew/20230120_takibar/_img/takibar4.webp);
+    background-image: url(/whatsnew/20230226_wakabasai/_img/wakabasai_poster.webp);
 }
 .news1 {
-    background-image: url(/whatsnew/20231021_koudaisai/_img/koudaisai2023.webp);
+    background-image: url(/whatsnew/20231222_takibar/_img/takibar5_poster.png);
 }
 .txt {
     position: absolute;
