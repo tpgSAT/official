@@ -1,117 +1,187 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="./keijibutu.css">
-        <link rel="stylesheet" href="./keijibutu_resp.css">
-        <link rel="stylesheet" href="/_commons/common.css">
-        <link rel="stylesheet" href="/_commons/common_resp.css">
-        <link rel="stylesheet" href="/_header/header.css">
-        <link rel="stylesheet" href="/_footer/footer.css">
-        <script src="/_commons/jquery-3.6.0.min.js"></script><!--JQueryの読み込み-->
-        <script type="text/javascript" src='/_commons/header_footer.js' defer></script><!--JSファイルの読み込み-->
-        <script type="text/javascript" src='./keijibutu.js' defer></script>
-        <title>掲示物募集 | Taki Plaza Gardener</title>
-    </head>
-    <body>
-        <header></header>
-        <div class="fade"><!-- ヘッダーフッター以外をfade表示するためにつくったdiv -->
-            <div class="titles">
-                <p class="poster title pc_title">掲示板利用の申し込み</p>
-                <p class="poster title mobile_title">掲示板利用<br>の申し込み</p>
-                <p class="movie title">9面マルチ利用の申し込み</p>
-            </div>
-            <div class="main main1">
-                <h3>チラシやポスターで、Taki Plazaに訪れるひとに伝えたいことはありませんか？</h3>
-                <div class="setumei">
-                    <p>　Taki Plaza B2F大階段下の学生掲示板のスペースで、ポスター掲示とビラの設置を受け付けております。皆さんのお申し込みをお待ちしております。</p>
-                    <img src="./_img/post_image.webp">
-                </div>
-                <h3 class="subtitle">■申し込み方法</h3>
-                <div class="houhou">
-                    <p>１．こちらのフォームより、必要事項を入力してください。<a href="https://docs.google.com/forms/d/1mZxwWaBzFDYJaBYuneT3-8CfUyE54qE5NJV2itRAI5g/edit" target="_blank" rel="noopener noreferrer">フォーム</a>には、Taki Plaza B2F Taki Plaza Gardener 居室前のボックスに貼ってあるQRコードからもアクセスできます。
-                        <br><br>２．フォーム提出後、ボックスにポスター（最大A4サイズ）を投函してください。
-                    </p>
-                    <img src="./_img/postbox.webp">
-                </div>
-            </div>
-            <div class="main main2">
-                <h3>Taki Plazaに訪れる人へのお知らせはありませんか？</h3>
-                <div class="setumei">
-                    <p>　Taki Plaza B2Fの9面マルチモニターで、皆さんのことを伝える動画や画像を募集しております。公認サークルと公認の学生団体の皆さん、お申し込みをお待ちしています。
-                        <br>動画/画像の内容・形式およびその他注意事項についてはこちらの<a href="./_asset/boshu_youkou.pdf" target="_blank" rel="noopener noreferrer">募集要項</a>をご覧ください。
-                    </p>
-                    <img src="./_img/9monitor.webp">
-                </div>
-                <h3 class="subtitle">■申し込み方法</h3>
-                <div class="houhou">
-                    <p>　こちらの<a href="https://forms.gle/75jWyDzpdopazf4q9" target="_blank" rel="noopener noreferrer">フォーム</a>から、必要事項を記入の上ご提出ください。
-                        <br>提出できる動画/画像は、1団体あたり、同時に1つまでとします。
-                        <br>申し込みの時期などについては、下記のスケジュールをご覧ください。
-                    </p>
-                    <img src="./_img/boshuu.webp">
-                </div>
-                <h3 class="subtitle">■資料(リンクまとめ)</h3>
-                <p>・<a href="./_asset/boshu_youkou.pdf" target="_blank" rel="noopener noreferrer">Taki Plaza 9面マルチモニター サイネージ利用の募集要項</a>　2023/07/19更新
-                    <br>・<a href="https://forms.gle/75jWyDzpdopazf4q9" target="_blank" rel="noopener noreferrer">9面マルチ動画/画像提出（Googleフォーム）</a>
-                    <br>・公開スケジュール
-                    <br>　<a href="./_asset/schedule.pdf" target="_blank" rel="noopener noreferrer">2023年度後半</a>
-                </p>
-                <h3 class="subtitle">■FAQ</h3>
-                <div class="faq">
-                    <p class="q">・非公認の団体でも申し込める？ <span class="material-symbols-outlined">
-                        expand_more
-                        </span></p>
-                    <p class="a">　トラブル防止のため、東京工業大学の公認サークルと、学内の組織が支援する学生団体以外からの申し込みはお断りしております。掲示板の利用については、非公認の団体や個人でも申し込みが可能です。ぜひご利用を検討してください。</p>
-                </div>
-                <div class="faq">
-                    <p class="q">・どんな内容を募集しているの？ <span class="material-symbols-outlined">
-                        expand_more
-                        </span></p>
-                    <p class="a">　自分の団体のPRする媒体として、幅広くご利用いただけます。1分以内の動画、もしくは1枚の画像を募集しています。一部、禁止している内容がありますので、必ず募集要項をご確認ください。
-	                    <br>例：普段こんな活動をしています！
-                        <br>　イベントを開催します！ぜひ参加してください！
-                        <br>　大会に参加しました！こんな結果でした！
-                    </p>
-                </div>
-                <div class="faq">
-                    <p class="q">・動画を作るのは難しい <span class="material-symbols-outlined">
-                        expand_more
-                        </span></p>
-                    <p class="a">　画像の募集もしております。1枚だけではありますが、20秒間表示することができます。</p>
-                </div>
-                <div class="faq">
-                    <p class="q">・複数の動画を流して欲しい <span class="material-symbols-outlined">
-                        expand_more
-                        </span></p>
-                    <p class="a">　こちらの処理の都合上、同時期に流せる動画は1本に限定しておりますので、ご了承ください。</p>
-                </div>
-                <div class="faq">
-                    <p class="q">・もっと長い動画を流したい <span class="material-symbols-outlined">
-                        expand_more
-                        </span></p>
-                    <p class="a">　あまり冗長にならないように、できるだけ1分以内に抑えていただきたいのですが、どうしても伸びてしまう場合には個別にご相談ください。ご連絡はTaki Plaza Gardener マネジメント班へメールにてお願いします。</p>
-                </div>
-                <div class="faq">
-                    <p class="q">・期間限定で公開したい <span class="material-symbols-outlined">
-                        expand_more
-                        </span></p>
-                    <p class="a">　公開期間については、こちらで用意した公開スケジュールにしたがって、約月一更新としております。基本的に例外は認めない方針ですのでご了承ください。</p>
-                </div>
-                <div class="faq">
-                    <p class="q">・複数期間にわたって公開したい <span class="material-symbols-outlined">
-                        expand_more
-                        </span></p>
-                    <p class="a">　複数の期間にわたって公開したい場合には、お手数ですが、該当するすべての期間の募集期間に同じファイルを提出してください。</p>
-                </div>
-                
-            </div>
-            <p>お問い合わせ：Taki Plaza Gardener マネジメント班
-                <br>　　　　　　　takiplazagardener.management@gmail.com
-                <br><br>Taki Plazaでのイベントに関する9面マルチの利用は学生支援課へお問い合わせください。
-            </p>
+<html lang="ja">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./keijibutu.css" />
+    <link rel="stylesheet" href="./keijibutu_resp.css" />
+    <link rel="stylesheet" href="/_commons/common.css" />
+    <link rel="stylesheet" href="/_commons/common_resp.css" />
+    <link rel="stylesheet" href="/_header/header.css" />
+    <link rel="stylesheet" href="/_footer/footer.css" />
+    <script src="/_commons/jquery-3.6.0.min.js"></script>
+    <!--JQueryの読み込み-->
+    <script
+      type="text/javascript"
+      src="/_commons/header_footer.js"
+      defer
+    ></script>
+    <!--JSファイルの読み込み-->
+    <script type="text/javascript" src="./keijibutu.js" defer></script>
+    <title>掲示物募集 | Taki Plaza Gardener</title>
+  </head>
+  <body>
+    <header></header>
+    <div class="fade">
+      <!-- ヘッダーフッター以外をfade表示するためにつくったdiv -->
+      <div class="titles">
+        <p class="poster title pc_title">掲示板利用の申し込み</p>
+        <p class="poster title mobile_title">掲示板利用<br />の申し込み</p>
+        <p class="movie title">9面マルチ利用の申し込み</p>
+      </div>
+      <div class="main main1">
+        <h3>
+          チラシやポスターで、Taki
+          Plazaに訪れるひとに伝えたいことはありませんか？
+        </h3>
+        <div class="setumei">
+          <p>
+            　Taki Plaza
+            B2F大階段下の学生掲示板のスペースで、ポスター掲示とビラの設置を受け付けております。皆さんのお申し込みをお待ちしております。
+          </p>
+          <img src="./_img/post_image.webp" alt="image" />
         </div>
-        <footer></footer>
-    </body>
+        <h3 class="subtitle">■申し込み方法</h3>
+        <div class="houhou">
+          <p>
+            １．こちらのフォームより、必要事項を入力してください。<a
+              href="https://docs.google.com/forms/d/1mZxwWaBzFDYJaBYuneT3-8CfUyE54qE5NJV2itRAI5g/edit"
+              target="_blank"
+              rel="noopener noreferrer"
+              >フォーム</a
+            >には、Taki Plaza B2F Taki Plaza Gardener
+            居室前のボックスに貼ってあるQRコードからもアクセスできます。
+            <br /><br />２．フォーム提出後、ボックスにポスター（最大A4サイズ）を投函してください。
+          </p>
+          <img src="./_img/postbox.webp" alt="image" />
+        </div>
+      </div>
+      <div class="main main2">
+        <h3>新歓用の映像募集中！！</h3>
+        <div class="setumei">
+          <p>
+            　4月中は各サークル、団体の新歓用の映像を流します！多くの新入生が訪れるTakiPlazaで、サークルの紹介をしませんか？
+            <br />・募集期間：〜3/17(日) <br />・公開期間：3/27(水)〜4/30(火)
+            <br />・募集内容：新歓に関する30秒以内の動画or1枚の画像
+            <br />その他注意事項についてはこちらの<a
+              href="./_asset/boshu_youkou.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              >募集要項</a
+            >をご覧ください。
+          </p>
+          <img src="./_img/9monitor.webp" alt="image" />
+        </div>
+        <h3 class="subtitle">■申し込み方法</h3>
+        <div class="houhou">
+          <p>
+            　こちらの<a
+              href="https://forms.gle/75jWyDzpdopazf4q9"
+              target="_blank"
+              rel="noopener noreferrer"
+              >フォーム</a
+            >から、必要事項を記入の上ご提出ください。
+            <br />提出できる動画/画像は、1団体あたり、同時に1つまでとします。
+            <br />申し込みの時期などについては、下記のスケジュールをご覧ください。
+          </p>
+          <img src="./_img/boshuu.webp" alt="image" />
+        </div>
+        <h3 class="subtitle">■資料(リンクまとめ)</h3>
+        <p>
+          ・<a
+            href="./_asset/boshu_youkou.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Taki Plaza 9面マルチモニター サイネージ利用の募集要項</a
+          >　2023/07/19更新 <br />・<a
+            href="https://forms.gle/75jWyDzpdopazf4q9"
+            target="_blank"
+            rel="noopener noreferrer"
+            >9面マルチ動画/画像提出（Googleフォーム）</a
+          >
+          <br />・公開スケジュール <br />　<a
+            href="./_asset/schedule.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            >2023年度後半</a
+          >
+        </p>
+        <h3 class="subtitle">■FAQ</h3>
+        <div class="faq">
+          <p class="q">
+            ・非公認の団体でも申し込める？
+            <span class="material-symbols-outlined"> expand_more </span>
+          </p>
+          <p class="a">
+            　トラブル防止のため、東京工業大学の公認サークルと、学内の組織が支援する学生団体以外からの申し込みはお断りしております。掲示板の利用については、非公認の団体や個人でも申し込みが可能です。ぜひご利用を検討してください。
+          </p>
+        </div>
+        <div class="faq">
+          <p class="q">
+            ・どんな内容を募集しているの？
+            <span class="material-symbols-outlined"> expand_more </span>
+          </p>
+          <p class="a">
+            　自分の団体のPRする媒体として、幅広くご利用いただけます。1分以内の動画、もしくは1枚の画像を募集しています。一部、禁止している内容がありますので、必ず募集要項をご確認ください。
+            <br />例：普段こんな活動をしています！
+            <br />　イベントを開催します！ぜひ参加してください！
+            <br />　大会に参加しました！こんな結果でした！
+          </p>
+        </div>
+        <div class="faq">
+          <p class="q">
+            ・動画を作るのは難しい
+            <span class="material-symbols-outlined"> expand_more </span>
+          </p>
+          <p class="a">
+            　画像の募集もしております。1枚だけではありますが、20秒間表示することができます。
+          </p>
+        </div>
+        <div class="faq">
+          <p class="q">
+            ・複数の動画を流して欲しい
+            <span class="material-symbols-outlined"> expand_more </span>
+          </p>
+          <p class="a">
+            　こちらの処理の都合上、同時期に流せる動画は1本に限定しておりますので、ご了承ください。
+          </p>
+        </div>
+        <div class="faq">
+          <p class="q">
+            ・もっと長い動画を流したい
+            <span class="material-symbols-outlined"> expand_more </span>
+          </p>
+          <p class="a">
+            　あまり冗長にならないように、できるだけ1分以内に抑えていただきたいのですが、どうしても伸びてしまう場合には個別にご相談ください。ご連絡はTaki
+            Plaza Gardener マネジメント班へメールにてお願いします。
+          </p>
+        </div>
+        <div class="faq">
+          <p class="q">
+            ・期間限定で公開したい
+            <span class="material-symbols-outlined"> expand_more </span>
+          </p>
+          <p class="a">
+            　公開期間については、こちらで用意した公開スケジュールにしたがって、約月一更新としております。基本的に例外は認めない方針ですのでご了承ください。
+          </p>
+        </div>
+        <div class="faq">
+          <p class="q">
+            ・複数期間にわたって公開したい
+            <span class="material-symbols-outlined"> expand_more </span>
+          </p>
+          <p class="a">
+            　複数の期間にわたって公開したい場合には、お手数ですが、該当するすべての期間の募集期間に同じファイルを提出してください。
+          </p>
+        </div>
+      </div>
+      <p>
+        お問い合わせ：Taki Plaza Gardener マネジメント班
+        <br />　　　　　　　takiplazagardener.management@gmail.com
+        <br /><br />Taki
+        Plazaでのイベントに関する9面マルチの利用は学生支援課へお問い合わせください。
+      </p>
+    </div>
+    <footer></footer>
+  </body>
 </html>

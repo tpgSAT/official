@@ -35,7 +35,7 @@ h3 {
   height: 38vw;
 }
 
-.fade_takimatsuri {
+.fade {
   margin-top: 0;
   width: 74%;
   margin-left: 13%;
@@ -76,12 +76,12 @@ h3 {
 .setumei {
   margin-top: 60px;
 }
-.theme p{
-  line-height: 1.2em;;
+.theme p {
+  line-height: 1.2em;
   text-align: center;
   font-size: 2rem;
 }
-.en{
+.en {
   font-size: 0.8em;
 }
 .setumei p {
@@ -94,10 +94,13 @@ h3 {
   font-size: 2rem;
 }
 
-.join, .archive {
+.join,
+.archive {
   margin-top: 40px;
 }
-.setumei h3, .join h3, .archive h3{
+.setumei h3,
+.join h3,
+.archive h3 {
   font-size: 2rem;
   font-weight: normal;
 }
@@ -111,6 +114,7 @@ h3 {
   transition: 0.5s;
   position: relative;
   box-shadow: 7px 7px 5px 0px #004c83;
+  text-decoration: none;
 }
 
 .join_button:hover {
@@ -189,6 +193,7 @@ h3 {
   place-items: center;
   grid-template-rows: 10vw;
   grid-template-columns: 9vw 1fr;
+  text-decoration: none;
 }
 .archive_button {
   margin-top: 60px;
