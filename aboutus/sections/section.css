@@ -1,0 +1,49 @@
+.main {
+  position: relative;
+  width: 50%;
+  margin-top: 135px;
+  margin-left: 25%;
+  color: #555;
+}
+
+.section_name,
+.subtitle {
+  text-align: center;
+  z-index: 10;
+}
+
+.section_name h1 {
+  font-size: 40px;
+  color: #242626;
+  padding-bottom: 5px;
+  border-bottom: 3px dashed #5cb200;
+}
+.subtitle h3 {
+  font-size: 35px;
+  margin-top: 70px;
+  margin-bottom: 30x;
+}
+p {
+  z-index: 10;
+  font-size: 20px;
+  line-height: 1.8em;
+}
+.content1 {
+  margin-bottom: 90px;
+}
+.content2 {
+  display: flex; /* 文章と画像横並び */
+}
+.about {
+  width: 68%;
+  margin-right: 4%;
+}
+.content2 img {
+  z-index: 5;
+  width: 28%;
+  height: auto;
+  object-fit: contain; /* 画像の縦横比維持で全体を表示 */
+}
+.content3 {
+  margin-bottom: 90px;
+}
