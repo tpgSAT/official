@@ -1,0 +1,119 @@
+@charset "utf-8";
+/* common.css */
+html {
+  font-size: 1.2vw; /* rem単位の基準値 */
+}
+body {
+  /* 全体で余白を一括指定(お節介防止) */
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+}
+a {
+  /* 一括用*/
+  text-decoration: none;
+  display: inline-block;
+  color: #fff;
+  font-size: 1rem;
+  transition: 0.5s;
+}
+p,
+li {
+  font-size: 1rem;
+  color: #fff;
+}
+h3 {
+  font-size: 1.5rem;
+  color: #181818;
+}
+.fade {
+  font-family: "IBM Plex Sans JP", sans-serif;
+  margin-top: 130px; /* header */
+  margin-bottom: 90px;
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+  animation-name: fade;
+  animation-duration: 2s;
+}
+@keyframes fade {
+  /* fadein */
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* common.css */
+
+.bg_pattern {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  opacity: 0.4;
+  z-index: -1;
+}
+.Polka {
+  background-image: radial-gradient(#ffc107 2px, transparent 2px),
+    radial-gradient(#ffc107 2px, #ffffff 2px);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+}
+
+.bd {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.subject {
+  float: left;
+  margin-top: 15vw;
+  width: 50%;
+}
+
+.subject p,
+h3 {
+  text-align: center;
+}
+
+.poster {
+  width: 50%;
+  height: auto;
+  object-fit: cover;
+}
+
+.p_left {
+  text-align: left;
+  margin-top: 10%;
+}
+
+.p_right {
+  text-align: right;
+  margin-top: 10%;
+}
+
+.border {
+  height: 0.6vw;
+  background-color: #030342;
+}
+
+.b_1 {
+  width: 80%;
+}
+.b_2 {
+  margin: 0 0 0 auto;
+  width: 50%;
+}
+.b_3 {
+  width: 50%;
+}
+.b_4 {
+  margin: 0 0 0 auto;
+  width: 60%;
+}
+.b_5 {
+  width: 50%;
+}

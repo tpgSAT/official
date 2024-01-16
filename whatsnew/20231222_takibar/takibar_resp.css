@@ -1,0 +1,37 @@
+@charset "utf-8";
+@media screen and (max-width:900px) {
+    .main p {
+
+    }
+}
+@media screen and (max-width: 670px) {
+    .subject {
+        float: none;
+        margin-top: 2vw;
+        width: 100%;
+    }
+
+    .poster{
+        width: 70%;
+        margin-top: 5vw;
+        margin-left: 15%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .subject p {
+        font-size: 1.6rem;
+    }
+
+    .subject h3 {
+        font-size: 1.8rem;
+    }
+
+    .p_left {
+        margin-top: 20%;
+    }
+    
+    .p_right {
+        margin-top: 20%;
+    }
+}
