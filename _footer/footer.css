@@ -1,162 +1,159 @@
 @charset "utf-8"; /* 文字化けしないために書く */
 footer {
-    position: relative;
-    width: 100%;
-    height: 350px;
-    border-top: 3px solid #5CB200;
-    background-color: #fff;
-    font-family: 'IBM Plex Sans JP', sans-serif;
+  position: relative;
+  width: 100%;
+  height: 350px;
+  border-top: 3px solid #5cb200;
+  background-color: #fff;
+  font-family: "IBM Plex Sans JP", sans-serif;
 }
 .tpgicon {
-    position: absolute;
-    display: block;
-    height: 4vw;
-    width: 4vw;
-    transform: translate(-50%,-50%);
-    top: 4vw;
-    left: 17%;
+  position: absolute;
+  display: block;
+  height: 4vw;
+  width: 4vw;
+  transform: translate(-50%, -50%);
+  top: 4vw;
+  left: 17%;
 }
 .tpg_line {
-    position: absolute;
-    display: block;
-    height: 6vw;
-    width: 12vw;
-    transform: translate(-50%,-50%);
-    top: 4vw;
-    left: 25%;
+  position: absolute;
+  display: block;
+  height: 6vw;
+  width: 12vw;
+  transform: translate(-50%, -50%);
+  top: 4vw;
+  left: 25%;
 }
 .sns {
-    position: absolute;
-    display: flex;
-    left: 15%;
-    top: 7vw;
+  position: absolute;
+  display: flex;
+  left: 15%;
+  top: 7vw;
 }
 .snsicon {
-    width: 5vw;
-    height: 5vw;
-    margin-right: 10px;
+  width: 5vw;
+  height: 5vw;
+  margin-right: 10px;
 }
 .footer_btn {
-    position: absolute;
-    display: block;
-    left: 15%;
-    top: 13vw;
+  position: absolute;
+  display: block;
+  left: 15%;
+  top: 13vw;
 }
-.footer_btn a{
-    color: #fff;
-    font-size: 1rem;
-    letter-spacing: 0.12em;
-    padding: 0.8rem 1.5rem;
-    background-color: #181818;
+.footer_btn a {
+  color: #fff;
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  padding: 0.8rem 1.5rem;
+  background-color: #181818;
 }
 .footer_btn a:hover {
-    color :#282626;
-    background-color: #fff;
-    border: 0.5px solid #181818;
+  color: #282626;
+  background-color: #fff;
+  border: 0.5px solid #181818;
 }
 .contact {
-    position: absolute;
-    right: 17%;
+  position: absolute;
+  right: 17%;
 }
-.contact h3{
-    font-size: 1.1rem;
+.contact h3 {
+  font-size: 1.1rem;
 }
-.list p{
-    font-size: 1.1rem;
-    color: #181818;
-    padding: 0;
-    margin: 0;
+.list p {
+  font-size: 1.1rem;
+  color: #181818;
+  padding: 0;
+  margin: 0;
 }
 .sns_id {
-    position: relative;
-    display: flex;
-    width: 16vw;
-    height: 2rem;
-    margin-top: 2px;
+  position: relative;
+  display: flex;
+  width: 16vw;
+  height: 2rem;
+  margin-top: 2px;
 }
 .sns_id img {
-    position: absolute;
-    display: block;
-    width: 1.1rem;
-    height: 1.1rem;
-    transform: translate(0, -50%);
-    top: 50%;
-    left: 0;
+  position: absolute;
+  display: block;
+  width: 1.1rem;
+  height: 1.1rem;
+  transform: translate(0, -50%);
+  top: 50%;
+  left: 0;
 }
-.sns_id p{
-    position: absolute;
-    transform: translate(0, -50%);
-    top: 50%;
-    left: 1.2rem;
+.sns_id p {
+  position: absolute;
+  transform: translate(0, -50%);
+  top: 50%;
+  left: 1.2rem;
 }
-.sns_id a{
-    position: absolute;
-    display: block;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
+.sns_id a {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
-.list a{
-    color: #181818;
-}
-.material-symbols-outlined {/* googleiconsからコピペ */
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 200,
-  'GRAD' 0,
-  'opsz' 40
+.list a {
+  color: #181818;
 }
 .material-symbols-outlined {
-    margin-top: 5px;
+  /* googleiconsからコピペ */
+  font-variation-settings: "FILL" 0, "wght" 200, "GRAD" 0, "opsz" 40;
 }
-.c{
-    position: absolute;
-    margin-bottom: 0;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    font-weight: normal;
-    font-size: 1rem;
+.material-symbols-outlined {
+  margin-top: 5px;
+}
+.c {
+  position: absolute;
+  margin-bottom: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: normal;
+  font-size: 1rem;
 }
 
-@media screen and (max-width: 1024px){
-    footer {
-        height: 300px;
-    }
+@media screen and (max-width: 1024px) {
+  footer {
+    height: 300px;
+  }
 }
 @media screen and (max-width: 670px) {
-    footer {
-        height: 100vw;
-    }
-    .tpgicon {
-        width: 14vw;
-        height: 14vw;
-        top: 13vw;
-        left: 25vw;
-    }
-    .tpg_line {
-        width: 50vw;
-        height: 25vw;
-        top: 13vw;
-        left: 57vw;
-    }
-    .sns {
-        display: none;
-    }
-    .contact {
-        position: absolute;
-        width: 84%;
-        top: 20vw;
-        left: 8%;
-    }
-    .footer_btn {
-        position: absolute;
-        transform: translate(-50%,-50%);
-        top: 80vw;
-        left: 50%;
-    }
-    .c {
-        white-space: nowrap;/* 改行させない */
-    }
+  footer {
+    height: 100vw;
+  }
+  .tpgicon {
+    width: 14vw;
+    height: 14vw;
+    top: 13vw;
+    left: 25vw;
+  }
+  .tpg_line {
+    width: 50vw;
+    height: 25vw;
+    top: 13vw;
+    left: 57vw;
+  }
+  .sns {
+    display: none;
+  }
+  .contact {
+    position: absolute;
+    width: 84%;
+    top: 20vw;
+    left: 8%;
+  }
+  .footer_btn {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 80vw;
+    left: 50%;
+  }
+  .c {
+    white-space: nowrap; /* 改行させない */
+  }
 }
