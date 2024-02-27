@@ -1,14 +1,14 @@
 @charset "utf-8"; /* 文字化けしないために書く */
-@media screen and (max-width: 670px){
-    .content {
-        display: block;
-    }
-    .content p{
-        width: 100%;
-        /* margin-left: 10%; */
-    }
-    .content img{
-        width: 70%;
-        margin-left: 15%;
-    }
+@media screen and (max-width: 670px) {
+  .content {
+    display: block;
+  }
+  .content p {
+    width: 100%;
+    /* margin-left: 10%; */
+  }
+  .content img {
+    width: 70%;
+    margin-left: 15%;
+  }
 }

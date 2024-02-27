@@ -1,89 +1,89 @@
 @charset "utf-8"; /* 文字化けしないために書く */
 .title {
-    text-align: center;
+  text-align: center;
 }
-.title h3{
-    font-size: 3.5rem;
-    font-weight: 300;
-    font-family: 'Open Sans', sans-serif;
-    margin-top: 0;
-    margin-bottom: 10px;
+.title h3 {
+  font-size: 3.5rem;
+  font-weight: 300;
+  font-family: "Open Sans", sans-serif;
+  margin-top: 0;
+  margin-bottom: 10px;
 }
 .title span {
-    color: #5CB200;
+  color: #5cb200;
 }
 .ja {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 .links {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    row-gap: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  row-gap: 20px;
 }
 .link {
-    position: relative;
-    width: 45%;
-    height: 300px;
-    margin-top: 0px;
+  position: relative;
+  width: 45%;
+  height: 300px;
+  margin-top: 0px;
 }
 .link:hover {
-    transform: translateX(-1px);
-    transform: translateY(-1px);
+  transform: translateX(-1px);
+  transform: translateY(-1px);
 }
 .link img {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 45%;
-    height: 99%;
-    object-fit: cover;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45%;
+  height: 99%;
+  object-fit: cover;
 }
 .shoukai {
-    position: absolute;
-    width: 48%;
-    height: 84%;
-    top: 8%;
-    left: 5%;
+  position: absolute;
+  width: 48%;
+  height: 84%;
+  top: 8%;
+  left: 5%;
 }
 .shoukai h3 {
-    font-size: 1.6rem;
-    color: #fff;
-    margin: 0;
+  font-size: 1.6rem;
+  color: #fff;
+  margin: 0;
 }
 .shoukai p {
-    color: #fff;
-    line-height: 0.6em;
-    top: 20%;
-    left: 0;
+  color: #fff;
+  line-height: 0.6em;
+  top: 20%;
+  left: 0;
 }
-.shoukai a{
-    position: absolute;
-    color: transparent;
-    padding: 1rem 2rem;
-    bottom: 5%;
-    border: 0.5px solid transparent;
+.shoukai a {
+  position: absolute;
+  color: transparent;
+  padding: 1rem 2rem;
+  bottom: 5%;
+  border: 0.5px solid transparent;
 }
-.link:hover a{
-    color: #fff;
-    border-color: #fff;
+.link:hover a {
+  color: #fff;
+  border-color: #fff;
 }
 .link a:hover {
-    color: #282626;
-    background-color: #fff;
+  color: #282626;
+  background-color: #fff;
 }
 .link1 {
-    background-color: #505680;
+  background-color: #505680;
 }
 .link2 {
-    background-color: #CC6E21;
+  background-color: #cc6e21;
 }
 .link3 {
-    background-color: #cb62a6;
+  background-color: #cb62a6;
 }
 .link4 {
-    background-color: #007600;
+  background-color: #007600;
 }
 .link5 {
-    background-color: #e79c11;
+  background-color: #e79c11;
 }

@@ -1,52 +1,52 @@
 @media screen and (max-width: 1024px) {
-    html {
-        font-size: 16px;
-    }
-    .jiyu {
-        height: 350px;
-    }
+  html {
+    font-size: 16px;
+  }
+  .jiyu {
+    height: 350px;
+  }
 }
 @media screen and (max-width: 670px) {
-    html {
-        font-size: 14px;
-    }
-    .fade_hoya {
-        width: 95%;
-        margin-top: 10px;
-        padding-top: 0px;
-        margin-left: 2.5%;
-    }
-    .logo {
-        margin-top: 20px;
-    }
-    .jiyu {
-        height: 400px;
-        margin-top: 25px;
-    }
-    .jiyu img{
-        width: 40%;
-        transform: translate(0,0);
-        top: 10px;
-        left: 30%;
-    }
-    .jiyu p{
-        width: 90%;
-        transform: translate(0,0);
-        top: 35vw;
-        left: 5%;
-    }
-    .subtitle{
-        font-size: 5rem;
-    }
-    .archive{
-        margin-top: 40px;
-    }
-    .vol {
-        width: 45%;
-    }
-    .part_item {
-        width: 90%;
-        height: 240px;
-        margin-left: 5%;
-    }
+  html {
+    font-size: 14px;
+  }
+  .fade_hoya {
+    width: 95%;
+    margin-top: 10px;
+    padding-top: 0px;
+    margin-left: 2.5%;
+  }
+  .logo {
+    margin-top: 20px;
+  }
+  .jiyu {
+    height: 400px;
+    margin-top: 25px;
+  }
+  .jiyu img {
+    width: 40%;
+    transform: translate(0, 0);
+    top: 10px;
+    left: 30%;
+  }
+  .jiyu p {
+    width: 90%;
+    transform: translate(0, 0);
+    top: 35vw;
+    left: 5%;
+  }
+  .subtitle {
+    font-size: 5rem;
+  }
+  .archive {
+    margin-top: 40px;
+  }
+  .vol {
+    width: 45%;
+  }
+  .part_item {
+    width: 90%;
+    height: 240px;
+    margin-left: 5%;
+  }
 }
