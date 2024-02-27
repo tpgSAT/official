@@ -1,21 +1,8 @@
 @charset "utf-8"; /* 文字化けしないために書く */
 
 @media screen and (max-width: 1024px) {
-  .fade {
-    width: 90%;
-    margin-left: 5%;
-  }
   .introduction {
     height: 22vw;
-  }
-  .titile h3 {
-    font-size: 2.4rem;
-  }
-  .ja {
-    font-size: 1.6rem;
-  }
-  .en {
-    font-size: 1.6rem;
   }
   .introduction img {
     height: 90%;
@@ -23,37 +10,21 @@
     left: 2vw;
   }
   .who {
+    width: 40%;
     left: 30%;
-  }
-  .who h6 {
-    font-size: 1.8rem;
-  }
-  .who h3 {
-    font-size: 2.4rem;
-  }
-  .who p {
-    font-size: 1.4rem;
-  }
-  .about p {
-    font-size: 1.4rem;
   }
 }
 @media screen and (max-width: 670px) {
-  .fade {
-    width: 90%;
-    margin-left: 5%;
-  }
   .title h3 {
-    font-size: 4rem;
+    font-size: 2.5rem;
+    margin-top: 0;
+    padding-top: 0;
   }
   .ja {
-    font-size: 2rem;
-  }
-  .en {
-    font-size: 2rem;
+    font-size: 1rem;
   }
   .introduction {
-    height: 65vw;
+    height: 310px;
     border: none;
     border-bottom: 4px solid #c8c8c8;
   }
@@ -69,23 +40,20 @@
     left: 50%;
   }
   .who h6 {
-    font-size: 2.8rem;
+    font-size: 1rem;
   }
   .who h3 {
-    font-size: 4rem;
+    font-size: 1.5rem;
   }
   .who p {
-    font-size: 2rem;
+    font-size: 0.7rem;
   }
   .about {
     width: 100%;
-    top: 55%;
-    left: 10%;
+    top: 150px;
+    left: 0;
   }
   .about p {
-    font-size: 2rem;
-  }
-  .about span {
-    font-weight: bold;
+    font-size: 0.9rem;
   }
 }

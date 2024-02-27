@@ -23,10 +23,9 @@ li {
 }
 h3 {
   font-size: 1.5rem;
-  color: #fff;
+  color: #242626;
 }
 .fade {
-  font-family: "IBM Plex Sans JP", sans-serif;
   margin-top: 130px; /* header */
   margin-bottom: 90px;
   width: 70%;
