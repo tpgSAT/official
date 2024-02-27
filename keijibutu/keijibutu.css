@@ -2,97 +2,97 @@
 @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
 
 .titles {
-    position: relative;
-    width:90%;
-    height: 120px;
-    display: flex;
-    margin-top: 5vw;
-    margin-left: 5%;
-    margin-bottom: 0;
-    text-align: center;
+  position: relative;
+  width: 90%;
+  height: 120px;
+  display: flex;
+  margin-top: 5vw;
+  margin-left: 5%;
+  margin-bottom: 0;
+  text-align: center;
 }
 .mobile_title {
-    display: none;
+  display: none;
 }
 .poster {
-    left: 0;
-    background-color: #ce6868;
-    cursor: pointer;
-    padding-top: 1rem;
+  left: 0;
+  background-color: #ce6868;
+  cursor: pointer;
+  padding-top: 1rem;
 }
 .movie {
-    right: 0;
-    background-color: #688ace;
-    cursor: pointer;
-    padding-top: 1.2rem;
+  right: 0;
+  background-color: #688ace;
+  cursor: pointer;
+  padding-top: 1.2rem;
 }
 
-.title{
-    position: absolute;
-    width: 50%;
-    bottom: 0;
-    font-size: 1.5rem;
-    color: #fff;
-    padding-bottom: 1em;
+.title {
+  position: absolute;
+  width: 50%;
+  bottom: 0;
+  font-size: 1.5rem;
+  color: #fff;
+  padding-bottom: 1em;
 }
 
 .main {
-    width: 80%;
-    margin-left: 5.1%;
-    padding: 4.9%;
-    margin-top: -4.9%;
-    margin-bottom: 100px;
+  width: 80%;
+  margin-left: 5.1%;
+  padding: 4.9%;
+  margin-top: -4.9%;
+  margin-bottom: 100px;
 }
 .main1 {
-    display: none;
-    border: 1px solid #ce6868;
+  display: none;
+  border: 1px solid #ce6868;
 }
 .main2 {
-    border: 1px solid #688ace;
+  border: 1px solid #688ace;
 }
-.main h3{
-    margin-top: 2.5vw;
-    color: #242626;
+.main h3 {
+  margin-top: 2.5vw;
+  color: #242626;
 }
 .setumei {
-    display: flex;
+  display: flex;
 }
-.setumei img{
-    width: 40%;
-    height: auto;
-    margin: auto;
-    margin-left: 5%;
+.setumei img {
+  width: 40%;
+  height: auto;
+  margin: auto;
+  margin-left: 5%;
 }
 .subtitle {
-    font-size: 1.25rem;
-    color: #5CB200;
+  font-size: 1.25rem;
+  color: #5cb200;
 }
 .houhou {
-    display: flex;
+  display: flex;
 }
-.houhou p{
-    width: 60%;
+.houhou p {
+  width: 60%;
 }
-.setumei a,.houhou a {
-    font-size: 1.25rem;
-    color: #5CB200;
+.setumei a,
+.houhou a {
+  font-size: 1.25rem;
+  color: #5cb200;
 }
-.houhou img{
-    width: 30%;
-    height: auto;
-    margin: auto;
-    margin-left: 5%;
+.houhou img {
+  width: 30%;
+  height: auto;
+  margin: auto;
+  margin-left: 5%;
 }
 .q {
-    border-bottom: 0.5px solid #b3b3b3;
+  border-bottom: 0.5px solid #b3b3b3;
 }
 .q:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
-.q span{
-    transform: translate(0, 30%);
+.q span {
+  transform: translate(0, 30%);
 }
 .a {
-    display: none;
+  display: none;
 }
-

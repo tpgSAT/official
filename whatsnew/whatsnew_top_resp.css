@@ -1,60 +1,59 @@
 @charset "utf-8"; /* 文字化けしないために書く */
 @media screen and (min-width: 670px) {
-    .items h3{
-        position: absolute;
-        width: 28%;
-        top: 0;
-        left: 0;
-        margin-top: 0;
-        padding-top: 0;
-        /* white-space: nowrap; */
-    }
-    .items p:not(.btn){
-        position: absolute;
-        width: 34%;
-        top: 0;
-        left: 33%;
-        margin-top: 0;
-        padding-top: 0;
-    }
-
+  .items h3 {
+    position: absolute;
+    width: 28%;
+    top: 0;
+    left: 0;
+    margin-top: 0;
+    padding-top: 0;
+    /* white-space: nowrap; */
+  }
+  .items p:not(.btn) {
+    position: absolute;
+    width: 34%;
+    top: 0;
+    left: 33%;
+    margin-top: 0;
+    padding-top: 0;
+  }
 }
 
 @media screen and (max-width: 670px) {
-    .title h3{
-        font-size: 2.5rem;
-    }
-    .article {
-        height: 300px;
-    }
-    .article p{
-        margin-bottom: 0;
-    }
-    .items {
-        height: 270px;
-    }
-    .items h3{
-        width: 100%;
-        margin-top: 10px;
-        margin-bottom: 0;
-    }
-    .items p{
-        width: 100%;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-    .items img{
-        position: static;
-        width: 70%;
-        height: 35vw;
-        left: 0;
-        margin-bottom: 10px;
-    }
-    .items a{
-        height: 300px;
-        width: 100%;
-    }
-    .btn {
-        left: 0;
-    }
+  .title h3 {
+    font-size: 2.5rem;
+  }
+  .article {
+    height: 300px;
+  }
+  .article p {
+    margin-bottom: 0;
+  }
+  .items {
+    height: 270px;
+  }
+  .items h3 {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+  .items p {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .items img {
+    position: static;
+    width: 70%;
+    height: 35vw;
+    left: 0;
+    margin-bottom: 10px;
+  }
+  .items a {
+    height: 300px;
+    width: 100%;
+  }
+  .btn {
+    left: 0;
+  }
 }

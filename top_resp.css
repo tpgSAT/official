@@ -1,136 +1,142 @@
 @charset "utf-8"; /* 文字化けしないために書く */
-@media screen and (max-width: 1024px) {/* iPad以下のレスポンシブ */
-    html {
-        font-size: 16px;
-    }
-    /* .space {
+@media screen and (max-width: 1024px) {
+  /* iPad以下のレスポンシブ */
+  html {
+    font-size: 16px;
+  }
+  /* .space {
         display: none;
     } */
-    /* main2,4共通*/
-    .topic {
-        width: 84%;
-        margin-left: 8%;
-        margin-bottom: 25px;
-    }
-    .news_base, .news_tab{
-        width: 45%;
-        height: 25vw;
-    }
-    .link {
-        height: 25vw;
-    }
-    .link img{
-        width: 30%;
-    }
-    .shoukai {
-        width: 60%;
-    }
-    .shoukai h3{
-        font-size: 1.5rem
-    }
-    .shoukai p{
-        font-weight: normal;
-        font-size: 0.9rem;
-    }
-    .shoukai a{
-        font-size: 0.9rem;
-        padding: 0.8rem 1rem;
-        color: #fff;
-        border-color: #fff;
-        bottom: 0;
-    }
+  /* main2,4共通*/
+  .topic {
+    width: 84%;
+    margin-left: 8%;
+    margin-bottom: 25px;
+  }
+  .news_base,
+  .news_tab {
+    width: 45%;
+    height: 25vw;
+  }
+  .link {
+    height: 25vw;
+  }
+  .link img {
+    width: 30%;
+  }
+  .shoukai {
+    width: 60%;
+  }
+  .shoukai h3 {
+    font-size: 1.5rem;
+  }
+  .shoukai p {
+    font-weight: normal;
+    font-size: 0.9rem;
+  }
+  .shoukai a {
+    font-size: 0.9rem;
+    padding: 0.8rem 1rem;
+    color: #fff;
+    border-color: #fff;
+    bottom: 0;
+  }
 }
-@media screen and (max-width: 670px ) {/* スマホ以下のレスポンシブ */
-    html {
-        font-size: 14px;
-    }
-    .space {
-        height: 60px;
-    }
-    /* main1 */
-    .top_wrapper {
-        width: 100%;
-        height: 175px;
-        background-repeat: no-repeat;
-        background-attachment: initial;
-    }
-    .top_logo p{
-        font-size: 2.5rem;
-        font-weight: bold;
-        transform: translate(-50%, 0);
-        left: 30%;
-        top: 0px;
-        animation: none;
-    }
-    .top_txt {
-        display: none;
-    }
-    .btn2_mobile {
-        display: block;
-    }
-    /* main2 */
-    .news {
-        row-gap: 10px;
-    }
-    .news_base {
-        width: 100%;
-        height: 150px;
-    }
-    .news_title {
-        margin-top: 20px;
-        font-size: 1.1rem;
-    }
-    .news_txt {
-        font-size: 1rem;
-    }
-    .news_btn {
-        font-size: 1rem;
-        padding: 5px 20px;
-        margin-bottom: 10px;
-        margin-right: 8px
-    }
-    .news_tab, .main4_btn, .footer_btn{
-        height: 70px;
-    }
-    .news_tab a, .main4_btn a, .footer_btn a{
-        padding: 10px 25px;
-    }
-    /* main3 */
-    .link {
-        width: 100%;
-        height: 150px;
-    }
-    .link img{
-        display: none;
-    }
-    .shoukai {
-        width: 100%;
-        height: 86%;
-        top: 7%;
-    }
-    .shoukai h3{
-        font-size: 1.5rem;
-        font-weight: normal;
-    }
-    .shoukai a{
-        left: 50%;
-        bottom: 10%;
-    }
-    .subtitle {
-        display: block;
-        margin-top: 20px;
-        margin-bottom: 10px;
-        font-weight: normal;
-        font-size: 1.8rem;
-    }
-    /* main4 */
+@media screen and (max-width: 670px) {
+  /* スマホ以下のレスポンシブ */
+  html {
+    font-size: 14px;
+  }
+  .space {
+    height: 60px;
+  }
+  /* main1 */
+  .top_wrapper {
+    width: 100%;
+    height: 175px;
+    background-repeat: no-repeat;
+    background-attachment: initial;
+  }
+  .top_logo p {
+    font-size: 2.5rem;
+    font-weight: bold;
+    transform: translate(-50%, 0);
+    left: 30%;
+    top: 0px;
+    animation: none;
+  }
+  .top_txt {
+    display: none;
+  }
+  .btn2_mobile {
+    display: block;
+  }
+  /* main2 */
+  .news {
+    row-gap: 10px;
+  }
+  .news_base {
+    width: 100%;
+    height: 150px;
+  }
+  .news_title {
+    margin-top: 20px;
+    font-size: 1.1rem;
+  }
+  .news_txt {
+    font-size: 1rem;
+  }
+  .news_btn {
+    font-size: 1rem;
+    padding: 5px 20px;
+    margin-bottom: 10px;
+    margin-right: 8px;
+  }
+  .news_tab,
+  .main4_btn,
+  .footer_btn {
+    height: 70px;
+  }
+  .news_tab a,
+  .main4_btn a,
+  .footer_btn a {
+    padding: 10px 25px;
+  }
+  /* main3 */
+  .link {
+    width: 100%;
+    height: 150px;
+  }
+  .link img {
+    display: none;
+  }
+  .shoukai {
+    width: 100%;
+    height: 86%;
+    top: 7%;
+  }
+  .shoukai h3 {
+    font-size: 1.5rem;
+    font-weight: normal;
+  }
+  .shoukai a {
+    left: 50%;
+    bottom: 10%;
+  }
+  .subtitle {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: normal;
+    font-size: 1.8rem;
+  }
+  /* main4 */
 
-    .main4_btn a{
-        transform: translate(0, 0);
-        right: 15%;
-        margin-right: 0;
-        letter-spacing: 0.2em;
-        white-space: nowrap;
-    }
-   
+  .main4_btn a {
+    transform: translate(0, 0);
+    right: 15%;
+    margin-right: 0;
+    letter-spacing: 0.2em;
+    white-space: nowrap;
+  }
 }

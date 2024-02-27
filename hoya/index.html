@@ -1,100 +1,130 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="./hoya.css">
-        <link rel="stylesheet" href="./hoya_resp.css">
-        <link rel="stylesheet" href="/_commons/common.css">
-        <!-- <link rel="stylesheet" href="/_commons/common_resp.css"> -->
-        <link rel="stylesheet" href="/_header/header.css">
-        <link rel="stylesheet" href="/_footer/footer.css">
-        <script src="/_commons/jquery-3.6.0.min.js"></script><!--JQuery-->
-        <script type="text/javascript" src='/_commons/header_footer.js' defer></script><!--JSファイル-->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <title>Hoya | Taki Plaza Gardener</title>
-    </head>
-    <body>
-        <header></header>
-        <div class="fade_hoya">
-            <img src="./_img/hoya_logo.webp" class="logo">
-            <div class="explanation">
-                <p>4月・10月発行予定　vol.1~4 webにてアーカイブ公開中</p>
-            </div>
-            <div class="jiyu">
-                <img src="./_img/logo_jiyu.webp">
-                <p>
-                    はじめまして、こんにちは。
-                    <br>Taki Plaza Gardenerが発行する「Hoya」です。
-                    <br><br>2021年春生まれの東工大フリーペーパーの新しい一員です。
-                    <br><br>Taki Plazaでのくつろぎの時、何となく暇なスキマ時間に読んでもらえる読みものがあればいいな、と考えたTPG広報班有志によって誕生しました。
-                    <br><br>噛めば噛むほど味が出る、食べてみたら意外とクセになる「ホヤ」のような存在でありたいと思っています。
-                    <br><br>Taki Plazaから始まる自由気ままなフリーペーパーをモットーに、
-                    <br>役に立つかもしれない（？）遊び心満載のコンテンツを掲載する予定です。
-                    <br>もしTaki Plazaに立ち寄る機会があれば是非手にとってみて下さいね。
-                </p>
-            </div>
-            <div class="archive">
-                <p class="subtitle archve_text">アーカイブ</p>
-                <p>過去に発行したHoyaのバックナンバーを閲覧できます。気になる号の画像をクリックして下さい。</p>
-            </div>
-            <div class="items">
-                <div class="vol">
-                    <a href="https://photos.google.com/share/AF1QipO3OY8QzFlHxi0nb8XrSM9Msbsgoipq0CSA5kqzoMnKG1-yPFqTaphfVuhdW7oJDw?key=VXQyWGg1TUkyMkRoTXQtNzUyVGJTMTNycHpNUlhn">
-                        <img src="./_img/hoya_01.webp">
-                    </a>
-                    <p>vol.1 2021年春</p>
-                </div>
-                <div class="vol">
-                    <a href="https://photos.google.com/share/AF1QipOCGpI0GxixeQrcigW1WhzjHvy4dqyNMLaNI3E1N2uoFsN7_im5zNDhX6rMCP4eRg?key=NjhZbE1va3VfYS1xRUQyZEI5Z0Zpd1p3ZENhQ1lB">
-                        <img src="./_img/hoya_02.webp">
-                    </a>
-                    <p>vol.2 2021年秋</p>
-                </div>
-                <div class="vol">
-                    <a href="https://photos.google.com/share/AF1QipOq0efMcj5QAt8Ghf6V_QvEeXR4q4qRtlrrFt3pzpUHBuk44GNrFTVG2TQIGO8bMg?key=ZUxWOGNnemhtdzRndmRkc2VXRkVJMnpNNDZIdnhB">
-                        <img src="./_img/hoya_03.webp">
-                    </a>
-                    <p>vol.3 2022年秋</p>
-                </div>
-                <div class="vol">
-                    <a href="#">
-                        <img src="./_img/hoya_01.webp">
-                    </a>
-                    <p>vol.4 2023年春</p>
-                </div>
-            </div>
-            <div class="part">
-                <p class="subtitle">Hoyaに参加する</p>
-                <p>学生主体のフリーペーパーである「Hoya」の編集に参加したり、企画を持ち込んでみませんか？</p>
-                <div class="part_item edit">
-                    <img src="./_img/hoya_cora_edited_edited.webp">
-                    <p>編集部は「Hoya」の企画・執筆・レイアウトやデザインを全部できます。企画の自由度は高く、各メンバーの興味・アイデアに沿って決定します。Adobe InDesignなどDTPソフトを用いて編集しています。出版のことを１から知ってみたい方、雑誌に興味がある方は是非見学にお越しください。週に一回活動しており、曜日はクオーターによって異なります。<br>
-                    本編集部はTaki Plaza Gardener 広報班の活動の一部です(2023年4月現在)。参加希望や質問などはHoyaにメール、またはTPGのSNSアカウントへのDMにてご連絡ください。</p>
-                </div>
-                <div class="part_item project">
-                    <img src="./_img/hoya_cora2_edited_edited.webp">
-                    <p>誰かに特集して欲しいスクープ、小さいことだけど一緒に取材して欲しいこと、地味に気になるアイデアがある東工大生の「持ち込み企画」も歓迎しております。企画書をお寄せしていただければ、内容の審査の上で編集部と協働できます。執筆・デザインの担当は編集部員との相談で決定いたします。下のボタンから掲載記事企画書をダウンロードできますので、記入済みの企画書をHoyaのメールアドレスに送付して下さい。企画の注意事項は掲載記事企画書内に記載してありますので、ご確認下さい。</p>
-                </div>
-            </div>
-            <div class="btn">
-                <a href="./_assets/ProposalForHoya.docx">掲載記事企画書をダウンロード</a>
-            </div>
-            <div class="ad">
-                <p class="subtitle">広告掲載について</p>
-                <p>東工大生への広告を掲載し、本誌を支えてくださる事業者様を募集しております。<br>
-                広告を検討されている方は、広告掲載依頼申込書を確認・記入の上で、下記連絡先にお問い合わせ下さい。</p>
-            </div>
-            <div class="btn">
-                <a href="./_assets/adForHoya.docx">広告掲載依頼書をダウンロード</a>
-            </div>
-            <div class="qa">
-                <p class="subtitle">お問い合わせ</p>
-                <p>Mail：tpg.freepaper.hoya(at)gmail.com
-                    <br>*(at)をアットマークに変えて下さい
-                </p>
-            </div>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./hoya.css" />
+    <link rel="stylesheet" href="./hoya_resp.css" />
+    <link rel="stylesheet" href="/_commons/common.css" />
+    <!-- <link rel="stylesheet" href="/_commons/common_resp.css"> -->
+    <link rel="stylesheet" href="/_header/header.css" />
+    <link rel="stylesheet" href="/_footer/footer.css" />
+    <script src="/_commons/jquery-3.6.0.min.js"></script>
+    <!--JQuery-->
+    <script
+      type="text/javascript"
+      src="/_commons/header_footer.js"
+      defer
+    ></script>
+    <!--JSファイル-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <title>Hoya | Taki Plaza Gardener</title>
+  </head>
+  <body>
+    <header></header>
+    <div class="fade_hoya">
+      <img src="./_img/hoya_logo.webp" class="logo" />
+      <div class="explanation">
+        <p>4月・10月発行予定　vol.1~4 webにてアーカイブ公開中</p>
+      </div>
+      <div class="jiyu">
+        <img src="./_img/logo_jiyu.webp" />
+        <p>
+          はじめまして、こんにちは。
+          <br />Taki Plaza Gardenerが発行する「Hoya」です。
+          <br /><br />2021年春生まれの東工大フリーペーパーの新しい一員です。
+          <br /><br />Taki
+          Plazaでのくつろぎの時、何となく暇なスキマ時間に読んでもらえる読みものがあればいいな、と考えたTPG広報班有志によって誕生しました。
+          <br /><br />噛めば噛むほど味が出る、食べてみたら意外とクセになる「ホヤ」のような存在でありたいと思っています。
+          <br /><br />Taki
+          Plazaから始まる自由気ままなフリーペーパーをモットーに、
+          <br />役に立つかもしれない（？）遊び心満載のコンテンツを掲載する予定です。
+          <br />もしTaki Plazaに立ち寄る機会があれば是非手にとってみて下さいね。
+        </p>
+      </div>
+      <div class="archive">
+        <p class="subtitle archve_text">アーカイブ</p>
+        <p>
+          過去に発行したHoyaのバックナンバーを閲覧できます。気になる号の画像をクリックして下さい。
+        </p>
+      </div>
+      <div class="items">
+        <div class="vol">
+          <a
+            href="https://photos.google.com/share/AF1QipO3OY8QzFlHxi0nb8XrSM9Msbsgoipq0CSA5kqzoMnKG1-yPFqTaphfVuhdW7oJDw?key=VXQyWGg1TUkyMkRoTXQtNzUyVGJTMTNycHpNUlhn"
+          >
+            <img src="./_img/hoya_01.webp" />
+          </a>
+          <p>vol.1 2021年春</p>
         </div>
-        <footer></footer><!-- 共通footerの読み込み -->
-    </body>
+        <div class="vol">
+          <a
+            href="https://photos.google.com/share/AF1QipOCGpI0GxixeQrcigW1WhzjHvy4dqyNMLaNI3E1N2uoFsN7_im5zNDhX6rMCP4eRg?key=NjhZbE1va3VfYS1xRUQyZEI5Z0Zpd1p3ZENhQ1lB"
+          >
+            <img src="./_img/hoya_02.webp" />
+          </a>
+          <p>vol.2 2021年秋</p>
+        </div>
+        <div class="vol">
+          <a
+            href="https://photos.google.com/share/AF1QipOq0efMcj5QAt8Ghf6V_QvEeXR4q4qRtlrrFt3pzpUHBuk44GNrFTVG2TQIGO8bMg?key=ZUxWOGNnemhtdzRndmRkc2VXRkVJMnpNNDZIdnhB"
+          >
+            <img src="./_img/hoya_03.webp" />
+          </a>
+          <p>vol.3 2022年秋</p>
+        </div>
+        <div class="vol">
+          <a href="#">
+            <img src="./_img/hoya_01.webp" />
+          </a>
+          <p>vol.4 2023年春</p>
+        </div>
+      </div>
+      <div class="part">
+        <p class="subtitle">Hoyaに参加する</p>
+        <p>
+          学生主体のフリーペーパーである「Hoya」の編集に参加したり、企画を持ち込んでみませんか？
+        </p>
+        <div class="part_item edit">
+          <img src="./_img/hoya_cora_edited_edited.webp" />
+          <p>
+            編集部は「Hoya」の企画・執筆・レイアウトやデザインを全部できます。企画の自由度は高く、各メンバーの興味・アイデアに沿って決定します。Adobe
+            InDesignなどDTPソフトを用いて編集しています。出版のことを１から知ってみたい方、雑誌に興味がある方は是非見学にお越しください。週に一回活動しており、曜日はクオーターによって異なります。<br />
+            本編集部はTaki Plaza Gardener
+            広報班の活動の一部です(2023年4月現在)。参加希望や質問などはHoyaにメール、またはTPGのSNSアカウントへのDMにてご連絡ください。
+          </p>
+        </div>
+        <div class="part_item project">
+          <img src="./_img/hoya_cora2_edited_edited.webp" />
+          <p>
+            誰かに特集して欲しいスクープ、小さいことだけど一緒に取材して欲しいこと、地味に気になるアイデアがある東工大生の「持ち込み企画」も歓迎しております。企画書をお寄せしていただければ、内容の審査の上で編集部と協働できます。執筆・デザインの担当は編集部員との相談で決定いたします。下のボタンから掲載記事企画書をダウンロードできますので、記入済みの企画書をHoyaのメールアドレスに送付して下さい。企画の注意事項は掲載記事企画書内に記載してありますので、ご確認下さい。
+          </p>
+        </div>
+      </div>
+      <div class="btn">
+        <a href="./_assets/ProposalForHoya.docx"
+          >掲載記事企画書をダウンロード</a
+        >
+      </div>
+      <div class="ad">
+        <p class="subtitle">広告掲載について</p>
+        <p>
+          東工大生への広告を掲載し、本誌を支えてくださる事業者様を募集しております。<br />
+          広告を検討されている方は、広告掲載依頼申込書を確認・記入の上で、下記連絡先にお問い合わせ下さい。
+        </p>
+      </div>
+      <div class="btn">
+        <a href="./_assets/adForHoya.docx">広告掲載依頼書をダウンロード</a>
+      </div>
+      <div class="qa">
+        <p class="subtitle">お問い合わせ</p>
+        <p>
+          Mail：tpg.freepaper.hoya(at)gmail.com
+          <br />*(at)をアットマークに変えて下さい
+        </p>
+      </div>
+    </div>
+    <footer></footer>
+    <!-- 共通footerの読み込み -->
+  </body>
 </html>
