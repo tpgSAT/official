@@ -1,196 +1,199 @@
 @charset "utf-8";
 /* common.css */
 html {
-    font-size: 1.2vw;/* rem単位の基準値 */
+  font-size: 1.2vw; /* rem単位の基準値 */
 }
-body { /* 全体で余白を一括指定(お節介防止) */
-    margin: 0;
-    font-family: 'Open Sans', sans-serif;
+body {
+  /* 全体で余白を一括指定(お節介防止) */
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
 }
-a { /* 一括用*/
-    text-decoration: none;
-    display: inline-block;
-    color: #fff;
-    font-size: 1rem;
-    transition: 0.5s;
+a {
+  /* 一括用*/
+  text-decoration: none;
+  display: inline-block;
+  color: #fff;
+  font-size: 1rem;
+  transition: 0.5s;
 }
-p, li{
-    font-size: 1rem;
-    color: #fff;
+p,
+li {
+  font-size: 1rem;
+  color: #fff;
 }
 h3 {
-    font-size: 1.5rem;
-    color: #fff;
+  font-size: 1.5rem;
+  color: #242626;
 }
 .fade {
-    font-family: 'IBM Plex Sans JP', sans-serif;
-    margin-top: 130px;/* header */
-    margin-bottom: 90px;
-    width: 70%;
-    margin-left: 15%;
-    animation-name: fade;
-    animation-duration: 2s;
+  margin-top: 130px; /* header */
+  margin-bottom: 90px;
+  width: 70%;
+  margin-left: 15%;
+  animation-name: fade;
+  animation-duration: 2s;
 }
-@keyframes fade { /* fadein */
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+@keyframes fade {
+  /* fadein */
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 /* common.css */
 
 .area1 {
-    display: flex;
-    margin-bottom: 30px;
-    height: 600px;
+  display: flex;
+  margin-bottom: 30px;
+  height: 600px;
 }
-.area1 img{
-    width: 80%;
-    height: auto;
+.area1 img {
+  width: 80%;
+  height: auto;
 }
 .btns {
-    position: relative;
-    width: 20%;
-    height: 40vw
+  position: relative;
+  width: 20%;
+  height: 40vw;
 }
 .btn {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    width: 5.5vw;
-    height: 5.5vw;
-    border-radius: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 5.5vw;
+  height: 5.5vw;
+  border-radius: 50%;
 }
-.btn:hover{
-    background-color: #fff;
+.btn:hover {
+  background-color: #fff;
 }
-.btn:hover .btn_normal{
-    display: none;
+.btn:hover .btn_normal {
+  display: none;
 }
-.btn:hover .btn_hover{
-    display: block;
+.btn:hover .btn_hover {
+  display: block;
 }
 .btn_normal {
-    display: block;
+  display: block;
 }
 .btn_hover {
-    display: none;
+  display: none;
 }
-.btn img{
-    position: absolute;
-    width: 40%;
-    height: auto;
-    margin-top: 30%;
-    margin-left: 30%;
+.btn img {
+  position: absolute;
+  width: 40%;
+  height: auto;
+  margin-top: 30%;
+  margin-left: 30%;
 }
-.btn a{
-    position: absolute;
-    display: block;
-    width: 100%;
-    height: 100%;
+.btn a {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 .btn1 {
-    top: 4.5vw;
-    left: 50%;
-    background-color: #80a97e;
+  top: 4.5vw;
+  left: 50%;
+  background-color: #80a97e;
 }
 .btn2 {
-    top: 13.5vw;
-    left: 50%;
-    background-color: #d29040;
+  top: 13.5vw;
+  left: 50%;
+  background-color: #d29040;
 }
 .btn3 {
-    top: 22.5vw;
-    left: 50%;
-    background-color: #7e7363;
+  top: 22.5vw;
+  left: 50%;
+  background-color: #7e7363;
 }
 .btn4 {
-    top: 31.5vw;
-    left: 50%;
-    background-color: #4e6c50;
+  top: 31.5vw;
+  left: 50%;
+  background-color: #4e6c50;
 }
 
 .area {
-    display: flex;
-    width: 100%;
-    height: 500px;
-    border-bottom: 1px solid #fff;
+  display: flex;
+  width: 100%;
+  height: 500px;
+  border-bottom: 1px solid #fff;
 }
 .area2 {
-    background-color: #80a97e;
+  background-color: #80a97e;
 }
 .area3 {
-    background-color: #d29040;
+  background-color: #d29040;
 }
 .area4 {
-    height: 400px;
-    background-color: #7e7363;
+  height: 400px;
+  background-color: #7e7363;
 }
 .area5 {
-    height: 50px;
-    margin-top: 20px;
+  height: 50px;
+  margin-top: 20px;
 }
-.koudaisaiHP{
-    font-size: 1.2rem;
-    line-height: 1.8rem;
-    color: #000;
+.koudaisaiHP {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  color: #000;
 }
 .left {
-    width: 50%;
-    margin-left: 5%;
+  width: 50%;
+  margin-left: 5%;
 }
 .right {
-    width: 35%;
-    margin-left: 5%;
+  width: 35%;
+  margin-left: 5%;
 }
 .title {
-    display: flex;
-    width: 100%;
-    height: 3.5rem;
-    padding-top: 90px;
-    margin-top: -90px;
+  display: flex;
+  width: 100%;
+  height: 3.5rem;
+  padding-top: 90px;
+  margin-top: -90px;
 }
-.title img{
-    display: block;
-    width: 2rem;
-    height: 2rem;
-    margin-top: 0.75rem;
+.title img {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  margin-top: 0.75rem;
 }
 h3 {
-    margin: 1rem;
-    padding: 0;
+  margin: 1rem;
+  padding: 0;
 }
-.normal{
-    font-size: 1.2rem;
-    line-height: 1.8rem;
+.normal {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
 }
-.left p{
-    margin-top: 0;
+.left p {
+  margin-top: 0;
 }
-.game{
-    width: 80%;
-    height: auto;
+.game {
+  width: 80%;
+  height: auto;
 }
 .right_center {
-    text-align: center;
- /*   transform: translate(-50%, 0);
+  text-align: center;
+  /*   transform: translate(-50%, 0);
     margin-left: 50%;
     white-space: nowrap;*/
 }
 .small {
-    font-size: 0.9rem;
+  font-size: 0.9rem;
 }
 .map {
-    width: 80%;
-    height: auto;
-    margin-top: 20px;
-    margin-left: 10%;
+  width: 80%;
+  height: auto;
+  margin-top: 20px;
+  margin-left: 10%;
 }
 .link {
-    display: inline-block;
-    width: 20px;
-    height: auto;
-    margin-top: 5px;
-    margin-right: 10px;
+  display: inline-block;
+  width: 20px;
+  height: auto;
+  margin-top: 5px;
+  margin-right: 10px;
 }

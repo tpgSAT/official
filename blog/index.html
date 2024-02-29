@@ -1,279 +1,386 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="./blog_top.css">
-        <link rel="stylesheet" href="./blog_top_resp.css">
-        <link rel="stylesheet" href="/_commons/common.css">
-        <link rel="stylesheet" href="/_commons/common_resp.css">
-        <link rel="stylesheet" href="/_header/header.css">
-        <link rel="stylesheet" href="/_footer/footer.css">
-        <script src="/_commons/jquery-3.6.0.min.js"></script><!--JQueryの読み込み-->
-        <script type="text/javascript" src='/_commons/header_footer.js' defer></script><!--JSファイルの読み込み-->
-        <script type="text/javascript" src='./blog.js' defer></script><!--JSファイルの読み込み-->
-        <title>Blog | Taki Plaza Gardener</title>
-    </head>
-    <body>
-        <header></header>
-        <div class="fade">
-            <div class="title">
-                <h3><span>B</span>log</h3>
-                <p>TPGメンバーによるブログです。TPGの日常が覗ける…かも？</p>
-            </div>
-            <div class="links">
-                <!-- JavaScriptで表示する記事を変えるためのボタン、ボタンだと認識しやすいようにaタグを用いるのでリンク先は#のままで良い -->
-                <a href="#" id="all">All Posts</a>
-                <a href="#" id="blog23">2023ブログリレー</a>
-                <a href="#" id="blog22">2022ブログリレー</a>
-            </div>
-            <div class="articles">
-                <div class="article b23">
-                    <div class="text">
-                        <p id="cc">2023年5月12日</p>
-                        <h3 id="cc">[TPGメンバーに聞いた]2Q 文系教養特集【新歓ブログリレー Vol. 11 】</h3>
-                        <p id="cc">こんにちは！　ＴＰＧ広報班です。 新入生の皆さん、大学は慣れてきましたか？もう１Ｑも半分を過ぎましたね。本当に時の流れは早いなってつくづく思います…</p>
-                    </div>
-                    <img src="./20230512_bunkei/_img/bunkei_midashi.webp">
-                    <a href="./20230512_bunkei/index.html"></a>  
-                </div>
-                <div class="article b23">
-                    <div class="text">
-                        <p id="cc">2023年4月2日</p>
-                        <h3 id="cc">【圧倒的おトク】東工大生なら絶対使うべき割引３選！！！【新歓ブログリレー Vol. 10 】</h3>
-                        <p id="cc">学生証を受け取ったらすぐに使おう！学割特集！！…</p>
-                    </div>
-                    <img src="./20230402_otoku/_img/goukaku.webp">
-                    <a href="./20230402_otoku/index.html"></a>  
-                </div>
-                <div class="article b23">
-                    <div class="text">
-                        <p id="cc">2023年3月28日</p>
-                        <h3 id="cc">【TPG-22Bに聞いた!】選択科目は何を取ればいい?【新歓ブログリレー Vol. 9 】</h3>
-                        <p id="cc">こんにちは。TPG広報班1年の大石です。 この時期、新入生の皆さんは春からの大学生活にドキドキするとともに、新たな生活に不安をフアンと感じているのではな…</p>
-                    </div>
-                    <img src="./20230328_kamoku/_img/sozai.webp">
-                    <a href="./20230328_kamoku/index.html"></a>  
-                </div>
-                <div class="article b23">
-                    <div class="text">
-                        <p id="cc">2023年3月24日</p>
-                        <h3 id="cc">制作班紹介【新歓ブログリレーVol.8】</h3>
-                        <p id="cc">TPGの新歓ブログリレーをここまで読んでくれたみなさん、ありがとうございます。まだの人はぜひ他班やリーダー、副リーダーの紹介も覗いてみてください。TPGの…</p>
-                    </div>
-                    <img src="./20230324_production/_img/takifes.webp">
-                    <a href="./20230324_production/index.html"></a>  
-                </div>
-                <div class="article b23">
-                    <div class="text">
-                        <p id="cc">2023年3月20日</p>
-                        <h3 id="cc">コミュニティ班紹介【新歓ブログリレーVol.7】</h3>
-                        <p id="cc">こんにちは。コミュニティ班のなむです！ コミュニティ班…名前だけきいてはどんな班なのかわかりづらいですよね？ その疑問を今回の説明で解決したいと思います…</p>
-                    </div>
-                    <img src="./20230320_community/_img/community.webp">
-                    <a href="./20230320_community/index.html"></a>  
-                </div>
-                <div class="article b23">
-                    <div class="text">
-                        <p id="cc">2023年3月18日</p>
-                        <h3 id="cc">マネジメント班紹介【新歓ブログリレーVol.6】</h3>
-                        <p id="cc">マネジメント班は「TPGの裏方役」として活動を行っています。他の班が主に外部に向けての活動を行っている中、組織内部をより良くするために活動を行っており…</p>
-                    </div>
-                    <img src="./20230318_management/_img/management.webp">
-                    <a href="./20230318_management/index.html"></a>  
-                </div>
-                <div class="article b23">
-                    <div class="text">
-                        <p id="cc">2023年3月11日</p>
-                        <h3 id="cc">TPG広報班班紹介【新歓ブログリレーVol.5】</h3>
-                        <p id="cc">こんにちは。広報班の遠藤です。新歓ブログリレーということで、今回は広報班について紹介します。まず、広報班は現在４人で活動しておりTPGの中でも一番人数が少ないです。Taki Plazaはぐるなびの会長である滝久…</p>
-                    </div>
-                    <img src="./20230314_pr/_img/blog_pr.webp">
-                    <a href="./20230314_pr/index.html"></a>  
-                </div>
-                <div class="article b23">
-                    <div class="text">
-                        <p id="cc">2023年3月11日</p>
-                        <h3 id="cc">イベント班紹介！【新歓ブログリレーVol.4】</h3>
-                        <p id="cc">こんにちは！ イベント班班長の鈴木です。 新入生のみなさんは大学生活への期待に胸を膨らませているでしょうか？サークルや履修登録に対する不安も大きい頃でし…</p>
-                    </div>
-                    <img src="./20230311_event/_img/wakabasai_logo.webp">
-                    <a href="./20230311_event/index.html"></a>  
-                </div>
-                <div class="article b23">
-                    <div class="text">
-                        <p id="cc">2023年3月6日</p>
-                        <h3 id="cc">副リーダーの仕事紹介【新歓ブログリレーVol.3】</h3>
-                        <p id="cc">こんにちは 副リーダーペクダヒョンです！ 今日はTPGで副リーダーとして私がやっていることを紹介したいと思います！ リーダーはTPGの顔としての外向きの立場な…</p>
-                    </div>
-                    <img src="./20230306_leadersub/_img/dahyon.jpeg">
-                    <a href="./20230306_leadersub/index.html"></a>  
-                </div>
-                <div class="article b23">
-                    <div class="text">
-                        <p id="cc">2023年3月1日</p>
-                        <h3 id="cc">リーダーのおしごと【新歓ブログリレーVol.2】</h3>
-                        <p id="cc">こんにちは。TPGのリーダー小山です。 今回はTPGのリーダーはどのようなことをしているのか紹介していきたいと思います。 目次 自己紹介 リーダーの役割って？…</p>
-                    </div>
-                    <img src="./20230301_leader/_img/blog_leader.webp">
-                    <a href="./20230301_leader/index.html"></a>  
-                </div>
-                <div class="article b23">
-                    <div class="text">
-                        <p id="cc">2023年2月25日</p>
-                        <h3 id="cc">TPGってどんな団体？【新歓ブログリレーVol.1】</h3> 
-                        <p id="cc">こんにちは。Taki plaza Gardener(通称TPG)リーダーの小山です。 まずは、東工大に合格された皆さん、本当におめでとうございます！！！ 楽しい大学生活が送れること…</p>
-                    </div>
-                    <img src="./20230225_abouttpg/_img/tpg_logos.webp">
-                    <a href="./20230225_abouttpg/index.html"></a>  
-                </div>
-                <div class="article b22">
-                    <div class="text">
-                        <p id="cc">2022年5月8日</p>
-                        <h3 id="cc">TPG班紹介①【広報班】</h3> 
-                        <p id="cc">こんにちは、広報班班長の早瀬です。新歓が落ち着いてきたサークル・部活動も多いとは思うのですが、TPGではまだまだ新規入会を大募集しております。ということ…</p>
-                    </div>
-                    <img src="./20220508_pr/_img/ookayamamap.webp">
-                    <a href="./20220508_pr/index.html"></a>  
-                </div>
-                <div class="article b22">
-                    <div class="text">
-                        <p id="cc">2022年4月22日</p>
-                        <h3 id="cc">Taki Plazaのコンセント事情を解き明かします。【新歓ブログリレーVol.15】</h3> 
-                        <p id="cc">こんにちは！TPGリーダーの柳瀬です。授業が始まって少し経ち、皆さん少しずつ慣れてきたのかなと思います。 今回のテーマは「Taki Plazaのコンセント事情」で…</p>
-                    </div>
-                    <img src="./20220422_plug/_img/floor1.webp">
-                    <a href="./20220422_plug/index.html"></a>  
-                </div>
-                <div class="article b22">
-                    <div class="text">
-                        <p id="cc">2022年4月22日</p>
-                        <h3 id="cc">TPG班紹介2022②【新歓ブログリレーVol.14】</h3> 
-                        <p id="cc">こんにちは！広報班班長の早瀬です。すでに過去の新歓ブログをチェックしてくださっている方は何度か僕の名前を見かけたことかと思います。何度もすみません。…</p>
-                    </div>
-                    <img src="./20220422_shoukai2/_img/shoukai2.webp">
-                    <a href="./20220422_shoukai2/index.html"></a>  
-                </div>
-                <div class="article b22">
-                    <div class="text">
-                        <p id="cc">2022年4月18日</p>
-                        <h3 id="cc">TPG重役インタビュー【新歓ブログリレーVol.13】</h3> 
-                        <p id="cc">新入生の皆さん、ご入学おめでとうございます〜〜〜！ 新入生じゃない方も、色々おめでとうございます〜〜〜！ 初めまして！マネジメント班長の野口です…</p>
-                    </div>
-                    <img src="./20220418_interview/_img/publicart.webp">
-                    <a href="./20220418_interview/index.html"></a>  
-                </div>
-                <div class="article b22">
-                    <div class="text">
-                        <p id="cc">2022年4月15日</p>
-                        <h3 id="cc">シアトルエスプレスカフェをご紹介！【新歓ブログリレーVol.12】</h3> 
-                        <p id="cc">こんにちは！TPG広報班の堀です。 今回は、東工大生の憩いの場、Taki Plaza内にある”シアトルエスプレスカフェ”についてご紹介したいと思います！ ぜひ最後まで読…</p>
-                    </div>
-                    <img src="./20220415_cafe/_img/gaikan.webp">
-                    <a href="./20220415_cafe/index.html"></a>  
-                </div>
-                <div class="article b22">
-                    <div class="text">
-                        <p id="cc">2022年4月11日</p>
-                        <h3 id="cc">TPG班紹介2022①【新歓ブログリレーVol.11】</h3> 
-                        <p id="cc">皆さんこんにちは！TPG広報班の早瀬です。ブログの更新がややおろそかになってしまい申し訳ありません、、、いよいよ授業がスタートしましたね！皆さんの大学生活が本格的にスタートしたということで、充実…</p>
-                    </div>
-                    <img src="./20220411_shoukai1/_img/shoukai1.webp">
-                    <a href="./20220411_shoukai1/index.html"></a>  
-                </div>
-                <div class="article b22">
-                    <div class="text">
-                        <p id="cc">2022年4月3日</p>
-                        <h3 id="cc">若葉祭開催のお知らせ！【新歓ブログリレーVol.10】</h3> 
-                        <p id="cc">こんにちは！TPGイベント班班長の松尾です。 今日は4月に開催されるTPG主催イベント「若葉祭」を紹介します。 最初に結論を言うと、若葉祭は新歓や学生の交流…</p>
-                    </div>
-                    <img src="./20220403_wakabasai/_img/wakabasai.webp">
-                    <a href="./20220403_wakabasai/index.html"></a>  
-                </div>
-                <div class="article b22">
-                    <div class="text">
-                        <p id="cc">2022年3月30日</p>
-                        <h3 id="cc">ウェルネス科目って？？【新歓ブログリレーVol.9】</h3> 
-                        <p id="cc">新入生の皆さん、ご入学おめでとうございます🌸 Taki Plaza Gardener広報班の堀です。 今回は、人気(?)のウェルネス科目についてお話していこうと思います！ 少な…</p>
-                    </div>
-                    <img src="./20220330_wellness/_img/wellness.webp">
-                    <a href="./20220330_wellness/index.html"></a>  
-                </div>
-                <div class="article b22">
-                    <div class="text">
-                        <p id="cc">2022年3月27日</p>
-                        <h3 id="cc">東工大における”ゼミ”の存在【新歓ブログリレーVol.8】</h3> 
-                        <p id="cc">こんにちは！ TPG広報班の桑原です。新入生の皆さん、合格発表後はどうお過ごしでしょうか。長時間勉強に充ててたのが一気に解放されるわけですから、この時期は暇ですよね。私の場合はこたつに入ってスマホずっと…</p>
-                    </div>
-                    <img src="./20220327_zemi/_img/zemi.webp">
-                    <a href="./20220327_zemi/index.html"></a>  
-                </div>
-                <div class="article b22">
-                    <div class="text">
-                        <p id="cc">2022年3月24日</p>
-                        <h3 id="cc">おすすめ授業を紹介します！【新歓ブログリレーVol.7】</h3> 
-                        <p id="cc">こんにちは、広報班班長の早瀬です。改めて、新入生の皆さんはご入学おめでとうございます🌸🌸このブログが公開される頃には、皆さんの入学や履修の準備も少しず…</p>
-                    </div>
-                    <img src="./20220324_jugyou/_img/osusume_banner.webp">
-                    <a href="./20220324_jugyou/index.html"></a>  
-                </div>
-                <div class="article b22">
-                    <div class="text">
-                        <p id="cc">2022年3月20日</p>
-                        <h3 id="cc">時間割の組み方を徹底解説！【新歓ブログリレーVol.6】</h3> 
-                        <p id="cc">新入生の皆さん、ご入学おめでとうございます！ 私、Taki Plaza Gardener(以下TPG)というサークルで副リーダーをやっているアシカワという者です。「TPGってな…</p>
-                    </div>
-                    <img src="./20220320_jikanwari/_img/jikanwari_banner.webp">
-                    <a href="./20220320_jikanwari/index.html"></a>  
-                </div>
-                <div class="article b22">
-                    <div class="text">
-                        <p id="cc">2022年3月15日</p>
-                        <h3 id="cc">東工大の新歓イベントとは？？（部活・サークルの探し方）【新歓ブログリレーVol.5】</h3> 
-                        <p id="cc">🌸🌸🌸新入生のみなさん、ご入学おめでとうございます！！🌸🌸🌸 辛く長い受験勉強生活を耐え抜き、波乱の共通テストを乗り越えて、入試の複素数平面を完全…</p>
-                    </div>
-                    <img src="./20220315_shinkan/_img/shinkan_banner.webp">
-                    <a href="./20220315_shinkan/index.html"></a>  
-                </div>
-                <div class="article b22">
-                    <div class="text">
-                        <p id="cc">2022年3月13日</p>
-                        <h3 id="cc">（※超個人的）合格が決まった今すべきこと【新歓ブログリレーVol.4】</h3> 
-                        <p id="cc">こんにちは！花粉症で鼻が洪水のTPGイベント班班長、松尾です。 まずは！！ 🌸🙌2022年度新入生のみなさん、合格おめでとうございます！！🙌🌸 この時期…</p>
-                    </div>
-                    <img src="./20220313_goukaku/_img/goukaku_banner.webp">
-                    <a href="./20220313_goukaku/index.html"></a>  
-                </div>
-                <div class="article b22">
-                    <div class="text">
-                        <p id="cc">2022年3月3日</p>
-                        <h3 id="cc">TPGって何者？【新歓ブログリレーVol.3】</h3> 
-                        <p id="cc">こんにちは、TPGリーダーの柳瀬です。ブログ見てくださりありがとうございます！ 最近iPhone8から13に機種変をしたんですが、あまりに画質が良いのが楽しくて…</p>
-                    </div>
-                    <img src="./20220303_tpg/_img/tpg_banner.webp">
-                    <a href="./20220303_tpg/index.html"></a>  
-                </div>
-                <div class="article b22">
-                    <div class="text">
-                        <p id="cc">2022年2月28日</p>
-                        <h3 id="cc">Taki Plaza 解体新書【新歓ブログリレーVol.2】</h3> 
-                        <p id="cc">こんにちは、TPGリーダーの柳瀬です。みなさん合格おめでとうございます！ 私は春から学士3年ですが、いやぁもう時が経つのは早いなとつくづく思いますね…。みなさんぜひやりたいこと全部やって楽しい大学生活を…</p>
-                    </div>
-                    <img src="./20220228_takiplaza/_img/kaitaishinsyo_banner.webp">
-                    <a href="./20220228_takiplaza/index.html"></a>  
-                </div>
-                <div class="article b22">
-                    <div class="text">
-                        <p id="cc">2022年2月25日</p>
-                        <h3 id="cc">新入生のパソコン選び【新歓ブログリレーVol.1】</h3> 
-                        <p id="cc">はじめに 本記事を書いた、広報班の桑原です。学生の皆さんは春休みをどうお過ごしでしょうか？私は徹夜をするなどして生活習慣が崩壊しています。今日も深夜5時…</p>
-                    </div>
-                    <img src="./20220225_pc/_img/pc_banner.webp">
-                    <a href="./20220225_pc/index.html"></a>  
-                </div>
-            </div>
-
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./blog_top.css" />
+    <link rel="stylesheet" href="./blog_top_resp.css" />
+    <link rel="stylesheet" href="/_commons/common.css" />
+    <link rel="stylesheet" href="/_commons/common_resp.css" />
+    <link rel="stylesheet" href="/_header/header.css" />
+    <link rel="stylesheet" href="/_footer/footer.css" />
+    <script src="/_commons/jquery-3.6.0.min.js"></script>
+    <!--JQueryの読み込み-->
+    <script
+      type="text/javascript"
+      src="/_commons/header_footer.js"
+      defer
+    ></script>
+    <!--JSファイルの読み込み-->
+    <script type="text/javascript" src="./blog.js" defer></script>
+    <!--JSファイルの読み込み-->
+    <title>Blog | Taki Plaza Gardener</title>
+  </head>
+  <body>
+    <header></header>
+    <div class="fade">
+      <div class="title">
+        <h3><span>B</span>log</h3>
+        <p>TPGメンバーによるブログです。TPGの日常が覗ける…かも？</p>
+      </div>
+      <div class="links">
+        <!-- JavaScriptで表示する記事を変えるためのボタン、ボタンだと認識しやすいようにaタグを用いるのでリンク先は#のままで良い -->
+        <a href="#" id="all">All Posts</a>
+        <a href="#" id="blog24">2024ブログリレー</a>
+        <a href="#" id="blog23">2023ブログリレー</a>
+        <a href="#" id="blog22">2022ブログリレー</a>
+      </div>
+      <div class="articles">
+        <div class="article b23">
+          <div class="text">
+            <p id="cc">2023年5月12日</p>
+            <h3 id="cc">
+              [TPGメンバーに聞いた]2Q 文系教養特集【新歓ブログリレー Vol. 11 】
+            </h3>
+            <p id="cc">
+              こんにちは！　ＴＰＧ広報班です。
+              新入生の皆さん、大学は慣れてきましたか？もう１Ｑも半分を過ぎましたね。本当に時の流れは早いなってつくづく思います…
+            </p>
+          </div>
+          <img src="./20230512_bunkei/_img/bunkei_midashi.webp" />
+          <a href="./20230512_bunkei/index.html"></a>
         </div>
-        <footer></footer>
-    </body>
+        <div class="article b23">
+          <div class="text">
+            <p id="cc">2023年4月2日</p>
+            <h3 id="cc">
+              【圧倒的おトク】東工大生なら絶対使うべき割引３選！！！【新歓ブログリレー
+              Vol. 10 】
+            </h3>
+            <p id="cc">学生証を受け取ったらすぐに使おう！学割特集！！…</p>
+          </div>
+          <img src="./20230402_otoku/_img/goukaku.webp" />
+          <a href="./20230402_otoku/index.html"></a>
+        </div>
+        <div class="article b23">
+          <div class="text">
+            <p id="cc">2023年3月28日</p>
+            <h3 id="cc">
+              【TPG-22Bに聞いた!】選択科目は何を取ればいい?【新歓ブログリレー
+              Vol. 9 】
+            </h3>
+            <p id="cc">
+              こんにちは。TPG広報班1年の大石です。
+              この時期、新入生の皆さんは春からの大学生活にドキドキするとともに、新たな生活に不安をフアンと感じているのではな…
+            </p>
+          </div>
+          <img src="./20230328_kamoku/_img/sozai.webp" />
+          <a href="./20230328_kamoku/index.html"></a>
+        </div>
+        <div class="article b23">
+          <div class="text">
+            <p id="cc">2023年3月24日</p>
+            <h3 id="cc">制作班紹介【新歓ブログリレーVol.8】</h3>
+            <p id="cc">
+              TPGの新歓ブログリレーをここまで読んでくれたみなさん、ありがとうございます。まだの人はぜひ他班やリーダー、副リーダーの紹介も覗いてみてください。TPGの…
+            </p>
+          </div>
+          <img src="./20230324_production/_img/takifes.webp" />
+          <a href="./20230324_production/index.html"></a>
+        </div>
+        <div class="article b23">
+          <div class="text">
+            <p id="cc">2023年3月20日</p>
+            <h3 id="cc">コミュニティ班紹介【新歓ブログリレーVol.7】</h3>
+            <p id="cc">
+              こんにちは。コミュニティ班のなむです！
+              コミュニティ班…名前だけきいてはどんな班なのかわかりづらいですよね？
+              その疑問を今回の説明で解決したいと思います…
+            </p>
+          </div>
+          <img src="./20230320_community/_img/community.webp" />
+          <a href="./20230320_community/index.html"></a>
+        </div>
+        <div class="article b23">
+          <div class="text">
+            <p id="cc">2023年3月18日</p>
+            <h3 id="cc">マネジメント班紹介【新歓ブログリレーVol.6】</h3>
+            <p id="cc">
+              マネジメント班は「TPGの裏方役」として活動を行っています。他の班が主に外部に向けての活動を行っている中、組織内部をより良くするために活動を行っており…
+            </p>
+          </div>
+          <img src="./20230318_management/_img/management.webp" />
+          <a href="./20230318_management/index.html"></a>
+        </div>
+        <div class="article b23">
+          <div class="text">
+            <p id="cc">2023年3月11日</p>
+            <h3 id="cc">TPG広報班班紹介【新歓ブログリレーVol.5】</h3>
+            <p id="cc">
+              こんにちは。広報班の遠藤です。新歓ブログリレーということで、今回は広報班について紹介します。まず、広報班は現在４人で活動しておりTPGの中でも一番人数が少ないです。Taki
+              Plazaはぐるなびの会長である滝久…
+            </p>
+          </div>
+          <img src="./20230314_pr/_img/blog_pr.webp" />
+          <a href="./20230314_pr/index.html"></a>
+        </div>
+        <div class="article b23">
+          <div class="text">
+            <p id="cc">2023年3月11日</p>
+            <h3 id="cc">イベント班紹介！【新歓ブログリレーVol.4】</h3>
+            <p id="cc">
+              こんにちは！ イベント班班長の鈴木です。
+              新入生のみなさんは大学生活への期待に胸を膨らませているでしょうか？サークルや履修登録に対する不安も大きい頃でし…
+            </p>
+          </div>
+          <img src="./20230311_event/_img/wakabasai_logo.webp" />
+          <a href="./20230311_event/index.html"></a>
+        </div>
+        <div class="article b23">
+          <div class="text">
+            <p id="cc">2023年3月6日</p>
+            <h3 id="cc">副リーダーの仕事紹介【新歓ブログリレーVol.3】</h3>
+            <p id="cc">
+              こんにちは 副リーダーペクダヒョンです！
+              今日はTPGで副リーダーとして私がやっていることを紹介したいと思います！
+              リーダーはTPGの顔としての外向きの立場な…
+            </p>
+          </div>
+          <img src="./20230306_leadersub/_img/dahyon.webp" />
+          <a href="./20230306_leadersub/index.html"></a>
+        </div>
+        <div class="article b23">
+          <div class="text">
+            <p id="cc">2023年3月1日</p>
+            <h3 id="cc">リーダーのおしごと【新歓ブログリレーVol.2】</h3>
+            <p id="cc">
+              こんにちは。TPGのリーダー小山です。
+              今回はTPGのリーダーはどのようなことをしているのか紹介していきたいと思います。
+              目次 自己紹介 リーダーの役割って？…
+            </p>
+          </div>
+          <img src="./20230301_leader/_img/blog_leader.webp" />
+          <a href="./20230301_leader/index.html"></a>
+        </div>
+        <div class="article b23">
+          <div class="text">
+            <p id="cc">2023年2月25日</p>
+            <h3 id="cc">TPGってどんな団体？【新歓ブログリレーVol.1】</h3>
+            <p id="cc">
+              こんにちは。Taki plaza Gardener(通称TPG)リーダーの小山です。
+              まずは、東工大に合格された皆さん、本当におめでとうございます！！！
+              楽しい大学生活が送れること…
+            </p>
+          </div>
+          <img src="./20230225_abouttpg/_img/tpg_logos.webp" />
+          <a href="./20230225_abouttpg/index.html"></a>
+        </div>
+        <div class="article b22">
+          <div class="text">
+            <p id="cc">2022年5月8日</p>
+            <h3 id="cc">TPG班紹介①【広報班】</h3>
+            <p id="cc">
+              こんにちは、広報班班長の早瀬です。新歓が落ち着いてきたサークル・部活動も多いとは思うのですが、TPGではまだまだ新規入会を大募集しております。ということ…
+            </p>
+          </div>
+          <img src="./20220508_pr/_img/ookayamamap.webp" />
+          <a href="./20220508_pr/index.html"></a>
+        </div>
+        <div class="article b22">
+          <div class="text">
+            <p id="cc">2022年4月22日</p>
+            <h3 id="cc">
+              Taki
+              Plazaのコンセント事情を解き明かします。【新歓ブログリレーVol.15】
+            </h3>
+            <p id="cc">
+              こんにちは！TPGリーダーの柳瀬です。授業が始まって少し経ち、皆さん少しずつ慣れてきたのかなと思います。
+              今回のテーマは「Taki Plazaのコンセント事情」で…
+            </p>
+          </div>
+          <img src="./20220422_plug/_img/floor1.webp" />
+          <a href="./20220422_plug/index.html"></a>
+        </div>
+        <div class="article b22">
+          <div class="text">
+            <p id="cc">2022年4月22日</p>
+            <h3 id="cc">TPG班紹介2022②【新歓ブログリレーVol.14】</h3>
+            <p id="cc">
+              こんにちは！広報班班長の早瀬です。すでに過去の新歓ブログをチェックしてくださっている方は何度か僕の名前を見かけたことかと思います。何度もすみません。…
+            </p>
+          </div>
+          <img src="./20220422_shoukai2/_img/shoukai2.webp" />
+          <a href="./20220422_shoukai2/index.html"></a>
+        </div>
+        <div class="article b22">
+          <div class="text">
+            <p id="cc">2022年4月18日</p>
+            <h3 id="cc">TPG重役インタビュー【新歓ブログリレーVol.13】</h3>
+            <p id="cc">
+              新入生の皆さん、ご入学おめでとうございます〜〜〜！
+              新入生じゃない方も、色々おめでとうございます〜〜〜！
+              初めまして！マネジメント班長の野口です…
+            </p>
+          </div>
+          <img src="./20220418_interview/_img/publicart.webp" />
+          <a href="./20220418_interview/index.html"></a>
+        </div>
+        <div class="article b22">
+          <div class="text">
+            <p id="cc">2022年4月15日</p>
+            <h3 id="cc">
+              シアトルエスプレスカフェをご紹介！【新歓ブログリレーVol.12】
+            </h3>
+            <p id="cc">
+              こんにちは！TPG広報班の堀です。 今回は、東工大生の憩いの場、Taki
+              Plaza内にある”シアトルエスプレスカフェ”についてご紹介したいと思います！
+              ぜひ最後まで読…
+            </p>
+          </div>
+          <img src="./20220415_cafe/_img/gaikan.webp" />
+          <a href="./20220415_cafe/index.html"></a>
+        </div>
+        <div class="article b22">
+          <div class="text">
+            <p id="cc">2022年4月11日</p>
+            <h3 id="cc">TPG班紹介2022①【新歓ブログリレーVol.11】</h3>
+            <p id="cc">
+              皆さんこんにちは！TPG広報班の早瀬です。ブログの更新がややおろそかになってしまい申し訳ありません、、、いよいよ授業がスタートしましたね！皆さんの大学生活が本格的にスタートしたということで、充実…
+            </p>
+          </div>
+          <img src="./20220411_shoukai1/_img/shoukai1.webp" />
+          <a href="./20220411_shoukai1/index.html"></a>
+        </div>
+        <div class="article b22">
+          <div class="text">
+            <p id="cc">2022年4月3日</p>
+            <h3 id="cc">若葉祭開催のお知らせ！【新歓ブログリレーVol.10】</h3>
+            <p id="cc">
+              こんにちは！TPGイベント班班長の松尾です。
+              今日は4月に開催されるTPG主催イベント「若葉祭」を紹介します。
+              最初に結論を言うと、若葉祭は新歓や学生の交流…
+            </p>
+          </div>
+          <img src="./20220403_wakabasai/_img/wakabasai.webp" />
+          <a href="./20220403_wakabasai/index.html"></a>
+        </div>
+        <div class="article b22">
+          <div class="text">
+            <p id="cc">2022年3月30日</p>
+            <h3 id="cc">ウェルネス科目って？？【新歓ブログリレーVol.9】</h3>
+            <p id="cc">
+              新入生の皆さん、ご入学おめでとうございます🌸 Taki Plaza
+              Gardener広報班の堀です。
+              今回は、人気(?)のウェルネス科目についてお話していこうと思います！
+              少な…
+            </p>
+          </div>
+          <img src="./20220330_wellness/_img/wellness.webp" />
+          <a href="./20220330_wellness/index.html"></a>
+        </div>
+        <div class="article b22">
+          <div class="text">
+            <p id="cc">2022年3月27日</p>
+            <h3 id="cc">東工大における”ゼミ”の存在【新歓ブログリレーVol.8】</h3>
+            <p id="cc">
+              こんにちは！
+              TPG広報班の桑原です。新入生の皆さん、合格発表後はどうお過ごしでしょうか。長時間勉強に充ててたのが一気に解放されるわけですから、この時期は暇ですよね。私の場合はこたつに入ってスマホずっと…
+            </p>
+          </div>
+          <img src="./20220327_zemi/_img/zemi.webp" />
+          <a href="./20220327_zemi/index.html"></a>
+        </div>
+        <div class="article b22">
+          <div class="text">
+            <p id="cc">2022年3月24日</p>
+            <h3 id="cc">おすすめ授業を紹介します！【新歓ブログリレーVol.7】</h3>
+            <p id="cc">
+              こんにちは、広報班班長の早瀬です。改めて、新入生の皆さんはご入学おめでとうございます🌸🌸このブログが公開される頃には、皆さんの入学や履修の準備も少しず…
+            </p>
+          </div>
+          <img src="./20220324_jugyou/_img/osusume_banner.webp" />
+          <a href="./20220324_jugyou/index.html"></a>
+        </div>
+        <div class="article b22">
+          <div class="text">
+            <p id="cc">2022年3月20日</p>
+            <h3 id="cc">時間割の組み方を徹底解説！【新歓ブログリレーVol.6】</h3>
+            <p id="cc">
+              新入生の皆さん、ご入学おめでとうございます！ 私、Taki Plaza
+              Gardener(以下TPG)というサークルで副リーダーをやっているアシカワという者です。「TPGってな…
+            </p>
+          </div>
+          <img src="./20220320_jikanwari/_img/jikanwari_banner.webp" />
+          <a href="./20220320_jikanwari/index.html"></a>
+        </div>
+        <div class="article b22">
+          <div class="text">
+            <p id="cc">2022年3月15日</p>
+            <h3 id="cc">
+              東工大の新歓イベントとは？？（部活・サークルの探し方）【新歓ブログリレーVol.5】
+            </h3>
+            <p id="cc">
+              🌸🌸🌸新入生のみなさん、ご入学おめでとうございます！！🌸🌸🌸
+              辛く長い受験勉強生活を耐え抜き、波乱の共通テストを乗り越えて、入試の複素数平面を完全…
+            </p>
+          </div>
+          <img src="./20220315_shinkan/_img/shinkan_banner.webp" />
+          <a href="./20220315_shinkan/index.html"></a>
+        </div>
+        <div class="article b22">
+          <div class="text">
+            <p id="cc">2022年3月13日</p>
+            <h3 id="cc">
+              （※超個人的）合格が決まった今すべきこと【新歓ブログリレーVol.4】
+            </h3>
+            <p id="cc">
+              こんにちは！花粉症で鼻が洪水のTPGイベント班班長、松尾です。
+              まずは！！
+              🌸🙌2022年度新入生のみなさん、合格おめでとうございます！！🙌🌸
+              この時期…
+            </p>
+          </div>
+          <img src="./20220313_goukaku/_img/goukaku_banner.webp" />
+          <a href="./20220313_goukaku/index.html"></a>
+        </div>
+        <div class="article b22">
+          <div class="text">
+            <p id="cc">2022年3月3日</p>
+            <h3 id="cc">TPGって何者？【新歓ブログリレーVol.3】</h3>
+            <p id="cc">
+              こんにちは、TPGリーダーの柳瀬です。ブログ見てくださりありがとうございます！
+              最近iPhone8から13に機種変をしたんですが、あまりに画質が良いのが楽しくて…
+            </p>
+          </div>
+          <img src="./20220303_tpg/_img/tpg_banner.webp" />
+          <a href="./20220303_tpg/index.html"></a>
+        </div>
+        <div class="article b22">
+          <div class="text">
+            <p id="cc">2022年2月28日</p>
+            <h3 id="cc">Taki Plaza 解体新書【新歓ブログリレーVol.2】</h3>
+            <p id="cc">
+              こんにちは、TPGリーダーの柳瀬です。みなさん合格おめでとうございます！
+              私は春から学士3年ですが、いやぁもう時が経つのは早いなとつくづく思いますね…。みなさんぜひやりたいこと全部やって楽しい大学生活を…
+            </p>
+          </div>
+          <img src="./20220228_takiplaza/_img/kaitaishinsyo_banner.webp" />
+          <a href="./20220228_takiplaza/index.html"></a>
+        </div>
+        <div class="article b22">
+          <div class="text">
+            <p id="cc">2022年2月25日</p>
+            <h3 id="cc">新入生のパソコン選び【新歓ブログリレーVol.1】</h3>
+            <p id="cc">
+              はじめに
+              本記事を書いた、広報班の桑原です。学生の皆さんは春休みをどうお過ごしでしょうか？私は徹夜をするなどして生活習慣が崩壊しています。今日も深夜5時…
+            </p>
+          </div>
+          <img src="./20220225_pc/_img/pc_banner.webp" />
+          <a href="./20220225_pc/index.html"></a>
+        </div>
+      </div>
+    </div>
+    <footer></footer>
+  </body>
 </html>

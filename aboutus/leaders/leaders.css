@@ -1,48 +1,4 @@
-@charset "utf-8"; /* 文字化けしないために書く */
-
-/* 共通読み込み用のCSS　fontなどを指定  topページには読み込まない(共通でなさ過ぎるため)*/
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
-html {
-  font-size: 1.2vw; /* rem単位の基準値 */
-}
-body {
-  /* 全体で余白を一括指定(お節介防止) */
-  font-family: "Open Sans", sans-serif;
-  margin: 0;
-}
-a {
-  /* 一括用*/
-  text-decoration: none;
-  display: inline-block;
-  color: #5cb200;
-  font-size: 1rem;
-  transition: 0.5s;
-}
-p,
-li {
-  font-size: 1rem;
-  color: #181818;
-}
-h3 {
-  font-size: 1.5rem;
-}
-.fade {
-  margin-top: 130px; /* ヘッダー分+少しの余白分下げる */
-  margin-bottom: 90px;
-  width: 70%;
-  margin-left: 15%;
-  animation-name: fade;
-  animation-duration: 2s;
-}
-@keyframes fade {
-  /* fadein */
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
+@charset "utf-8";
 
 .title {
   text-align: center;
@@ -96,7 +52,6 @@ h3 {
   padding: 0;
 }
 .who p {
-  font-size: 1rem;
   margin-top: 0;
   margin-bottom: 5px;
   padding: 0;
@@ -111,7 +66,6 @@ h3 {
   left: 55%;
 }
 .about p {
-  font-size: 1rem;
   margin-top: 0;
   margin-bottom: 10px;
   padding: 0;
