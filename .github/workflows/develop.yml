@@ -30,4 +30,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: ${{ secrets.FTP_SERVER_DIR_DEVELOP }}
           local-dir: ./
-          exclude: "[.git, .gitignore, README.md]"
+          exclude: "[**/.git/**, **/.github/**, .gitignore, README.md]"
