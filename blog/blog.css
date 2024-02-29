@@ -27,7 +27,7 @@ h3:not(footer h3) {
   margin-top: -100px;
   /* この2行は、リンクがヘッダー高さ分ずれてしまうのを修正するため*/
 }
-h3 h5 {
+h5 {
   font-size: 1.2rem;
 }
 .contents {
