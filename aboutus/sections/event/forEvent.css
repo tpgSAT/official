@@ -60,27 +60,6 @@
   font-weight: bold;
 }
 
-/* .content1 {
-  border: 2px solid #5cb200;
-}
-
-.content2 {
-  border: 2px solid #5cb200;
-  position: relative;
-}
-
-.content3 {
-  border: 2px solid #5cb200;
-}
-
-.content2 img {
-  border: 2px solid #5cb200;
-}
-
-.content2 p {
-  border: 2px solid #5cb200;
-} */
-
 @media screen and (max-width: 1024px) {
   .main {
     width: 84%;
@@ -136,5 +115,98 @@
   }
   .info p {
     font-size: 0.9rem;
+  }
+}
+
+.content2 {
+  display: flex; /* 文章と画像横並び */
+  flex-direction: column;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  height: fit-content;
+}
+
+.e-flex-Reverse {
+  flex-direction: column-reverse;
+}
+
+.about {
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.about p {
+  display: inline-block;
+  margin: 0;
+}
+
+.content2 img {
+  margin: 0 auto;
+  margin-bottom: 40px;
+  width: 60%;
+  height: auto;
+  /* object-fit: contain; 画像の縦横比維持で全体を表示 */
+}
+
+.e-about-R {
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.e-about-R p {
+  display: inline-block;
+  margin: 0;
+}
+
+.e-about-C {
+  width: 100%;
+  height: fit-content;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 670px) {
+  .content2 {
+    flex-direction: row;
+  }
+
+  .about {
+    width: 58%;
+    margin-right: 4%;
+    position: relative;
+  }
+
+  .about p {
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .content2 img {
+    z-index: 5;
+    margin: 0;
+    height: auto;
+    width: 38%;
+    /* object-fit: contain; 画像の縦横比維持で全体を表示 */
+  }
+
+  .e-about-R {
+    width: 58%;
+    margin-left: 4%;
+    position: relative;
+  }
+
+  .e-about-R p {
+    margin: 0;
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .e-about-C {
+    width: 58%;
   }
 }
