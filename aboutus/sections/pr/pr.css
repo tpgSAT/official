@@ -1,0 +1,110 @@
+@charset "utf-8"; /* 文字化けしないために書く */
+
+.section_name {
+  text-align: center;
+  z-index: 10;
+}
+.section_name h1 {
+  font-size: 40px;
+  color: #242626;
+  padding-bottom: 5px;
+  border-bottom: 3px dashed #5cb200;
+}
+
+.introduction {
+  position: relative;
+  width: 100%;
+  height: 16vw;
+  border: 4px solid #c8c8c8;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.introduction img {
+  position: absolute;
+  width: auto;
+  height: 80%;
+  top: 1.5vw;
+  left: 1.5vw;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px 2px #c8c8c8;
+}
+.who {
+  position: absolute;
+  width: 40%;
+  left: 25%;
+}
+.who h6 {
+  font-size: 1.2rem;
+  margin-top: 20px;
+  margin-bottom: 0;
+  padding: 0;
+}
+.who h3 {
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+}
+.who p {
+  margin-top: 0;
+  margin-bottom: 5px;
+  padding: 0;
+}
+.who span {
+  font-weight: bold;
+}
+.about {
+  position: absolute;
+  width: 50%;
+  top: 3vw;
+  left: 55%;
+}
+.about p {
+  margin-top: 0;
+  margin-bottom: 10px;
+  padding: 0;
+}
+.about span {
+  font-weight: bold;
+}
+
+/* ここから上重役紹介部分 */
+
+.content {
+  position: relative;
+  width: 100%;
+  height: 30vw;
+  margin-bottom: 20px;
+}
+.content img {
+  height: 100%;
+  width: auto;
+  right: 10%;
+}
+
+.text_left {
+  position: absolute;
+  width: 50%;
+  top: 25%;
+  text-align: center;
+}
+
+.text_left p {
+  font-size: 1.2rem;
+}
+
+.text_right {
+  position: absolute;
+  width: 45%;
+  top: 15%;
+  left: 50%;
+  text-align: center;
+}
+
+.text_right p {
+  font-size: 1.2rem;
+}
+
+.right {
+  float: right;
+}
