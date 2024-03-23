@@ -1,0 +1,53 @@
+@charset "utf-8"; /* 文字化けしないために書く */
+.title {
+  text-align: center;
+}
+.title h3 {
+  font-size: 3.5rem;
+  font-weight: 100;
+  font-family: "Open Sans", sans-serif;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+span {
+  color: #5cb200;
+}
+.content {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-bottom: 50px;
+}
+.content p {
+  width: 100%;
+}
+.bold {
+  font-size: 2rem;
+}
+.content img:not(.Logo) {
+  width: 35%;
+  margin-left: 5%;
+  object-fit: contain;
+}
+
+.Logo {
+  width: 20%;
+  object-fit: contain;
+}
+
+.Taki_button {
+  height: 70px;
+  width: 50%;
+  margin-left: 25%;
+  margin-bottom: 50px;
+  border: 2px outset #5cb200;
+}
+.Taki_button:hover {
+  opacity: 0.4;
+  transition: 0.3s;
+}
+.Taki_button a {
+  display: block;
+  text-align: center;
+  line-height: 70px;
+}
