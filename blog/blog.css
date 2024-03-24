@@ -98,6 +98,7 @@ h5 {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  row-gap: 20px;
 }
 .set_3 img {
   display: block;
