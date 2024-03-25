@@ -1,0 +1,29 @@
+@charset "utf-8"; /* 文字化けしないために書く */
+@media screen and (max-width: 1024px) {
+  .Logo {
+    margin-left: 5%;
+  }
+}
+@media screen and (max-width: 670px) {
+  .content {
+    display: block;
+  }
+  .content p {
+    width: 100%;
+    /* margin-left: 10%; */
+  }
+  .content img:not(.Logo) {
+    width: 70%;
+    margin-top: 20px;
+    margin-left: 15%;
+  }
+  .Logo {
+    width: 50%;
+    margin-left: 25%;
+  }
+
+  .Taki_button {
+    width: 70%;
+    margin-left: 15%;
+  }
+}
