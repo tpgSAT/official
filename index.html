@@ -26,21 +26,22 @@
   </head>
   <body>
     <!-- 時間表示するためのJavaScript -->
-    <script>
+    <!-- <script>
       window.onload = function () {
         var now = new Date();
-        var start = new Date("2023/10/30 9:00:00"); // 表示開始日時（時間は24h表記）
-        var end = new Date("2023/10/30 9:59:59"); // 表示終了日時（時間は24h表記）
+        var start = new Date("2024/4/1 9:00:00"); // 表示開始日時（時間は24h表記）
+        var end = new Date("2024/4/1 9:59:59"); // 表示終了日時（時間は24h表記）
 
         if (start < now && now < end) {
           document.getElementById("timeLimitedScript").style.display = "block";
+          document.getElementById("normal").style.display = "none";
         }
       };
-    </script>
+    </script> -->
     <header></header>
     <!--  include from _commons -->
     <div class="space"></div>
-    <div class="top_wrapper">
+    <div class="top_wrapper" id="normal">
       <div class="top_logo" id="tamago">
         <p>Taki<br />Plaza<br />Gardener</p>
       </div>
@@ -48,11 +49,11 @@
       <a href="/keijibutu/index.html" class="btn2_mobile">掲示物募集</a>
     </div>
     <!-- 時間限定表示→ -->
-    <div class="top-wrapper-sub" id="timeLimitedScript" style="display: none">
+    <div class="top-wrapper-sub" id="timeLimitedScript">
       <div class="tamago">
         <p>Tamago<br />Kake<br />Gohan</p>
       </div>
-      <p class="top-txt">▼SCROLL▼</p>
+      <p class="top_txt">▼SCROLL▼</p>
       <a href="/keijibutu/index.html" class="btn2_mobile">掲示物募集</a>
     </div>
     <!-- ←時間限定表示 -->
