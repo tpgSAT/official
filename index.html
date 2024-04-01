@@ -34,14 +34,14 @@
 
         if (start < now && now < end) {
           document.getElementById("timeLimitedScript").style.display = "block";
-          document.getElementById("tamago").style.display = "none";
+          document.getElementById("normal").style.display = "none";
         }
       };
     </script>
     <header></header>
     <!--  include from _commons -->
     <div class="space"></div>
-    <div class="top_wrapper">
+    <div class="top_wrapper" id="normal">
       <div class="top_logo" id="tamago">
         <p>Taki<br />Plaza<br />Gardener</p>
       </div>
