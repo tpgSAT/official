@@ -62,7 +62,8 @@ h3 {
   margin-bottom: 0;
 }
 /* ←時間限定表示終わり */
-.top_logo p {
+.top_logo p,
+.tamago p {
   position: absolute;
   left: 15%;
   top: -50px;
