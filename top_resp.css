@@ -67,6 +67,9 @@
     top: 0px;
     animation: none;
   }
+  .tamago p {
+    top: 50px;
+  }
   .top_txt {
     display: none;
   }
