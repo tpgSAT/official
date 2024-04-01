@@ -41,10 +41,10 @@ h3 {
 /* 時間限定表示→ */
 .top-wrapper-sub {
   display: none;
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
-  height: 50vw; /* 画面幅の56％ */
+  height: 47vw; /* 画面幅の56％ */
   width: 100%;
   background-image: url(./_img/tamagokakegohan.webp);
   background-size: 100% auto;
@@ -61,9 +61,22 @@ h3 {
   padding-bottom: 0;
   margin-bottom: 0;
 }
-/* ←時間限定表示終わり */
-.top_logo p,
 .tamago p {
+  position: absolute;
+  left: 15%;
+  top: -50px;
+  color: #fdd80d;
+  font-size: 10vw;
+  font-weight: bold;
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.2em;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  animation-name: fade, slide;
+  animation-duration: 2s;
+}
+/* ←時間限定表示終わり */
+.top_logo p {
   position: absolute;
   left: 15%;
   top: -50px;
