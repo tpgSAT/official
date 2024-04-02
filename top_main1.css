@@ -29,7 +29,7 @@ h3 {
   height: 90px;
 }
 .top_wrapper {
-  display: none;
+  display: block;
   position: relative;
   height: 47vw;
   width: 100%;
@@ -41,7 +41,7 @@ h3 {
 }
 /* 時間限定表示→ */
 .top-wrapper-sub {
-  /* display: none; */
+  display: none;
   position: relative;
   top: 0;
   left: 0;
