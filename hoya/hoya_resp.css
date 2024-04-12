@@ -1,18 +1,12 @@
 @media screen and (max-width: 1024px) {
-  html {
-    font-size: 16px;
-  }
   .jiyu {
     height: 350px;
   }
 }
 @media screen and (max-width: 670px) {
-  html {
-    font-size: 14px;
-  }
   .fade_hoya {
     width: 95%;
-    margin-top: 10px;
+    margin-top: 60px;
     padding-top: 0px;
     margin-left: 2.5%;
   }
@@ -20,7 +14,7 @@
     margin-top: 20px;
   }
   .jiyu {
-    height: 400px;
+    height: 600px;
     margin-top: 25px;
   }
   .jiyu img {
@@ -35,18 +29,16 @@
     top: 35vw;
     left: 5%;
   }
-  .subtitle {
-    font-size: 5rem;
-  }
+
   .archive {
     margin-top: 40px;
   }
   .vol {
-    width: 45%;
+    width: 100%;
   }
   .part_item {
     width: 90%;
-    height: 240px;
+    height: 500px;
     margin-left: 5%;
   }
 }
