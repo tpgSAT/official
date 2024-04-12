@@ -1,14 +1,20 @@
 @media screen and (max-width: 1024px) {
+  .fade_hoya {
+    width: 95%;
+    margin-top: 90px;
+    padding-top: 0px;
+    margin-left: 2.5%;
+  }
   .jiyu {
+    height: 450px;
+  }
+  .part_item {
     height: 350px;
   }
 }
 @media screen and (max-width: 670px) {
   .fade_hoya {
-    width: 95%;
-    margin-top: 60px;
-    padding-top: 0px;
-    margin-left: 2.5%;
+    margin-top: 90px;
   }
   .logo {
     margin-top: 20px;
