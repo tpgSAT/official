@@ -82,13 +82,40 @@ li {
   color: #407c51;
 }
 .items {
-  display: flex;
+  margin-top: 30px;
+  display: grid;
   width: 90%;
   margin-left: 5%;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto 20px auto ;
 }
 .vol {
-  width: 25%;
+  width: auto;
   text-align: center;
+}
+.vol1 {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+.vol2 {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+.vol3 {
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+}
+.vol4 {
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
+}
+.vol5 {
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+}
+.vol6 {
+  grid-column: 3 / 4;
+  grid-row: 3 / 4;
 }
 .vol img {
   margin-bottom: 1px;
