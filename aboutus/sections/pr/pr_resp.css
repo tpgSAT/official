@@ -1,18 +1,5 @@
 @charset "utf-8"; /* 文字化けしないために書く */
 @media screen and (max-width: 1024px) {
-  .introduction {
-    height: 22vw;
-  }
-  .introduction img {
-    height: 90%;
-    top: 1vw;
-    left: 2vw;
-  }
-  .who {
-    width: 40%;
-    left: 30%;
-  }
-
   .content {
     height: 45vw;
     padding-bottom: 5vw;
@@ -28,40 +15,6 @@
   }
 }
 @media screen and (max-width: 670px) {
-  .introduction {
-    height: 310px;
-    border: none;
-    border-bottom: 4px solid #c8c8c8;
-  }
-  .introduction img {
-    width: auto;
-    height: 30vw;
-    top: 1.5vw;
-    left: 5vw;
-  }
-  .who {
-    position: absolute;
-    width: 40%;
-    left: 50%;
-  }
-  .who h6 {
-    font-size: 1rem;
-  }
-  .who h3 {
-    font-size: 1.5rem;
-  }
-  .who p {
-    font-size: 0.7rem;
-  }
-  .about {
-    width: 100%;
-    top: 150px;
-    left: 0;
-  }
-  .about p {
-    font-size: 0.9rem;
-  }
-
   .content {
     height: 600px;
     padding-bottom: 50px;
