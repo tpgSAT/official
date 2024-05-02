@@ -1,4 +1,4 @@
- // 日本語文書で単語移動を使うため、助詞や読点、括弧を区切り文字として指定する
+// 日本語文書で単語移動を使うため、助詞や読点、括弧を区切り文字として指定する
   "editor.wordSeparators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?　、。「」【】『』（）！？てにをはがのともへでや",
 
   // 設定: LaTeX Workshop
@@ -21,6 +21,7 @@
         "-synctex=1",
         "-interaction=nonstopmode",
         "-file-line-error",
+        "-outdir=%OUTDIR%",
         "%DOC%"
       ]
     },
@@ -35,6 +36,7 @@
         "-synctex=1",
         "-interaction=nonstopmode",
         "-file-line-error",
+        "-outdir=%OUTDIR%",
         "%DOC%"
       ]
     },
@@ -48,6 +50,7 @@
         "-synctex=1",
         "-interaction=nonstopmode",
         "-file-line-error",
+        "-outdir=%OUTDIR%",
         "%DOC%"
       ]
     },
@@ -64,6 +67,7 @@
         "-synctex=1",
         "-interaction=nonstopmode",
         "-file-line-error",
+        "-outdir=%OUTDIR%",
         "%DOC%"
       ]
     }
@@ -100,6 +104,7 @@
   "latex-workshop.latex.magic.args": [
     "-f",
     "-gg",
+    "-pv",
     "-synctex=1",
     "-interaction=nonstopmode",
     "-file-line-error",
@@ -169,8 +174,7 @@
     // スニペット補完中にも補完を使えるようにする
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     // インデント幅を2にする
-    "editor.tabSize": 2,
-    "editor.defaultFormatter": "James-Yu.latex-workshop"
+    "editor.tabSize": 2
   },
 
   "[bibtex]": {
@@ -185,11 +189,9 @@
 
   // 生成ファイルを "out" ディレクトリに吐き出す
   "latex-workshop.latex.outDir": "out",
-
-  "window.zoomLevel": -1,
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.unicodeHighlight.allowedCharacters": {
-    "&": true,
-    "%": true
-  },
+    "＆": true,
+    "％": true
+  }
