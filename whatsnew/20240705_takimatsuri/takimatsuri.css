@@ -1,0 +1,160 @@
+@charset "UTF-8"; /* 文字化け防止 */
+
+h3 {
+  margin-top: -100px;
+  padding-top: 100px;
+  font-size: 2.5rem;
+}
+
+.top_image {
+  position: relative;
+  margin-top: 90px;
+  width: 100%;
+  height: 38vw;
+  background-color: none;
+  animation-name: fade;
+  animation-duration: 2s;
+}
+.top {
+  z-index: 5;
+  position: absolute;
+  width: 68%;
+  height: 38vw;
+  margin-left: 16%;
+}
+.haikei {
+  position: absolute;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  z-index: 0;
+  opacity: 0.5;
+  filter: blur(3px);
+  width: 100%;
+  height: 38vw;
+}
+
+.fade {
+  margin-top: 0;
+  width: 74%;
+  margin-left: 13%;
+  animation-name: fade;
+  animation-duration: 2s;
+  z-index: 6;
+}
+
+.buttons {
+  z-index: 6;
+  display: flex;
+}
+
+.buttons a {
+  display: block;
+  flex-grow: 1;
+  text-align: center;
+  color: #fff;
+  font-size: 2rem;
+  border-right: 2px solid #fff;
+  background-color: #ee3434;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  line-height: 1em;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.buttons a:hover {
+  color: #ee3434;
+  background-color: #fff;
+}
+
+.buttons span {
+  font-size: 1rem;
+}
+
+.setumei {
+  margin-top: 60px;
+}
+.theme p {
+  line-height: 1.2em;
+  text-align: center;
+  font-size: 2rem;
+}
+.en {
+  font-size: 0.8em;
+}
+.setumei p {
+  margin-left: 5%;
+  font-size: 1.2rem;
+  color: #242626;
+}
+
+.setumei span {
+  font-size: 2rem;
+}
+
+.join {
+  margin-top: 40px;
+}
+.setumei h3,
+.join h3 {
+  font-size: 2rem;
+  font-weight: normal;
+}
+.lastyear img{
+  margin-left: 10%;
+  width: 80% ;
+}
+.join_button {
+  margin-left: 17vw;
+  margin-bottom: 60px;
+  width: 40vw;
+  height: 10vw;
+  background-color: #004c83;
+  border: 3px solid #004c83;
+  border-radius: 10px;
+  transition: 0.5s;
+  position: relative;
+  box-shadow: 7px 7px 5px 0px #004c83;
+  text-decoration: none;
+}
+
+.join_button:hover {
+  background-color: #fff;
+  border: 3px solid #004c83;
+}
+
+#join_button {
+  display: grid;
+  place-items: center;
+  grid-template-rows: 10vw;
+  grid-template-columns: 9vw 1fr;
+}
+
+.join_button .join_link {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.join_image {
+  margin-top: 2vw;
+  width: 8vw;
+  height: 8vw;
+  margin-left: 1vw;
+  border-radius: 4.5vw;
+}
+
+.join_button p {
+  font-size: 1.5rem;
+  color: #fcf7b0;
+}
+
+.join_button:hover p {
+  color: #004c83;
+}
+
