@@ -12,10 +12,10 @@ body {
   background-image: url(./_img/hanabi_pink1.gif), url(./_img/hanabi_yellow2.gif),
     url(./_img/hanabi_green1.gif), url(./_img/hanabi_yellow1.gif),
     url(./_img/hanabi_blue1.gif), url(./_img/hanabi_purple1.gif),
-    url(./_img/hanabi_green2.gif);
+    url(./_img/hanabi_green2.gif), linear-gradient(to bottom, #110338, #47568f);
   background-repeat: no-repeat;
   background-position: 50% 30%, top left, bottom right, 85% 0%, top left,
-    bottom right, 25% 80%;
+    bottom right, 25% 80%, center;
   background-attachment: fixed;
 }
 
