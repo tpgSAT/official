@@ -104,7 +104,11 @@ body {
   color: #fff;
 }
 
-.setumei span {
+.SentenceLetterSpacing{
+  letter-spacing: 3px;
+}
+
+.BigLetter{
   font-size: 2rem;
 }
 
