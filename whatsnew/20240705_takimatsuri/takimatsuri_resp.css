@@ -47,6 +47,14 @@
     margin-top: 90px;
     height: 52vw;
   }
+  .scroll-infinity__item {
+    width: 60vw;
+    height: 200px;
+  }
+
+  .scroll-infinity__list--left {
+    animation: infinity-scroll-left 20s infinite linear 0.5s both;
+  }
   .join_button,
   .archive_button {
     width: 70vw;
