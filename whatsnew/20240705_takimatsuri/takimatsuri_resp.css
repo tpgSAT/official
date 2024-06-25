@@ -1,0 +1,69 @@
+@charset "utf-8"; /* 文字化けしないために書く */
+@media screen and (max-width: 1024px) {
+  body {
+    background-color: #000;
+    background-image: linear-gradient(to bottom, #110338, #47568f);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  .top {
+    width: 100%;
+    height: auto;
+    margin-left: 0;
+  }
+  .haikei {
+    display: none;
+  }
+  .fade_takimatsuri {
+    margin-top: 0;
+    width: 90%;
+    margin-left: 5%;
+  }
+  .buttons {
+    display: none;
+  }
+  .theme{
+    margin-top: 20vw;
+  }
+  .en{
+    font-size: 0.6em;
+  }
+  .setumei span {
+    font-size: 1.2rem;
+  }
+  .join_image,
+  .archive_image {
+    margin-top: 2vw;
+  }
+  .join_button,
+  .archive_button {
+    width: 60%;
+    height: 12vw;
+    margin-left: 15vw;
+  }
+  .join_button p,
+  .archive_button p {
+    margin-top: 5vw;
+    font-size: 1.2rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .top_image {
+    margin-top: 90px;
+    height: 52vw;
+  }
+  .theme{
+    margin-top: 10vw;
+  }
+  .join_button,
+  .archive_button {
+    width: 70vw;
+    margin-left: 0vw;
+  }
+  .join_button p,
+  .archive_button p {
+    margin-top: 7vw;
+    font-size: 1rem;
+  }
+}
