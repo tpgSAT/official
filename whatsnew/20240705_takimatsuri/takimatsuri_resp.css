@@ -23,6 +23,12 @@
   .buttons {
     display: none;
   }
+  .theme{
+    margin-top: 20vw;
+  }
+  .en{
+    font-size: 0.6em;
+  }
   .setumei span {
     font-size: 1.2rem;
   }
@@ -46,6 +52,18 @@
   .top_image {
     margin-top: 90px;
     height: 52vw;
+  }
+  .scroll-infinity__item {
+    width: 60vw;
+    height: 200px;
+  }
+
+  .scroll-infinity__list--left {
+    animation: infinity-scroll-left 20s infinite linear 0.5s both;
+
+  .theme{
+    margin-top: 10vw;
+
   }
   .join_button,
   .archive_button {

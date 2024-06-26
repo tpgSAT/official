@@ -104,7 +104,11 @@ body {
   color: #fff;
 }
 
-.setumei span {
+.SentenceLetterSpacing{
+  letter-spacing: 3px;
+}
+
+.BigLetter{
   font-size: 2rem;
 }
 
@@ -116,9 +120,33 @@ body {
   font-size: 2rem;
   font-weight: normal;
 }
-.lastyear img {
-  margin-left: 10%;
-  width: 80%;
+
+@keyframes infinity-scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+.scroll-infinity__wrap {
+  display: flex;
+  overflow: hidden;
+}
+.scroll-infinity__list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+.scroll-infinity__list--left {
+  animation: infinity-scroll-left 40s infinite linear 0.5s both;
+}
+.scroll-infinity__item {
+  width: calc(100vw / 5);
+  height: 200px;
+}
+.scroll-infinity__item > img {
+  width: 100%;
 }
 .join_button {
   margin-left: 17vw;
