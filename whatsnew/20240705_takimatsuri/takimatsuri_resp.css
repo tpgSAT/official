@@ -23,10 +23,10 @@
   .buttons {
     display: none;
   }
-  .theme{
+  .theme {
     margin-top: 20vw;
   }
-  .en{
+  .en {
     font-size: 0.6em;
   }
   .setumei span {
@@ -60,19 +60,19 @@
 
   .scroll-infinity__list--left {
     animation: infinity-scroll-left 20s infinite linear 0.5s both;
+  }
+    .theme {
+      margin-top: 10vw;
+    }
+    .join_button,
+    .archive_button {
+      width: 70vw;
+      margin-left: 0vw;
+    }
+    .join_button p,
+    .archive_button p {
+      margin-top: 7vw;
+      font-size: 1rem;
+    }
+  }
 
-  .theme{
-    margin-top: 10vw;
-
-  }
-  .join_button,
-  .archive_button {
-    width: 70vw;
-    margin-left: 0vw;
-  }
-  .join_button p,
-  .archive_button p {
-    margin-top: 7vw;
-    font-size: 1rem;
-  }
-}
