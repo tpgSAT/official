@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./auth.css" />
+    <script>
+      function checkPassword() {
+        var password = document.getElementById("password").value;
+        if (password == "new") {
+          location.href = "./bbs/index.html";
+        } else if (password == "old") {
+          location.href = "./archive/bbs/index.html";
+        } else {
+          alert("パスワードが違います");
+        }
+      }
+    </script>
+    <title>パスワードを入力してください | タキ国:裏サイト</title>
+  </head>
+  <body>
+    <p>アクセスにはパスワードが必要です</p>
+    <input type="text" id="password" />
+    <button onclick="checkPassword()">Enter</button>
+  </body>
+</html>
