@@ -1,0 +1,57 @@
+@charset "utf-8";
+body {
+  background-image: url(./_img/pattern.webp);
+  background-repeat: repeat;
+}
+.main {
+  position: absolute;
+  background-color: #efefef;
+  width: 80vw;
+  top: 20px;
+  left: 10vw;
+  padding: 10px;
+}
+.content {
+  background-color: #efefef;
+  border: 1px solid #000;
+  padding: 3px;
+}
+.title span {
+  font-weight: bold;
+  font-size: 0.7em;
+  color: #000;
+}
+.title {
+  color: #ff0000;
+  font-size: 1.5em;
+}
+.name {
+  color: #228b22;
+  font-weight: bold;
+}
+.sec {
+  color: #7d7d7d;
+  font-size: 0.9em;
+}
+.BP {
+  color: #008080;
+  background-color: #f0f8ff;
+  border-bottom: 2px solid #a1a6ab;
+  border-right: 2px solid #a1a6ab;
+}
+
+.indent {
+  padding-left: 3em;
+  margin-top: -1em;
+  /* text-indent: -3em; */
+}
+.input {
+  line-height: 1.2em;
+}
+.input span {
+  border: 1px solid #000;
+}
+.input textarea {
+  width: 40%;
+  height: 90px;
+}
