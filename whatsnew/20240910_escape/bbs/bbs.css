@@ -8,8 +8,8 @@ body {
   background-color: #efefef;
   width: 80vw;
   top: 20px;
-  left: 10vw;
-  padding: 10px;
+  left: 9vw;
+  padding: 1vw;
 }
 .content {
   background-color: #efefef;
@@ -54,4 +54,20 @@ body {
 .input textarea {
   width: 40%;
   height: 90px;
+}
+
+@media screen and (max-width: 670px) {
+  .main {
+    width: 90vw;
+    left: 4vw;
+  }
+  .indent {
+    padding-left: 0rem;
+  }
+  .input input {
+    width: 50%;
+  }
+  .input textarea {
+    width: 90%;
+  }
 }
