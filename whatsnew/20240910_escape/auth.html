@@ -6,8 +6,10 @@
     <script>
       function checkPassword() {
         var password = document.getElementById("password").value;
-        if (password == "password") {
-          location.href = "./bbs/index.html";
+        if (password == "new") {
+          location.href = "./index.html";
+        } else if (password == "old") {
+          location.href = "./archive/index.html";
         } else {
           alert("パスワードが違います");
         }
