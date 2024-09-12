@@ -3,7 +3,13 @@ body {
   text-align: center;
 }
 
-.ri {
+/*.ri {
   font-size: 1.2em;
   margin: 0.5em;
+}*/
+p {
+  font-size: 1vw;
+}
+input {
+  width: 70vw;
 }
