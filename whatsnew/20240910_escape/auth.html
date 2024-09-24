@@ -4,11 +4,25 @@
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="./auth.css" />
     <script>
-      function checkPassword() {
+      async function checkPassword() {
         var password = document.getElementById("password").value;
-        if (password == "167") {
+        const encoder = new TextEncoder();
+        const data = encoder.encode(password);
+        const hash = await crypto.subtle.digest("SHA-256", data);
+        const hashArray = Array.from(new Uint8Array(hash));
+        const hashHex = hashArray
+          .map((b) => b.toString(16).padStart(2, "0"))
+          .join("");
+        console.log(hashHex);
+        if (
+          hashHex ===
+          "73d3f1ba062585bce51f77d70a26be88c44b55d70f81b8bd7e2ded030ca4454a"
+        ) {
           location.href = "./index.html";
-        } else if (password == "20305") {
+        } else if (
+          hashHex ===
+          "b47141653bad09530cc3523e481ae6479733e4009aeaf27a826f911d8a9a648c"
+        ) {
           location.href = "./archive/index.html";
         } else {
           alert("パスワードが違います");
