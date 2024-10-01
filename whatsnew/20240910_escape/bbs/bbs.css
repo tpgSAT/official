@@ -55,6 +55,9 @@ body {
   width: 40%;
   height: 90px;
 }
+.content img {
+  width: 60%;
+}
 
 @media screen and (max-width: 670px) {
   .main {
@@ -69,5 +72,8 @@ body {
   }
   .input textarea {
     width: 90%;
+  }
+  .content img {
+    width: 95%;
   }
 }
