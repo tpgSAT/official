@@ -1,0 +1,26 @@
+body {
+  margin-top: 10em;
+  text-align: center;
+}
+
+/*.ri {
+  font-size: 1.2em;
+  margin: 0.5em;
+}*/
+p {
+  font-size: 24px;
+}
+input {
+  font-size: 20px;
+  padding: 10px 20px;
+  width: 25%;
+  box-sizing: border-box;
+}
+
+button {
+  font-size: 20px;
+  padding: 10px 20px;
+  width: 15%;
+  box-sizing: border-box;
+  text-align: center;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./auth.css" />
+    <script>
+      async function checkPassword() {
+        var password = document.getElementById("password").value;
+        const encoder = new TextEncoder();
+        const data = encoder.encode(password);
+        const hash = await crypto.subtle.digest("SHA-256", data);
+        const hashArray = Array.from(new Uint8Array(hash));
+        const hashHex = hashArray
+          .map((b) => b.toString(16).padStart(2, "0"))
+          .join("");
+        console.log(hashHex);
+        if (
+          hashHex ===
+          "1d0ebea552eb43d0b1e1561f6de8ae92e3de7f1abec52399244d1caed7dbdfa6"
+        ) {
+          location.href = "./index.html";
+        } else if (
+          hashHex ===
+          "b762f726481f40a3331227db78ea41f3009dc5f1dc86fd231e1f59183488fefc"
+        ) {
+          location.href = "./archive/index.html";
+        } else {
+          alert("パスワードが違います");
+        }
+      }
+    </script>
+    <title>パスワードを入力してください | タキ国:裏サイト</title>
+  </head>
+  <body>
+    <p>しおりの謎を解き、一日目に従って答えよ</p>
+    <input type="text" id="password" />
+    <button onclick="checkPassword()">Enter</button>
+  </body>
+</html>

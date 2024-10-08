@@ -1,0 +1,25 @@
+@charset "utf-8";
+.index_header {
+  display: flex;
+  height: 60px;
+  border-bottom: 0.5px solid #000;
+}
+.top_logo {
+  width: auto;
+  height: 60px;
+}
+.main_img {
+  width: 30%;
+  height: auto;
+  margin-top: 90px;
+  margin-left: 33%;
+}
+.txt1 {
+  text-align: center;
+  border-top: 0.5px solid #000;
+  margin-top: 60px;
+  padding-top: 20px;
+}
+.txt2 {
+  margin-top: 100px;
+}
