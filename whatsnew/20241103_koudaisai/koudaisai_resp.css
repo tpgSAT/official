@@ -1,0 +1,91 @@
+@charset "utf-8";
+@media screen and (max-width: 900px) {
+  .fade {
+    width: 84%;
+    margin-top: 120px;
+    margin-left: 8%;
+    margin-bottom: 25px;
+  }
+  .area1 {
+    display: flex;
+    height: 80vw;
+  }
+  .area1 img {
+    width: 58.8vw;
+    height: auto;
+  }
+  .btns {
+    width: 16.8vw;
+    height: auto;
+  }
+  .btn img {
+    width: 40%;
+    height: auto;
+    transform: translate(0, 50%);
+    margin-top: 5px;
+  }
+}
+@media screen and (max-width: 670px) {
+  .area1 {
+    display: block;
+    height: 150vw;
+  }
+  .area1 img {
+    width: 100%;
+    height: auto;
+  }
+  .btns {
+    display: block;
+    width: 100%;
+    height: 35vw;
+  }
+  .btn {
+    display: block;
+    width: 35vw;
+    height: 7.5vw;
+    border-radius: 20px;
+  }
+  .btn img {
+    width: 7vw;
+    transform: translate(-50%, 0%);
+    margin-top: 0.3vw;
+    margin-left: 50%;
+  }
+  .btn1 {
+    top: 20%;
+    left: 25%;
+  }
+  .btn2 {
+    top: 20%;
+    left: 75%;
+  }
+  .btn3 {
+    top: 55%;
+    left: 25%;
+  }
+  .btn4 {
+    top: 55%;
+    left: 75%;
+  }
+  .btn5 {
+    top:85%;
+  }
+
+  .area {
+    font-weight: bold;
+  }
+  .koudaisaiHP {
+    display: flex;
+    font-size: 2rem;
+  }
+  .title b {
+    font-size: 1.8rem;
+    transform: translate(0,-100px);
+  }
+  .normal {
+    font-size: 1.5rem;
+  }
+  .small {
+    font-size: 1.2rem;
+  }
+}
