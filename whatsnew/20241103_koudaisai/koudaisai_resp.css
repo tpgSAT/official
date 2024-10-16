@@ -24,11 +24,20 @@
     transform: translate(0, 50%);
     margin-top: 5px;
   }
+  .area2{
+    height: 50vw;
+  }
   .area3{
     height: 35vw;
   }
+  .area4{
+    height: 50vw;
+  }
   .area5{
-    height: 40vw;
+    height: 45vw;
+  }
+  .area6{
+    height: 45vw;
   }
   .normal {
     font-size: 1rem;
@@ -103,6 +112,30 @@
     font-size: 1.8rem;
     transform: translate(0,-100px);
   }
+
+  .left {
+    width: 90%;
+    margin-left: 5%;
+  }
+  .right {
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  .area {
+    display: flex;
+    flex-flow: column;
+  }
+
+  .game {
+    width: 70%;
+    margin-left: 15%;
+  }
+  .map {
+    width: 60%;
+    margin-left: 20%;
+  }
+
   .normal {
     font-size: 1rem;
     line-height: 1.5rem;
