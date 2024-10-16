@@ -12,7 +12,7 @@ a {
   /* 一括用*/
   text-decoration: none;
   display: inline-block;
-  /* color: #fff; */
+  color: #fff;
   font-size: 1rem;
   transition: 0.5s;
 }
@@ -145,12 +145,13 @@ h3 {
 }
 .area2 {
   background-color: #80a97e;
-  height: 45vw;
+  /* height: 45vw; */
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
 .area3 {
   background-color: #d29040;
+  height: 30vw;
 }
 .area4 {
   height: 30vw;
@@ -158,27 +159,27 @@ h3 {
 }
 .area5 {
   background-color: #80a97e;
+  height: 35vw;
+}
+.area6 {
+  display:flex;
+  flex-flow: column;
+  background-color: #d29040;
+  height: 25vw;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px; 
 }
-.area6 {
-  display: block;
-  /* background-color: aqua; */
-  height: 50vw;
-  /* margin-top: 20px; */
-}
-.sns {
-  margin-top: 1vw;
-  background-color: #fff;
-  border: 1px solid #000;
-  border-radius: 20px;
-}
 .koudaisaiHP {
-  right: 20%;
   font-size: 1.2rem;
+  right: 20%;
   /* line-height: 1.8rem; */
   padding: 3px;
   color: #000;
+}
+.area6 a {
+  margin-bottom: 2vw;
+  margin-left: 5%;
+  color: #fff;
 }
 .link {
   /* background-color: #d29040; */
