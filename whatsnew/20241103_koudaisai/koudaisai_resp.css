@@ -8,14 +8,14 @@
   }
   .area1 {
     display: flex;
-    height: 80vw;
+    height: 95vw;
   }
   .area1 img {
-    width: 58.8vw;
+    width: 80%;
     height: auto;
   }
   .btns {
-    width: 16.8vw;
+    width: 20%;
     height: auto;
   }
   .btn img {
@@ -23,6 +23,12 @@
     height: auto;
     transform: translate(0, 50%);
     margin-top: 5px;
+  }
+  .area3{
+    height: 35vw;
+  }
+  .area5{
+    height: 40vw;
   }
 }
 @media screen and (max-width: 670px) {
@@ -74,9 +80,11 @@
   .area {
     font-weight: bold;
   }
-  .koudaisaiHP {
-    display: flex;
-    font-size: 2rem;
+  .area6 {
+    height: 30vw;
+  }
+  .area6 a {
+    font-size: 1.5rem;
   }
   .title b {
     font-size: 1.8rem;

@@ -12,7 +12,7 @@ a {
   /* 一括用*/
   text-decoration: none;
   display: inline-block;
-  /* color: #fff; */
+  color: #fff;
   font-size: 1rem;
   transition: 0.5s;
 }
@@ -114,27 +114,27 @@ h3 {
 .btn1 {
   top: 4.5vw;
   left: 50%;
-  background-color: #80a97e;
+  background-color: #7d8a49;
 }
 .btn2 {
   top: 13.5vw;
   left: 50%;
-  background-color: #d29040;
+  background-color: #509159;
 }
 .btn3 {
   top: 22.5vw;
   left: 50%;
-  background-color: #7e7363;
+  background-color: #91645d;
 }
 .btn4 {
   top: 31.5vw;
   left: 50%;
-  background-color: #4e6c50;
+  background-color: #454d6b;
 }
 .btn5 {
   top: 40.5vw;
   left: 50%;
-  background-color: #4e6c50; 
+  background-color: #48704c; 
 }
 
 .area {
@@ -144,41 +144,42 @@ h3 {
   border-bottom: 1px solid #fff;
 }
 .area2 {
-  background-color: #80a97e;
-  height: 45vw;
+  background-color: #7d8a49;
+  /* height: 45vw; */
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
 .area3 {
-  background-color: #d29040;
+  background-color: #509159;
+  height: 30vw;
 }
 .area4 {
   height: 30vw;
-  background-color: #7e7363;
+  background-color: #91645d;
 }
 .area5 {
-  background-color: #80a97e;
+  background-color: #454d6b;
+  height: 35vw;
+}
+.area6 {
+  display:flex;
+  flex-flow: column;
+  background-color: #48704c;
+  height: 25vw;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px; 
 }
-.area6 {
-  display: block;
-  /* background-color: aqua; */
-  height: 50vw;
-  /* margin-top: 20px; */
-}
-.sns {
-  margin-top: 1vw;
-  background-color: #fff;
-  border: 1px solid #000;
-  border-radius: 20px;
-}
 .koudaisaiHP {
-  right: 20%;
   font-size: 1.2rem;
+  right: 20%;
   /* line-height: 1.8rem; */
   padding: 3px;
   color: #000;
+}
+.area6 a {
+  margin-bottom: 2vw;
+  margin-left: 5%;
+  color: #fff;
 }
 .link {
   /* background-color: #d29040; */
