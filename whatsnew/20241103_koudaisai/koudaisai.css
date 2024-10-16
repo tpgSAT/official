@@ -114,27 +114,27 @@ h3 {
 .btn1 {
   top: 4.5vw;
   left: 50%;
-  background-color: #80a97e;
+  background-color: #7d8a49;
 }
 .btn2 {
   top: 13.5vw;
   left: 50%;
-  background-color: #d29040;
+  background-color: #509159;
 }
 .btn3 {
   top: 22.5vw;
   left: 50%;
-  background-color: #7e7363;
+  background-color: #91645d;
 }
 .btn4 {
   top: 31.5vw;
   left: 50%;
-  background-color: #4e6c50;
+  background-color: #454d6b;
 }
 .btn5 {
   top: 40.5vw;
   left: 50%;
-  background-color: #4e6c50; 
+  background-color: #48704c; 
 }
 
 .area {
@@ -144,27 +144,27 @@ h3 {
   border-bottom: 1px solid #fff;
 }
 .area2 {
-  background-color: #80a97e;
+  background-color: #7d8a49;
   /* height: 45vw; */
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
 .area3 {
-  background-color: #d29040;
+  background-color: #509159;
   height: 30vw;
 }
 .area4 {
   height: 30vw;
-  background-color: #7e7363;
+  background-color: #91645d;
 }
 .area5 {
-  background-color: #80a97e;
+  background-color: #454d6b;
   height: 35vw;
 }
 .area6 {
   display:flex;
   flex-flow: column;
-  background-color: #d29040;
+  background-color: #48704c;
   height: 25vw;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px; 
