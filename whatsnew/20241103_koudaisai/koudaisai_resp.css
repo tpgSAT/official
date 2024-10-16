@@ -92,18 +92,23 @@
 
   .area {
     font-weight: bold;
+    display: flex;
+    flex-flow: column;
   }
   .area2{
-    height: 55vw;
+    height: 150vw;
+  }
+  .area3{
+    height: 100vw;
   }
   .area4{
-    height: 50vw;
+    height: 110vw;
   }
   .area5{
-    height: 45vw;
+    height: 120vw;
   }
   .area6 {
-    height: 45vw;
+    height: 90vw;
   }
   .area6 a {
     font-size: 1rem;
@@ -120,11 +125,6 @@
   .right {
     width: 90%;
     margin-left: 5%;
-  }
-
-  .area {
-    display: flex;
-    flex-flow: column;
   }
 
   .game {
