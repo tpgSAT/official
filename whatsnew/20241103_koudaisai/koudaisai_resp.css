@@ -1,5 +1,5 @@
 @charset "utf-8";
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1024px) {
   .fade {
     width: 84%;
     margin-top: 120px;
@@ -29,6 +29,10 @@
   }
   .area5{
     height: 40vw;
+  }
+  .normal {
+    font-size: 1rem;
+    line-height: 2rem;
   }
 }
 @media screen and (max-width: 670px) {
@@ -80,20 +84,32 @@
   .area {
     font-weight: bold;
   }
+  .area2{
+    height: 55vw;
+  }
+  .area4{
+    height: 50vw;
+  }
+  .area5{
+    height: 45vw;
+  }
   .area6 {
-    height: 30vw;
+    height: 45vw;
   }
   .area6 a {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
   .title b {
     font-size: 1.8rem;
     transform: translate(0,-100px);
   }
   .normal {
-    font-size: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: #fff;
   }
   .small {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    color: #fff;
   }
 }
