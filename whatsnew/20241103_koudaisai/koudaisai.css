@@ -134,7 +134,7 @@ h3 {
 .btn5 {
   top: 40.5vw;
   left: 50%;
-  background-color: #48704c; 
+  background-color: #48704c;
 }
 
 .area {
@@ -151,7 +151,7 @@ h3 {
 }
 .area3 {
   background-color: #509159;
-  height: 30vw;
+  height: 35vw;
 }
 .area4 {
   height: 30vw;
@@ -162,12 +162,12 @@ h3 {
   height: 35vw;
 }
 .area6 {
-  display:flex;
+  display: flex;
   flex-flow: column;
   background-color: #48704c;
   height: 25vw;
   border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px; 
+  border-bottom-right-radius: 20px;
 }
 .koudaisaiHP {
   font-size: 1.2rem;
@@ -215,11 +215,17 @@ h3 {
   line-height: 2.5rem;
   color: #fff;
 }
+.nowrap {
+  white-space: nowrap;
+}
 .drink {
   line-height: 2rem;
 }
 .left p {
-  margin-top: 0;
+  margin-top: 1.2vw;
+}
+.day2 {
+  margin-top: 1.2vw;
 }
 .game {
   width: 80%;
