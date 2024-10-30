@@ -93,6 +93,9 @@
   .day2 {
     display: none;
   }
+  .day2_top {
+    display: none;
+  }
   .area {
     font-weight: bold;
     display: flex;
