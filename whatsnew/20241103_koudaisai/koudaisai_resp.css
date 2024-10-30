@@ -157,6 +157,12 @@
     line-height: 1.5rem;
     color: #fff;
   }
+  #drink {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-top: 0px;
+    padding-top: 0px;
+  }
 }
 @media screen and (max-width: 400px) {
   .area3 {
