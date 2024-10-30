@@ -20,24 +20,25 @@
     <script type="text/javascript" src="/top.js" defer></script>
     <title>Taki Plaza Gardener</title>
     <meta
-      description="Taki Plaza Gardener(通称TPG)は東京科学大学の新たなランドマーク「Taki Plaza」で活動する学生団体です。
+      name="description"
+      content="Taki Plaza Gardener(通称TPG)は東京科学大学(旧東京工業大学)の新たなランドマーク「Taki Plaza」で活動する学生団体です。
         TPGの活動はこちらからご覧頂けます。"
     />
   </head>
   <body>
     <!-- 時間表示するためのJavaScript -->
-    <!-- <script>
+    <script>
       window.onload = function () {
         var now = new Date();
-        var start = new Date("2024/4/1 9:00:00"); // 表示開始日時（時間は24h表記）
-        var end = new Date("2024/4/1 9:59:59"); // 表示終了日時（時間は24h表記）
+        var start = new Date("2025/4/1 0:00:00"); // 表示開始日時（時間は24h表記）
+        var end = new Date("2025/4/1 23:59:59"); // 表示終了日時（時間は24h表記）
 
         if (start < now && now < end) {
           document.getElementById("timeLimitedScript").style.display = "block";
           document.getElementById("normal").style.display = "none";
         }
       };
-    </script> -->
+    </script>
     <header></header>
     <!--  include from _commons -->
     <div class="space"></div>
@@ -74,16 +75,16 @@
           <div class="txt">
             <p class="news_title news_title2"></p>
             <p class="news_txt news_txt2"></p>
-            <a class="news_btn" href="/whatsnew/20240705_takimatsuri/index.html">></a>
+            <a class="news_btn" href="/whatsnew/20240705_takimatsuri/index.html"
+              >></a
+            >
           </div>
         </div>
         <div class="news3 news_base">
           <div class="txt">
             <p class="news_title news_title3"></p>
             <p class="news_txt news_txt3"></p>
-            <a class="news_btn" href="https://wakabasai.tpgd.jp/"
-              >></a
-            >
+            <a class="news_btn" href="https://wakabasai.tpgd.jp/">></a>
           </div>
         </div>
         <div class="news4 news_base">
@@ -113,7 +114,7 @@
       <h3 class="subtitle"><span>■ A</span>bout <span>U</span>s</h3>
       <div class="links">
         <div class="link link7">
-          <img src="/_img/TPG.webp" />
+          <img src="/_img/TPG.webp" alt="" />
           <div class="shoukai">
             <h3>TPGについて</h3>
             <p>TPGを知る</p>
@@ -123,7 +124,7 @@
           </div>
         </div>
         <div class="link link8">
-          <img src="/_img/section.webp" />
+          <img src="/_img/section.webp" alt="" />
           <div class="shoukai">
             <h3>班活動</h3>
             <p>多様な班を知る</p>
@@ -133,7 +134,7 @@
           </div>
         </div>
         <div class="link link7">
-          <img src="/_img/asobi.webp" />
+          <img src="/_img/asobi.webp" alt="" />
           <div class="shoukai">
             <h3>組活動・遊び</h3>
             <p>メンバー間で親睦を図る</p>
@@ -143,7 +144,7 @@
           </div>
         </div>
         <div class="link link8">
-          <img src="/_img/join-us.webp" />
+          <img src="/_img/join-us.webp" alt="" />
           <div class="shoukai">
             <h3>重役紹介</h3>
             <p>リーダーを知る</p>
