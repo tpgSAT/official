@@ -151,7 +151,7 @@ h3 {
 }
 .area3 {
   background-color: #509159;
-  height: 35vw;
+  height: 40vw;
 }
 .area4 {
   height: 30vw;
@@ -169,7 +169,10 @@ h3 {
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 }
-
+.program {
+  text-align: right;
+  margin-top: 2vw;
+}
 .koudaisaiHP {
   font-size: 1.2rem;
   right: 20%;
