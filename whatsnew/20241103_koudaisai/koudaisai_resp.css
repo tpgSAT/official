@@ -155,8 +155,8 @@
     color: #fff;
   }
 }
-@media screen and (max-width: 670px) {
-  .area3{
+@media screen and (max-width: 380px) {
+  .area3 {
     height: 200vw;
   }
 }
