@@ -1,0 +1,42 @@
+@media screen and (max-width: 1024px) {
+  .titles,
+  .titles img {
+    height: 30vw;
+  }    
+}
+@media screen and (max-width: 670px) {
+  .titles {
+    display: flex;
+    width: 100%;
+    height: 90vw;
+    flex-direction: column;
+  }
+  .title {
+      height: 40vw;
+      top: 65vw;
+    }
+    .title h3 {
+        font-size: 1.2rem;
+        font-weight: normal;
+    }
+    .images_top {
+        position: absolute;
+        display: flex;
+        width: 100%;
+        top: 0;
+    }
+    .titles img {
+      top: 20px;
+      bottom: none;
+      width: 100%;
+      height: 60vw;
+      object-fit: cover;
+    }
+  .images img {
+    width: 100%;
+    height: auto;
+  }
+  .bottom_btn {
+    display: none;
+  }
+}
