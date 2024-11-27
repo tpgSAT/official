@@ -1,19 +1,32 @@
 @media screen and (max-width: 1024px) {
-  .titles,
-  .titles img {
-    height: 30vw;
-  }    
+    .titles {
+        height: auto;
+        display: flex;
+        align-items: flex-end;
+    }
+    .title {
+        position: relative;
+        height: 100%;
+        bottom: 0%;
+    }
+    .images_top {
+        position: relative;
+        height: 100%;
+        width: 100%;
+    }
 }
 @media screen and (max-width: 670px) {
   .titles {
-    display: flex;
+    display: block;
     width: 100%;
     height: 90vw;
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
   .title {
-      height: 40vw;
+    position: relative;
+      height: auto;
       top: 65vw;
+      padding-top: 5%;
     }
     .title h3 {
         font-size: 1.2rem;
@@ -31,6 +44,7 @@
       width: 100%;
       height: 60vw;
       object-fit: cover;
+      transform: translate(-5vw, 0);
     }
   .images img {
     width: 100%;

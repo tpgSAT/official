@@ -2,7 +2,7 @@
 /* common.css */
 .titles {
     display: flex;
-    height: 30vw;
+    height: 20vw;
  }
 .title {
     position: relative;
@@ -16,8 +16,8 @@
 .images_top img {
     position: relative;
     display: inline;
-    height: 30vw;
-    width: auto;
+    height: auto;
+    width: 45%;
     margin-left: 2%;
 }
 .images {
@@ -27,12 +27,14 @@
     display: flex;
     width: 28vw;
     height: auto;
+    padding-right: 2%;
+    padding-top: 3%;
     align-self: flex-start;
 }
-.t {
+/* .t {
     margin-bottom: 5%;
 }
 .b {
     margin-top: 5%;
     height: 25vw;
-}
+} */
