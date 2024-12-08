@@ -3,7 +3,7 @@ $(document).ready(function () {
 
   // Ajaxリクエストを作成して外部ファイルを読み込む
   $.ajax({
-    url: "/whatsnew/index.html", // 外部ファイルのURLを指定
+    url: "./whatsnew/index.html", // 外部ファイルのURLを指定
     dataType: "html",
     success: function (data) {
       // 外部ファイルからコンテンツを抽出
