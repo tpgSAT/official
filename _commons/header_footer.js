@@ -1,7 +1,7 @@
 $(function () {
   //manage all together(header, footer)
-  $("header").load("./_header/header.html");
-  $("footer").load("./_footer/footer.html");
+  $("header").load("../_header/header.html");
+  $("footer").load("../_footer/footer.html");
   $("#top").click(function () {
     $("html, body").animate(
       {
