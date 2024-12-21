@@ -4,18 +4,16 @@ h3 {
   margin-top: -100px;
   padding-top: 100px;
   font-size: 2.5rem;
-  color: #fff;
+  color: #cf3434;
 }
 
 body {
-  background-color: #000;
-  background-image: url(./_img/hanabi_pink1.gif), url(./_img/hanabi_yellow2.gif),
-    url(./_img/hanabi_green1.gif), url(./_img/hanabi_yellow1.gif),
-    url(./_img/hanabi_blue1.gif), url(./_img/hanabi_purple1.gif),
-    linear-gradient(to bottom, #110338, #47568f);
-  background-repeat: no-repeat;
+  background-color: #fff;
+  background-image: url(./_img/choutin_light.gif);
+  background-repeat: repeat-y;
   background-position: 0% 85%, top left, bottom right, 85% 0%, top left,
     bottom right, center;
+    background-size: 15%;
   background-attachment: fixed;
 }
 
@@ -31,9 +29,9 @@ body {
 .top {
   z-index: 5;
   position: absolute;
-  width: 68%;
+  width: 52%;
   height: 38vw;
-  margin-left: 16%;
+  margin-left: 24%;
 }
 .haikei {
   position: absolute;
@@ -93,7 +91,7 @@ body {
   line-height: 1.2em;
   text-align: center;
   font-size: 2rem;
-  color: #fff;
+  color: #c43737;
 }
 .en {
   font-size: 0.8em;
@@ -101,7 +99,7 @@ body {
 .setumei p {
   margin-left: 5%;
   font-size: 1.2rem;
-  color: #fff;
+  color: #db5454;
 }
 
 .SentenceLetterSpacing{
@@ -119,6 +117,20 @@ body {
 .join h3 {
   font-size: 2rem;
   font-weight: normal;
+}
+
+.projects_list{
+  width: calc(100% - 70px);
+  margin-left: 70px;
+}
+
+.projects_list > li{
+  color: #c43737;
+  font-size: 1.1rem ;
+}
+
+.projects_list > ul > p{
+  font-size: 1rem;
 }
 
 @keyframes infinity-scroll-left {
