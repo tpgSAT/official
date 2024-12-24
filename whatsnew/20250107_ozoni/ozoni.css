@@ -1,26 +1,22 @@
 @charset "utf-8";
 /* common.css */
 .titles {
-    display: flex;
-    height: 20vw;
- }
+  display: flex;
+  height: 20vw;
+}
 .title {
-    position: relative;
-    height: 70%;
-    top: 40%;
+  position: relative;
+  height: 70%;
+  top: 40%;
 }
 .images_top {
-    height: auto;
-    height: 100%;
-    /* width: 50%; */
+  height: auto;
+  /* width: 50%; */
 }
 .images_top img {
-    position: relative;
-    display: inline;
-    height: 100%;
-    /* width: 45%; */
-    margin-left: 2%;
-    object-fit: contain;/* 加えてみた */
+  height: 100%;
+  margin-left: 2%;
+  object-fit: contain; 
 }
 /* .images {
     margin-top: 2%;
