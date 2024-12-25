@@ -119,6 +119,7 @@ body {
 }
 
 .projects_list{
+  list-style: none;
   width: calc(100% - 70px);
   margin-left: 70px;
 }
@@ -186,22 +187,34 @@ body {
   height: 100%;
 }
 
-.join_image {
+#item1{
   width: 2vw;
   position: absolute;
   top: 10px;
   left: 10px;
 }
 
-#item1{
-  top: 10px;
-  left: 10px;
-}
-
 #item2{
+  width: 2vw;
+  position: absolute;
   top: 10px;
   left: 40px;
 }
+
+#item3{
+  width: 10vw;
+  position: absolute;
+  top: 30px;
+  left: 20px;
+}
+
+#item4{
+  width: 12vw;
+  position: absolute;
+  top: 20px;
+  right: 15px;
+}
+
 .join_button p {
   font-size: 2rem;
   color: #c43737;

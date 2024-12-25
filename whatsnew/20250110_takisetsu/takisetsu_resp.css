@@ -1,8 +1,8 @@
 @charset "utf-8"; /* 文字化けしないために書く */
 @media screen and (max-width: 1024px) {
   body {
-    background-color: #000;
-    background-image: linear-gradient(to bottom, #110338, #47568f);
+    background-color: #fff;
+    background-image: linear-gradient(to bottom, #fff, #fff);
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
@@ -38,14 +38,62 @@
   }
   .join_button,
   .archive_button {
-    width: 60%;
-    height: 12vw;
-    margin-left: 15vw;
+    width: 80%;
+    height: 18vw;
+    margin-left: 10%;
   }
   .join_button p,
   .archive_button p {
-    margin-top: 5vw;
-    font-size: 1.2rem;
+    margin-top: 4vw;
+    font-size: 2rem;
+  }
+
+  #item1{
+    width: 5vw;
+    position: absolute;
+    top: 6px;
+    left: 10px;
+  }
+  
+  #item2{
+    width: 5vw;
+    position: absolute;
+    top: 6px;
+    left: 35px;
+  }
+  
+  #item3{
+    width: 21vw;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  
+  #item4{
+    width: 20vw;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  .projects_list{
+    list-style: none;
+    width: calc(100% - 20px);
+    margin-left: 20px;
+    padding-left: 0px;
+  }
+  
+  .projects_list > li{
+    color: #c43737;
+    font-size: 1.1rem ;
+  }
+  
+  .projects_list > ul > p{
+    font-size: 1rem;
+  }
+
+  .projects_list > ul{
+    padding-left: 10px;
   }
 }
 @media screen and (max-width: 600px) {
@@ -66,13 +114,13 @@
     }
     .join_button,
     .archive_button {
-      width: 70vw;
+      width: 80vw;
       margin-left: 0vw;
     }
     .join_button p,
     .archive_button p {
-      margin-top: 7vw;
-      font-size: 1rem;
+      margin-top: 5vw;
+      font-size: 1.5rem;
     }
   }
 
