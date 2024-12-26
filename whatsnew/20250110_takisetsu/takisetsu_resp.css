@@ -20,6 +20,9 @@
     width: 90%;
     margin-left: 5%;
   }
+  .fade[
+    margin-top: 300px;
+  ]
   .buttons {
     display: none;
   }
@@ -104,6 +107,14 @@
   .scroll-infinity__item {
     width: 60vw;
     height: 200px;
+  }
+  
+  .buttons{
+    display: none;
+  }
+
+  .fade{
+    margin-top: 38vw !important;
   }
 
   .scroll-infinity__list--left {
