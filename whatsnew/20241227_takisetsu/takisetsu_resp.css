@@ -33,7 +33,7 @@
     font-size: 0.6em;
   }
   .setumei span {
-    font-size: 1.2rem;
+    font-size: 1.6rem;
   }
   .join_image,
   .archive_image {
@@ -50,6 +50,7 @@
     margin-top: 4vw;
     font-size: 2rem;
   }
+
 
   #item1{
     width: 5vw;
@@ -132,6 +133,13 @@
     .archive_button p {
       margin-top: 5vw;
       font-size: 1.5rem;
+    }
+
+    #item3{
+      width: 21vw;
+      position: absolute;
+      top: 10px;
+      left: 5px;
     }
   }
 
