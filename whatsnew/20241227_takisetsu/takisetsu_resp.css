@@ -1,0 +1,145 @@
+@charset "utf-8"; /* 文字化けしないために書く */
+@media screen and (max-width: 1024px) {
+  body {
+    background-color: #fff;
+    background-image: linear-gradient(to bottom, #fff, #fff);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  .top {
+    width: 100%;
+    height: auto;
+    margin-left: 0;
+  }
+  .haikei {
+    display: none;
+  }
+  .fade_takimatsuri {
+    margin-top: 0;
+    width: 90%;
+    margin-left: 5%;
+  }
+  .fade[
+    margin-top: 300px;
+  ]
+  .buttons {
+    display: none;
+  }
+  .theme {
+    margin-top: 20vw;
+  }
+  .en {
+    font-size: 0.6em;
+  }
+  .setumei span {
+    font-size: 1.6rem;
+  }
+  .join_image,
+  .archive_image {
+    margin-top: 2vw;
+  }
+  .join_button,
+  .archive_button {
+    width: 80%;
+    height: 18vw;
+    margin-left: 10%;
+  }
+  .join_button p,
+  .archive_button p {
+    margin-top: 4vw;
+    font-size: 2rem;
+  }
+
+
+  #item1{
+    width: 5vw;
+    position: absolute;
+    top: 6px;
+    left: 10px;
+  }
+  
+  #item2{
+    width: 5vw;
+    position: absolute;
+    top: 6px;
+    left: 35px;
+  }
+  
+  #item3{
+    width: 21vw;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  
+  #item4{
+    width: 20vw;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  .projects_list{
+    list-style: none;
+    width: calc(100% - 20px);
+    margin-left: 20px;
+    padding-left: 0px;
+  }
+  
+  .projects_list > li{
+    color: #c43737;
+    font-size: 1.1rem ;
+  }
+  
+  .projects_list > ul > p{
+    font-size: 1rem;
+  }
+
+  .projects_list > ul{
+    padding-left: 10px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .top_image {
+    margin-top: 90px;
+    height: 52vw;
+  }
+  .scroll-infinity__item {
+    width: 60vw;
+    height: 200px;
+  }
+  
+  .buttons{
+    display: none;
+  }
+
+  .fade{
+    margin-top: 38vw !important;
+  }
+
+  .scroll-infinity__list--left {
+    animation: infinity-scroll-left 20s infinite linear 0.5s both;
+  }
+    .theme {
+      margin-top: 10vw;
+    }
+    .join_button,
+    .archive_button {
+      width: 80vw;
+      margin-left: 0vw;
+    }
+    .join_button p,
+    .archive_button p {
+      margin-top: 5vw;
+      font-size: 1.5rem;
+    }
+
+    #item3{
+      width: 21vw;
+      position: absolute;
+      top: 10px;
+      left: 5px;
+    }
+  }
+
