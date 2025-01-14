@@ -1,0 +1,21 @@
+@charset "utf-8"; /* 文字化けしないために書く */
+
+@media screen and (max-width: 1024px) {
+
+}
+
+@media screen and (max-width: 670px) {
+    .titles {
+        height: 85vw;
+    }
+    .title {
+        height: 20vw;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+    .images_top img {
+        margin-right: 25%;
+        width: 50%;
+        height: auto;
+    }
+}
