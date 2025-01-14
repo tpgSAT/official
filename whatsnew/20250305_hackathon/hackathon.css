@@ -9,7 +9,9 @@ body {
 a {
   display: block;
   text-decoration: none;
-  font-size: 1rem;
+}
+.link {
+  font-size: 1.2rem;
 }
 .after_modal {
   display: blocks;
@@ -80,13 +82,15 @@ a {
   z-index: 5;
   position: absolute;
   display: block;
-  width: 40%;
-  left: 30%;
+  width: 60%;
+  left: 20%;
   top: 50px;
   height: auto;
 }
 .top_image p {
   position: absolute;
+  margin-top: 100px;
+  margin-bottom: 0;
   top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
