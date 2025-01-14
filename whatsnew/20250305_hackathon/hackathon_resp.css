@@ -48,7 +48,8 @@
   }
   .top_image {
     margin-top: 90px;
-    height: 60vw;
+    height: 45vw;
+    margin-bottom: 0;
   }
   .haikei {
     height: 60vw;
