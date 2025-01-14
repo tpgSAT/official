@@ -1,0 +1,121 @@
+@charset "utf-8"; /* 文字化けしないために書く */
+@media screen and (max-width: 1024px) {
+  .top_image {
+    margin-top: 90px;
+  }
+  .top_image,
+  .haikei {
+    height: 50vw;
+  }
+
+  .top_image p {
+    font-size: 2rem;
+  }
+  .fade_takifes {
+    margin-top: 0;
+    width: 86%;
+    margin-left: 7%;
+  }
+  .item {
+    width: 45%;
+    height: 210px;
+  }
+  .name {
+    left: 30%;
+  }
+  .date {
+    top: 40%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .modal {
+    width: 80%;
+    height: 65vh;
+    margin-top: 12.5vh;
+    margin-left: 10%;
+  }
+  .shuryo {
+    margin-right: 5px;
+    margin-left: 5px;
+    font-size: 2rem;
+  }
+  .modal_item p {
+    border-bottom: none;
+  }
+  .modal_item img {
+    width: 70px;
+    height: auto;
+  }
+  .top_image {
+    margin-top: 90px;
+    height: 60vw;
+  }
+  .haikei {
+    height: 60vw;
+  }
+  .top_image p {
+    margin-left: 7%;
+  }
+  .logo {
+    width: 70%;
+    height: auto;
+    left: 15%;
+    top: 20px;
+  }
+  .top_image p {
+    display: none;
+  }
+  .phone_p {
+    display: block;
+    width: 90%;
+    margin-left: 5%;
+    font-size: 1.5rem;
+    color: #242626;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .buttons,
+  .buttons a {
+    display: none;
+  }
+  .setumei,
+  .chuui,
+  .artists,
+  .drinks {
+    width: 100%;
+    margin-left: 0%;
+  }
+  .setumei span {
+    font-size: 2.5rem;
+    white-space: nowrap;
+  }
+  h3 {
+    margin-left: 5%;
+  }
+  .item {
+    width: 90%;
+    height: 180px;
+  }
+  .item img {
+    width: 18vw;
+    height: 18vw;
+    top: 10%;
+  }
+  .name {
+    font-size: 1.6rem;
+    left: 40%;
+  }
+  .date {
+    top: 50%;
+    left: 5%;
+  }
+
+  .item2 {
+    display: none;
+  }
+  .drinks {
+    width: 80%;
+    margin-left: 10%;
+    display: block;
+  }
+}
