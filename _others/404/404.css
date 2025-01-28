@@ -1,0 +1,42 @@
+@charset "utf-8"; /* 文字化けしないために書く */
+
+.parent_div {
+    display: flex;
+}
+
+.text {
+  width: 50%;
+}
+.box {
+    margin-left: 5%;
+    width: 90%;
+    height: 20vw;
+    margin-top: 20%;
+    border: 3px solid #5cb200;
+    border-radius: 20px;
+}
+.box h3 {
+  text-align: center;
+  font-size: 3.5rem;
+  font-weight: 300;
+}
+.box span {
+  color: #5cb200;
+}
+.box p {
+    text-align: center;
+    font-size: 1.6rem;
+}
+
+.link_text {
+    margin-top: 10%;
+}
+
+.image {
+    width: 50%;
+}
+.image img {
+    margin-left: 10%;
+    width: 80%;
+    height: auto;
+}
