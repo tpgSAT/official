@@ -1,0 +1,38 @@
+@charset "utf-8";
+/* common.css */
+.titles {
+  display: flex;
+  height: 20vw;
+}
+.title {
+  position: relative;
+  height: 70%;
+  top: 40%;
+}
+.images_top {
+  height: auto;
+  /* width: 50%; */
+}
+.images_top img {
+  height: 100%;
+  margin-left: 2%;
+  object-fit: contain; 
+}
+/* .images {
+    margin-top: 2%;
+}
+.images img {
+    display: flex;
+    width: 28vw;
+    height: auto;
+    padding-right: 2%;
+    padding-top: 3%;
+    align-self: flex-start;
+} */
+/* .t {
+    margin-bottom: 5%;
+}
+.b {
+    margin-top: 5%;
+    height: 25vw;
+} */

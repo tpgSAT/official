@@ -1,0 +1,11 @@
+.titles {
+    height: 30vw;
+}
+.images_top img {
+    height: 100%;
+    width: auto;
+    margin-right: 5vw;
+}
+.title {
+    bottom: 5vw;
+}
