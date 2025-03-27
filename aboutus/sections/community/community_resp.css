@@ -81,6 +81,29 @@
   .about li {
     font-size: 0.9rem;
   }
+  .container-left {
+    display: none;
+  }
+  .container-right {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .pic4 {
+    width: 100%;
+    height: auto;
+  }
+  .sp {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center; /* はみ出しを防ぐ */
+  }
+
+  .pic7 {
+    width: 100%;
+    height: auto;
+  }
 }
 @media screen and (max-width: 360px) {
   .introduction img {
@@ -89,5 +112,21 @@
     top: 50%;
     left: 0;
     transform: translateY(-50%);
+  }
+  .container-left {
+    display: none;
+  }
+  .container-right {
+    display: none;
+  }
+  .sp {
+    width: 100%;
+    display: flex;
+    align-items: center; /* はみ出しを防ぐ */
+  }
+  .pic7 {
+    width: 100px;
+    display: block;
+    height: auto;
   }
 }
