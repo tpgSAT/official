@@ -27,19 +27,19 @@
   background-size: cover;
 }
 .news1 {
-  background-image: url(./whatsnew/20250305_hackathon/_img/poster.webp);
+  background-image: url(./whatsnew/img/wakabasai2025_logo.webp);
 }
 .news2 {
-  background-image: url(./whatsnew/20250114_esiritori/_img/poster.png);
+  background-image: url(./whatsnew/20250305_hackathon/_img/poster.webp);
 }
 .news3 {
-  background-image: url(./whatsnew/20250107_ozoni/_img/poster.png);
+  background-image: url(./whatsnew/20250114_esiritori/_img/poster.png);
 }
 .news4 {
-  background-image: url(./whatsnew/20241227_takisetsu/_img/poster.png);
+  background-image: url(./whatsnew/20250107_ozoni/_img/poster.png);
 }
 .news5 {
-  background-image: url(./whatsnew/20241209_halloween/_img/poster_whatsnew.jpeg);
+  background-image: url(./whatsnew/20241227_takisetsu/_img/poster.png);
 }
 
 .txt {
