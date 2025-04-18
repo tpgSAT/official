@@ -26,15 +26,6 @@
   cursor: pointer;
   padding-top: 1.2rem;
 }
-.image {
-  width: 80%;
-  height: 100%;
-  margin-left: 10%;
-  margin-bottom: 4vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .title {
   position: absolute;
   width: 50%;
