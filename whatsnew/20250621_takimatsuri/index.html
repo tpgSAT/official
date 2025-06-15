@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles_resp.css" />
+    <link rel="stylesheet" href="../../_commons/common_old.css" />
+    <link rel="stylesheet" href="../../_commons/common_resp_old.css" />
+    <link rel="stylesheet" href="../../_header/header.css" />
+    <link rel="stylesheet" href="../../_footer/footer.css" />
+    <script src="../../_commons/jquery-3.6.0.min.js"></script>
+    <!--JQuery-->
+    <script
+      type="text/javascript"
+      src="../../_commons/header_footer.js"
+      defer
+    ></script>
+    <!--JSファイルの読み込み-->
+
+
+    <title>滝祭 | Taki Plaza Gardener</title>
+  </head>
+
+  <body>
+    <header></header>
+    <div class="main">
+        <div class="hero" id="hero">
+            <canvas id="shooting-stars" width="" height=""></canvas>
+            <img src="_img/takimatsuri_logo.svg" alt="滝祭" class="heroText">
+        </div>
+        <div class="projects"></div>
+    </div>
+    <footer></footer>
+
+    <!--流れ星のためのJSの読み込み-->
+    <script>
+    const canvas = document.getElementById("shooting-stars");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    class Star {
+      constructor() {
+        this.reset();
+      }
+
+      reset() {
+        console.log("reset");
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height * 0.5;
+        this.len = Math.random() * 120 + 100;
+        this.speed = Math.random() * 10 + 4;
+        this.angle = 130*(Math.PI / 180); // 45度
+        this.alpha = 0;         // フェードイン開始は透明から
+        this.fadingIn = true;   // フェードイン中フラグ
+
+        // 次の登場タイム（絶対時間）
+        this.nextStart = performance.now() + Math.random() * 3000; // 0〜3秒のランダム遅延
+      }
+
+      update() {
+        const now = performance.now();
+
+        // 次の登場タイムになるまで待機
+        if (now < this.nextStart) {
+          this.alpha = 0;
+          return;
+        }
+
+        if (!this.fadingIn) {
+          this.fadingIn = true; // 遅延終了したらフェードイン開始
+        }
+
+        this.x += Math.cos(this.angle) * this.speed;
+        this.y += Math.sin(this.angle) * this.speed;
+        if (this.fadingIn) {
+          this.alpha += 0.02;    // フェードイン速度（調整可）
+          if (this.alpha >= 1) {
+            this.alpha = 1;
+            this.fadingIn = false;  // フェードイン完了
+          }
+        } else {
+          this.alpha -= 0.01;   // フェードアウト
+          if (this.alpha <= 0) {
+            this.reset(); // フェードアウト後リセット
+          }
+        }
+      }
+
+      draw() {
+        if (this.alpha <= 0) return; // 透明なら描画しない
+
+        ctx.save();
+        ctx.globalAlpha = this.alpha;
+        ctx.strokeStyle = "#F2DAA5";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(
+          this.x - Math.cos(this.angle) * this.len,
+          this.y - Math.sin(this.angle) * this.len
+        );
+        ctx.stroke();
+        ctx.restore();
+      }
+    }
+
+    const stars = Array.from({ length: 6 }, () => new Star());
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      stars.forEach((star) => {
+        star.update();
+        star.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      stars.forEach((star) => star.reset());
+    });
+  </script>
+  </body>
+</html>
