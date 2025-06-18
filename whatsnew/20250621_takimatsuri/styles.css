@@ -18,6 +18,15 @@ a {
     background-size: cover;
 }
 
+canvas#shooting-stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* クリックなどの妨げにならないように */
+}
+
 .hero{
     width: 100%;
     height: 100vh;
@@ -40,23 +49,40 @@ a {
     left: 10vw;
 }
 
+.about {
+    width: 80%;
+    margin: 0 10% 50px;
+}
+
+.about p {
+    color :#F2DAA5;
+    font-family: "Noto Serif JP", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 1.8;
+    letter-spacing: 1.5px;
+    padding: 0 10px;
+    margin: 10px 0 30px;
+}
+
+/* commonsのcssをかき消す */
+.about a {
+    text-decoration: underline;
+    display: inline-block;
+    color: #F2DAA5;
+    font-size: 18px;
+    transition: 0.5s;
+}
+
 .projects {
     width: 80%;
-    height: 100vh;
     margin: 0 10%;
 }
 
 .heading {
     height: 70px;
-}
-
-canvas#shooting-stars {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none; /* クリックなどの妨げにならないように */
 }
 
 .projects_container {
@@ -99,4 +125,16 @@ canvas#shooting-stars {
   font-size: 14px;
   line-height: 2;
   letter-spacing: 1px;
+}
+
+.form{
+  width: 80%;
+  text-align: center;
+  padding: 100px 10% 100px;
+}
+
+.form_button img{
+  width: 400px;
+  text-align: center;
+  max-width: 100%;
 }
