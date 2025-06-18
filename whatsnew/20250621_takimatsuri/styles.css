@@ -38,51 +38,29 @@ canvas#shooting-stars {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 40vh;
     text-align: center;
 }
 
 .date {
-    width: 250px;
     position: absolute;
-    bottom: 70px;
-    left: 10vw;
 }
 
-.about {
-    width: 80%;
-    margin: 0 10% 50px;
-}
 
-.about p {
+#about p {
     color :#F2DAA5;
     font-family: "Noto Serif JP", serif;
     font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
-    font-size: 18px;
-    line-height: 1.8;
-    letter-spacing: 1.5px;
-    padding: 0 10px;
-    margin: 10px 0 30px;
 }
 
 /* commonsのcssをかき消す */
-.about a {
+#about a {
     text-decoration: underline;
     display: inline-block;
     color: #F2DAA5;
     font-size: 18px;
     transition: 0.5s;
-}
-
-.projects {
-    width: 80%;
-    margin: 0 10%;
-}
-
-.heading {
-    height: 70px;
 }
 
 .projects_container {
@@ -91,11 +69,6 @@ canvas#shooting-stars {
     flex-wrap: wrap;
     justify-content: space-around;
     gap: 20px;
-}
-
-.project {
-    width: 25vw;
-    min-width: 200px;
 }
 
 .project h1 {
@@ -127,10 +100,9 @@ canvas#shooting-stars {
   letter-spacing: 1px;
 }
 
-.form{
-  width: 80%;
+#form{
   text-align: center;
-  padding: 100px 10% 100px;
+  padding: 100px 0 100px;
 }
 
 .form_button img{
