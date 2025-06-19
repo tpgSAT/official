@@ -33,7 +33,7 @@
         min-width: 200px;
     }
 
-   #form{
+    #form{
         text-align: center;
         padding: 100px 0 100px;
         margin: 0 10%;
@@ -61,15 +61,28 @@
     }
 
     #about p {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.8;
     letter-spacing: 1.5px;
     padding: 0 10px;
     margin: 10px 0 30px;
     }
 
+    /* commonsのcssをかき消す */
+    #about a {
+        font-size: 14px;
+    }
+
     .project {
         width: 90%;
+    }
+
+    .project h1 {
+        font-size: 18px;
+    }
+
+    .project p {
+        font-size: 14px;
     }
 
     #form{
