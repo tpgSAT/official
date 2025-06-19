@@ -59,7 +59,6 @@ canvas#shooting-stars {
     text-decoration: underline;
     display: inline-block;
     color: #F2DAA5;
-    font-size: 18px;
     transition: 0.5s;
 }
 
@@ -98,11 +97,6 @@ canvas#shooting-stars {
   font-size: 14px;
   line-height: 2;
   letter-spacing: 1px;
-}
-
-#form{
-  text-align: center;
-  padding: 100px 0 100px;
 }
 
 .form_button img{
