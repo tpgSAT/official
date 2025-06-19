@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+
+    <!-- Google Font読み込み(滝祭用)-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Noto+Serif+JP:wght@300&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles_resp.css" />
+    <link rel="stylesheet" href="../../_commons/common_old.css" />
+    <link rel="stylesheet" href="../../_commons/common_resp_old.css" />
+    <link rel="stylesheet" href="../../_header/header.css" />
+    <link rel="stylesheet" href="../../_footer/footer.css" />
+    <script src="../../_commons/jquery-3.6.0.min.js"></script>
+    <!--JQuery-->
+    <script
+      type="text/javascript"
+      src="../../_commons/header_footer.js"
+      defer
+    ></script>
+    <!--JSファイルの読み込み-->
+
+
+    <title>滝祭 | Taki Plaza Gardener</title>
+  </head>
+
+  <body>
+    <header></header>
+    <div class="main">
+        <div class="hero" id="hero">
+            <canvas id="shooting-stars" width="" height=""></canvas>
+            <img src="_img/takimatsuri_logo.svg" alt="滝祭" class="heroText">
+            <img src="_img/date.svg" alt="7月7日" class="date">
+        </div>
+        <div id="about" class="content">
+          <img src="_img/heading_about.svg" alt="滝祭とは" class="heading">
+          <p>滝祭は、Taki Plazaで開かれる“学生による夏祭り”です。射的やスーパーボールすくいなど、懐かしくて楽しい企画が盛りだくさん！
+            <br>七夕の夜に、学年・国籍を超えて、誰でも気軽に参加できる“夏の思い出”を一緒に作りませんか？</p>
+          <p>入場料：100円（屋台で使えるチケット3枚付き）<br>事前に申し込みいただくと、さらにチケットを1枚プレゼント！
+            <br>屋台をたくさん楽しみたい方は、ぜひ<a href="https://forms.gle/v1fBLCt8Aq8kaUUj6" target="_blank">事前申し込みフォーム</a>からお申し込みください。</p>
+        </div>
+        <div id="projects" class="content">
+          <img src="_img/heading_projects.svg" alt="企画内容" class="heading">
+          <div class="projects_container">
+            <div class="project">
+              <h1>ビンゴ大会</h1>
+              <p>毎回白熱のビンゴ大会！豪華景品をかけて運試し。誰にでもチャンスがある、滝祭の目玉企画です！</p>
+            </div>
+            <div class="project">
+              <h1>射的</h1>
+              <p>的を狙って景品ゲット！童心に返って楽しめる、夏祭りの定番。</p>
+            </div>
+            <div class="project">
+              <h1>ボウリング</h1>
+              <p>簡単そうで意外とムズい!? 屋台スタイルのボウリングで、ストライクを目指して盛り上がろう！</p>
+            </div>
+            <div class="project">
+              <h1>コイン落とし</h1>
+              <p>コインを落として、水槽の中のコップに入れられるか!? 地味に熱中する、コツと運のゲームです。</p>
+            </div>
+            <div class="project">
+              <h1>スーパーボールすくい</h1>
+              <p>カラフルなスーパーボールがたっぷり！ポイが破れるまでに、どれだけすくえるかな？</p>
+            </div>
+            <div class="project">
+              <h1>かき氷</h1>
+              <p>夏といえばコレ！いちご・めろん・カルピスなど、定番シロップで冷たいひとときをどうぞ。</p>
+            </div>
+            <div class="project">
+              <h1>ベビーカステラ</h1>
+              <p>甘くてふわふわ！焼きたてのベビーカステラは、おやつにもぴったりの人気屋台です。</p>
+            </div>
+            <div class="project">
+              <h1>ドリンク販売</h1>
+              <p>暑い夜には冷たい飲み物が欠かせない！ジュースやお茶で、涼を取りながらお祭りを楽しもう。</p>
+            </div>
+            <div class="project">
+              <h1>キャンドル作り</h1>
+              <p>自分だけのキャンドルを作ってみよう！色や形を自由に選んで、思い出に残る作品をお持ち帰り。</p>
+            </div>
+          </div>
+        </div>
+        <div id="form" class="content">
+          <a href="https://forms.gle/v1fBLCt8Aq8kaUUj6" target="_blank">
+            <div class="form_button"><img src="_img/form_button.svg" alt="事前申し込みフォーム"></div>
+          </a>
+        </div>
+    </div>
+    <footer></footer>
+
+    <!--流れ星のためのJSの読み込み-->
+    <script>
+    const canvas = document.getElementById("shooting-stars");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    class Star {
+      constructor() {
+        this.reset();
+      }
+
+      reset() {
+        console.log("reset");
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height * 0.5;
+        this.len = Math.random() * 120 + 100;
+        this.speed = Math.random() * 10 + 4;
+        this.angle = 130*(Math.PI / 180); // 45度
+        this.alpha = 0;         // フェードイン開始は透明から
+        this.fadingIn = true;   // フェードイン中フラグ
+
+        // 次の登場タイム（絶対時間）
+        this.nextStart = performance.now() + Math.random() * 3000; // 0〜3秒のランダム遅延
+      }
+
+      update() {
+        const now = performance.now();
+
+        // 次の登場タイムになるまで待機
+        if (now < this.nextStart) {
+          this.alpha = 0;
+          return;
+        }
+
+        if (!this.fadingIn) {
+          this.fadingIn = true; // 遅延終了したらフェードイン開始
+        }
+
+        this.x += Math.cos(this.angle) * this.speed;
+        this.y += Math.sin(this.angle) * this.speed;
+        if (this.fadingIn) {
+          this.alpha += 0.02;    // フェードイン速度（調整可）
+          if (this.alpha >= 1) {
+            this.alpha = 1;
+            this.fadingIn = false;  // フェードイン完了
+          }
+        } else {
+          this.alpha -= 0.01;   // フェードアウト
+          if (this.alpha <= 0) {
+            this.reset(); // フェードアウト後リセット
+          }
+        }
+      }
+
+      draw() {
+        if (this.alpha <= 0) return; // 透明なら描画しない
+
+        ctx.save();
+        ctx.globalAlpha = this.alpha;
+        ctx.strokeStyle = "#F2DAA5";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(
+          this.x - Math.cos(this.angle) * this.len,
+          this.y - Math.sin(this.angle) * this.len
+        );
+        ctx.stroke();
+        ctx.restore();
+      }
+    }
+
+    const stars = Array.from({ length: 6 }, () => new Star());
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      stars.forEach((star) => {
+        star.update();
+        star.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      stars.forEach((star) => star.reset());
+    });
+  </script>
+  </body>
+</html>
