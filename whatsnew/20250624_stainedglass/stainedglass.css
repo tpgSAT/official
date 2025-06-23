@@ -1,13 +1,31 @@
 html {
     scroll-behavior: smooth;/* ページ内のボタンを押したときにスクロール風の動きをする */
     font-size: 1vw;/* rem単位の基準値 */
+    padding: 0;
 }
 body {
     /* 多分リンク違ったから入れ替えたけどぼかしとかするのかな？ */
-    background-image: url("./_img/background-img.png");
+    background-image: url("./_img/background_image_expanded_wider.png");
+    object-fit: fill;
+    z-index: -150;
+    fill: blur(3px);
+    
+}
+
+.background{
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+    z-index: -100;
+    
 }
 body p {
     color: #fff;
+    text-shadow: #fff 1px 0 7px;
+    font-weight: bold;
 }
 body a {
     color: #fff;
@@ -19,6 +37,8 @@ body a {
     background-color: #181818; 
     margin-top: 92px;
     justify-content: space-between;
+    font-weight: bold;
+    letter-spacing: 0.07em;
 }
 
 .logo {
@@ -54,6 +74,7 @@ header a {
     display: flex;
     align-items: center;
     flex-direction: column;
+    opacity: 1;
 }
 
 .suki {
@@ -88,6 +109,8 @@ header a {
     margin-top: 100px;
     text-align: center;
     letter-spacing: 0.12em;
+    font-weight: bolder;
+    text-shadow: #fff 1px 0 10px;
 }
 .date {
     font-size: 1rem;
@@ -107,6 +130,8 @@ header a {
     margin-top: 200px;
     text-align: center;
     letter-spacing: 0.12em;
+    font-weight: bolder;
+    text-shadow: #fff 1px 0 10px;
 }
 .locationText {
     font-size: 1rem;
@@ -120,11 +145,13 @@ header a {
     margin-top: 220px;
     text-align: center;
     letter-spacing: 0.12em;
+    font-weight: bolder;
+    text-shadow: #fff 1px 0 10px;
 }
 .HowToParticipateText {
     font-size: 1rem;
     margin-top: 100px;
-    padding-bottom: 200px;
+    padding-bottom: 150px;
     text-align: center;
     letter-spacing: 0.12em;
 }
