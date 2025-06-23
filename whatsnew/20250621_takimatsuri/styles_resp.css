@@ -1,0 +1,92 @@
+@charset "utf-8"; /* 文字化けしないために書く */
+@media screen and (min-width: 670px) {
+    .heroText {
+        height: 40vh;
+    }
+
+    .date {
+        width: 250px;
+        bottom: 70px;
+        left: 10vw;
+    }
+
+    .heading {
+        height: 70px;
+    }
+
+   
+    .content {
+        width: 80%;
+        margin: 0 10% 50px;
+    }
+
+    #about p {
+        font-size: 18px;
+        line-height: 1.8;
+        letter-spacing: 1.5px;
+        padding: 0 10px;
+        margin: 10px 0 30px;
+    }
+
+    .project {
+        width: 25vw;
+        min-width: 200px;
+    }
+
+    #form{
+        text-align: center;
+        padding: 100px 0 100px;
+        margin: 0 10%;
+    }
+}
+
+@media screen and (max-width: 670px) {
+    .heroText {
+        height: 30vh;
+    }
+
+    .date {
+        width: 200px;
+        bottom: 50px;
+        left: 5vw;
+    }
+
+    .heading {
+        height: 60px;
+    }
+
+    .content {
+        width: 90%;
+        margin: 0 5% 50px;
+    }
+
+    #about p {
+    font-size: 14px;
+    line-height: 1.8;
+    letter-spacing: 1.5px;
+    padding: 0 10px;
+    margin: 10px 0 30px;
+    }
+
+    /* commonsのcssをかき消す */
+    #about a {
+        font-size: 14px;
+    }
+
+    .project {
+        width: 90%;
+    }
+
+    .project h1 {
+        font-size: 18px;
+    }
+
+    .project p {
+        font-size: 14px;
+    }
+
+    #form{
+        padding: 50px 0 100px;
+        margin: 0 5%;
+    }
+}
