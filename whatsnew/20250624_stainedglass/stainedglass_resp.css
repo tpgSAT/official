@@ -211,22 +211,19 @@ body a {
 }
 .original_header {
     width: 100%;
-    height: 80px;
+    height: 60px;
     display: flex;
     background-color: #181818; 
     margin-top: 62px;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     font-weight: bold;
     
     
 }
 
-.logo {
-    display: inline;
-    height: 70px;
-    width: auto;
-    margin-left: 12px;
-    margin-top: 7px;
+.original_header > .logo {
+    display: none;
 }
 .header_item_original {
     height: 84px;
