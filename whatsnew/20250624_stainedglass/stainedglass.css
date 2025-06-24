@@ -44,13 +44,12 @@ body a {
     letter-spacing: 0.07em;
 }
 
-.logo {
-    display: inline;
-    height: 70px;
-    width: auto;
-    margin-left: 12px;
-    margin-top: 7px;
+.language_selection { 
+    display: flex;
+    align-items: center;
+    margin: 0 20px;
 }
+
 .header_item_original {
     height: 84px;
     display: flex;
