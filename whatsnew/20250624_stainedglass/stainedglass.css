@@ -6,11 +6,13 @@ html {
 }
 body {
     /* 多分リンク違ったから入れ替えたけどぼかしとかするのかな？ */
-    background-image: url("./_img/background_image_expanded_wider.png");
+    background-image: url("./_img/background_image_expanded_wider.webp");
     object-fit: fill;
     z-index: -150;
     fill: blur(3px);
-    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .background{
