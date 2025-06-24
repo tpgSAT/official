@@ -25,12 +25,12 @@ body {
     z-index: -100;
     
 }
-body p {
+.content p {
     color: #fff;
     text-shadow: #fff 1px 0 7px;
     font-weight: bold;
 }
-body a {
+.content a {
     color: #fff;
 }
 .original_header {
@@ -60,16 +60,6 @@ body a {
     padding: 0 20px;
 }
 
-header a {
-    color: aquamarine; /*確認用・最後に消してね */
-    display: inline;
-    flex-grow: 1;
-    font-size: 1.2vw;
-    text-decoration: none;
-    margin-right: 5%;
-    text-align: center;
-    align-items: center;
-}
 
 .title {
     padding-top: 100px;
