@@ -46,13 +46,12 @@ body a {
     font-size: 0.02rem;
 }
 
-.logo {
-    display: inline;
-    height: 70px;
-    width: auto;
-    margin-left: 12px;
-    margin-top: 7px;
+.language_selection { 
+    display: flex;
+    align-items: center;
+    margin: 0 20px;
 }
+
 .header_item_original {
     height: 84px;
     display: flex;
@@ -217,16 +216,19 @@ body a {
     display: flex;
     background-color: #181818; 
     margin-top: 62px;
-    justify-content: center;
+    justify-content: space_between;
     align-items: center;
     font-weight: bold;
     
     
 }
 
-.original_header > .logo {
-    display: none;
+.language_selection { 
+    display: flex;
+    align-items: center;
+    margin: 0 20px;
 }
+
 .header_item_original {
     height: 84px;
     display: flex;
