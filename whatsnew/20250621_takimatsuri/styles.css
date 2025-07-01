@@ -104,3 +104,16 @@ canvas#shooting-stars {
   text-align: center;
   max-width: 100%;
 }
+
+.languageButton {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  padding: 0px 5px;
+  border-bottom: 1px solid #F2DAA5;
+}
+
+.languageButton p {
+  margin: 0;
+  color: #F2DAA5;
+}
