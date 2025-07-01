@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+
+    <!-- Google Font読み込み(滝祭用)-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Noto+Serif+JP:wght@300&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles_resp.css" />
+    <link rel="stylesheet" href="../../_commons/common_old.css" />
+    <link rel="stylesheet" href="../../_commons/common_resp_old.css" />
+    <link rel="stylesheet" href="../../_header/header.css" />
+    <link rel="stylesheet" href="../../_footer/footer.css" />
+    <script src="../../_commons/jquery-3.6.0.min.js"></script>
+    <!--JQuery-->
+    <script
+      type="text/javascript"
+      src="../../_commons/header_footer.js"
+      defer
+    ></script>
+    <!--JSファイルの読み込み-->
+
+
+    <title>滝祭 | Taki Plaza Gardener</title>
+  </head>
+
+  <body>
+    <header></header>
+    <div class="main">
+        <div class="hero" id="hero">
+            <canvas id="shooting-stars" width="" height=""></canvas>
+            <img src="_img/takimatsuri_logo.svg" alt="滝祭" class="heroText">
+            <img src="_img/date.svg" alt="7月7日" class="date">
+        </div>
+        <div id="about" class="content">
+          <img src="_img/heading_about.svg" alt="about takimatsuri" class="heading">
+          <p>Takimatsuri is a summer festival organized by students and held at Taki Plaza! Enjoy a variety of nostalgic and fun activities like shateki (target shooting) and super ball scooping!
+            <br>Why not make special summer memories together on the night of Tanabata, open to everyone regardless of grade or nationality?</p>
+          <p>Admission: 100 yen (includes 3 tickets you can use at the festival booths)<br>Sign up in advance and get 1 bonus ticket!
+            <br>If you want to enjoy even more festival booths, be sure to sign up in advance using the <a href="https://forms.gle/v1fBLCt8Aq8kaUUj6" target="_blank">registration form</a>!</p>
+        </div>
+        <div id="projects" class="content">
+          <img src="_img/heading_projects.svg" alt="企画内容" class="heading">
+          <div class="projects_container">
+            <div class="project">
+                <h1>Bingo Tournament</h1>
+                <p>Get ready for the always exciting bingo tournament! Try your luck for a chance to win awesome prizes—one of the main highlights of Takimatsuri!</p>
+            </div>
+            <div class="project">
+                <h1>Shateki (Target Shooting)</h1>
+                <p>A summer festival classic! Aim for the target and win prizes—fun that brings out your inner child.</p>
+            </div>
+            <div class="project">
+                <h1>Bowling</h1>
+                <p>Looks easy, but it’s trickier than you think! Join the fun at our festival-style bowling booth and aim for a strike!</p>
+            </div>
+            <div class="project">
+                <h1>Coin Drop</h1>
+                <p>Drop a coin and try to land it in a cup inside a water tank! A deceptively simple game of skill and luck that’s surprisingly addictive.</p>
+            </div>
+            <div class="project">
+                <h1>Super Ball Scooping</h1>
+                <p>Scoop up as many colorful bouncy balls as you can before your scooper breaks! A nostalgic challenge for all ages.</p>
+            </div>
+            <div class="project">
+                <h1>Shaved Ice</h1>
+                <p>The ultimate summer treat! Cool down with classic syrup flavors like strawberry, melon, and Calpis.</p>
+            </div>
+            <div class="project">
+                <h1>Mini Castella Cakes</h1>
+                <p>Sweet, fluffy, and freshly baked—these bite-sized castella cakes are a festival favorite and a perfect snack!</p>
+            </div>
+            <div class="project">
+                <h1>Drink Stand</h1>
+                <p>Cool drinks for a hot summer night! Refresh yourself with juice, tea, and more while you enjoy the festival atmosphere.</p>
+            </div>
+            <div class="project">
+                <h1>Candle Making</h1>
+                <p>Create your very own candle! Choose your favorite colors and shapes, and take home a handmade memory.</p>
+            </div>
+          </div>
+        </div>
+        <div id="form" class="content">
+          <a href="https://forms.gle/v1fBLCt8Aq8kaUUj6" target="_blank">
+            <div class="form_button"><img src="_img/form_button_en.svg" alt="Sign up in advance"></div>
+          </a>
+        </div>
+    </div>
+    <footer></footer>
+
+    <!--流れ星のためのJSの読み込み-->
+    <script>
+    const canvas = document.getElementById("shooting-stars");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    class Star {
+      constructor() {
+        this.reset();
+      }
+
+      reset() {
+        console.log("reset");
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height * 0.5;
+        this.len = Math.random() * 120 + 100;
+        this.speed = Math.random() * 10 + 4;
+        this.angle = 130*(Math.PI / 180); // 45度
+        this.alpha = 0;         // フェードイン開始は透明から
+        this.fadingIn = true;   // フェードイン中フラグ
+
+        // 次の登場タイム（絶対時間）
+        this.nextStart = performance.now() + Math.random() * 3000; // 0〜3秒のランダム遅延
+      }
+
+      update() {
+        const now = performance.now();
+
+        // 次の登場タイムになるまで待機
+        if (now < this.nextStart) {
+          this.alpha = 0;
+          return;
+        }
+
+        if (!this.fadingIn) {
+          this.fadingIn = true; // 遅延終了したらフェードイン開始
+        }
+
+        this.x += Math.cos(this.angle) * this.speed;
+        this.y += Math.sin(this.angle) * this.speed;
+        if (this.fadingIn) {
+          this.alpha += 0.02;    // フェードイン速度（調整可）
+          if (this.alpha >= 1) {
+            this.alpha = 1;
+            this.fadingIn = false;  // フェードイン完了
+          }
+        } else {
+          this.alpha -= 0.01;   // フェードアウト
+          if (this.alpha <= 0) {
+            this.reset(); // フェードアウト後リセット
+          }
+        }
+      }
+
+      draw() {
+        if (this.alpha <= 0) return; // 透明なら描画しない
+
+        ctx.save();
+        ctx.globalAlpha = this.alpha;
+        ctx.strokeStyle = "#F2DAA5";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(
+          this.x - Math.cos(this.angle) * this.len,
+          this.y - Math.sin(this.angle) * this.len
+        );
+        ctx.stroke();
+        ctx.restore();
+      }
+    }
+
+    const stars = Array.from({ length: 6 }, () => new Star());
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      stars.forEach((star) => {
+        star.update();
+        star.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      stars.forEach((star) => star.reset());
+    });
+  </script>
+  </body>
+</html>
