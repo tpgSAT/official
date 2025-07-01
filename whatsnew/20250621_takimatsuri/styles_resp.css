@@ -28,6 +28,11 @@
         margin: 10px 0 30px;
     }
 
+    /* commonsのcssをかき消す */
+    #about a {
+        font-size: 18px;
+    }
+
     .project {
         width: 25vw;
         min-width: 200px;
