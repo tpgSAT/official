@@ -3,7 +3,7 @@ name: Deploy Astro
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["astro"]
+    branches: [ astro ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
