@@ -1,11 +1,120 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Astroの画像最適化を利用するため
+import { Image } from 'astro:assets';
+import logo from '../assets/logo_with_text.png';
 ---
 
 <Layout>
-	<Welcome />
+	<header>
+		<Image src={logo} alt="TPG Logo" width="120" class="logo" />
+		<button class="hamburger" id="js-hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+		
+		<div class="header_nav" id="js-nav">
+		</div>
+	</header>
 </Layout>
+
+<style>
+	header {
+		position: relative;
+		padding: 0 10px;
+		height: 80px;
+		display: flex;
+		align-items: center;
+		z-index: 999;
+	}
+	.logo {
+
+	}
+
+	.header_nav {
+		position: absolute;
+		right: 5px;
+		top: 5px;
+		background-color: #fff;
+		transition: ease .4s;
+		width: 60px;
+		height: 60px;
+		border-radius: 20px;
+		border: 1px solid #000;
+		opacity: 0;
+		z-index: 1000;
+	}
+
+	.open {
+		width: 200px;
+		height: 200px;
+		opacity: 1;
+	}
+
+	.hamburger {
+		position: absolute;
+		right: 0;
+		top: 0;
+		background-color: transparent;
+		border-color: transparent;
+		z-index: 9999;
+		width: 50px;
+  		height: 100%;
+		padding: 16px 20px 16px 0px;
+	}
+
+	.hamburger span {
+		width: 100%;
+		height: 1px;
+		background-color: #000;
+		position: relative;
+		transition: ease .4s;
+		display: block;
+	}
+
+	.hamburger span:nth-child(1) {
+		top: 0;
+	}
+
+	.hamburger span:nth-child(2) {
+		margin: 8px 0;
+	}
+
+	.hamburger span:nth-child(3) {
+		top: 0;
+	}
+
+
+	/* ハンバーガーメニュークリック後のスタイル 
+	.header__nav.active {
+		transform: translateX(0);
+	}*/
+
+	.hamburger.active span:nth-child(1) {
+		top: 5px;
+		transform: rotate(45deg);
+	}
+
+	.hamburger.active span:nth-child(2) {
+		opacity: 0;
+	}
+
+	.hamburger.active span:nth-child(3) {
+		top: -13px;
+		transform: rotate(-45deg);
+	} 
+</style>
+
+<script>
+	const ham = document.querySelector('#js-hamburger');
+	const nav = document.querySelector('#js-nav');
+
+	ham.addEventListener('click', function () {
+
+		ham.classList.toggle('active');
+		nav.classList.toggle('open');
+
+	});
+</script>
