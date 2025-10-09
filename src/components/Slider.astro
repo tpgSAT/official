@@ -1,17 +1,64 @@
 ---
+import { Image } from 'astro:assets';
+import takimatsuri from '../assets/topPage/event_takimatsuri.png';
 // Splideのスタイルをインポート
 import '@splidejs/splide/css';
 ---
 
 <div class="splide" role="group" aria-label="直近のイベント">
   <div class="splide__track">
-		<ul class="splide__list">
-			<li class="splide__slide">Slide 01</li>
-			<li class="splide__slide">Slide 02</li>
-			<li class="splide__slide">Slide 03</li>
-		</ul>
+		<div class="splide__list">
+			<div class="splide__slide">
+                <Image src={takimatsuri} class="event_image" alt="Takimatsuri" />
+                <p class="event_tag">Taki Plaza B2F</p>
+                <h3 class="event_title">Taki Plaza B2Fで滝祭を開催します！</h3>
+                <p class="event_date">2025.9.30</p>
+            </div>
+			<div class="splide__slide">Slide 02</div>
+			<div class="splide__slide">Slide 03</div>
+		</div>
   </div>
 </div>
+
+<style>
+    .splide {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .event_image {
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+    }
+
+    .event_tag {
+        font-family: 'Noto Sans JP Variable', sans-serif;
+        font-weight: 400;
+        font-size: 11px;
+        padding: 4px 6px;
+        color: #FFF;
+        background-color: #000;
+        border-radius: 6px;
+        display: inline-block;
+        margin: 10px 8px 0;
+    }
+
+    .event_title {
+        font-family: 'Noto Sans JP Variable', sans-serif;
+        font-weight: 500;
+        font-size: 18px;
+        margin: 8px 8px 0;
+    }
+
+    .event_date {
+        font-family: 'Noto Sans JP Variable', sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        color: #000;
+        margin: 4px 8px 0;
+    }
+</style>
 
 <script>
     // SplideのJavaScriptをインポートしてスライダーを初期化
