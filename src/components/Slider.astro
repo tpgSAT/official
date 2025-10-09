@@ -14,15 +14,26 @@ import '@splidejs/splide/css';
                 <h3 class="event_title">Taki Plaza B2Fで滝祭を開催します！</h3>
                 <p class="event_date">2025.9.30</p>
             </div>
-			<div class="splide__slide">Slide 02</div>
-			<div class="splide__slide">Slide 03</div>
+			<div class="splide__slide">
+                <Image src={takimatsuri} class="event_image" alt="Takimatsuri" />
+                <p class="event_tag">Taki Plaza B2F</p>
+                <h3 class="event_title">Taki Plaza B2Fで滝祭を開催します！</h3>
+                <p class="event_date">2025.9.30</p>
+            </div>
+            <div class="splide__slide">
+                <Image src={takimatsuri} class="event_image" alt="Takimatsuri" />
+                <p class="event_tag">Taki Plaza B2F</p>
+                <h3 class="event_title">Taki Plaza B2Fで滝祭を開催します！</h3>
+                <p class="event_date">2025.9.30</p>
+            </div>
 		</div>
   </div>
 </div>
 
 <style>
     .splide {
-        width: 100%;
+        width: 95vw;
+        margin: 0 0 0 5vw;
         margin-top: 20px;
     }
 
@@ -63,5 +74,12 @@ import '@splidejs/splide/css';
 <script>
     // SplideのJavaScriptをインポートしてスライダーを初期化
     import Splide from '@splidejs/splide';
-    new Splide( '.splide' ).mount();
+    const splide = new Splide( '.splide', {
+        type   : 'slide',
+        gap    : '20px',
+        arrows : false,
+        pagination: false,
+        fixedWidth: '85vw',
+    } );
+    splide.mount();
 </script>

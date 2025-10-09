@@ -11,7 +11,7 @@ import headingAbout from '../assets/topPage/heading_about.svg';
 
 <Layout>
 	<div id="events" class="section">
-		<Image src={headingEvents} alt="Events" />
+		<Image src={headingEvents} class="heading_svg" alt="Events" />
 		<Slider />
 	</div>
 </Layout>
@@ -19,5 +19,13 @@ import headingAbout from '../assets/topPage/heading_about.svg';
 <style>
 	.section {
 		padding: 20px 5vw;
+	}
+
+	#events {
+		padding: 20px 0 !important;
+	}
+
+	#events .heading_svg{
+		padding: 0 5vw;
 	}
 </style>
