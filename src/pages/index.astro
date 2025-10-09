@@ -15,8 +15,14 @@ import logo from '../assets/logo_with_text.png';
           <span></span>
         </button>
 		
-		<div class="header_nav" id="js-nav">
-		</div>
+		<nav class="header_nav" id="js-nav">
+			<ul>
+				<li><a href="#">直近のイベント</a></li>
+				<li><a href="#">お知らせ</a></li>
+				<li><a href="#">新着投稿</a></li>
+				<li><a href="#">お問い合わせ</a></li>
+			</ul>
+		</nav>
 	</header>
 </Layout>
 
@@ -29,12 +35,14 @@ import logo from '../assets/logo_with_text.png';
 		align-items: center;
 		z-index: 999;
 	}
+
 	.logo {
 
 	}
 
 	.header_nav {
 		position: absolute;
+		overflow: hidden;
 		right: 5px;
 		top: 5px;
 		background-color: #fff;
@@ -45,6 +53,14 @@ import logo from '../assets/logo_with_text.png';
 		border: 1px solid #000;
 		opacity: 0;
 		z-index: 1000;
+
+		font-family: "Midashi Go MB31";
+		font-size: 18px;
+		letter-spacing: 1.8px;
+	}
+
+	.header_nav ul, .header_nav li {
+  		list-style: none;
 	}
 
 	.open {
@@ -85,12 +101,6 @@ import logo from '../assets/logo_with_text.png';
 	.hamburger span:nth-child(3) {
 		top: 0;
 	}
-
-
-	/* ハンバーガーメニュークリック後のスタイル 
-	.header__nav.active {
-		transform: translateX(0);
-	}*/
 
 	.hamburger.active span:nth-child(1) {
 		top: 5px;
