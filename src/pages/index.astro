@@ -1,9 +1,23 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Slider from '../components/Slider.astro';
 
+import { Image } from 'astro:assets';
+import headingEvents from '../assets/topPage/heading_events.svg';
+import headingNews from '../assets/topPage/heading_news.svg';
+import headingBlog from '../assets/topPage/heading_blog.svg';
+import headingAbout from '../assets/topPage/heading_about.svg';
 ---
 
 <Layout>
-	
+	<div id="events" class="section">
+		<Image src={headingEvents} alt="Events" />
+		<Slider />
+	</div>
 </Layout>
 
+<style>
+	.section {
+		padding: 20px 5vw;
+	}
+</style>

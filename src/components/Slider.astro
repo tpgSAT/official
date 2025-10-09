@@ -1,0 +1,20 @@
+---
+// Splideのスタイルをインポート
+import '@splidejs/splide/css';
+---
+
+<div class="splide" role="group" aria-label="直近のイベント">
+  <div class="splide__track">
+		<ul class="splide__list">
+			<li class="splide__slide">Slide 01</li>
+			<li class="splide__slide">Slide 02</li>
+			<li class="splide__slide">Slide 03</li>
+		</ul>
+  </div>
+</div>
+
+<script>
+    // SplideのJavaScriptをインポートしてスライダーを初期化
+    import Splide from '@splidejs/splide';
+    new Splide( '.splide' ).mount();
+</script>
