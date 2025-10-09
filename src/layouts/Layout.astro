@@ -1,5 +1,7 @@
 ---
 import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+// Google FontsのNoto Sans JPを利用
 import '@fontsource-variable/noto-sans-jp';
 ---
 <!doctype html>
@@ -17,15 +19,18 @@ import '@fontsource-variable/noto-sans-jp';
 	<body>
 		<Header />
 		<slot />
+		<Footer />
 	</body>
 </html>
 
-<style>
+<style is:global>
 	html,
 	body {
 		margin: 0;
-		width: 100%;
+		width: 100vw;
 		height: 100%;
+		overflow-x: hidden;
+		position: relative;
 	}
 </style>
 

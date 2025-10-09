@@ -1,0 +1,45 @@
+---
+// Astroの画像最適化を利用するため
+import { Image } from 'astro:assets';
+import logo from '../assets/header/logo_with_text.png';
+import headerNavEvents from '../assets/header/header_nav_events.svg';
+import headerNavNews from '../assets/header/header_nav_news.svg';
+import headerNavBlog from '../assets/header/header_nav_blog.svg';
+import headerNavContact from '../assets/header/header_nav_contact.svg';
+import iconX from '../assets/footer/icon_x.svg';
+import iconInstagram from '../assets/footer/icon_instagram.svg';
+---
+
+<footer>
+    <div id="footer-top-wrapper">
+        <Image src={logo} alt="TPG Logo" width="120" class="logo" />
+        <div id="social-media">
+            <Image src={iconX} alt="X" />
+            <Image src={iconInstagram} alt="Instagram"/>
+        </div>
+    </div>
+    
+    <div class="footer-nav">
+
+    </div>
+</footer>
+
+<style>
+    footer {
+        width: 100%;
+        background-color: #1F1F1F;
+        padding: 20px 0;
+    }
+
+    #footer-top-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin: 20px 8vw;
+    }
+
+    #social-media {
+        display: flex;
+        gap: 20px;
+    }
+</style>

@@ -7,6 +7,9 @@ import headingEvents from '../assets/topPage/heading_events.svg';
 import headingNews from '../assets/topPage/heading_news.svg';
 import headingBlog from '../assets/topPage/heading_blog.svg';
 import headingAbout from '../assets/topPage/heading_about.svg';
+
+import Blobs1 from '../assets/topPage/blobs_1.png';
+import Blobs2 from '../assets/topPage/blobs_2.png';
 ---
 
 <Layout>
@@ -14,6 +17,12 @@ import headingAbout from '../assets/topPage/heading_about.svg';
 		<Image src={headingEvents} class="heading_svg" alt="Events" />
 		<Slider />
 	</div>
+	<div id="news" class="section">
+		<Image src={headingNews} class="heading_svg" alt="News" />
+		<Slider />
+	</div>
+		<Image src={Blobs1} id="blobs_1" alt="Blobs1" />
+		<Image src={Blobs2} id="blobs_2" alt="Blobs2" />
 </Layout>
 
 <style>
@@ -27,5 +36,23 @@ import headingAbout from '../assets/topPage/heading_about.svg';
 
 	#events .heading_svg{
 		padding: 0 5vw;
+	}
+
+	#blobs_1 {
+		position: absolute;
+		top: 150px;
+		right: -120px;
+		width: 65vw;
+		height: auto;
+		z-index: -1;
+	}
+
+	#blobs_2 {
+		position: absolute;
+		top: 450px;
+		left: -140px;
+		width: 65vw;
+		height: auto;
+		z-index: -1;
 	}
 </style>
