@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Slider from '../components/Slider.astro';
+import RoundedButton from '../components/RoundedButton.astro';
 
 import { Image } from 'astro:assets';
 import headingEvents from '../assets/topPage/heading_events.svg';
@@ -14,6 +15,8 @@ import Blobs1 from '../assets/topPage/blobs_1.png';
 import Blobs2 from '../assets/topPage/blobs_2.png';
 import Blobs3 from '../assets/topPage/blobs_3.png';
 import Blobs4 from '../assets/topPage/blobs_4.png';
+import Blobs5 from '../assets/topPage/blobs_5.png';
+import Blobs6 from '../assets/topPage/blobs_6.png';
 ---
 
 <Layout>
@@ -71,12 +74,29 @@ import Blobs4 from '../assets/topPage/blobs_4.png';
 				<p class="blog-date">2025.4.11</p>
 			</div>
 		</a>
+		<a href="#">
+			<div class="blog-content">
+				<Image src={blogThumbnail} class="blog-thumbnail" alt="Blog Thumbnail" />
+				<div class="blog-tags"><p class="blog-tag">新歓ブログリレー</p></div>
+				<h3 class="blog-title">TPG班紹介！！～システム班～</h3>
+				<p class="blog-date">2025.4.11</p>
+			</div>
+		</a>
+	</div>
+	<div id="about" class="section">
+		<Image src={headingAbout} class="heading_svg" alt="About" />
+		<p id="about-description">
+			Taki Plaza Gardener(TPG)は東京科学大学に存在するHisao & Hiroko Taki Plazaでの、学⽣による活発な利⽤を促すことを⽬的として活動している学生団体です。
+		</p>
+		<RoundedButton label="TPGについて" href="#" />
 	</div>
 	<!-- 背景装飾用のBlobs -->
 		<Image src={Blobs1} id="blobs_1" alt="Blobs1" />
 		<Image src={Blobs2} id="blobs_2" alt="Blobs2" />
 		<Image src={Blobs3} id="blobs_3" alt="Blobs3" />
 		<Image src={Blobs4} id="blobs_4" alt="Blobs4" />
+		<Image src={Blobs5} id="blobs_5" alt="Blobs5" />
+		<Image src={Blobs6} id="blobs_6" alt="Blobs6" />
 </Layout>
 
 <style>
@@ -175,6 +195,19 @@ import Blobs4 from '../assets/topPage/blobs_4.png';
 		grid-row: 3 / 4;
 	}
 
+	#about {
+		margin-bottom: 60px !important;
+	}
+
+	#about-description {
+		font-family: 'Noto Sans JP Variable', sans-serif;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 2;
+		letter-spacing: 1px;
+		color: #000;
+	}
+
 	#blobs_1 {
 		position: absolute;
 		top: 150px;
@@ -207,6 +240,24 @@ import Blobs4 from '../assets/topPage/blobs_4.png';
 		top: 900px;
 		left: -40px;
 		width: 40vw;
+		height: auto;
+		z-index: -1;
+	}
+
+	#blobs_5 {
+		position: absolute;
+		top: 1400px;
+		right: -40px;
+		width: 60vw;
+		height: auto;
+		z-index: -1;
+	}
+
+	#blobs_6 {
+		position: absolute;
+		top: 1550px;
+		left: -50px;
+		width: 55vw;
 		height: auto;
 		z-index: -1;
 	}

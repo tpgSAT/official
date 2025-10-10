@@ -1,0 +1,48 @@
+---
+interface Props {
+  /** ボタン内に表示するテキスト */
+  label: string;
+  /** リンク先（省略可） */
+  href?: string;
+}
+
+const { label, href = "#" } = Astro.props;
+---
+
+<a href={href} class="button">
+  <span>{label}</span>
+  <span class="arrow">→</span>
+</a>
+
+<style>
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: #000;
+    color: #fff;
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 1.2px;
+    border-radius: 999px;
+    padding: 15px 25px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .button:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+  }
+
+  .arrow {
+    font-size:  16px;
+    transition: transform 0.2s ease;
+  }
+
+  .button:hover .arrow {
+    transform: translateX(4px);
+  }
+</style>
