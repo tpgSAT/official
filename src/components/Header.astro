@@ -36,7 +36,10 @@ import iconInstagram from '../assets/header/icon_instagram.svg';
 
 <style>
 	header {
-		position: relative;
+		position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
 		padding: 0 10px;
 		height: 80px;
 		display: flex;
@@ -49,7 +52,7 @@ import iconInstagram from '../assets/header/icon_instagram.svg';
 	}
 
 	.header_nav {
-		position: absolute;
+		position: fixed;
 		overflow: hidden;
 		right: 5px;
 		top: 5px;
@@ -119,7 +122,7 @@ import iconInstagram from '../assets/header/icon_instagram.svg';
 
 	.hamburger {
 		position: absolute;
-		right: 0;
+		right: 10px;
 		top: 0;
 		background-color: transparent;
 		border-color: transparent;
