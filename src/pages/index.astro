@@ -8,9 +8,12 @@ import headingNews from '../assets/topPage/heading_news.svg';
 import headingBlog from '../assets/topPage/heading_blog.svg';
 import headingAbout from '../assets/topPage/heading_about.svg';
 
+import blogThumbnail from '../assets/topPage/blog_thumbnail.png';
+
 import Blobs1 from '../assets/topPage/blobs_1.png';
 import Blobs2 from '../assets/topPage/blobs_2.png';
 import Blobs3 from '../assets/topPage/blobs_3.png';
+import Blobs4 from '../assets/topPage/blobs_4.png';
 ---
 
 <Layout>
@@ -42,9 +45,38 @@ import Blobs3 from '../assets/topPage/blobs_3.png';
 			</div>
 		</a>
 	</div>
+	<div id="blog" class="section">
+		<Image src={headingBlog} class="heading_svg" alt="Blog" />
+		<a href="#">
+			<div class="blog-content">
+				<Image src={blogThumbnail} class="blog-thumbnail" alt="Blog Thumbnail" />
+				<div class="blog-tags"><p class="blog-tag">新歓ブログリレー</p></div>
+				<h3 class="blog-title">TPG班紹介！！～システム班～</h3>
+				<p class="blog-date">2025.4.11</p>
+			</div>
+		</a>
+		<a href="#">
+			<div class="blog-content">
+				<Image src={blogThumbnail} class="blog-thumbnail" alt="Blog Thumbnail" />
+				<div class="blog-tags"><p class="blog-tag">新歓ブログリレー</p></div>
+				<h3 class="blog-title">TPG班紹介！！～システム班～</h3>
+				<p class="blog-date">2025.4.11</p>
+			</div>
+		</a>
+		<a href="#">
+			<div class="blog-content">
+				<Image src={blogThumbnail} class="blog-thumbnail" alt="Blog Thumbnail" />
+				<div class="blog-tags"><p class="blog-tag">新歓ブログリレー</p></div>
+				<h3 class="blog-title">TPG班紹介！！～システム班～</h3>
+				<p class="blog-date">2025.4.11</p>
+			</div>
+		</a>
+	</div>
+	<!-- 背景装飾用のBlobs -->
 		<Image src={Blobs1} id="blobs_1" alt="Blobs1" />
 		<Image src={Blobs2} id="blobs_2" alt="Blobs2" />
 		<Image src={Blobs3} id="blobs_3" alt="Blobs3" />
+		<Image src={Blobs4} id="blobs_4" alt="Blobs4" />
 </Layout>
 
 <style>
@@ -94,6 +126,55 @@ import Blobs3 from '../assets/topPage/blobs_3.png';
 		margin: 16px 0;
 	}
 
+	.blog-content {
+        font-family: 'Noto Sans JP Variable', sans-serif;
+		padding: 15px 0 0;
+		display: grid;
+		grid-template-columns: 42% 1fr;
+		grid-template-rows: 20px 1fr 20px;
+		gap: 0 10px;
+	}
+
+	.blog-thumbnail {
+		width: 100%;
+		height: auto;
+		border-radius: 10px;
+		grid-column: 1 / 2;
+		grid-row: 1 / 4;
+	}
+
+	.blog-tags, .blog-date{
+		font-weight: 400;
+		font-size: 10px;
+		letter-spacing: 0.4px;
+		color: #707070;
+		margin: 0;
+		display: inline-block;
+		grid-column: 2 / 3;
+	}
+
+	.blog-title {
+		font-weight: 500;
+		font-size: 14px;
+		margin: 0;
+		padding: 0;
+		grid-column: 2 / 3;
+		grid-row: 2 / 3;
+	}
+
+	.blog-tags {
+		grid-row: 1 / 2;
+	}
+
+	.blog-tag {
+		padding: 0;
+		margin: 0;
+	}
+
+	.blog-date {
+		grid-row: 3 / 4;
+	}
+
 	#blobs_1 {
 		position: absolute;
 		top: 150px;
@@ -117,6 +198,15 @@ import Blobs3 from '../assets/topPage/blobs_3.png';
 		top: 520px;
 		right: -60px;
 		width: 65vw;
+		height: auto;
+		z-index: -1;
+	}
+
+	#blobs_4 {
+		position: absolute;
+		top: 900px;
+		left: -40px;
+		width: 40vw;
 		height: auto;
 		z-index: -1;
 	}
