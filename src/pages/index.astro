@@ -10,6 +10,7 @@ import headingAbout from '../assets/topPage/heading_about.svg';
 
 import Blobs1 from '../assets/topPage/blobs_1.png';
 import Blobs2 from '../assets/topPage/blobs_2.png';
+import Blobs3 from '../assets/topPage/blobs_3.png';
 ---
 
 <Layout>
@@ -19,10 +20,31 @@ import Blobs2 from '../assets/topPage/blobs_2.png';
 	</div>
 	<div id="news" class="section">
 		<Image src={headingNews} class="heading_svg" alt="News" />
-		<Slider />
+		<a href="#">
+			<div class="news-content">
+				<p class="news-date">2025.4.11</p>
+				<p class="news-type">イベント開催報告</p>
+				<h3 class="news-title">「絵しりとりコンテスト」を開催しました</h3>
+			</div>
+		</a>
+		<a href="#">
+			<div class="news-content">
+				<p class="news-date">2025.4.11</p>
+				<p class="news-type">イベント開催報告</p>
+				<h3 class="news-title">「絵しりとりコンテスト」を開催しました</h3>
+			</div>
+		</a>
+		<a href="#">
+			<div class="news-content">
+				<p class="news-date">2025.4.11</p>
+				<p class="news-type">イベント開催報告</p>
+				<h3 class="news-title">「絵しりとりコンテスト」を開催しました</h3>
+			</div>
+		</a>
 	</div>
 		<Image src={Blobs1} id="blobs_1" alt="Blobs1" />
 		<Image src={Blobs2} id="blobs_2" alt="Blobs2" />
+		<Image src={Blobs3} id="blobs_3" alt="Blobs3" />
 </Layout>
 
 <style>
@@ -38,6 +60,40 @@ import Blobs2 from '../assets/topPage/blobs_2.png';
 		padding: 0 5vw;
 	}
 
+	.news-content {
+        font-family: 'Noto Sans JP Variable', sans-serif;
+		padding: 5px;
+		border-bottom: 1px solid #B8B8B8;
+	}
+
+	.news-date, .news-type{
+		font-weight: 400;
+		font-size: 12px;
+		letter-spacing: 0.4px;
+		color: #000;
+		margin: 0 16px 0 0;
+		display: inline-block;
+		position: relative;
+	}
+
+	.news-type::before {
+		content: "";
+		background-color: #A6A6A6;
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		position: absolute;
+		left: -14px;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	.news-title {
+		font-weight: 500;
+		font-size: 16px;
+		margin: 16px 0;
+	}
+
 	#blobs_1 {
 		position: absolute;
 		top: 150px;
@@ -51,6 +107,15 @@ import Blobs2 from '../assets/topPage/blobs_2.png';
 		position: absolute;
 		top: 450px;
 		left: -140px;
+		width: 65vw;
+		height: auto;
+		z-index: -1;
+	}
+
+	#blobs_3 {
+		position: absolute;
+		top: 520px;
+		right: -60px;
 		width: 65vw;
 		height: auto;
 		z-index: -1;
