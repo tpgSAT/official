@@ -1,6 +1,16 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const defaultDescription = 'Taki Plaza Gardener(通称TPG)は東京科学大学(旧東京工業大学)の新たなランドマーク「Taki Plaza」で活動する学生団体です。';
+
+const { title, description = defaultDescription } = Astro.props;
+
 // Google FontsのNoto Sans JPを利用
 import '@fontsource-variable/noto-sans-jp';
 ---
@@ -11,7 +21,7 @@ import '@fontsource-variable/noto-sans-jp';
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title} - Taki Plaza Gardener</title>
 
 		<!-- SakuraのWebフォント利用 -->
 		<script type="text/javascript" src="//webfonts.sakura.ne.jp/js/sakurav3.js"></script>
