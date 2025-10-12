@@ -9,7 +9,7 @@ interface Props {
 
 const defaultDescription = 'Taki Plaza Gardener(通称TPG)は東京科学大学(旧東京工業大学)の新たなランドマーク「Taki Plaza」で活動する学生団体です。';
 
-const { title, description = defaultDescription } = Astro.props;
+const { title, description = defaultDescription }:Props= Astro.props;
 
 // Google FontsのNoto Sans JPを利用
 import '@fontsource-variable/noto-sans-jp';
