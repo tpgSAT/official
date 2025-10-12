@@ -13,10 +13,10 @@ const { title, description } = Astro.props;
 ---
 
 <Layout title={title} description={description}>
-    <Breadcrumb lists={[{ path: 'about', name: 'TPGについて' }]} />
+    <Breadcrumb lists={[{ path: 'about', name: title }]} />
     <div id="heading">
-        <h1>TPGについて</h1>
-        <p>Taki Plaza Gardener(以下TPG)は、東京科学大学に存在する国際交流と学⽣⽀援を⽬的とする施設であるHisao & Hiroko Taki Plazaでの、学⽣による活発な利⽤を促すことを⽬的として活動しています。</p>
+        <h1>{title}</h1>
+        <p>{description}</p>
     </div>
     <!-- 背景装飾用のBlobs -->
     <Image src={Blobs} id="blobs" alt="Blobs" />
