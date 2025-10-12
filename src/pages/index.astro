@@ -1,25 +1,25 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Slider from '../components/Slider.astro';
-import RoundedButton from '../components/RoundedButton.astro';
+import Layout from '@layouts/Layout.astro';
+import Slider from '@components/Slider.astro';
+import RoundedButton from '@components/RoundedButton.astro';
 
 import { Image } from 'astro:assets';
-import headingEvents from '../assets/topPage/heading_events.svg';
-import headingNews from '../assets/topPage/heading_news.svg';
-import headingBlog from '../assets/topPage/heading_blog.svg';
-import headingAbout from '../assets/topPage/heading_about.svg';
+import headingEvents from '@assets/topPage/heading_events.svg';
+import headingNews from '@assets/topPage/heading_news.svg';
+import headingBlog from '@assets/topPage/heading_blog.svg';
+import headingAbout from '@assets/topPage/heading_about.svg';
 
-import blogThumbnail from '../assets/topPage/blog_thumbnail.png';
+import blogThumbnail from '@assets/topPage/blog_thumbnail.png';
 
-import Blobs1 from '../assets/topPage/blobs_1.png';
-import Blobs2 from '../assets/topPage/blobs_2.png';
-import Blobs3 from '../assets/topPage/blobs_3.png';
-import Blobs4 from '../assets/topPage/blobs_4.png';
-import Blobs5 from '../assets/topPage/blobs_5.png';
-import Blobs6 from '../assets/topPage/blobs_6.png';
+import Blobs1 from '@assets/topPage/blobs_1.png';
+import Blobs2 from '@assets/topPage/blobs_2.png';
+import Blobs3 from '@assets/topPage/blobs_3.png';
+import Blobs4 from '@assets/topPage/blobs_4.png';
+import Blobs5 from '@assets/topPage/blobs_5.png';
+import Blobs6 from '@assets/topPage/blobs_6.png';
 ---
 
-<Layout title="トップ" description="Taki Plaza Gardenerのホームページです。">
+<Layout title="トップ">
 	<div id="events" class="section">
 		<Image src={headingEvents} class="heading_svg" alt="Events" />
 		<Slider />
