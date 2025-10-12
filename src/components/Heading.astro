@@ -1,0 +1,56 @@
+---
+import { Image } from 'astro:assets';
+import Blobs from '@assets/generic/heading_blobs.png';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div id="root">
+    <div id="paragraph-heading">
+        <Image src={Blobs} id="blobs" alt="Blobs" />
+        <h2>{title}</h2>
+    </div>
+    <p><slot /></p>
+</div>
+
+
+<style>
+    #root {
+        margin: 40px 0;
+        padding: 0 5vw;
+    }
+
+    #paragraph-heading {
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #paragraph-heading h2 {
+        font-family: 'Midashi Go MB31', 'Noto Sans JP Variable', sans-serif;
+        font-weight: 500;
+        font-size: 18px;
+        letter-spacing: 2px;
+        margin: 0;
+        padding-left: 5px;
+    }
+
+    #root p {
+        font-family: 'Noto Sans JP Variable', sans-serif;
+        font-weight: 500;
+		font-size: 12px;
+		letter-spacing: 0.8px;
+        line-height: 200%;
+		color: #000;
+    }
+
+    #blobs {
+        width: 10px;
+        height: auto;
+    }
+</style>
