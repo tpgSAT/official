@@ -9,7 +9,9 @@ import headingAbout from '@assets/topPage/heading_about.svg';
 	<p id="about-description">
 		Taki Plaza Gardener(TPG)は東京科学大学に存在するHisao & Hiroko Taki Plazaでの、学⽣による活発な利⽤を促すことを⽬的として活動している学生団体です。
 	</p>
-	<RoundedButton label="TPGについて" href="#" />
+	<div id="button-wrapper">
+		<RoundedButton label="TPGについて" href="/about/" />
+	</div>
 </TopPageSection>
 
 <style>
@@ -20,5 +22,9 @@ import headingAbout from '@assets/topPage/heading_about.svg';
 		line-height: 2;
 		letter-spacing: 1px;
 		color: #000;
+	}
+
+	#button-wrapper {
+		text-align: center;
 	}
 </style>
