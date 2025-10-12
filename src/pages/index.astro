@@ -1,15 +1,11 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import Slider from '@components/Slider.astro';
-import RoundedButton from '@components/RoundedButton.astro';
+import Events from '@components/Sections/Events.astro';
+import News from '@components/Sections/News.astro';
+import Blog from '@components/Sections/Blog.astro';
+import About from '@components/Sections/About.astro';
 
 import { Image } from 'astro:assets';
-import headingEvents from '@assets/topPage/heading_events.svg';
-import headingNews from '@assets/topPage/heading_news.svg';
-import headingBlog from '@assets/topPage/heading_blog.svg';
-import headingAbout from '@assets/topPage/heading_about.svg';
-
-import blogThumbnail from '@assets/topPage/blog_thumbnail.png';
 
 import Blobs1 from '@assets/topPage/blobs_1.png';
 import Blobs2 from '@assets/topPage/blobs_2.png';
@@ -20,245 +16,65 @@ import Blobs6 from '@assets/topPage/blobs_6.png';
 ---
 
 <Layout title="トップ">
-	<div id="events" class="section">
-		<Image src={headingEvents} class="heading_svg" alt="Events" />
-		<Slider />
-	</div>
-	<div id="news" class="section">
-		<Image src={headingNews} class="heading_svg" alt="News" />
-		<a href="#">
-			<div class="news-content">
-				<p class="news-date">2025.4.11</p>
-				<p class="news-type">イベント開催報告</p>
-				<h3 class="news-title">「絵しりとりコンテスト」を開催しました</h3>
-			</div>
-		</a>
-		<a href="#">
-			<div class="news-content">
-				<p class="news-date">2025.4.11</p>
-				<p class="news-type">イベント開催報告</p>
-				<h3 class="news-title">「絵しりとりコンテスト」を開催しました</h3>
-			</div>
-		</a>
-		<a href="#">
-			<div class="news-content">
-				<p class="news-date">2025.4.11</p>
-				<p class="news-type">イベント開催報告</p>
-				<h3 class="news-title">「絵しりとりコンテスト」を開催しました</h3>
-			</div>
-		</a>
-	</div>
-	<div id="blog" class="section">
-		<Image src={headingBlog} class="heading_svg" alt="Blog" />
-		<a href="#">
-			<div class="blog-content">
-				<Image src={blogThumbnail} class="blog-thumbnail" alt="Blog Thumbnail" />
-				<div class="blog-tags"><p class="blog-tag">新歓ブログリレー</p></div>
-				<h3 class="blog-title">TPG班紹介！！～システム班～</h3>
-				<p class="blog-date">2025.4.11</p>
-			</div>
-		</a>
-		<a href="#">
-			<div class="blog-content">
-				<Image src={blogThumbnail} class="blog-thumbnail" alt="Blog Thumbnail" />
-				<div class="blog-tags"><p class="blog-tag">新歓ブログリレー</p></div>
-				<h3 class="blog-title">TPG班紹介！！～システム班～</h3>
-				<p class="blog-date">2025.4.11</p>
-			</div>
-		</a>
-		<a href="#">
-			<div class="blog-content">
-				<Image src={blogThumbnail} class="blog-thumbnail" alt="Blog Thumbnail" />
-				<div class="blog-tags"><p class="blog-tag">新歓ブログリレー</p></div>
-				<h3 class="blog-title">TPG班紹介！！～システム班～</h3>
-				<p class="blog-date">2025.4.11</p>
-			</div>
-		</a>
-		<a href="#">
-			<div class="blog-content">
-				<Image src={blogThumbnail} class="blog-thumbnail" alt="Blog Thumbnail" />
-				<div class="blog-tags"><p class="blog-tag">新歓ブログリレー</p></div>
-				<h3 class="blog-title">TPG班紹介！！～システム班～</h3>
-				<p class="blog-date">2025.4.11</p>
-			</div>
-		</a>
-	</div>
-	<div id="about" class="section">
-		<Image src={headingAbout} class="heading_svg" alt="About" />
-		<p id="about-description">
-			Taki Plaza Gardener(TPG)は東京科学大学に存在するHisao & Hiroko Taki Plazaでの、学⽣による活発な利⽤を促すことを⽬的として活動している学生団体です。
-		</p>
-		<RoundedButton label="TPGについて" href="#" />
-	</div>
+	<Events />
+	<News />
+	<Blog />
+	<About />
+	<div id="spacer"></div>
+	
 	<!-- 背景装飾用のBlobs -->
-	<Image src={Blobs1} id="blobs_1" alt="Blobs1" />
-	<Image src={Blobs2} id="blobs_2" alt="Blobs2" />
-	<Image src={Blobs3} id="blobs_3" alt="Blobs3" />
-	<Image src={Blobs4} id="blobs_4" alt="Blobs4" />
-	<Image src={Blobs5} id="blobs_5" alt="Blobs5" />
-	<Image src={Blobs6} id="blobs_6" alt="Blobs6" />
+	<Image src={Blobs1} class="blobs" id="blobs_1" alt="Blobs1" />
+	<Image src={Blobs2} class="blobs" id="blobs_2" alt="Blobs2" />
+	<Image src={Blobs3} class="blobs" id="blobs_3" alt="Blobs3" />
+	<Image src={Blobs4} class="blobs" id="blobs_4" alt="Blobs4" />
+	<Image src={Blobs5} class="blobs" id="blobs_5" alt="Blobs5" />
+	<Image src={Blobs6} class="blobs" id="blobs_6" alt="Blobs6" />
 </Layout>
 
 <style>
-	.section {
-		padding: 20px 5vw;
+	#spacer {
+		height: 100px;
 	}
 
-	#events {
-		padding: 20px 0 !important;
-	}
-
-	#events .heading_svg{
-		padding: 0 5vw;
-	}
-
-	.news-content {
-        font-family: 'Noto Sans JP Variable', sans-serif;
-		padding: 5px;
-		border-bottom: 1px solid #B8B8B8;
-	}
-
-	.news-date, .news-type{
-		font-weight: 500;
-		font-size: 10px;
-		letter-spacing: 0.4px;
-		color: #000;
-		margin: 0 16px 0 0;
-		display: inline-block;
-		position: relative;
-	}
-
-	.news-type::before {
-		content: "";
-		background-color: #A6A6A6;
-		width: 6px;
-		height: 6px;
-		border-radius: 50%;
+	.blobs {
 		position: absolute;
-		left: -14px;
-		top: 50%;
-		transform: translateY(-50%);
-	}
-
-	.news-title {
-		font-weight: 500;
-		font-size: 15px;
-		margin: 12px 0;
-	}
-
-	.blog-content {
-        font-family: 'Noto Sans JP Variable', sans-serif;
-		padding: 15px 0 0;
-		display: grid;
-		grid-template-columns: 40% 1fr;
-		grid-template-rows: 20px 1fr 20px;
-		gap: 0 10px;
-	}
-
-	.blog-thumbnail {
-		width: 100%;
 		height: auto;
-		border-radius: 10px;
-		grid-column: 1 / 2;
-		grid-row: 1 / 4;
-	}
-
-	.blog-tags, .blog-date{
-		font-weight: 400;
-		font-size: 10px;
-		letter-spacing: 0.4px;
-		color: #707070;
-		margin: 0;
-		display: inline-block;
-		grid-column: 2 / 3;
-	}
-
-	.blog-title {
-		font-weight: 500;
-		font-size: 14px;
-		margin: 0;
-		padding: 0;
-		grid-column: 2 / 3;
-		grid-row: 2 / 3;
-	}
-
-	.blog-tags {
-		grid-row: 1 / 2;
-	}
-
-	.blog-tag {
-		padding: 0;
-		margin: 0;
-	}
-
-	.blog-date {
-		grid-row: 3 / 4;
-	}
-
-	#about {
-		margin-bottom: 60px !important;
-	}
-
-	#about-description {
-		font-family: 'Noto Sans JP Variable', sans-serif;
-		font-weight: 500;
-		font-size: 14px;
-		line-height: 2;
-		letter-spacing: 1px;
-		color: #000;
+		z-index: -1;
 	}
 
 	#blobs_1 {
-		position: absolute;
 		top: 150px;
 		right: -120px;
 		width: 65vw;
-		height: auto;
-		z-index: -1;
 	}
 
 	#blobs_2 {
-		position: absolute;
 		top: 450px;
 		left: -140px;
 		width: 65vw;
-		height: auto;
-		z-index: -1;
 	}
 
 	#blobs_3 {
-		position: absolute;
 		top: 520px;
 		right: -60px;
 		width: 65vw;
-		height: auto;
-		z-index: -1;
 	}
 
 	#blobs_4 {
-		position: absolute;
 		top: 900px;
 		left: -40px;
 		width: 40vw;
-		height: auto;
-		z-index: -1;
 	}
 
 	#blobs_5 {
-		position: absolute;
 		top: 1400px;
 		right: -40px;
 		width: 60vw;
-		height: auto;
-		z-index: -1;
 	}
 
 	#blobs_6 {
-		position: absolute;
 		top: 1550px;
 		left: -50px;
 		width: 55vw;
-		height: auto;
-		z-index: -1;
 	}
 </style>
