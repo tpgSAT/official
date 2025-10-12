@@ -21,14 +21,14 @@ import iconInstagram from '../assets/header/icon_instagram.svg';
     <div class="header_nav" id="js-nav">
         <nav>
             <ul>
-                <li><a href="#"><Image src={headerNavEvents} alt="Events" /></a></li>
-                <li><a href="#"><Image src={headerNavNews} alt="News" /></a></li>
-                <li><a href="#"><Image src={headerNavBlog} alt="Blog" /></a></li>
-                <li><a href="#"><Image src={headerNavContact} alt="Contact" /></a></li>
+                <li><a href="/events/"><Image src={headerNavEvents} alt="Events" /></a></li>
+                <li><a href="/news/"><Image src={headerNavNews} alt="News" /></a></li>
+                <li><a href="/blog/"><Image src={headerNavBlog} alt="Blog" /></a></li>
+                <li><a href="/contact/"><Image src={headerNavContact} alt="Contact" /></a></li>
             </ul>
             <div class="social-media">
-                <a href="#"><Image src={iconX} alt="X" /></a>
-                <a href="#"><Image src={iconInstagram} alt="Instagram"/></a>
+                <a href="https://x.com/TPGardener/"><Image src={iconX} alt="X" /></a>
+                <a href="https://www.instagram.com/taki_plaza_gardener/"><Image src={iconInstagram} alt="Instagram"/></a>
             </div>
         </nav>
     </div>
@@ -173,10 +173,10 @@ import iconInstagram from '../assets/header/icon_instagram.svg';
 	const ham = document.querySelector('#js-hamburger');
 	const nav = document.querySelector('#js-nav');
 
-	ham.addEventListener('click', function () {
+	ham?.addEventListener('click', function () {
 
-		ham.classList.toggle('active');
-		nav.classList.toggle('open');
+		ham?.classList.toggle('active');
+		nav?.classList.toggle('open');
 
 	});
 </script>
