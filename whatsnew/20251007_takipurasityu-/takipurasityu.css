@@ -14,19 +14,19 @@ body {
 }
 
 .everybody_yasai {
-    width: 77%;
+    width: 50%;
     height: auto;
     display: block;
-    margin: 100px auto 30px;
+    margin: 150px auto 30px;
 }
 .takipuranouenn {
-    width: 60%;
+    width: 40%;
     height: auto;
     display: block;
     margin: 20px auto;
 }
 .everybody_sityu- {
-    width: 75%;
+    width: 50%;
     height: auto;
     display: block;
     margin: 30px auto;
@@ -37,7 +37,7 @@ body {
     width: 90%;
     height: auto;
     text-align: center;
-    border-radius: 20px;
+    border-radius: 50px;
     background-color: #fff;
 }
 .content_title {
@@ -52,4 +52,37 @@ body {
     text-align: center;
     color: darkgreen;
     line-height: 90px;
+    margin-bottom: 50px;
 }
+
+.place_apply {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 50px auto 30px;
+}
+
+.place {
+    width: 45%;
+    height: 500px;
+    text-align: center;
+    border-radius: 50px;
+    background-color: #fff;
+}
+
+.place_title {
+    margin: 30px auto 10px;
+    width: 315px;
+    height: auto;
+}
+
+.place_content {
+    margin-top: 100px;
+    font-size: 1.5rem;
+    letter-spacing: 0.30em;
+    text-align: center;
+    color: #2F4C29;
+    line-height: 90px;
+}
+
+
