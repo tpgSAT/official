@@ -3,20 +3,38 @@ html {
     font-size: 1vw;/* rem単位の基準値 */
     padding: 0;
 }
-
+.everybody_yasai {
+    width: 77%;
+    height: auto;
+    display: block;
+    margin: 100px auto;
+}
+.takipuranouenn {
+    width: 60%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+}
+.everybody_sityu- {
+    width: 75%;
+    height: auto;
+    display: block;
+    margin: 30px auto;
+}
 .content {
     margin: 305px auto;
     width: 96%;
     text-align: center;
+    border-radius: 20px;
     color: #fff;
 }
 .content_title {
-    margin: 93px auto;
+    margin: 50px auto;
     width: 315px;
     height: auto;
 }
-.content_content {
-    margin-top: 100px;
+.content_text {
+    margin-top: 50px;
     font-size: 1rem;
     letter-spacing: 0.30em;
     text-align: center;
