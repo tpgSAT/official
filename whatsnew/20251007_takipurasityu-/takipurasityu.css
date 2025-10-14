@@ -3,11 +3,21 @@ html {
     font-size: 1vw;/* rem単位の基準値 */
     padding: 0;
 }
+body {
+    background-image: url("./_img/background.webp");
+    object-fit: fill;
+    z-index: -150;
+    fill: blur(3px);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .everybody_yasai {
     width: 77%;
     height: auto;
     display: block;
-    margin: 100px auto;
+    margin: 100px auto 30px;
 }
 .takipuranouenn {
     width: 60%;
@@ -21,15 +31,17 @@ html {
     display: block;
     margin: 30px auto;
 }
+
 .content {
-    margin: 305px auto;
-    width: 96%;
+    margin: 255px auto 0px;
+    width: 90%;
+    height: auto;
     text-align: center;
     border-radius: 20px;
-    color: #fff;
+    background-color: #fff;
 }
 .content_title {
-    margin: 50px auto;
+    margin: 50px auto 10px;
     width: 315px;
     height: auto;
 }
