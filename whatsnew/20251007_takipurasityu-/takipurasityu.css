@@ -37,7 +37,7 @@ body {
     width: 90%;
     height: auto;
     text-align: center;
-    border-radius: 20px;
+    border-radius: 50px;
     background-color: #fff;
 }
 .content_title {
@@ -47,9 +47,69 @@ body {
 }
 .content_text {
     margin-top: 50px;
+    margin-bottom: 50px;
     font-size: 1rem;
     letter-spacing: 0.30em;
     text-align: center;
-    color: darkgreen;
+    color: #2f4c29;
     line-height: 90px;
+}
+
+.date {
+    margin: 200px auto 0px;
+    width: 90%;
+    height: auto;
+    text-align: center;
+    border-radius: 50px;
+    background-color: #fff;
+}
+.date_title {
+    margin: 50px auto 10px;
+    width: 315px;
+    height: auto;
+}
+.date p {
+    text-align: center;
+    letter-spacing: 0.50em;
+    color: #2f4c29;
+}
+.date_content_1 {
+    font-size: 1.25rem;
+    margin: 50px auto 0px;
+    line-height: 60px;
+}
+.date_content_2 {
+    margin: 0px auto;
+    font-size: 1.1rem;
+    line-height: 60px;
+}
+.date_content_3 {
+    font-size: 1.25rem;
+    margin: 25px auto 0px;
+    line-height: 60px;
+}
+.date_content_4 {
+    font-size: 1.25rem;
+    margin: 0px auto;
+    line-height: 60px;
+}
+.date_content_5 {
+    font-size: 1rem;
+    margin: 20px auto;
+    line-height: 20px;
+}
+.date_content_6 {
+    font-size: 1.25rem;
+    margin: 50px auto 0px;
+    line-height: 60px;
+}
+.date_content_7 {
+    font-size: 1.25rem;
+    margin: 0px auto;
+    line-height: 60px;
+}
+.date_content_8 {
+    font-size: 1.1rem;
+    margin: 20px auto;
+    line-height: 20px;
 }
