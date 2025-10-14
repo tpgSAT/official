@@ -4,6 +4,17 @@ html {
     padding: 0;
 }
 
+body {
+    /* 多分リンク違ったから入れ替えたけどぼかしとかするのかな？ */
+    background-image: url("./_img/background.webp");
+    object-fit: fill;
+    z-index: -150;
+    fill: blur(3px);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .content {
     margin: 305px auto;
     width: 96%;
