@@ -140,7 +140,7 @@ body {
 
 .place_title {
     margin: 30px auto 10px;
-    width: 315px;
+    width: 300px;
     height: auto;
 }
 
@@ -167,13 +167,14 @@ body {
     height: auto;
 }
 
-.apply_content {
+
+.apply_link {
+    display: block;
+    text-decoration: underline;
     margin-top: 100px;
+    line-height: 90px;
     font-size: 1rem;
     letter-spacing: 0.30em;
     text-align: center;
-    color: #2F4C29;
-    line-height: 90px;
+    align-items: center;
 }
-
-
