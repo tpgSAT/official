@@ -36,6 +36,7 @@ body {
     margin: 255px auto 0px;
     width: 90%;
     height: auto;
+    padding-bottom: 30px;
     text-align: center;
     border-radius: 50px;
     background-color: #fff;
@@ -56,6 +57,70 @@ body {
     margin-bottom: 50px;
 }
 
+
+
+.date {
+    margin: 200px auto 0px;
+    width: 90%;
+    height: auto;
+    padding-bottom: 30px;
+    text-align: center;
+    border-radius: 50px;
+    background-color: #fff;
+}
+
+.date_title {
+    margin: 50px auto 10px;
+    width: 315px;
+    height: auto;
+}
+.date p {
+    text-align: center;
+    letter-spacing: 0.50em;
+    color: #2f4c29;
+}
+.date_content_1 {
+    font-size: 1rem;
+    margin: 50px auto 0px;
+    line-height: 60px;
+}
+.date_content_2 {
+    margin: 0px auto;
+    font-size: 0.8rem;
+    line-height: 60px;
+}
+.date_content_3 {
+    font-size: 1rem;
+    margin: 70px auto 0px;
+    line-height: 60px;
+}
+.date_content_4 {
+    font-size: 1rem;
+    margin: 0px auto;
+    line-height: 60px;
+}
+.date_content_5 {
+    font-size: 0.8rem;
+    margin: 10px auto;
+    line-height: 20px;
+}
+.date_content_6 {
+    font-size: 1rem;
+    margin: 70px auto 0px;
+    line-height: 60px;
+}
+.date_content_7 {
+    font-size: 1rem;
+    margin: 0px auto;
+    line-height: 60px;
+}
+.date_content_8 {
+    font-size: 0.8rem;
+    margin: 20px auto;
+    line-height: 20px;
+    margin-bottom: 100px;
+}
+
 .place_apply {
     display: flex;
     justify-content: space-between;
@@ -66,15 +131,9 @@ body {
 .place {
     width: 45%;
     height: 500px;
-}
-
-.date {
-    margin: 200px auto 0px;
-    width: 90%;
-    height: auto;
+    background-color: #fff;
     text-align: center;
     border-radius: 50px;
-    background-color: #fff;
 }
 
 .place_title {
@@ -92,54 +151,27 @@ body {
     line-height: 90px;
 }
 
+.apply {
+    width: 50%;
+    height: 500px;
+    background-color: #fff;
+    text-align: center;
+    border-radius: 50px;
+}
 
-.date_title {
-    margin: 50px auto 10px;
-    width: 315px;
+.apply_title {
+    margin: 30px auto 10px;
+    width: 360px;
     height: auto;
 }
-.date p {
+
+.apply_content {
+    margin-top: 100px;
+    font-size: 1.5rem;
+    letter-spacing: 0.30em;
     text-align: center;
-    letter-spacing: 0.50em;
-    color: #2f4c29;
+    color: #2F4C29;
+    line-height: 90px;
 }
-.date_content_1 {
-    font-size: 1.25rem;
-    margin: 50px auto 0px;
-    line-height: 60px;
-}
-.date_content_2 {
-    margin: 0px auto;
-    font-size: 1.1rem;
-    line-height: 60px;
-}
-.date_content_3 {
-    font-size: 1.25rem;
-    margin: 25px auto 0px;
-    line-height: 60px;
-}
-.date_content_4 {
-    font-size: 1.25rem;
-    margin: 0px auto;
-    line-height: 60px;
-}
-.date_content_5 {
-    font-size: 1rem;
-    margin: 20px auto;
-    line-height: 20px;
-}
-.date_content_6 {
-    font-size: 1.25rem;
-    margin: 50px auto 0px;
-    line-height: 60px;
-}
-.date_content_7 {
-    font-size: 1.25rem;
-    margin: 0px auto;
-    line-height: 60px;
-}
-.date_content_8 {
-    font-size: 1.1rem;
-    margin: 20px auto;
-    line-height: 20px;
-}
+
+
