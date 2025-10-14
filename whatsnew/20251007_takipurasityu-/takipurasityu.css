@@ -132,10 +132,11 @@ body {
 
 .place {
     width: 45%;
-    height: 500px;
+    height: auto;
     background-color: #fff;
     text-align: center;
     border-radius: 50px;
+    padding-bottom: 30px;
 }
 
 .place_title {
