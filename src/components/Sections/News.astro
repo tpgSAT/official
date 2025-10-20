@@ -2,30 +2,32 @@
 import TopPageSection from '@layouts/TopPageSection.astro';
 
 import headingNews from '@assets/topPage/heading_news.svg';
+
+
+// newsを事前取得（Newsセクションで使用）
+import { getCollection } from 'astro:content';
+const newsEntries = await getCollection('news');
 ---
 
 <TopPageSection headingSVG={headingNews}>
-    <a href="#">
-        <div class="news-content">
-            <p class="news-date">2025.4.11</p>
-            <p class="news-type">イベント開催報告</p>
-            <h3 class="news-title">「絵しりとりコンテスト」を開催しました</h3>
-        </div>
-    </a>
-    <a href="#">
-        <div class="news-content">
-            <p class="news-date">2025.4.11</p>
-            <p class="news-type">イベント開催報告</p>
-            <h3 class="news-title">「絵しりとりコンテスト」を開催しました</h3>
-        </div>
-    </a>
-    <a href="#">
-        <div class="news-content">
-            <p class="news-date">2025.4.11</p>
-            <p class="news-type">イベント開催報告</p>
-            <h3 class="news-title">「絵しりとりコンテスト」を開催しました</h3>
-        </div>
-    </a>
+	{[...newsEntries]
+		.sort((a, b) => new Date(b.data.date) - new Date(a.data.date)) // 日付で降順ソート
+		.slice(0, 5) // 最新5件のみ表示
+		.map(entry => (
+		<a href={`/news/${entry.slug}`}>
+			<div class="news-content">
+				<p class="news-date">
+					{entry.data.date.toLocaleDateString('ja-JP', {
+						year: 'numeric',
+						month: '2-digit',
+						day: '2-digit',
+					}).replace(/\//g, '.')}
+				</p>
+				<p class="news-type">{entry.data.tags.join(' ')}</p>
+				<h3 class="news-title">{entry.data.title}</h3>
+			</div>
+		</a>
+	))}
 </TopPageSection>
 
 <style>
