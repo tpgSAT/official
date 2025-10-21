@@ -17,19 +17,19 @@ body {
 }
 
 .everybody_yasai {
-    width: 50%;
+    width: 80%;
     height: auto;
     display: block;
     margin: 150px auto 30px;
 }
 .takipuranouenn {
-    width: 40%;
+    width: 60%;
     height: auto;
     display: block;
     margin: 20px auto;
 }
 .everybody_sityu- {
-    width: 50%;
+    width: 80%;
     height: auto;
     display: block;
     margin: 30px auto;
@@ -52,7 +52,7 @@ body {
 .content_text {
     margin-top: 50px;
     margin-bottom: 50px;
-    font-size: 1rem;
+    font-size: 0.7rem;
     letter-spacing: 0.30em;
     text-align: center;
     color: #2f4c29;
@@ -83,42 +83,42 @@ body {
     color: #2f4c29;
 }
 .date_content_1 {
-    font-size: 1rem;
+    font-size: 0.7rem;
     margin: 50px auto 0px;
     line-height: 60px;
 }
 .date_content_2 {
     margin: 0px auto;
-    font-size: 0.8rem;
+    font-size: 0.5rem;
     line-height: 60px;
 }
 .date_content_3 {
-    font-size: 1rem;
+    font-size: 0.7rem;
     margin: 70px auto 0px;
     line-height: 60px;
 }
 .date_content_4 {
-    font-size: 1rem;
+    font-size: 0.7rem;
     margin: 0px auto;
     line-height: 60px;
 }
 .date_content_5 {
-    font-size: 0.8rem;
+    font-size: 0.5rem;
     margin: 10px auto;
     line-height: 20px;
 }
 .date_content_6 {
-    font-size: 1rem;
+    font-size: 0.7rem;
     margin: 70px auto 0px;
     line-height: 60px;
 }
 .date_content_7 {
-    font-size: 1rem;
+    font-size: 0.7rem;
     margin: 0px auto;
     line-height: 60px;
 }
 .date_content_8 {
-    font-size: 0.8rem;
+    font-size: 0.5rem;
     margin: 20px auto;
     line-height: 20px;
     margin-bottom: 100px;
@@ -147,7 +147,7 @@ body {
 }
 
 .place_content {
-    font-size: 1rem;
+    font-size: 0.7rem;
     letter-spacing: 0.30em;
     text-align: center;
     color: #2F4C29;
@@ -177,7 +177,7 @@ body {
     display: block;
     text-decoration: underline;
     line-height: 90px;
-    font-size: 1rem;
+    font-size: 0.7rem;
     letter-spacing: 0.30em;
     text-align: center;
     align-items: center;
