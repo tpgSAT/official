@@ -26,21 +26,20 @@
   height: 15vw;
   background-size: cover;
 }
-
 .news1 {
-  background-image: url(./whatsnew/20250624_stainedglass/_img/poster_converted.webp);
+  background-image: url(./whatsnew/20251014_takipuranouen/_img/poster.png);
 }
 .news2 {
-  background-image: url(./whatsnew/20250621_takimatsuri/_img/takimatsuri_thumbnail.webp);
+  background-image: url(./whatsnew/20251014_koudaisai/_img/poster.png);
 }
 .news3 {
-  background-image: url(./whatsnew/img/wakabasai2025_logo.webp);
+  background-image: url(./whatsnew/20250624_stainedglass/_img/poster_converted.webp);
 }
 .news4 {
-  background-image: url(./whatsnew/20250305_hackathon/_img/poster.webp);
+  background-image: url(./whatsnew/20250621_takimatsuri/_img/takimatsuri_thumbnail.webp);
 }
 .news5 {
-  background-image: url(./whatsnew/20250114_esiritori/_img/poster.png);
+  background-image: url(./whatsnew/img/wakabasai2025_logo.webp);
 }
 
 .txt {
