@@ -5,15 +5,21 @@ import Breadcrumb from '@components/Breadcrumb.astro';
 import { Image } from 'astro:assets';
 import Blobs from '@assets/generic/blobs.png';
 
+interface ListItem {
+  path: string;
+  name: string;
+}
+
 interface Props {
 	title: string;
 	description?: string;
+    ListItem?: ListItem[];
 }
-const { title, description } = Astro.props;
+const { title, description, ListItem } = Astro.props;
 ---
 
 <Layout title={title} description={description}>
-    <Breadcrumb lists={[{ path: 'about', name: title }]} />
+    <Breadcrumb lists={ListItem} />
     <div id="heading">
         <h1>{title}</h1>
         <p>{description}</p>
