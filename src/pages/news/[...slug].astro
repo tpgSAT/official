@@ -32,8 +32,13 @@ const ListItem = [
             }).replace(/\//g, '.')}
         </time>
         <h1>{entry.data.title}</h1>
+        {entry.data.tags.map(tags => (
+          <p class="news-tags">{tags}</p>
+        ))}
       </div>
-      <Content />
+      <div id="news-content">
+        <Content />
+      </div>
     </div>
 </Layout>
 
@@ -43,8 +48,39 @@ const ListItem = [
   }
 
   #news-header {
-    margin: 20px 0;
+    margin: 10px 0 20px;
     font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 500;
+    border-bottom: 1px solid #000;
   }
 
+  #news-date {
+    font-size: 12px;
+    letter-spacing: 0.6px;
+    color: #666666;
+  }
+
+  #news-header h1 {
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin-top: 8px;
+  }
+
+  .news-tags {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 14px;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    background-color: #000000;
+    border-radius: 6px;
+    color: #ffffff;
+  }
+
+  #news-content {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 500;
+    line-height: 200%;
+    margin-bottom: 100px;
+  }
 </style>
