@@ -1,0 +1,103 @@
+---
+import Layout from '@layouts/Layout.astro';
+
+const { slug } = Astro.params;
+
+let res = await fetch(`https://cms.tpgd.jp/wp-json/wp/v2/posts?id=${slug}&_embed`);
+let [post] = await res.json();
+
+// The getStaticPaths() is required for static Astro sites.
+// If using SSR, you will not need this function.
+export async function getStaticPaths() {
+  let data = await fetch("https://cms.tpgd.jp/wp-json/wp/v2/posts");
+  let posts = await data.json();
+
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post: post },
+  }));
+}
+
+const FallbackThumbnail = '/blog-fallback-thumbnail.jpg';
+
+// 🔸 サムネイルURLを取得（なければデフォルト表示）
+const thumbnail =
+    post._embedded?.['wp:featuredmedia']?.[0]?.media_details?.sizes?.medium?.source_url ||
+    post._embedded?.['wp:featuredmedia']?.[0]?.source_url ||
+    FallbackThumbnail;
+
+// 🔸 カテゴリ名の配列を取得（なければ空配列）
+const categories = post._embedded?.['wp:term']?.[0]?.map(cat => cat.name) || [];
+---
+<Layout title={post.title.rendered} description={post.excerpt.rendered}>
+    <div id="root">
+      <div id="blog-header">
+        <img src={thumbnail} id="blog-thumbnail" alt={post.title.rendered}/>
+        <time id="blog-date" datetime={new Date(post.date).toISOString()}>
+            {new Date(post.date).toLocaleDateString('ja-JP', {
+              year: 'numeric',
+              month: '2-digit',
+              day: '2-digit',
+            }).replace(/\//g, '.')}
+        </time>
+        <h1>{post.title.rendered}</h1>
+        {categories.map(category => (
+          <p class="blog-tags">{category}</p>
+        ))}
+      </div>
+      <div id="blog-content">
+        <Fragment set:html={post.content.rendered} />
+      </div>
+    </div>
+</Layout>
+
+<style>
+  #root {
+    margin: 0 5vw;
+  }
+
+  #blog-header {
+    margin: 10px 0 20px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 500;
+    border-bottom: 1px solid #000;
+  }
+
+  #blog-thumbnail {
+    width: 100%;
+		aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+
+  #blog-date {
+    font-size: 12px;
+    letter-spacing: 0.6px;
+    color: #666666;
+  }
+
+  #blog-header h1 {
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin-top: 8px;
+  }
+
+  .blog-tags {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 14px;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    background-color: #000000;
+    border-radius: 6px;
+    color: #ffffff;
+  }
+
+  #blog-content {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 500;
+    line-height: 200%;
+    margin-bottom: 100px;
+  }
+</style>
