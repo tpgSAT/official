@@ -1,13 +1,13 @@
 ---
 import Layout from '@layouts/Layout.astro';
+import {getPosts} from '@lib/api';
 
 const { slug } = Astro.params;
 
 // The getStaticPaths() is required for static Astro sites.
 // If using SSR, you will not need this function.
 export async function getStaticPaths() {
-  let data = await fetch("https://cms.tpgd.jp/wp-json/wp/v2/posts?_embed");
-  let posts = await data.json();
+  let posts = await getPosts();
 
   return posts.map((post) => ({
     params: { slug: post.id },

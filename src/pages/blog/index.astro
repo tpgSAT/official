@@ -1,11 +1,11 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import Breadcrumb from '@components/Breadcrumb.astro';
+import {getPosts} from '@lib/api';
 
 const FallbackThumbnail = '/blog-fallback-thumbnail.jpg';
 
-const res = await fetch("https://cms.tpgd.jp/wp-json/wp/v2/posts?per_page=40&_embed");
-const posts = await res.json();
+const posts = await getPosts();
 
 const ListItem = [
   { path: 'blog', name: 'ブログ記事' },
