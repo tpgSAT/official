@@ -1,0 +1,19 @@
+---
+import { Image } from 'astro:assets';
+
+import GenericLayout from '@layouts/GenericLayout.astro';
+import Heading from '@components/Heading.astro';
+
+import decorationImage from "/assets/about/production/decoration.png";
+
+const title = "制作班";
+const description = "TPGを構成する5つの班のうちの1つ、制作班を紹介します。制作班では、イベントの広報用ポスターの制作、イベント当日の装飾、過去のイベントを紹介する動画の作成などを行っています。";
+---
+<GenericLayout title={title} description={description} ListItem={[{ name: 'TPGについて', path: 'about' }, { name: '制作班', path: 'production' }]}>
+    <Heading title="活動内容">
+        個人での活動が主になりますが、イベント前にはみんなで話し合って装飾を考えたり、飾りを作ったりもします。
+        <Image src={decorationImage} alt="過去のイベントでの装飾例" />
+        また、時間のあるときには班内でデザインの勉強会も行っています。居室にはデザインに関する本もあり、制作物がよりクオリティの高いものとなるよう日々勉強しています。
+    </Heading>
+    
+</GenericLayout>
