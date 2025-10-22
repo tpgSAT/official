@@ -1,44 +1,36 @@
 ---
 import TopPageSection from '@layouts/TopPageSection.astro';
-
+import { getPosts } from '@lib/api';
 import { Image } from 'astro:assets';
 import headingBlog from '@assets/topPage/heading_blog.svg';
 import blogThumbnail from '@assets/topPage/blog_thumbnail.png';
+
+const FallbackThumbnail = '/blog-fallback-thumbnail.jpg';
+const posts = await getPosts();
 ---
 
 <TopPageSection headingSVG={headingBlog}>
-    <a href="#">
-		<div class="blog-content">
-			<Image src={blogThumbnail} class="blog-thumbnail" alt="Blog Thumbnail" />
-			<div class="blog-tags"><p class="blog-tag">新歓ブログリレー</p></div>
-			<h3 class="blog-title">TPG班紹介！！～システム班～</h3>
-			<p class="blog-date">2025.4.11</p>
-		</div>
-	</a>
-	<a href="#">
-		<div class="blog-content">
-			<Image src={blogThumbnail} class="blog-thumbnail" alt="Blog Thumbnail" />
-			<div class="blog-tags"><p class="blog-tag">新歓ブログリレー</p></div>
-			<h3 class="blog-title">TPG班紹介！！～システム班～</h3>
-			<p class="blog-date">2025.4.11</p>
-		</div>
-	</a>
-	<a href="#">
-		<div class="blog-content">
-			<Image src={blogThumbnail} class="blog-thumbnail" alt="Blog Thumbnail" />
-			<div class="blog-tags"><p class="blog-tag">新歓ブログリレー</p></div>
-			<h3 class="blog-title">TPG班紹介！！～システム班～</h3>
-			<p class="blog-date">2025.4.11</p>
-		</div>
-	</a>
-	<a href="#">
-		<div class="blog-content">
-			<Image src={blogThumbnail} class="blog-thumbnail" alt="Blog Thumbnail" />
-			<div class="blog-tags"><p class="blog-tag">新歓ブログリレー</p></div>
-			<h3 class="blog-title">TPG班紹介！！～システム班～</h3>
-			<p class="blog-date">2025.4.11</p>
-		</div>
-	</a>
+    {[...posts].slice(0, 5).map(post => {
+        // 🔸 サムネイルURLを取得（なければデフォルト表示）
+        const thumbnail =
+            post._embedded?.['wp:featuredmedia']?.[0]?.media_details?.sizes?.medium?.source_url ||
+            post._embedded?.['wp:featuredmedia']?.[0]?.source_url ||
+            FallbackThumbnail;
+        
+        // 🔸 カテゴリ名の配列を取得（なければ空配列）
+        const categories = post._embedded?.['wp:term']?.[0]?.map(cat => cat.name) || [];
+
+        return (
+            <a href={`/blog/${post.id}`}>
+                <div class="blog-content">
+                    <img src={thumbnail} class="blog-thumbnail" alt={post.title.rendered} />
+                    <div class="blog-tags"><p class="blog-tag">{categories?.join(' ')}</p></div>
+                    <h3 class="blog-title">{post.title.rendered}</h3>
+                    <p class="blog-date">{new Date(post.date).toLocaleDateString('ja-JP')}</p>
+                </div>
+            </a>
+        );
+        })}
 </TopPageSection>
 
 <style>
@@ -53,7 +45,8 @@ import blogThumbnail from '@assets/topPage/blog_thumbnail.png';
 
 	.blog-thumbnail {
 		width: 100%;
-		height: auto;
+		aspect-ratio: 16 / 10;
+	    object-fit: cover;
 		border-radius: 10px;
 		grid-column: 1 / 2;
 		grid-row: 1 / 4;
