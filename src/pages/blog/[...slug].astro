@@ -3,20 +3,19 @@ import Layout from '@layouts/Layout.astro';
 
 const { slug } = Astro.params;
 
-let res = await fetch(`https://cms.tpgd.jp/wp-json/wp/v2/posts?id=${slug}&_embed`);
-let [post] = await res.json();
-
 // The getStaticPaths() is required for static Astro sites.
 // If using SSR, you will not need this function.
 export async function getStaticPaths() {
-  let data = await fetch("https://cms.tpgd.jp/wp-json/wp/v2/posts");
+  let data = await fetch("https://cms.tpgd.jp/wp-json/wp/v2/posts?_embed");
   let posts = await data.json();
 
   return posts.map((post) => ({
     params: { slug: post.id },
-    props: { post: post },
+    props: { post },
   }));
 }
+
+const { post } = Astro.props;
 
 const FallbackThumbnail = '/blog-fallback-thumbnail.jpg';
 
@@ -46,7 +45,7 @@ const categories = post._embedded?.['wp:term']?.[0]?.map(cat => cat.name) || [];
         ))}
       </div>
       <div id="blog-content">
-        <Fragment set:html={post.content.rendered} />
+        <article set:html={post.content.rendered} />
       </div>
     </div>
 </Layout>
@@ -99,5 +98,11 @@ const categories = post._embedded?.['wp:term']?.[0]?.map(cat => cat.name) || [];
     font-weight: 500;
     line-height: 200%;
     margin-bottom: 100px;
+  }
+
+  #blog-content :global(img) {
+    max-width: 100%;
+    height: auto;
+    display: block;
   }
 </style>
