@@ -10,7 +10,7 @@ const posts = await getPosts();
 ---
 
 <TopPageSection headingSVG={headingBlog}>
-    {[...posts].slice(0, 5).map(post => {
+    {[...posts].slice(0, 4).map(post => {
         // 🔸 サムネイルURLを取得（なければデフォルト表示）
         const thumbnail =
             post._embedded?.['wp:featuredmedia']?.[0]?.media_details?.sizes?.medium?.source_url ||
