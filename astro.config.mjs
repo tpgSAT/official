@@ -12,5 +12,10 @@ export default defineConfig({
                 '@assets': '/src/assets',
             },
         },
-  },
+    },
+
+    // allow cms.tpgd.jp for remote images
+    image: {
+        domains: ["cms.tpgd.jp"],
+    }
 });
