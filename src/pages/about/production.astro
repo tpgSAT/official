@@ -4,6 +4,11 @@ import { Image } from 'astro:assets';
 import GenericLayout from '@layouts/GenericLayout.astro';
 import Heading from '@components/Heading.astro';
 
+import DecorationImg from '@assets/about/production/takimatusri_decoration.jpg';
+import AsobiImg1 from '@assets/about/production/asobi_1.jpg';
+import AsobiImg2 from '@assets/about/production/asobi_2.jpg';
+import AsobiImg3 from '@assets/about/production/asobi_3.jpg';
+
 const title = "制作班";
 const description = "TPGを構成する5つの班のうちの1つ、制作班を紹介します。制作班では、イベントの広報用ポスターの制作、イベント当日の装飾、過去のイベントを紹介する動画の作成などを行っています。";
 ---
@@ -11,6 +16,22 @@ const description = "TPGを構成する5つの班のうちの1つ、制作班を
     <Heading title="活動内容">
         個人での活動が主になりますが、イベント前にはみんなで話し合って装飾を考えたり、飾りを作ったりもします。
         また、時間のあるときには班内でデザインの勉強会も行っています。居室にはデザインに関する本もあり、制作物がよりクオリティの高いものとなるよう日々勉強しています。
+        <Image src={DecorationImg} alt="装飾画像" class="inline-img" />
     </Heading>
-    
+    <Heading title="遊び">
+        制作班では、活動の合間にみんなで集まって遊ぶこともあります。ピクニックをしたり、ゲームをしたり、たこ焼きを作ったり。こうした時間を通じて、お互いの仲を深めながら、より楽しく活動しています。
+        <Image src={AsobiImg1} alt="遊び画像1" class="inline-img" />
+        <Image src={AsobiImg2} alt="遊び画像2" class="inline-img" />
+        <Image src={AsobiImg3} alt="遊び画像3" class="inline-img" />
+    </Heading>
 </GenericLayout>
+
+<style>
+    .inline-img {
+        width: 100%;
+        max-height: 100%;
+        height: auto;
+        margin: 20px 0 0;
+        border-radius: 10px;
+    }
+</style>
