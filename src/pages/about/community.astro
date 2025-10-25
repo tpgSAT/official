@@ -1,0 +1,45 @@
+---
+import { Image } from 'astro:assets';
+
+import GenericLayout from '@layouts/GenericLayout.astro';
+import Heading from '@components/Heading.astro';
+
+import Takimatsuri1 from '@assets/about/event/takimatsuri_1.jpeg';
+import Takimatsuri2 from '@assets/about/event/takimatsuri_2.jpg';
+import Wakabasai1 from '@assets/about/event/wakabasai_1.jpg';
+import Wakabasai2 from '@assets/about/event/wakabasai_2.jpg';
+import AsobiImg1 from '@assets/about/production/asobi_1.jpg';
+import AsobiImg2 from '@assets/about/production/asobi_2.jpg';
+import AsobiImg3 from '@assets/about/production/asobi_3.jpg';
+
+const title = "コミュニティ班";
+const description = "TPGを構成する5つの班のうちの1つ、コミュニティ班を紹介します。コミュニティ班はTaki Plazaで様々なコミュニティを形成することを目標にイベントの企画を行っています。企画の内容は様々で、色々なことに挑戦しています。";
+---
+<GenericLayout title={title} description={description} ListItem={[{ name: 'TPGについて', path: 'about' }, { name: 'コミュニティ班', path: 'community' }]}>
+    <Heading title="活動内容">
+        Taki Plazaで行うイベントのアイデア出しから準備、当日の運営までをすべて自分たちで行います。
+        イベントの内容によっては大学内の様々なサークルや団体と連携することもあるので、コミュニケーション能力も身につきます。
+        今年度は昨年度に引き続き若葉祭（新歓イベント）、滝祭（日本の祭文化をテーマにした国際交流イベント）、工大祭へのボードゲームカフェの出店などを行いました。
+        それぞれのイベントの詳細は直近のイベントにありますので、興味のある方はぜひ確認してみてくださいね！！
+        <Image src={Takimatsuri1} alt="滝祭" class="inline-img" />
+        <Image src={Takimatsuri2} alt="滝祭" class="inline-img" />
+        <Image src={Wakabasai1} alt="若葉祭" class="inline-img" />
+        <Image src={Wakabasai2} alt="若葉祭" class="inline-img" />
+    </Heading>
+    <Heading title="遊び">
+        制作班では、活動の合間にみんなで集まって遊ぶこともあります。ピクニックをしたり、ゲームをしたり、たこ焼きを作ったり。こうした時間を通じて、お互いの仲を深めながら、より楽しく活動しています。
+        <Image src={AsobiImg1} alt="遊び画像1" class="inline-img" />
+        <Image src={AsobiImg2} alt="遊び画像2" class="inline-img" />
+        <Image src={AsobiImg3} alt="遊び画像3" class="inline-img" />
+    </Heading>
+</GenericLayout>
+
+<style>
+    .inline-img {
+        width: 100%;
+        max-height: 100%;
+        height: auto;
+        margin: 20px 0 0;
+        border-radius: 10px;
+    }
+</style>
