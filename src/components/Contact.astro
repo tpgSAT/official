@@ -6,20 +6,21 @@ import { Image } from 'astro:assets';
 import Blobs1 from '@assets/generic/contact_blobs_1.png';
 import Blobs2 from '@assets/generic/contact_blobs_2.png';
 
-const { lists } = Astro.props;
-interface ListItem {
-  path: string;
-  name: string;
+interface Props {
+  department?: string;
+  mail?: string;
 }
+
+const { department="Taki Plaza Gardener", mail="contact@tpgd.jp" } = Astro.props;
 ---
 
 <Heading title="お問い合わせ">
     <div id="root">
-        <h2>Taki Plaza Gardener</h2>
+        <h2>{department}</h2>
         <h5>住所</h5>
         <p>〒152-8550<br />東京都目黒区大岡山 2-12-1 Taki Plaza B2F TPG居室</p>
         <h5>メール</h5>
-        <p>contact@tpgd.jp</p>
+        <a href="mailto:{mail}"><p>{mail}</p></a>
         <Image src={Blobs1} alt="Blobs1" id="blobs1" />
         <Image src={Blobs2} alt="Blobs2" id="blobs2" />
     </div>
@@ -35,14 +36,14 @@ interface ListItem {
         display: flex;
         flex-direction: column;
         font-family: 'Noto Sans JP Variable', sans-serif;
-        padding: 15px 0 10px;
+        padding: 10px 0 10px;
         margin: 30px 0 50px;
         position: relative;
     }
 
     #root h2 {
         font-size: 16px;
-        font-weight: 500;
+        font-weight: 600;
 		letter-spacing: 0.4px;
         margin: 5px 15px;
     }
@@ -56,7 +57,7 @@ interface ListItem {
 
     #root p {
         font-size: 13px;
-        font-weight: 400;
+        font-weight: 500;
         margin: 0px 15px 5px;
     }
 
