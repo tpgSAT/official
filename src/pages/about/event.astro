@@ -1,8 +1,7 @@
 ---
-import { Image } from 'astro:assets';
-
 import GenericLayout from '@layouts/GenericLayout.astro';
 import Heading from '@components/Heading.astro';
+import ArticleImage from '@components/ArticleImage.astro';
 
 import Takimatsuri1 from '@assets/about/event/takimatsuri_1.jpeg';
 import Takimatsuri2 from '@assets/about/event/takimatsuri_2.jpg';
@@ -18,22 +17,13 @@ const description = "TPGを構成する5つの班のうちの1つ、イベント
         イベントの内容によっては大学内の様々なサークルや団体と連携することもあるので、コミュニケーション能力も身につきます。
         今年度は昨年度に引き続き若葉祭（新歓イベント）、滝祭（日本の祭文化をテーマにした国際交流イベント）、工大祭へのボードゲームカフェの出店などを行いました。
         それぞれのイベントの詳細は直近のイベントにありますので、興味のある方はぜひ確認してみてくださいね！！
-        <Image src={Takimatsuri1} alt="滝祭" class="inline-img" />
-        <Image src={Takimatsuri2} alt="滝祭" class="inline-img" />
-        <Image src={Wakabasai1} alt="若葉祭" class="inline-img" />
-        <Image src={Wakabasai2} alt="若葉祭" class="inline-img" />
+        <br />
+        <ArticleImage src={Wakabasai1} alt="若葉祭" caption="若葉祭" />
+        <ArticleImage src={Wakabasai2} alt="若葉祭" />
+        <ArticleImage src={Takimatsuri1} alt="滝祭" caption="滝祭" />
+        <ArticleImage src={Takimatsuri2} alt="滝祭" />
     </Heading>
     <Heading title="遊び">
         イベ班自体の遊び自体は多くはありませんが、みんなで行く遊びは楽しいですよ！
     </Heading>
 </GenericLayout>
-
-<style>
-    .inline-img {
-        width: 100%;
-        max-height: 100%;
-        height: auto;
-        margin: 20px 0 0;
-        border-radius: 10px;
-    }
-</style>

@@ -1,7 +1,7 @@
 ---
-import { Image } from 'astro:assets';
 import GenericLayout from '@layouts/GenericLayout.astro';
 import Heading from '@components/Heading.astro';
+import ArticleImage from '@components/ArticleImage.astro';
 
 import AsobiImg1 from '@assets/about/management/asobi_1.jpg';
 import AsobiImg2 from '@assets/about/management/asobi_2.jpg';
@@ -21,18 +21,8 @@ const description = "TPGを構成する5つの班のうちの1つ、マネジメ
         マネジメント班では、班内での交流を深めることも大切にしています。
         その一環として、年に3回ほど懇親会を開いています。例えば、今年の夏休みには甲府へドライブに出かけました。
         マネジメント班は、班内での仲の良さや、企画の自由さも魅力の一つだと考えています。
-        <Image src={AsobiImg1} alt="遊び画像1" class="inline-img" />
-        <Image src={AsobiImg2} alt="遊び画像2" class="inline-img" />
+        <ArticleImage src={AsobiImg1} alt="遊び画像1" />
+        <ArticleImage src={AsobiImg2} alt="遊び画像2" />
     </Heading>
     
 </GenericLayout>
-
-<style>
-    .inline-img {
-        width: 100%;
-        max-height: 100%;
-        height: auto;
-        margin: 20px 0 0;
-        border-radius: 10px;
-    }
-</style>
