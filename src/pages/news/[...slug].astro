@@ -36,7 +36,7 @@ const ListItem = [
           <p class="news-tags">{tags}</p>
         ))}
       </div>
-      <div id="news-content">
+      <div class="news-content">
         <Content />
       </div>
     </div>
@@ -49,26 +49,26 @@ const ListItem = [
 
   #news-header {
     margin: 10px 0 20px;
-    font-family: 'Noto Sans JP', sans-serif;
+    font-family: "Noto Sans JP", sans-serif;
     font-weight: 500;
     border-bottom: 1px solid #000;
   }
 
   #news-date {
-    font-size: 12px;
+    font-size: 10px;
     letter-spacing: 0.6px;
     color: #666666;
   }
 
   #news-header h1 {
-    font-size: 20px;
+    font-size: 18px;
     letter-spacing: 2px;
-    margin-top: 8px;
+    margin: 8px 0 0;
   }
 
   .news-tags {
     display: inline-block;
-    margin-top: 10px;
+    margin: 10px 5px 8px 0;
     padding: 6px 14px;
     font-size: 10px;
     letter-spacing: 0.5px;
@@ -77,9 +77,11 @@ const ListItem = [
     color: #ffffff;
   }
 
-  #news-content {
-    font-family: 'Noto Sans JP', sans-serif;
+  .news-content {
+    font-family: "Noto Sans JP", sans-serif;
     font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.8px;
     line-height: 200%;
     margin-bottom: 100px;
   }

@@ -44,7 +44,7 @@ const categories = post._embedded?.['wp:term']?.[0]?.map(cat => cat.name) || [];
           <p class="blog-tags">{category}</p>
         ))}
       </div>
-      <div id="blog-content">
+      <div class="blog-content">
         <article set:html={post.content.rendered} />
       </div>
     </div>
@@ -71,20 +71,20 @@ const categories = post._embedded?.['wp:term']?.[0]?.map(cat => cat.name) || [];
   }
 
   #blog-date {
-    font-size: 12px;
+    font-size: 10px;
     letter-spacing: 0.6px;
     color: #666666;
   }
 
   #blog-header h1 {
-    font-size: 20px;
+    font-size: 18px;
     letter-spacing: 2px;
-    margin-top: 8px;
+    margin: 8px 0 0;
   }
 
   .blog-tags {
     display: inline-block;
-    margin-top: 10px;
+    margin: 10px 5px 8px 0;
     padding: 6px 14px;
     font-size: 10px;
     letter-spacing: 0.5px;
@@ -93,14 +93,16 @@ const categories = post._embedded?.['wp:term']?.[0]?.map(cat => cat.name) || [];
     color: #ffffff;
   }
 
-  #blog-content {
-    font-family: 'Noto Sans JP', sans-serif;
+  .blog-content {
+    font-family: "Noto Sans JP", sans-serif;
     font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.8px;
     line-height: 200%;
     margin-bottom: 100px;
   }
 
-  #blog-content :global(img) {
+  .blog-content :global(img) {
     max-width: 100%;
     height: auto;
     display: block;
