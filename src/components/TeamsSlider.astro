@@ -76,9 +76,18 @@ import '@splidejs/splide/css';
         gap    : '20px',
         arrows : false,
         pagination: false,
-        fixedWidth: '65vw',
+        fixedWidth: '20vw',
         flickMaxPages: 1,
         flickPower: 200,
+        rewind: true,
+        rewindByDrag: true,
+        breakpoints: {
+            768: {
+                fixedWidth: '65vw',
+                rewind: false,
+                rewindByDrag: true,
+            },
+        }
     } );
     splide.mount();
 </script>
