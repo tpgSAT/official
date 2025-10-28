@@ -4,6 +4,10 @@ import Heading from '@components/Heading.astro';
 import Contact from '@components/Contact.astro';
 import Slider from '@components/TeamsSlider.astro'
 import RoundedButton from '@components/RoundedButton.astro';
+import ArticleImage from '@components/ArticleImage.astro';
+
+import ClubRetreatImg from '@assets/about/club-retreat.jpg';
+import TpgLogo from '@assets/about/tpg-logo.png';
 
 const title = "TPGについて";
 const description = "Taki Plaza Gardener(以下TPG)は、東京科学大学に存在する国際交流と学⽣⽀援を⽬的とする施設であるHisao & Hiroko Taki Plazaでの、学⽣による活発な利⽤を促すことを⽬的として活動しています。";
@@ -12,7 +16,8 @@ const description = "Taki Plaza Gardener(以下TPG)は、東京科学大学に�
     <Heading title="活動内容">
         TPGは年間を通してさまざまなイベントを企画・運営しています。 中でも、新入生向けの学内最大級の学生交流イベントである若葉祭を毎年開催してきました。 その他、留学生の参加者も多いTakiBarや音楽系サークルに発表を行ってもらうTakiFes、少人数でボードゲームを制作するボドゲ制作会、折り紙企画などを行ってきました。 これまでのイベントについてはこちらをご覧ください。
         <br /><br />
-        76名(2025.07現在)のメンバーが所属し、イベント班・コミュニティ班・制作班・マネジメント班・システム班の5つの班に分かれて活動しています。学士3年生以下の東京科学大学生で構成されており、留学生も所属しています。 活動は週1で、活動拠点となるTakiPlaza地下2階の居室では日頃から誰かしらが居てにぎやかに過ごしています。 
+        76名(2025.07現在)のメンバーが所属し、イベント班・コミュニティ班・制作班・マネジメント班・システム班の5つの班に分かれて活動しています。学士3年生以下の東京科学大学生で構成されており、留学生も所属しています。 活動は週1で、活動拠点となるTakiPlaza地下2階の居室では日頃から誰かしらが居てにぎやかに過ごしています。
+        <ArticleImage src={TpgLogo} alt="TPGのロゴ" />
     </Heading>
     <Heading title="班の活動">
         TPGはイベント班・コミュニティ班・制作班・マネジメント班・システム班の5つの班に分かれて活動しています。それぞれの班については以下からご確認ください。
@@ -27,6 +32,7 @@ const description = "Taki Plaza Gardener(以下TPG)は、東京科学大学に�
         <br />
         ここで紹介した以外にも、TPGでは班での遊びや個人的に人を集めて行く遊びもたくさんあります。
         各班の紹介ページもぜひご覧ください！
+        <ArticleImage src={ClubRetreatImg} alt="合宿の様子" />
     </Heading>
     <Heading title="入会">
         TPGでは常時メンバーを募集しています。興味のある方は以下のページをご覧ください。
