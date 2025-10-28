@@ -27,7 +27,6 @@ interface ListItem {
 
 <style>
     ol {
-        padding: 0 5vw;
         margin: 0;
         list-style: none;
     }
@@ -36,7 +35,6 @@ interface ListItem {
         display: inline;
         font-family: 'Noto Sans JP Variable', sans-serif;
         font-weight: 500;
-        font-size: 12px;
         letter-spacing: 1px;
         color: #353535;
     }
@@ -44,5 +42,27 @@ interface ListItem {
     li:not(:first-child)::before {
         content: ">";
         padding: 0 4px;
+    }
+
+    /* モバイル用のCSS */
+    @media screen and (max-width: 768px) {
+      ol {
+        padding: 0 5vw;
+      }
+
+      li {
+        font-size: 12px;
+      }
+    }
+
+    /* デスクトップ用のCSS */
+    @media screen and (min-width: 769px) {
+      ol {
+        padding: 0 10vw;
+      }
+
+      li {
+        font-size: 14px;
+      }
     }
 </style>

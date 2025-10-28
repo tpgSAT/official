@@ -9,7 +9,7 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<div id="root">
+<div class="root">
     <div id="paragraph-heading">
         <Image src={Blobs} id="blobs" alt="Blobs" />
         <h2>{title}</h2>
@@ -19,11 +19,6 @@ const { title } = Astro.props;
 
 
 <style>
-    #root {
-        margin: 40px 0;
-        padding: 0 5vw;
-    }
-
     #paragraph-heading {
         display: flex;
         justify-content: flex-start;
@@ -33,24 +28,64 @@ const { title } = Astro.props;
 
     #paragraph-heading h2 {
         font-family: 'Midashi Go MB31', 'Noto Sans JP Variable', sans-serif;
-        font-weight: 500;
-        font-size: 18px;
-        letter-spacing: 2px;
         margin: 0;
-        padding-left: 5px;
     }
 
-    #root p {
+    .root p {
         font-family: 'Noto Sans JP Variable', sans-serif;
-        font-weight: 500;
-		font-size: 12px;
-		letter-spacing: 0.8px;
-        line-height: 200%;
 		color: #000;
+        margin: 30px 0;
     }
 
-    #blobs {
-        width: 10px;
-        height: auto;
+    /* モバイル用のCSS */
+    @media screen and (max-width: 768px) {
+        .root {
+            margin: 40px 0;
+            padding: 0 5vw;
+        }
+
+        #paragraph-heading h2 {
+            font-weight: 500;
+            font-size: 18px;
+            letter-spacing: 2px;
+            padding-left: 5px;
+        }
+        
+        #blobs {
+            width: 10px;
+            height: auto;
+        }
+
+        .root p {
+            font-size: 12px;
+            letter-spacing: 0.8px;
+            line-height: 200%;
+        }
+    }
+
+    /* デスクトップ用のCSS */
+    @media screen and (min-width: 769px) {
+        .root {
+            margin: 40px 0;
+            padding: 0 10vw;
+        }
+
+        #paragraph-heading h2 {
+            font-weight: 500;
+            font-size: 20px;
+            letter-spacing: 2px;
+            padding-left: 8px;
+        }
+
+        #blobs {
+            width: 14px;
+            height: auto;
+        }
+
+        .root p {
+            font-size: 16px;
+            letter-spacing: 1.2px;
+            line-height: 200%;
+        }
     }
 </style>

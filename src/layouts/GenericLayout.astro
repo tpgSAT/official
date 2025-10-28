@@ -31,34 +31,71 @@ const { title, description, ListItem } = Astro.props;
 
 
 <style>
-    #heading {
-        padding: 20px 5vw 0px;
-        margin-bottom: 60px;
-    }
-
     #heading h1 {
         font-family: 'Midashi Go MB31', 'Noto Sans JP Variable', sans-serif;
-        font-size: 28px;
-        letter-spacing: 2px;
         font-weight: 500;
     }
 
     #heading p {
         font-family: 'Noto Sans JP Variable', sans-serif;
-        font-weight: 500;
-		font-size: 12px;
-		letter-spacing: 0.8px;
-        line-height: 200%;
 		color: #000;
         margin: 30px 0;
     }
 
     #blobs {
         position: absolute;
-		top: 120px;
-		left: -120px;
-		width: 80vw;
 		height: auto;
 		z-index: -1;
+    }
+
+    /* モバイル用のCSS */
+    @media screen and (max-width: 768px) {
+        #blobs {
+            top: 120px;
+            left: -120px;
+            width: 80vw;
+        }
+
+
+        #heading {
+            padding: 20px 5vw 0px;
+            margin-bottom: 60px;
+        }
+
+        #heading h1 {
+            font-size: 28px;
+            letter-spacing: 2px;
+        }
+        
+        #heading p {
+            font-size: 12px;
+            letter-spacing: 0.8px;
+            line-height: 200%;
+        }
+    }
+
+    /* デスクトップ用のCSS */
+    @media screen and (min-width: 769px) {
+        #blobs {
+            top: 120px;
+            left: -120px;
+            width: 30vw;
+        }
+
+        #heading {
+            padding: 20px 10vw 0px;
+            margin-bottom: 90px;
+        }
+
+        #heading h1 {
+            font-size: 36px;
+            letter-spacing: 2px;
+        }
+
+        #heading p {
+            font-size: 16px;
+            letter-spacing: 1.2px;
+            line-height: 200%;
+        }
     }
 </style>
