@@ -1,23 +1,33 @@
 ---
 import Layout from '@layouts/Layout.astro';
 
+import { Image } from 'astro:assets';
+
+import EverybodyYasai from '@assets/events/2025/takipura-farm/everybody_yasai.png';
+import TakipuraNouenn from '@assets/events/2025/takipura-farm/takipuranouenn.png';
+import EverybodySityu from '@assets/events/2025/takipura-farm/everybody_sityu-.png';
+import ContentTitle from '@assets/events/2025/takipura-farm/content_title.png';
+import DateTitle from '@assets/events/2025/takipura-farm/date_title.png';
+import PlaceTitle from '@assets/events/2025/takipura-farm/place_title.png';
+import ApplyTitle from '@assets/events/2025/takipura-farm/apply_title.png';
+
 const title = "たきぷら農園シチュー編";
 const description = "TPGコミュニティ班が、大好評の企画「たきぷら農園 シチュー編」を開催します！";
 
 ---
 <Layout title={title} description={description}>
-    <img src="./_img/everybody_yasai.png" class = "everybody_yasai" alt="minna de yasai wo sodateyou"/>
-    <img src="./_img/takipuranouenn.png" class = "takipuranouenn" alt="takipuranouenn">
-    <img src="./_img/everybody_sityu-.png" class = "everybody_sityu-" alt="minna de sityu- wo tsukurou"/>
+    <Image src={EverybodyYasai} class="everybody_yasai" alt="みんなで野菜を育てよう"/>
+    <Image src={TakipuraNouenn} class="takipuranouenn" alt="たきぷら農園"/>
+    <Image src={EverybodySityu} class="everybody_sityu-" alt="みんなでシチューを作ろう"/>
     <div class = "content">
-        <img src="./_img/content_title.png" class = "content_title" alt="">
+        <Image src={ContentTitle} class="content_title" alt="ないよう"/>
         <p class = "content_text">
             TPGコミュニティ班が、大好評の企画<br />「たきぷら農園　シチュー編」を開催します！<br />
             たきぷら農園では、Taki Plazaで<br />野菜を育てて、最終的にシチューをつくります
         </p>
     </div>
     <div class = "date">
-        <img src="./_img/date_title.png" class = "date_title" alt="date">
+        <Image src={DateTitle} class="date_title" alt="date"/>
         <p class = "date_content_1">１.　たねまき<br>10月21日　17：30～18:30<br></p>
         <p class = "date_content_2">ブロッコリー、かぶ、小松菜、大根、にんじんの種を植えます</p>
         <p class = "date_content_3">２.　みずやり<br></p>
@@ -29,25 +39,20 @@ const description = "TPGコミュニティ班が、大好評の企画「たき�
     </div>
     <div class = "place_apply">
         <div class = "place">
-        <img src="./_img/place_title.png" class = "place_title" alt="place">
+        <Image src={PlaceTitle} class="place_title" alt="place"/>
         <p class = "place_content">Taki Plaza 2F ベランダ</p>
         </div>
         <div class = "apply">
-        <img src="./_img/apply_title.png" class = "apply_title" alt="apply">
+        <Image src={ApplyTitle} class="apply_title" alt="apply"/>
         <a class = "apply_link" href = "https://docs.google.com/forms/d/1dOgVER8NHyoCb3rtn4C4wipo7T6csQaCySVqNhZSLyg/viewform?pli=1&pli=1&edit_requested=true">参加したい方はここをクリック！</a>
         </div>
     </div>
 </Layout>
 
-<style>
-    html {
-        scroll-behavior: smooth;/* ページ内のボタンを押したときにスクロール風の動きをする */
-        font-size: 1vw;/* rem単位の基準値 */
-        padding: 0;
-    }
+<style >
     body {
-        background-image: url("./_img/background.webp");
-        font-family: "M PLUS Rounded 1c", sans-serif;
+        background-image: url("/events/2025/takipura-farm/background.webp");
+        font-family: 'M PLUS Rounded 1c', sans-serif;
         font-weight: 700;
         object-fit: fill;
         z-index: -150;
@@ -228,7 +233,6 @@ const description = "TPGコミュニティ班が、大好評の企画「たき�
         padding: 0;
     }
     body {
-        background-image: url("./_img/background.webp");
         font-family: "M PLUS Rounded 1c", sans-serif;
         font-weight: 700;
         object-fit: fill;
