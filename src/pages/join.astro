@@ -1,6 +1,7 @@
 ---
 import GenericLayout from '@layouts/GenericLayout.astro';
 import Heading from '@components/Heading.astro';
+import Contact from '@components/Contact.astro';
 
 const title = "入会について";
 const description = "あなたも一緒にTPGで活動してみませんか？TPGは一年を通して新規メンバーを募集しています！";
@@ -8,8 +9,13 @@ const description = "あなたも一緒にTPGで活動してみませんか？TP
 <GenericLayout title={title} description={description} ListItem={[{ name: '入会について', path: 'join' }]}>
     <Heading title="入会について">
         学士3年以下の東京科学大生であれば、誰でもTPGに入会できます。留学生も大歓迎です！
+        <br />
+        また、入会時に会費として年間1000円をいただいております。このお金は、サークル活動を豊かにするために使われるもので、皆さんに還元していきます。
     </Heading>
     <Heading title="入会方法">
-        Taki Plaza B2Fの奥にあるTPGの居室まで直接来て、声をかけてください。メンバーが丁寧に説明します！
+        長期休みやテスト期間以外は毎週火曜日17:30~から定例会を行っています。定例会の時間帯にTaki Plaza B2Fの奥にあるTPGの居室まで直接来て、声をかけてください！入会の手続きをご案内します。
+        <br />
+        また、入会に関する質問がある場合や、長期休み等で定例会での入会が難しい場合は、以下のメールアドレスまでお気軽にお問い合わせください。
     </Heading>
+    <Contact department="Taki Plaza Gardener 入会担当" email="info@tpgd.jp" />
 </GenericLayout>

@@ -1,104 +1,114 @@
 ---
-import Layout from '@layouts/Layout.astro';
-import Breadcrumb from '@components/Breadcrumb.astro';
-import { getPosts } from '@lib/api';
 
-const FallbackThumbnail = '/blog-fallback-thumbnail.jpg';
+import Layout from "@layouts/Layout.astro";
+import Breadcrumb from "@components/Breadcrumb.astro";
 
-const posts = await getPosts();
+const ListItem = [{ path: "events", name: "過去のイベント" }];
 
-const ListItem = [
-  { path: 'events', name: '過去のイベント' },
-];
+// ./**/　にあるすべての .astro ファイルをインポート
+const matches = import.meta.glob("./**/*.astro", { eager: true });
+const events = Object.entries(matches)
+  .map(([filePath, mod]) => {
+    // filePath は './hoge.mdx' や './sub/slug.md' の形
+    const path = filePath.replace(/^\.\/|\.astro$/g, ""); // 'sub/slug' など
+    const [year] = path.split("/");
+    const slug = `/${path}`; // URL パスは /events/${slug}
+    const title = frontmatter.title ?? slug;
+    const date = frontmatter.date ? new Date(frontmatter.date) : null;
+    return { slug, title, date };
+  })
+  // 例: 日付降順
+  .sort((a, b) => {
+    if (a.date && b.date) return b.date - a.date;
+    if (a.date) return -1;
+    if (b.date) return 1;
+    return a.slug.localeCompare(b.slug);
+  });
 ---
 
 <Layout title="過去のイベント">
-    <Breadcrumb lists={ListItem} />
-    <div id="root">
-        <h1>過去のイベント</h1>
-        {[...posts].map(post => {
-        // 🔸 サムネイルURLを取得（なければデフォルト表示）
-        const thumbnail =
-            post._embedded?.['wp:featuredmedia']?.[0]?.media_details?.sizes?.medium?.source_url ||
-            post._embedded?.['wp:featuredmedia']?.[0]?.source_url ||
-            FallbackThumbnail;
-        
-        // 🔸 カテゴリ名の配列を取得（なければ空配列）
-        const categories = post._embedded?.['wp:term']?.[0]?.map(cat => cat.name) || [];
-
+  <Breadcrumb lists={ListItem} />
+  <div id="root">
+    <h1>過去のイベント</h1>
+    { events.map(e => {
         return (
-            <a href={`/blog/${post.id}`}>
-                <div class="blog-content">
-                    <img src={thumbnail} class="blog-thumbnail" alt={post.title.rendered} />
-                    <div class="blog-tags"><p class="blog-tag">{categories?.join(' ')}</p></div>
-                    <h3 class="blog-title">{post.title.rendered}</h3>
-                    <p class="blog-date">{new Date(post.date).toLocaleDateString('ja-JP')}</p>
-                </div>
-            </a>
+          <a href={e.slug}>
+            <div class="blog-content">
+              <div class="blog-tags">
+                <p class="blog-tag">{e.date?.join(" ")}</p>
+              </div>
+              <h3 class="blog-title">{e.title}</h3>
+              <p class="blog-date">
+                {new Date(e.date).toLocaleDateString("ja-JP")}
+              </p>
+            </div>
+          </a>
         );
-        })}
-    </div>
+      })
+    }
+  </div>
 </Layout>
 
 <style>
-    #root {
-        margin: 0 5vw 40px;
-    }
+  #root {
+    margin: 0 5vw 40px;
+  }
 
-    #root h1 {
-        font-family: 'Midashi Go MB31', 'Noto Sans JP Variable', sans-serif;
-        font-size: 28px;
-        letter-spacing: 2px;
-        font-weight: 500;
-    }
+  #root h1 {
+    font-family: "Midashi Go MB31", "Noto Sans JP Variable", sans-serif;
+    font-size: 28px;
+    letter-spacing: 2px;
+    font-weight: 500;
+  }
 
-    .blog-content {
-        font-family: 'Noto Sans JP Variable', sans-serif;
-		padding: 15px 0 0;
-		display: grid;
-		grid-template-columns: 40% 1fr;
-		grid-template-rows: 20px 1fr 20px;
-		gap: 0 10px;
-	}
+  .blog-content {
+    font-family: "Noto Sans JP Variable", sans-serif;
+    padding: 15px 0 0;
+    display: grid;
+    grid-template-columns: 40% 1fr;
+    grid-template-rows: 20px 1fr 20px;
+    gap: 0 10px;
+  }
 
-	.blog-thumbnail {
-		width: 100%;
-		aspect-ratio: 16 / 10;
-	    object-fit: cover;
-		border-radius: 10px;
-		grid-column: 1 / 2;
-		grid-row: 1 / 4;
-	}
+  .blog-thumbnail {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: 10px;
+    grid-column: 1 / 2;
+    grid-row: 1 / 4;
+  }
 
-	.blog-tags, .blog-date{
-		font-weight: 400;
-		font-size: 10px;
-		letter-spacing: 0.4px;
-		color: #707070;
-		margin: 0;
-		display: inline-block;
-		grid-column: 2 / 3;
-	}
+  .blog-tags,
+  .blog-date {
+    font-weight: 400;
+    font-size: 10px;
+    letter-spacing: 0.4px;
+    color: #707070;
+    margin: 0;
+    display: inline-block;
+    grid-column: 2 / 3;
+  }
 
-	.blog-title {
-		font-weight: 500;
-		font-size: 14px;
-		margin: 0;
-		padding: 0;
-		grid-column: 2 / 3;
-		grid-row: 2 / 3;
-	}
+  .blog-title {
+    font-weight: 500;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
 
-	.blog-tags {
-		grid-row: 1 / 2;
-	}
+  .blog-tags {
+    grid-row: 1 / 2;
+  }
 
-	.blog-tag {
-		padding: 0;
-		margin: 0;
-	}
+  .blog-tag {
+    padding: 0;
+    margin: 0;
+  }
 
-	.blog-date {
-		grid-row: 3 / 4;
-	}
+  .blog-date {
+    grid-row: 3 / 4;
+  }
 </style>

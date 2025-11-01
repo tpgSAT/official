@@ -1,0 +1,416 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { Image } from "astro:assets";
+
+import EventLogo from '@assets/events/2025/takimatsuri/takimatsuri_logo.svg';
+import DateSVG from '@assets/events/2025/takimatsuri/date.svg';
+import HeadingAbout from '@assets/events/2025/takimatsuri/heading_about.svg';
+import HeadingProjects from '@assets/events/2025/takimatsuri/heading_projects.svg';
+import FormButtonSVG from '@assets/events/2025/takimatsuri/form_button.svg';
+
+
+// タイトルと説明文の設定
+const title = "滝祭";
+const description = "TPGコミュニティ班が、大好評の企画「たきぷら農園 シチュー編」を開催します！";
+const date = "2025-07-07";
+---
+
+<Layout title={title} description={description}>
+  <div class="main">
+    <div class="hero" id="hero">
+      <canvas id="shooting-stars" width="" height=""></canvas>
+      <Image src={EventLogo} alt="滝祭" class="heroText" />
+      <Image src={DateSVG} alt="7月7日" class="date" />
+    </div>
+    <div id="about" class="content">
+      <Image src={HeadingAbout} alt="滝祭とは" class="heading" />
+      <p>
+        滝祭は、Taki lazaで開かれる“学生による夏祭り”です。射的やスーパーボールすくいなど、懐かしくて楽しい企画が盛りだくさん！
+        <br
+        />七夕の夜に、学年・国籍を超えて、誰でも気軽に参加できる“夏の思い出”を一緒に作りませんか？
+      </p>
+      <p>
+        入場料：100円（屋台で使えるチケット3枚付き）<br
+        />事前に申し込みいただくと、さらにチケットを1枚プレゼント！
+        <br />屋台をたくさん楽しみたい方は、ぜひ<a
+          href="https://forms.gle/v1fBLCt8Aq8kaUUj6"
+          target="_blank">事前申し込みフォーム</a
+        >からお申し込みください。
+      </p>
+    </div>
+    <div id="projects" class="content">
+      <Image src={HeadingProjects} alt="企画内容" class="heading" />
+      <div class="projects_container">
+        <div class="project">
+          <h1>ビンゴ大会</h1>
+          <p>
+            毎回白熱のビンゴ大会！豪華景品をかけて運試し。誰にでもチャンスがある、滝祭の目玉企画です！
+          </p>
+        </div>
+        <div class="project">
+          <h1>射的</h1>
+          <p>的を狙って景品ゲット！童心に返って楽しめる、夏祭りの定番。</p>
+        </div>
+        <div class="project">
+          <h1>ボウリング</h1>
+          <p>
+            簡単そうで意外とムズい!?
+            屋台スタイルのボウリングで、ストライクを目指して盛り上がろう！
+          </p>
+        </div>
+        <div class="project">
+          <h1>コイン落とし</h1>
+          <p>
+            コインを落として、水槽の中のコップに入れられるか!?
+            地味に熱中する、コツと運のゲームです。
+          </p>
+        </div>
+        <div class="project">
+          <h1>スーパーボールすくい</h1>
+          <p>
+            カラフルなスーパーボールがたっぷり！ポイが破れるまでに、どれだけすくえるかな？
+          </p>
+        </div>
+        <div class="project">
+          <h1>かき氷</h1>
+          <p>
+            夏といえばコレ！いちご・めろん・カルピスなど、定番シロップで冷たいひとときをどうぞ。
+          </p>
+        </div>
+        <div class="project">
+          <h1>ベビーカステラ</h1>
+          <p>
+            甘くてふわふわ！焼きたてのベビーカステラは、おやつにもぴったりの人気屋台です。
+          </p>
+        </div>
+        <div class="project">
+          <h1>ドリンク販売</h1>
+          <p>
+            暑い夜には冷たい飲み物が欠かせない！ジュースやお茶で、涼を取りながらお祭りを楽しもう。
+          </p>
+        </div>
+        <div class="project">
+          <h1>キャンドル作り</h1>
+          <p>
+            自分だけのキャンドルを作ってみよう！色や形を自由に選んで、思い出に残る作品をお持ち帰り。
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="form" class="content">
+      <a href="https://forms.gle/v1fBLCt8Aq8kaUUj6" target="_blank">
+        <div class="form_button">
+          <Image src={FormButtonSVG} alt="事前申し込みフォーム" />
+        </div>
+      </a>
+    </div>
+
+    <div class="languageButton"><a href="en.html"><p>English Page</p></a></div>
+  </div>
+</Layout>
+
+<!--流れ星のためのJSの読み込み-->
+<script>
+  const canvas = document.getElementById("shooting-stars");
+  const ctx = canvas.getContext("2d");
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  class Star {
+    constructor() {
+      this.reset();
+    }
+
+    reset() {
+      console.log("reset");
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height * 0.5;
+      this.len = Math.random() * 120 + 100;
+      this.speed = Math.random() * 10 + 4;
+      this.angle = 130 * (Math.PI / 180); // 45度
+      this.alpha = 0; // フェードイン開始は透明から
+      this.fadingIn = true; // フェードイン中フラグ
+
+      // 次の登場タイム（絶対時間）
+      this.nextStart = performance.now() + Math.random() * 3000; // 0〜3秒のランダム遅延
+    }
+
+    update() {
+      const now = performance.now();
+
+      // 次の登場タイムになるまで待機
+      if (now < this.nextStart) {
+        this.alpha = 0;
+        return;
+      }
+
+      if (!this.fadingIn) {
+        this.fadingIn = true; // 遅延終了したらフェードイン開始
+      }
+
+      this.x += Math.cos(this.angle) * this.speed;
+      this.y += Math.sin(this.angle) * this.speed;
+      if (this.fadingIn) {
+        this.alpha += 0.02; // フェードイン速度（調整可）
+        if (this.alpha >= 1) {
+          this.alpha = 1;
+          this.fadingIn = false; // フェードイン完了
+        }
+      } else {
+        this.alpha -= 0.01; // フェードアウト
+        if (this.alpha <= 0) {
+          this.reset(); // フェードアウト後リセット
+        }
+      }
+    }
+
+    draw() {
+      if (this.alpha <= 0) return; // 透明なら描画しない
+
+      ctx.save();
+      ctx.globalAlpha = this.alpha;
+      ctx.strokeStyle = "#F2DAA5";
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(this.x, this.y);
+      ctx.lineTo(
+        this.x - Math.cos(this.angle) * this.len,
+        this.y - Math.sin(this.angle) * this.len
+      );
+      ctx.stroke();
+      ctx.restore();
+    }
+  }
+
+  const stars = Array.from({ length: 6 }, () => new Star());
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    stars.forEach((star) => {
+      star.update();
+      star.draw();
+    });
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+
+  window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    stars.forEach((star) => star.reset());
+  });
+</script>
+
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: "Open Sans", sans-serif;
+  }
+
+  a {
+    display: block;
+    text-decoration: none;
+  }
+
+  .main {
+    width: 100%;
+
+    background-image: url(/events/2025/takimatsuri/bg.png);
+    background-size: cover;
+  }
+
+  canvas#shooting-stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* クリックなどの妨げにならないように */
+  }
+
+  .hero {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+  }
+
+  .heroText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .date {
+    position: absolute;
+  }
+
+  #about p {
+    color: #f2daa5;
+    font-family: "Noto Serif JP", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  /* commonsのcssをかき消す */
+  #about a {
+    text-decoration: underline;
+    display: inline-block;
+    color: #f2daa5;
+    transition: 0.5s;
+  }
+
+  .projects_container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+  }
+
+  .project h1 {
+    font-size: 20px;
+    padding: 0 0 5px;
+    background-image: linear-gradient(to right, #f2daa5 4px, transparent 2px);
+    background-size: 10px 1px;
+    background-repeat: repeat-x;
+    background-position: left bottom;
+
+    color: #f2daa5;
+    font-family: "Noto Serif JP", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 2;
+    letter-spacing: 1px;
+  }
+
+  .project p {
+    color: #f2daa5;
+    font-family: "Noto Serif JP", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 2;
+    letter-spacing: 1px;
+  }
+
+  .form_button img {
+    width: 400px;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .languageButton {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    padding: 0px 5px;
+    border-bottom: 1px solid #f2daa5;
+  }
+
+  .languageButton p {
+    margin: 0;
+    color: #f2daa5;
+  }
+
+  @media screen and (min-width: 670px) {
+    .heroText {
+        height: 40vh;
+    }
+
+    .date {
+        width: 250px;
+        bottom: 70px;
+        left: 10vw;
+    }
+
+    .heading {
+        height: 70px;
+    }
+
+   
+    .content {
+        width: 80%;
+        margin: 0 10% 50px;
+    }
+
+    #about p {
+        font-size: 18px;
+        line-height: 1.8;
+        letter-spacing: 1.5px;
+        padding: 0 10px;
+        margin: 10px 0 30px;
+    }
+
+    /* commonsのcssをかき消す */
+    #about a {
+        font-size: 18px;
+    }
+
+    .project {
+        width: 25vw;
+        min-width: 200px;
+    }
+
+    #form{
+        text-align: center;
+        padding: 100px 0 100px;
+        margin: 0 10%;
+    }
+}
+
+@media screen and (max-width: 670px) {
+    .heroText {
+        height: 30vh;
+    }
+
+    .date {
+        width: 200px;
+        bottom: 50px;
+        left: 5vw;
+    }
+
+    .heading {
+        height: 60px;
+    }
+
+    .content {
+        width: 90%;
+        margin: 0 5% 50px;
+    }
+
+    #about p {
+    font-size: 14px;
+    line-height: 1.8;
+    letter-spacing: 1.5px;
+    padding: 0 10px;
+    margin: 10px 0 30px;
+    }
+
+    .project {
+        width: 90%;
+    }
+
+    .project h1 {
+        font-size: 18px;
+    }
+
+    .project p {
+        font-size: 14px;
+    }
+
+    #form{
+        padding: 50px 0 100px;
+        margin: 0 5%;
+    }
+}
+</style>
