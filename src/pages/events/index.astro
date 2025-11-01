@@ -5,47 +5,12 @@ import Breadcrumb from "@components/Breadcrumb.astro";
 
 const ListItem = [{ path: "events", name: "過去のイベント" }];
 
-// ./**/　にあるすべての .astro ファイルをインポート
-const matches = import.meta.glob("./**/*.astro", { eager: true });
-const events = Object.entries(matches)
-  .map(([filePath, mod]) => {
-    // filePath は './hoge.mdx' や './sub/slug.md' の形
-    const path = filePath.replace(/^\.\/|\.astro$/g, ""); // 'sub/slug' など
-    const [year] = path.split("/");
-    const slug = `/${path}`; // URL パスは /events/${slug}
-    const title = frontmatter.title ?? slug;
-    const date = frontmatter.date ? new Date(frontmatter.date) : null;
-    return { slug, title, date };
-  })
-  // 例: 日付降順
-  .sort((a, b) => {
-    if (a.date && b.date) return b.date - a.date;
-    if (a.date) return -1;
-    if (b.date) return 1;
-    return a.slug.localeCompare(b.slug);
-  });
 ---
 
 <Layout title="過去のイベント">
   <Breadcrumb lists={ListItem} />
   <div id="root">
     <h1>過去のイベント</h1>
-    { events.map(e => {
-        return (
-          <a href={e.slug}>
-            <div class="blog-content">
-              <div class="blog-tags">
-                <p class="blog-tag">{e.date?.join(" ")}</p>
-              </div>
-              <h3 class="blog-title">{e.title}</h3>
-              <p class="blog-date">
-                {new Date(e.date).toLocaleDateString("ja-JP")}
-              </p>
-            </div>
-          </a>
-        );
-      })
-    }
   </div>
 </Layout>
 
