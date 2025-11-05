@@ -5,12 +5,34 @@ import Breadcrumb from "@components/Breadcrumb.astro";
 
 const ListItem = [{ path: "events", name: "過去のイベント" }];
 
+const modules = import.meta.glob('./**/*.astro', { eager: true });
+
+// 各ページの情報を整形
+const events = Object.entries(modules).map(([path, mod]) => {
+  const url = path
+    .replace('./', '/events/')
+    .replace(/\.astro$/, '');
+  return {
+    title: mod.frontmatter?.title ?? '無題のイベント',
+    date: mod.frontmatter?.date ?? null,
+    url,
+  };
+}).sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+
 ---
 
 <Layout title="過去のイベント">
   <Breadcrumb lists={ListItem} />
   <div id="root">
     <h1>過去のイベント</h1>
+    <ul>
+      {events.map(event => (
+        <li>
+          <a href={event.url}>{event.title}</a>
+          {event.date && <span>（{event.date}）</span>}
+        </li>
+      ))}
+    </ul>
   </div>
 </Layout>
 
