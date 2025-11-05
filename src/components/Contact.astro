@@ -20,7 +20,7 @@ const { department="Taki Plaza Gardener", email="contact@tpgd.jp" } = Astro.prop
         <h5>住所</h5>
         <p>〒152-8550<br />東京都目黒区大岡山 2-12-1 Taki Plaza B2F TPG居室</p>
         <h5>メール</h5>
-        <a href="mailto:{mail}"><p>{email}</p></a>
+        <a href={`mailto:${email}`}><p>{email}</p></a>
         <Image src={Blobs1} alt="Blobs1" id="blobs1" />
         <Image src={Blobs2} alt="Blobs2" id="blobs2" />
     </div>
