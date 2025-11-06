@@ -2,15 +2,19 @@
 import GenericLayout from '@layouts/GenericLayout.astro';
 import Heading from '@components/Heading.astro';
 import Contact from '@components/Contact.astro';
+import RoundedButton from '@components/RoundedButton.astro';
 
-const title = "掲示板利用の募集";
-const description = "Taki Plaza B2F大階段下の学生掲示板のスペースで、ポスター掲示とビラの設置を受け付けております。皆さんのお申し込みをお待ちしております。なお、9面マルチ利用についてはこちらのページをご参照ください。";
+const title = "掲示板でイベントやサークルを紹介しませんか？";
+const description = "Taki Plaza B2F大階段下の学生掲示板のスペースで、学生団体、個人が主催するイベントやサークル活動に関するポスターの掲示とビラの設置を受け付けています。皆さんのお申し込みをお待ちしております。";
 ---
 <GenericLayout title={title} description={description} ListItem={[{ name: '掲示板利用の募集', path: 'poster-application' }]}>
-    <Heading title={title}>
-        TPGは年間を通してさまざまなイベントを企画・運営しています。 中でも、新入生向けの学内最大級の学生交流イベントである若葉祭を毎年開催してきました。 その他、留学生の参加者も多いTakiBarや音楽系サークルに発表を行ってもらうTakiFes、少人数でボードゲームを制作するボドゲ制作会、折り紙企画などを行ってきました。 これまでのイベントについてはこちらをご覧ください。
+    <Heading title="申し込み方法">
+        1. フォームに必要事項を入力し提出してください。<br />
+        2. Taki Plaza B2FのTPG居室前にある提出BOXにポスターやビラを投函してください。<br />
+        <br />
+        <RoundedButton label="申し込みフォーム" href="https://docs.google.com/forms/d/e/1FAIpQLSdlmuFBuvEE28hYpWUNPsxCxCe17G5-MV-6JPhNaypZVDEVDA/viewform?usp=sf_link" />
         <br /><br />
-        76名(2025.07現在)のメンバーが所属し、イベント班・コミュニティ班・制作班・マネジメント班・システム班の5つの班に分かれて活動しています。学士3年生以下の東京科学大学生で構成されており、留学生も所属しています。 活動は週1で、活動拠点となるTakiPlaza地下2階の居室では日頃から誰かしらが居てにぎやかに過ごしています。 
+        公認サークルと公認の学生団体向けの映像募集についてはこちらのページをご覧ください。
     </Heading>
     <Contact department="Taki Plaza Gardener マネジメント班" email="takiplazagardener.management@gmail.com" />
     
