@@ -4,6 +4,8 @@ import Events from "@components/Sections/Events.astro";
 import News from "@components/Sections/News.astro";
 import Blog from "@components/Sections/Blog.astro";
 import About from "@components/Sections/About.astro";
+import SignageBanner from "@components/SignageBanner.astro";
+import PosterBanner from "@components/PosterBanner.astro";
 
 import { Image } from "astro:assets";
 
@@ -21,6 +23,10 @@ import Blobs6 from "@assets/topPage/blobs_6.png";
   <Blog />
   <About />
   <div id="spacer"></div>
+  <div class="banner-wrapper">
+    <SignageBanner />
+    <PosterBanner />
+  </div>
 
   <!-- 背景装飾用のBlobs -->
   <Image src={Blobs1} class="blobs" id="blobs_1" alt="Blobs1" />
@@ -32,6 +38,9 @@ import Blobs6 from "@assets/topPage/blobs_6.png";
 </Layout>
 
 <style>
+  .banner-wrapper{
+    margin: 0 5vw;
+  }
   #spacer {
     height: 100px;
   }

@@ -1,0 +1,17 @@
+---
+import { Image } from 'astro:assets';
+
+import PosterBannerImg from '@assets/banner/poster_banner.png';
+---
+
+<a href="/poster-application/">
+    <Image class="banner" src={PosterBannerImg} alt="掲示板でサークルやイベントを紹介しませんか？" />
+</a>
+
+<style>
+    .banner {
+        width: 100%;
+        height: auto;
+        margin: 20px 0;
+    }
+</style>
