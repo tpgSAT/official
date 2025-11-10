@@ -1,6 +1,9 @@
 ---
 import { Image } from 'astro:assets';
 import takimatsuri from '../assets/topPage/event_takimatsuri.png';
+
+import { events } from "@lib/events";
+
 // Splideのスタイルをインポート
 import '@splidejs/splide/css';
 ---
@@ -8,24 +11,16 @@ import '@splidejs/splide/css';
 <div class="splide" role="group" aria-label="直近のイベント">
   <div class="splide__track">
 		<div class="splide__list">
-			<div class="splide__slide">
-                <Image src={takimatsuri} class="event_image" alt="Takimatsuri" />
-                <p class="event_tag">Taki Plaza B2F</p>
-                <h3 class="event_title">Taki Plaza B2Fで滝祭を開催します！</h3>
-                <p class="event_date">2025.9.30</p>
-            </div>
-			<div class="splide__slide">
-                <Image src={takimatsuri} class="event_image" alt="Takimatsuri" />
-                <p class="event_tag">Taki Plaza B2F</p>
-                <h3 class="event_title">Taki Plaza B2Fで滝祭を開催します！</h3>
-                <p class="event_date">2025.9.30</p>
-            </div>
-            <div class="splide__slide">
-                <Image src={takimatsuri} class="event_image" alt="Takimatsuri" />
-                <p class="event_tag">Taki Plaza B2F</p>
-                <h3 class="event_title">Taki Plaza B2Fで滝祭を開催します！</h3>
-                <p class="event_date">2025.9.30</p>
-            </div>
+            {events.slice(0, 5).map((event) => (
+                <a href={`/events${event.path}`} class="splide__slide">
+                    <div class="event-slide-item">
+                        <div class="img-wrapper"><Image src={event.thumbnail} class="event_image" alt={event.title} /></div>
+                        <p class="event_tag">Taki Plaza B2F</p>
+                        <h3 class="event_title">{event.title}</h3>
+                        <p class="event_date">{new Date(event.date).toLocaleDateString('ja-JP')}</p>
+                    </div>
+                </a>
+            ))}
 		</div>
   </div>
 </div>
@@ -37,9 +32,15 @@ import '@splidejs/splide/css';
         margin-top: 20px;
     }
 
+    .img-wrapper {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+    }
+
     .event_image {
         width: 100%;
-        height: auto;
+        height: 100%;
         border-radius: 20px;
     }
 
