@@ -22,7 +22,7 @@ export const events: Event[] = [
     date: "2025-10-21",
   },
   {
-    title: "工大祭2025でTPG Cafeを開催！",
+    title: "工大祭でTPG Cafeを開催！",
     year: 2025,
     description: "工大祭2025でTPGはボードゲームカフェを開きます！ぜひお越しください！",
     path: "/2025/tpg-cafe",
