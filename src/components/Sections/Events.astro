@@ -1,10 +1,31 @@
 ---
 import TopPageSection from '@layouts/TopPageSection.astro';
 import Slider from '@components/EventsSlider.astro';
+import { Image } from 'astro:assets';
 
+import linkToEvents from '@assets/topPage/link_to_events.svg';
 import headingEvents from '@assets/topPage/heading_events.svg';
 ---
 
 <TopPageSection headingSVG={headingEvents} isFullWidth={true}>
     <Slider />
+    <div class="link-wrapper">
+        <a href="/events/">
+            <Image src={linkToEvents} alt="イベント一覧" class="link-img" />
+        </a>
+    </div>
 </TopPageSection>
+
+<style>
+    .link-wrapper {
+        margin: 0 5%;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .link-img {
+        display: block;
+        margin: 20px auto 0;
+        width: auto;
+        height: 13px;
+    }
+</style>

@@ -1,6 +1,8 @@
 ---
 import TopPageSection from '@layouts/TopPageSection.astro';
+import { Image } from 'astro:assets';
 
+import linkToNews from '@assets/topPage/link_to_news.svg';
 import headingNews from '@assets/topPage/heading_news.svg';
 
 
@@ -28,6 +30,11 @@ const newsEntries = await getCollection('news');
 			</div>
 		</a>
 	))}
+	<div class="link-wrapper">
+        <a href="/news/">
+            <Image src={linkToNews} alt="ニュース一覧" class="link-img" />
+        </a>
+    </div>
 </TopPageSection>
 
 <style>
@@ -64,4 +71,16 @@ const newsEntries = await getCollection('news');
 		font-size: 15px;
 		margin: 12px 0;
 	}
+
+    .link-wrapper {
+        margin: 0;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .link-img {
+        display: block;
+        margin: 20px auto 0;
+        width: auto;
+        height: 13px;
+    }
 </style>

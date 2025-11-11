@@ -3,7 +3,8 @@ import TopPageSection from '@layouts/TopPageSection.astro';
 import { getPosts } from '@lib/api';
 import { Image } from 'astro:assets';
 import headingBlog from '@assets/topPage/heading_blog.svg';
-import blogThumbnail from '@assets/topPage/blog_thumbnail.png';
+
+import linkToBlog from '@assets/topPage/link_to_blog.svg';
 
 const FallbackThumbnail = '/blog-fallback-thumbnail.jpg';
 const posts = await getPosts();
@@ -30,7 +31,13 @@ const posts = await getPosts();
                 </div>
             </a>
         );
-        })}
+	})}
+
+    <div class="link-wrapper">
+        <a href="/blog/">
+            <Image src={linkToBlog} alt="ブログ一覧" class="link-img" />
+        </a>
+    </div>
 </TopPageSection>
 
 <style>
@@ -83,4 +90,16 @@ const posts = await getPosts();
 	.blog-date {
 		grid-row: 3 / 4;
 	}
+
+	.link-wrapper {
+        margin: 0;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .link-img {
+        display: block;
+        margin: 20px auto 0;
+        width: auto;
+        height: 13px;
+    }
 </style>
