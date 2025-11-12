@@ -10,6 +10,7 @@ export interface Event {
 }
 
 import takiFarmImg from '@assets/events/2025/takipura-farm/poster.png';
+import tpgCafeThumb from '@assets/events/2025/tpg-cafe/poster.png';
 import takimatsuriThumb from '@assets/events/2025/takimatsuri/takimatsuri_thumbnail.webp';
 
 export const events: Event[] = [
@@ -26,7 +27,7 @@ export const events: Event[] = [
     year: 2025,
     description: "工大祭2025でTPGはボードゲームカフェを開きます！ぜひお越しください！",
     path: "/2025/tpg-cafe",
-    thumbnail: takimatsuriThumb,
+    thumbnail: tpgCafeThumb,
     date: "2025-11-02",
   },
   {
