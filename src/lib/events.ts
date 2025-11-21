@@ -34,7 +34,7 @@ export const events: Event[] = [
     date: "2025-10-21",
   },
   {
-    title: "滝祭を開催します！",
+    title: "Taki Plaza B2Fで滝祭を開催します！",
     year: 2025,
     description:
       'TPGでは今年も滝祭を開催します！七夕の夜に"夏の思い出"を一緒に作りませんか？',
@@ -43,7 +43,7 @@ export const events: Event[] = [
     date: "2025-07-07",
   },
   {
-    title: "かたどるガラスパズル",
+    title: "好きでかたどるガラスパズル",
     year: 2025,
     description:
       'TPGでは初のステンドグラス風の作品をつくるイベントを開催します！',
