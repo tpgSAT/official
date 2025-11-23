@@ -12,7 +12,8 @@ const newsEntries = await getCollection('news');
 ---
 
 <TopPageSection headingSVG={headingNews}>
-	{[...newsEntries]
+	<div class="news-content-wrapper">
+		{[...newsEntries]
 		.sort((a, b) => new Date(b.data.date) - new Date(a.data.date)) // 日付で降順ソート
 		.slice(0, 3) // 最新3件のみ表示
 		.map(entry => (
@@ -29,7 +30,9 @@ const newsEntries = await getCollection('news');
 				<h3 class="news-title">{entry.data.title}</h3>
 			</div>
 		</a>
-	))}
+		))}
+	</div>
+	
 	<div class="link-wrapper">
         <a href="/news/">
             <Image src={linkToNews} alt="ニュース一覧" class="link-img" />
@@ -38,6 +41,10 @@ const newsEntries = await getCollection('news');
 </TopPageSection>
 
 <style>
+	.news-content-wrapper {
+
+	}
+
     .news-content {
         font-family: 'Noto Sans JP Variable', sans-serif;
 		padding: 5px;
@@ -73,14 +80,40 @@ const newsEntries = await getCollection('news');
 	}
 
     .link-wrapper {
-        margin: 0;
         display: flex;
         justify-content: flex-end;
     }
+
     .link-img {
         display: block;
         margin: 20px auto 0;
         width: auto;
-        height: 13px;
+    }
+
+    /* モバイル用のCSS */
+    @media screen and (max-width: 768px) {
+        .link-wrapper {
+            margin: 0 5%;
+        }
+        
+        .link-img {
+            height: 13px;
+        }
+    }
+
+    /* デスクトップ用のCSS */
+    @media screen and (min-width: 769px) {
+		.news-content-wrapper {
+			width: 50%;
+			margin-left: 50%;
+		}
+
+        .link-wrapper {
+            margin: 30px  0 0;
+        }
+
+        .link-img {
+            height: 16px;
+        }
     }
 </style>

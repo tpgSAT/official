@@ -18,14 +18,35 @@ import headingEvents from '@assets/topPage/heading_events.svg';
 
 <style>
     .link-wrapper {
-        margin: 0 5%;
         display: flex;
         justify-content: flex-end;
     }
+
     .link-img {
         display: block;
-        margin: 20px auto 0;
+        margin: 50px auto 0;
         width: auto;
-        height: 13px;
+    }
+
+    /* モバイル用のCSS */
+    @media screen and (max-width: 768px) {
+        .link-wrapper {
+            margin: 0 5%;
+        }
+        
+        .link-img {
+            height: 13px;
+        }
+    }
+
+    /* デスクトップ用のCSS */
+    @media screen and (min-width: 769px) {
+        .link-wrapper {
+            margin: 0 5%;
+        }
+
+        .link-img {
+            height: 16px;
+        }
     }
 </style>
