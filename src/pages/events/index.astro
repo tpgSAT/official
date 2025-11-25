@@ -45,7 +45,7 @@ const ListItem = [{ path: "events", name: "過去のイベント" }];
     margin: 20px 0;
 		display: grid;
 		grid-template-columns: 40% 1fr;
-		grid-template-rows: 15px 25px 50px;
+		grid-template-rows: 15px 25px 1fr;
 		gap: 0 10px;
 	}
 
@@ -53,6 +53,8 @@ const ListItem = [{ path: "events", name: "過去のイベント" }];
     width: 100%;
     aspect-ratio: 16 / 10;
     overflow: hidden;
+		grid-column: 1 / 2;
+		grid-row: 1 / 4;
   }
 
 	.blog-thumbnail {
@@ -60,8 +62,6 @@ const ListItem = [{ path: "events", name: "過去のイベント" }];
     height: 100%;
     object-fit: cover;
 		border-radius: 10px;
-		grid-column: 1 / 2;
-		grid-row: 1 / 4;
 	}
 
 	.blog-date, .description {

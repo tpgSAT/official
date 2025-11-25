@@ -19,7 +19,9 @@ const { title, description, ListItem } = Astro.props;
 ---
 
 <Layout title={title} description={description}>
-    <Breadcrumb lists={ListItem} />
+    <div class="breadcrumb-wrapper">
+        <Breadcrumb lists={ListItem} />
+    </div>
     <div id="heading">
         <h1>{title}</h1>
         <p>{description}</p>
@@ -76,6 +78,9 @@ const { title, description, ListItem } = Astro.props;
 
     /* デスクトップ用のCSS */
     @media screen and (min-width: 769px) {
+        .breadcrumb-wrapper {
+            padding: 0 5vw;
+        }
         #blobs {
             top: 120px;
             left: -120px;
