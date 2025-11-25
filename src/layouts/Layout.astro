@@ -11,6 +11,8 @@ const defaultDescription = 'Taki Plaza Gardener(通称TPG)は東京科学大学(
 
 const { title, description = defaultDescription }:Props= Astro.props;
 
+const ogImage = "/ogp.png";
+
 // Google FontsのNoto Sans JPを利用
 import '@fontsource-variable/noto-sans-jp';
 
@@ -26,6 +28,9 @@ import '@fontsource/m-plus-rounded-1c';
 		<meta name="generator" content={Astro.generator} />
 		<title>{title} - Taki Plaza Gardener</title>
 		<meta name="description" content={description} />
+		<!-- OGP画像 -->
+		<meta property="og:image" content={ogImage} />
+		<meta property="twitter:card" content="summary_large_image" />
 
 		<!-- SakuraのWebフォント利用 -->
 		<script type="text/javascript" src="//webfonts.sakura.ne.jp/js/sakurav3.js"></script>
