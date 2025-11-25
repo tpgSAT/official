@@ -17,3 +17,15 @@ RedirectMatch 301 ^/aboutus(/.*)?$ /about/
 
 # whatsnew → events にリダイレクト
 RedirectMatch 301 ^/whatsnew(/index\.html)?/?$ /events/
+
+# /whatsnew/20250624_stainedglass → /events/2025/stainedglass にリダイレクト
+RedirectMatch 301 ^/whatsnew/20250624_stainedglass(/index\.html)?/?$ /events/2025/stainedglass/
+
+# /whatsnew/20250621_takimatsuri → /events/2025/takimatsuri にリダイレクト
+RedirectMatch 301 ^/whatsnew/20250621_takimatsuri(/index\.html)?/?$ /events/2025/takimatsuri/
+
+# /whatsnew/20251014_takipuranouen → /events/2025/takipura-farm にリダイレクト
+RedirectMatch 301 ^/whatsnew/20251014_takipuranouen(/index\.html)?/?$ /events/2025/takipura-farm/
+
+# /whatsnew/20251014_koudaisai → /events/2025/tpg-cafe にリダイレクト
+RedirectMatch 301 ^/whatsnew/20251014_koudaisai(/index\.html)?/?$ /events/2025/tpg-cafe/
