@@ -1,4 +1,5 @@
 ---
+import { SEO } from 'astro-seo';
 import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
 
@@ -10,8 +11,6 @@ interface Props {
 const defaultDescription = 'Taki Plaza Gardener(通称TPG)は東京科学大学(旧東京工業大学)の新たなランドマーク「Taki Plaza」で活動する学生団体です。';
 
 const { title, description = defaultDescription }:Props= Astro.props;
-
-const ogImage = "/ogp/ogp.png";
 
 // Google FontsのNoto Sans JPを利用
 import '@fontsource-variable/noto-sans-jp';
@@ -28,9 +27,37 @@ import '@fontsource/m-plus-rounded-1c';
 		<meta name="generator" content={Astro.generator} />
 		<title>{title} - Taki Plaza Gardener</title>
 		<meta name="description" content={description} />
-		<!-- OGP画像 -->
-		<meta property="og:image" content={ogImage} />
-		<meta property="twitter:card" content="summary_large_image" />
+		<SEO
+			title={title}
+			description={description}
+			charset="UTF-8"
+			openGraph={{
+				basic: {
+					title,
+					type: "website",
+					image: "/opengraph.png",
+				},
+			}}
+			twitter={{
+				card: 'summary_large_image',
+				site: '@tpgardener',
+				title: title,
+				description: description,
+				image: "https://tpgd.jp/opengraph.png",
+			}}
+			extend={{
+				link: [{ rel: "icon", href: "/favicon.ico" }],
+
+				meta: [
+				{
+					name: "twitter:image",
+					content: "https://tpgd.jp/opengraph.png",
+				},
+				{ name: "viewport", content: "width=device-width" },
+				{ name: "twitter:card", content: "summary_large_image" },
+				],
+			}}
+		/>
 
 		<!-- SakuraのWebフォント利用 -->
 		<script type="text/javascript" src="//webfonts.sakura.ne.jp/js/sakurav3.js"></script>
