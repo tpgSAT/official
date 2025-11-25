@@ -1,0 +1,10 @@
+ErrorDocument 404 /404/index.html
+RewriteEngine On
+
+# kyumenmaruti → keijibutu に302リダイレクト
+RewriteRule ^kyumenmaruti/?$ /keijibutu/ [R=302,L]
+
+# たきぷら農園301リダイレクト
+Redirect 301 /whatsnew/20251007_takipurasityu-/ /whatsnew/20251014_takipuranouen/
+
+# Astro移行に伴うURL変更のリダイレクト
