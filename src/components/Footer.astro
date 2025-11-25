@@ -1,0 +1,82 @@
+---
+// Astroの画像最適化を利用するため
+import { Image } from 'astro:assets';
+import logo from '../assets/header/logo_with_text.png';
+
+import iconX from '../assets/footer/icon_x.svg';
+import iconInstagram from '../assets/footer/icon_instagram.svg';
+import about from '../assets/footer/about.svg';
+import blog from '../assets/footer/blog.svg';
+import contact from '../assets/footer/contact.svg';
+import events from '../assets/footer/events.svg';
+import bulletinBboard from '../assets/footer/bulletin_board.svg';
+import multiScreen from '../assets/footer/multi_screen.svg';
+---
+
+<footer>
+    <div id="footer-top-wrapper">
+        <Image src={logo} alt="TPG Logo" width="120" class="logo" />
+        <div id="social-media">
+            <a href="https://x.com/TPGardener/"><Image src={iconX} alt="X" /></a>
+            <a href="https://www.instagram.com/taki_plaza_gardener/"><Image src={iconInstagram} alt="Instagram"/></a>
+        </div>
+    </div>
+    
+    <div id="footer-nav">
+        <a href="/about/"><Image id="about" src={about} alt="About" /></a>
+        <a href="/events/"><Image id="events" src={events} alt="Events" /></a>
+        <a href="/blog/"><Image id="blog" src={blog} alt="Blog" /></a>
+        <a href="/poster-application/"><Image id="bulletin-board" src={bulletinBboard} alt="Poster Application" /></a>
+        <a href="/signage-application/"><Image id="multi-screen" src={multiScreen} alt="Signage Application" /></a>
+        <a href="/contact/"><Image id="contact" src={contact} alt="Contact" /></a>
+    </div>
+    <p id="copyright">©︎ {new Date().getFullYear()} Taki Plaza Gardener All Rights Reserved.</p>
+</footer>
+
+<style>
+    footer {
+        width: 100%;
+        background-color: #1F1F1F;
+        padding: 20px 0;
+    }
+
+    #footer-top-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin: 20px 8vw;
+    }
+
+    #social-media {
+        display: flex;
+        gap: 20px;
+    }
+
+    #footer-nav {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: repeat(3, 40px);
+        margin: 40px 8vw;
+    }
+
+    #footer-nav #about{ grid-area: 1 / 1 / 2 / 2; }
+
+    #footer-nav #events{ grid-area: 2 / 1 / 3 / 2; }
+
+    #footer-nav #blog{ grid-area: 3 / 1 / 4 / 2; }
+
+    #footer-nav #bulletin-board{ grid-area: 1 / 2 / 2 / 3; }
+
+    #footer-nav #multi-screen{ grid-area: 2 / 2 / 3 / 3; }
+
+    #footer-nav #contact{ grid-area: 3 / 2 / 4 / 3; }
+
+    #copyright {
+        text-align: center;
+        font-family: 'Noto Sans JP Variable', sans-serif;
+        font-weight: 400;
+        font-size: 12px;
+        color: #FFF;
+        margin-top: 20px;
+    }
+</style>

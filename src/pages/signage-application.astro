@@ -1,0 +1,152 @@
+---
+import GenericLayout from '@layouts/GenericLayout.astro';
+import Heading from '@components/Heading.astro';
+import Contact from '@components/Contact.astro';
+import RoundedButton from '@components/RoundedButton.astro';
+
+import multiMonitorImg from '@assets/multi-monitor.webp';
+
+const title = "Taki Plazaの大画面で映像を流しませんか？";
+const description = "Taki Plaza B2Fの大きなモニター(9面マルチモニター)で、皆さんのことを伝える動画や画像を募集しております。東京科学大学の公認サークルと公認の学生団体の皆さん、お申し込みをお待ちしています。";
+---
+<GenericLayout title={title} description={description} ListItem={[{ name: 'サイネージ利用の募集', path: 'signage-application' }]}>
+    <Heading title="映像の内容例">
+        普段こんな活動をしています！<br />
+        イベントを開催します！ぜひ参加してください！<br />
+        大会に参加しました！こんな結果でした！<br />
+        <br />
+        動画を作るのが難しいという方は、画像の募集もしておりますのでぜひご検討ください。
+    </Heading>
+    <Heading title="スケジュール">
+        <table class="schedule-table" border="1" cellspacing="0" cellpadding="6">
+        <caption>2025年度スケジュール</caption>
+        <thead>
+            <tr>
+            <th>期</th>
+            <th>募集締切</th>
+            <th>公開期間</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td>第1期</td>
+            <td>4/21(月)</td>
+            <td>5/3(土)〜6/17(火)</td>
+            </tr>
+            <tr>
+            <td>第2期</td>
+            <td>6/9(月)</td>
+            <td>6/18(水)〜8/5(火)</td>
+            </tr>
+            <tr>
+            <td>第3期</td>
+            <td>9/22(月)</td>
+            <td>10/1(水)〜11/4(火)</td>
+            </tr>
+            <tr>
+            <td>第4期</td>
+            <td>10/27(月)</td>
+            <td>11/5(水)〜12/23(火)</td>
+            </tr>
+            <tr>
+            <td>第5期</td>
+            <td>12/15(月)</td>
+            <td>12/24(水)〜2/7(土)</td>
+            </tr>
+        </tbody>
+        </table>
+    </Heading>
+    <Heading title="申し込み方法"> 
+        1.まずは募集要項をご確認ください。
+        <br />
+        2.こちらのフォームに必要事項を記入の上ご提出ください。
+        <br />
+        <br />
+        <RoundedButton label="申し込みフォーム" href="https://docs.google.com/forms/d/e/1FAIpQLSekVpm9eIK-8ECjf88kReDK26bveictA8dQDYvA1lJaOv0w_Q/viewform?usp=sf_link" />
+    </Heading>
+    <Heading title="リンクまとめ">
+        <ul class="link-list">
+            <li><a href="signage_application.pdf" download="signage_application.pdf">Taki Plaza 9面マルチモニター サイネージ利用の募集要項 2025/2/18更新</a></li>
+            <li><a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSekVpm9eIK-8ECjf88kReDK26bveictA8dQDYvA1lJaOv0w_Q/viewform?usp=sf_link">9面マルチ動画/画像提出（Googleフォーム）</a></li>
+            <li><a href="signage_schedule_2025.pdf" download="signage_schedule_2025.pdf">2025年度公開スケジュール</a></li>
+        </ul>
+    </Heading>
+    <Heading title="FAQ">
+        <ul class="link-list">
+            <li>非公認の団体でも申し込める？</li>
+            トラブル防止のため、東京科学大学の公認サークルと、学内の組織が支援する学生団体以外からの申し込みはお断りしております。
+            学生掲示板の利用については、非公認の団体や個人でも申し込みが可能です。掲示板利用のページはこちらのページをご覧ください。
+            <li>複数の動画を流して欲しい</li>
+            各団体、同時期に流せる映像は1本に限定しておりますので、ご了承ください。
+            <li>もっと長い動画を流したい！</li>
+            あまり冗長にならないように、できるだけ1分以内(新歓期は30秒以内)に抑えていただきたいのですが、どうしても伸びてしまう場合には個別にご相談ください。ご連絡はTaki Plaza Gardener マネジメント班へメールにてお願いします。
+            <li>期間限定で公開したい</li>
+            公開期間については、こちらで用意した公開スケジュール通りに映像を差し替えいたします。基本的に例外は認めない方針ですのでご了承ください。
+            <li>複数期間にわたって公開したい</li>
+            複数の期間にわたって公開したい場合は、お手数ですが、該当するすべての期間の募集期間に同じファイルを提出してください。
+        </ul>
+        <p class="link-list">学生掲示板の利用については<a href="/poster-application/">こちらのページ</a>をご覧ください。</p>
+    </Heading>
+    <Contact department="Taki Plaza Gardener マネジメント班" email="takiplazagardener.management@gmail.com" />
+    
+</GenericLayout>
+
+<style>
+    .link-list {
+        padding-left: 1.5em;
+        font-family: 'Noto Sans JP Variable', sans-serif;
+		color: #000;
+    }
+
+    .link-list li {
+        margin-bottom: 10px;
+    }
+
+    .schedule-table {
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 600px;
+        margin: 1em auto;
+        font-family: 'Noto Sans JP Variable', sans-serif;
+		color: #000;
+        font-size: 14px;
+    }
+
+    .schedule-table caption {
+        margin-bottom: 0.5em;
+        font-size: 16px;
+        text-align: left;
+    }
+
+    .schedule-table th, .schedule-table td {
+        border: 1px solid #ccc;
+        padding: 0.6em 0.8em;
+        text-align: center;
+    }
+
+    .schedule-table th {
+        background-color: #f0f0f0;
+    }
+
+    .schedule-table tr:nth-child(even) {
+        background-color: #fafafa;
+    }
+
+    /* モバイル用のCSS */
+    @media screen and (max-width: 768px) {
+        .link-list {
+            font-size: 12px;
+            letter-spacing: 0.8px;
+            line-height: 200%;
+        }
+    }
+
+    /* デスクトップ用のCSS */
+    @media screen and (min-width: 769px) {
+        .link-list {
+            font-size: 16px;
+            letter-spacing: 1.2px;
+            line-height: 200%;
+        }
+    }
+</style>

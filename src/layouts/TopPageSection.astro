@@ -1,0 +1,33 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  headingSVG: ImageMetadata;
+  isFullWidth?: boolean;
+}
+
+const { headingSVG, isFullWidth = false } = Astro.props;
+---
+<div class:list={['section', { fullWidth: isFullWidth }]}>
+    <Image src={headingSVG} class="heading_svg" alt="Events" />
+    <slot />
+</div>
+
+<style>
+	.section {
+		padding: 20px 5vw;
+	}
+
+    .fullWidth {
+        padding: 20px 0 !important;
+    }
+
+    .fullWidth .heading_svg{
+		padding: 0 5vw;
+	}
+
+    .heading_svg {
+        width: auto;
+        height: 62px;
+    }
+</style>

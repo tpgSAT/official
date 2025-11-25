@@ -1,0 +1,93 @@
+---
+import { Image } from 'astro:assets';
+import Event from '@assets/about/thumbnail/event.png';
+import Community from '@assets/about/thumbnail/community.png';
+import Production from '@assets/about/thumbnail/production.png';
+import Management from '@assets/about/thumbnail/management.png';
+import System from '@assets/about/thumbnail/system.png';
+
+// Splideのスタイルをインポート
+import '@splidejs/splide/css';
+---
+
+<div class="splide" role="group" aria-label="直近のイベント">
+  <div class="splide__track">
+		<div class="splide__list">
+            <a href="/about/event/" class="splide__slide">
+                <div class="team-slide-item">
+                    <Image src={Event} class="team-thumbnail" alt="イベント班" />
+                    <h3>イベント班</h3>
+                </div>
+            </a>
+            <a href="/about/community/" class="splide__slide">
+                <div class="team-slide-item">
+                    <Image src={Community} class="team-thumbnail" alt="コミュニティ班" />
+                    <h3>コミュニティ班</h3>
+                </div>
+            </a>
+            <a href="/about/production/" class="splide__slide">
+                <div class="team-slide-item">
+                    <Image src={Production} class="team-thumbnail" alt="制作班" />
+                    <h3>制作班</h3>
+                </div>
+            </a>
+            <a href="/about/management/" class="splide__slide">
+                <div class="team-slide-item">
+                    <Image src={Management} class="team-thumbnail" alt="マネジメント班" />
+                    <h3>マネジメント班</h3>
+                </div>
+            </a>
+            <a href="/about/system/" class="splide__slide">
+                <div class="team-slide-item">
+                    <Image src={System} class="team-thumbnail" alt="システム班" />
+                    <h3>システム班</h3>
+                </div>
+            </a>
+		</div>
+  </div>
+</div>
+
+<style>
+    .splide {
+        width: 95vw;
+        margin: 0;
+        margin-top: 20px;
+    }
+
+    .team-thumbnail {
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+    }
+
+    .team-slide-item h3 {
+        font-family: 'Noto Sans JP Variable', sans-serif;
+        font-weight: 500;
+        font-size: 14px;
+        margin: 4px 8px 4px;
+    }
+</style>
+
+<script>
+    // SplideのJavaScriptをインポートしてスライダーを初期化
+    import Splide from '@splidejs/splide';
+    const splide = new Splide( '.splide', {
+        type   : 'slide',
+        gap    : '20px',
+        arrows : false,
+        pagination: false,
+        fixedWidth: '20vw',
+        flickMaxPages: 1,
+        flickPower: 200,
+        rewind: true,
+        rewindByDrag: true,
+        breakpoints: {
+            768: {
+                fixedWidth: '65vw',
+                rewind: false,
+                rewindByDrag: true,
+            },
+        }
+    } );
+    splide.mount();
+</script>

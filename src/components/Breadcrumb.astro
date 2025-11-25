@@ -1,0 +1,68 @@
+---
+const { lists } = Astro.props;
+interface ListItem {
+  path: string;
+  name: string;
+}
+---
+
+<nav>
+  <ol>
+    <li>
+      <a href="/">トップ</a>
+    </li>
+    {
+      lists.map((list: ListItem, index: number) => (
+        <li>
+          {lists.length - 1 !== index ? (
+            <a href={`/${list.path}`}>{list.name}</a>
+          ) : (
+            <span>{list.name}</span>
+          )}
+        </li>
+      ))
+    }
+  </ol>
+</nav>
+
+<style>
+    ol {
+        margin: 0;
+        list-style: none;
+    }
+
+    li {
+        display: inline;
+        font-family: 'Noto Sans JP Variable', sans-serif;
+        font-weight: 500;
+        letter-spacing: 1px;
+        color: #353535;
+    }
+
+    li:not(:first-child)::before {
+        content: ">";
+        padding: 0 4px;
+    }
+
+    /* モバイル用のCSS */
+    @media screen and (max-width: 768px) {
+      ol {
+        padding: 0 5vw;
+      }
+
+      li {
+        font-size: 12px;
+      }
+    }
+
+    /* デスクトップ用のCSS */
+    @media screen and (min-width: 769px) {
+      ol {
+        padding: 0 5vw;
+      }
+
+      li {
+        font-size: 14px;
+      }
+    }
+</style>

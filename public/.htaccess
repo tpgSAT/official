@@ -1,0 +1,19 @@
+ErrorDocument 404 /404.html
+RewriteEngine On
+
+# たきぷら農園301リダイレクト
+Redirect 301 /whatsnew/20251007_takipurasityu-/ /whatsnew/20251014_takipuranouen/
+
+# Astro移行に伴うURL変更のリダイレクト
+
+# kyumenmaruti → signage-application にリダイレクト
+RedirectMatch 301 ^/kyumenmaruti(/index\.html)?/?$ /signage-application/
+
+# keijibutu → poster-application にリダイレクト
+RedirectMatch 301 ^/keijibutu(/index\.html)?/?$ /poster-application/
+
+# aboutus/* → about にリダイレクト
+RedirectMatch 301 ^/aboutus(/.*)?$ /about/
+
+# whatsnew → events にリダイレクト
+RedirectMatch 301 ^/whatsnew(/index\.html)?/?$ /events/

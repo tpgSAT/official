@@ -1,0 +1,14 @@
+---
+import GenericLayout from '@layouts/GenericLayout.astro';
+import Heading from '@components/Heading.astro';
+import Contact from '@components/Contact.astro';
+
+import ArticleImage from '@components/ArticleImage.astro';
+
+import TakiPlazaMapB2F from '@assets/contact/taki_plaza_map_b2f.png';
+
+const title = "404 Not Found";
+const description = "お探しのページは見つかりませんでした。";
+---
+<GenericLayout title={title} description={description} ListItem={[{ name: '404 Not Found', path: '404' }]}>
+</GenericLayout>

@@ -1,0 +1,119 @@
+---
+import Layout from '@layouts/Layout.astro';
+import {getPosts} from '@lib/api';
+
+const { slug } = Astro.params;
+
+// The getStaticPaths() is required for static Astro sites.
+// If using SSR, you will not need this function.
+export async function getStaticPaths() {
+  let posts = await getPosts();
+
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+
+const FallbackThumbnail = '/blog-fallback-thumbnail.jpg';
+
+// 🔸 サムネイルURLを取得（なければデフォルト表示）
+const thumbnail =
+    post._embedded?.['wp:featuredmedia']?.[0]?.media_details?.sizes?.medium?.source_url ||
+    post._embedded?.['wp:featuredmedia']?.[0]?.source_url ||
+    FallbackThumbnail;
+
+// 🔸 カテゴリ名の配列を取得（なければ空配列）
+const categories = post._embedded?.['wp:term']?.[0]?.map(cat => cat.name) || [];
+---
+<Layout title={post.title.rendered} description={post.excerpt.rendered}>
+    <div id="root">
+      <div id="blog-header">
+        <div class="thumbnail-wrapper">
+          <img src={thumbnail} id="blog-thumbnail" alt={post.title.rendered}/>
+        </div>
+        <time id="blog-date" datetime={new Date(post.date).toISOString()}>
+            {new Date(post.date).toLocaleDateString('ja-JP', {
+              year: 'numeric',
+              month: '2-digit',
+              day: '2-digit',
+            }).replace(/\//g, '.')}
+        </time>
+        <h1>{post.title.rendered}</h1>
+        {categories.map(category => (
+          <p class="blog-tags">{category}</p>
+        ))}
+      </div>
+      <div class="blog-content">
+        <article set:html={post.content.rendered} />
+      </div>
+    </div>
+</Layout>
+
+<style>
+  #root {
+    margin: 0 5vw;
+  }
+
+  #blog-header {
+    margin: 10px 0 20px;
+    font-family: 'Noto Sans JP Variable', sans-serif;
+    font-weight: 500;
+    border-bottom: 1px solid #000;
+  }
+
+  .thumbnail-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  #blog-thumbnail {
+    width: 100%;
+    max-width: 600px;
+		aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+
+  #blog-date {
+    font-size: 10px;
+    letter-spacing: 0.6px;
+    color: #666666;
+  }
+
+  #blog-header h1 {
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin: 8px 0 0;
+  }
+
+  .blog-tags {
+    display: inline-block;
+    margin: 10px 5px 8px 0;
+    padding: 6px 14px;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    background-color: #000000;
+    border-radius: 6px;
+    color: #ffffff;
+  }
+
+  .blog-content {
+    font-family: 'Noto Sans JP Variable', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.8px;
+    line-height: 200%;
+    margin-bottom: 100px;
+  }
+
+  .blog-content :global(img) {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+</style>

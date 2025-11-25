@@ -1,0 +1,21 @@
+---
+import GenericLayout from '@layouts/GenericLayout.astro';
+import Heading from '@components/Heading.astro';
+import Contact from '@components/Contact.astro';
+import RoundedButton from '@components/RoundedButton.astro';
+
+const title = "掲示板でイベントやサークルを紹介しませんか？";
+const description = "Taki Plaza B2F大階段下の学生掲示板のスペースで、学生団体、個人が主催するイベントやサークル活動に関するポスターの掲示とビラの設置を受け付けています。皆さんのお申し込みをお待ちしております。";
+---
+<GenericLayout title={title} description={description} ListItem={[{ name: '掲示板利用の募集', path: 'poster-application' }]}>
+    <Heading title="申し込み方法">
+        1. フォームに必要事項を入力し提出してください。<br />
+        2. Taki Plaza B2FのTPG居室前にある提出BOXにポスターやビラを投函してください。<br />
+        <br />
+        <RoundedButton label="申し込みフォーム" href="https://docs.google.com/forms/d/e/1FAIpQLSdlmuFBuvEE28hYpWUNPsxCxCe17G5-MV-6JPhNaypZVDEVDA/viewform?usp=sf_link" />
+        <br /><br />
+        公認サークルと公認の学生団体向けの映像募集については<a href="/signage-application/">こちら</a>のページをご覧ください。
+    </Heading>
+    <Contact department="Taki Plaza Gardener マネジメント班" email="takiplazagardener.management@gmail.com" />
+    
+</GenericLayout>

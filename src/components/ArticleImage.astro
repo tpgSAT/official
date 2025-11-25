@@ -1,0 +1,68 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+    src: ImageMetadata;
+    alt: string;
+    caption?: string;
+}
+
+const { src, alt, caption } = Astro.props as Props;
+
+---
+<div class="article-img-wrapper">
+    {caption && <p class="caption">{caption}</p>}
+    <Image src={src} alt={alt} class="inline-img" />
+</div>
+
+<style>
+    .article-img-wrapper {
+        margin: 20px 0 0;
+    }
+
+    .caption {
+        font-family: 'Noto Sans JP Variable', sans-serif;
+        line-height: 200%;
+		color: #000;
+    }
+
+
+    .inline-img {
+        width: 100%;
+        max-height: 100%;
+        height: auto;
+        margin: 0;
+        border-radius: 10px;
+    }
+    
+    /* モバイル用のCSS */
+    @media screen and (max-width: 768px) {
+        .article-img-wrapper {
+            margin: 20px 0 0;
+            width: 100%;
+        }
+
+        .caption {
+            font-weight: 600;
+            font-size: 15px;
+            letter-spacing: 0.8px;
+            margin: 0 10px 2px;
+        }
+    }
+
+
+    /* デスクトップ用のCSS */
+    @media screen and (min-width: 769px) {
+        .article-img-wrapper {
+            margin: 20px 20% 0;
+            width: 60%;
+        }
+
+        .caption {
+            font-weight: 500;
+            font-size: 16px;
+            letter-spacing: 0.8px;
+            margin: 0 10px 0;
+        }
+    }
+</style>

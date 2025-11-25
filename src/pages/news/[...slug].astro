@@ -1,0 +1,88 @@
+---
+import { getCollection } from 'astro:content';
+
+import Layout from '@layouts/Layout.astro';
+import Breadcrumb from '@components/Breadcrumb.astro';
+
+export async function getStaticPaths() {
+  const newsEntries = await getCollection('news');
+  return newsEntries.map(entry => ({
+    params: { slug: entry.slug }, props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const ListItem = [
+  { path: 'news', name: 'お知らせ' },
+  { path: entry.slug, name: entry.data.title },
+];
+
+---
+<Layout title={entry.data.title} description={entry.data.description}>
+    <Breadcrumb lists={ListItem} />
+    <div id="root">
+      <div id="news-header">
+        <time id="news-date" datetime={entry.data.date.toISOString()}>
+            {entry.data.date.toLocaleDateString('ja-JP', {
+              year: 'numeric',
+              month: '2-digit',
+              day: '2-digit',
+            }).replace(/\//g, '.')}
+        </time>
+        <h1>{entry.data.title}</h1>
+        {entry.data.tags.map(tags => (
+          <p class="news-tags">{tags}</p>
+        ))}
+      </div>
+      <div class="news-content">
+        <Content />
+      </div>
+    </div>
+</Layout>
+
+<style>
+  #root {
+    margin: 0 5vw;
+  }
+
+  #news-header {
+    margin: 10px 0 20px;
+    font-family: 'Noto Sans JP Variable', sans-serif;
+    font-weight: 500;
+    border-bottom: 1px solid #000;
+  }
+
+  #news-date {
+    font-size: 10px;
+    letter-spacing: 0.6px;
+    color: #666666;
+  }
+
+  #news-header h1 {
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin: 8px 0 0;
+  }
+
+  .news-tags {
+    display: inline-block;
+    margin: 10px 5px 8px 0;
+    padding: 6px 14px;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    background-color: #000000;
+    border-radius: 6px;
+    color: #ffffff;
+  }
+
+  .news-content {
+    font-family: 'Noto Sans JP Variable', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.8px;
+    line-height: 200%;
+    margin-bottom: 100px;
+  }
+</style>

@@ -1,0 +1,562 @@
+---
+import Layout from "@layouts/Layout.astro";
+
+import { Image } from "astro:assets";
+
+import gameImg from "@assets/events/2025/tpg-cafe/game.webp";
+import mapImg from "@assets/events/2025/tpg-cafe/map.webp";
+import posterImg from "@assets/events/2025/tpg-cafe/poster.png";
+import icon1 from "@assets/events/2025/tpg-cafe/icon1.webp";
+import icon1Hover from "@assets/events/2025/tpg-cafe/icon1_hover.webp";
+import icon2 from "@assets/events/2025/tpg-cafe/icon2.webp";
+import icon2Hover from "@assets/events/2025/tpg-cafe/icon2_hover.webp";
+import icon3 from "@assets/events/2025/tpg-cafe/icon3.webp";
+import icon3Hover from "@assets/events/2025/tpg-cafe/icon3_hover.webp";
+import icon4 from "@assets/events/2025/tpg-cafe/icon4.webp";
+import icon4Hover from "@assets/events/2025/tpg-cafe/icon4_hover.webp";
+
+const title = "TPG Cafe | 工大祭2025";
+const description = "工大祭で歩き疲れたらボドゲとドリンクで休憩しませんか？定番ボドゲからここでしか遊べないTPGオリジナルカードゲームまで遊べるボードゲームカフェも開催！";
+---
+
+<Layout title={title} description={description}>
+  <div class="fade">
+    <div class="bg_pattern Polka"></div>
+    <div class="area1">
+      <Image src={posterImg} alt="TPG CAFE ポスター" />
+      <div class="btns">
+        <div class="btn btn1">
+          <Image src={icon1} class="btn_normal" alt="ボードゲーム" />
+          <Image src={icon1Hover} class="btn_hover" alt="" />
+          <a href="#games"></a>
+        </div>
+        <div class="btn btn2">
+          <Image src={icon3} class="btn_normal" alt="ドリンク" />
+          <Image src={icon3Hover} class="btn_hover" alt="" />
+          <a href="#drink"></a>
+        </div>
+        <div class="btn btn3">
+          <Image src={icon2} class="btn_normal" alt="アクセス" />
+          <Image src={icon2Hover} class="btn_hover" alt="" />
+          <a href="#map"></a>
+        </div>
+        <div class="btn btn4" class="btn_normal">
+          <Image src={icon4} class="btn_normal" alt="SNS" />
+          <Image src={icon4Hover} class="btn_hover" alt="" />
+          <a href="#sns"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="area area2">
+      <div class="left">
+        <div class="title" id="games">
+          <Image src={icon1} alt="" />
+          <h3><b>ボードゲーム</b></h3>
+        </div>
+        <p class="normal">
+          ボードゲームの定番カタンからここでしか遊べないオリジナル
+          <br />カードゲームまで！！！
+          <br />TPGスタッフがルールを丁寧に説明します！
+          <br />おひとりさま大歓迎！
+        </p>
+        <Image src={gameImg} class="game" alt="カタン" />
+      </div>
+      <div class="right">
+        <p class="right_center normal">ー 遊べるボドゲ ー</p>
+        <p class="normal">
+          ◆カタン <br />◆オセロ <br />◆音速飯店 <br />◆UNO
+          <br />◆タッソサファリ <br />◆花火 / HANABI <br />◆おばけキャッチ
+          <br />◆TPGオリジナルカードゲーム <br />　「素数竜王」 <br />etc....
+        </p>
+      </div>
+    </div>
+
+    <div class="area area4">
+      <div class="left">
+        <div class="title" id="drink">
+          <Image src={icon3} alt="" />
+          <h3><b>ドリンク</b></h3>
+        </div>
+        <p class="normal">
+          コーヒーゼリー
+          <br />キムワイプ卓球で疲れた体にしみるコカ・コーラ
+          <br />などたくさんご用意しております。
+        </p>
+      </div>
+      <div class="right">
+        <p class="right_center normal">〜 メニュー 〜</p>
+        <p class="normal">◆コーヒーゼリー(アイストッピング)</p>
+        <p class="normal drink">
+          各種ソフトドリンク　 <br />　◆コカ・コーラ<br />　◆三ツ矢サイダー
+          <br />　◆オレンジ <br />　◆マックスコーヒー
+          <br />※ワンドリンク制
+        </p>
+      </div>
+    </div>
+
+    <div class="area area5">
+      <div class="right">
+        <div class="title" id="map">
+          <Image src={icon2} alt="" />
+          <h3><b>アクセス</b></h3>
+        </div>
+        <p class="normal">
+          ・正門より徒歩1分 <br />・緑ヶ丘門より徒歩8分
+          <br />・石川台門より徒歩7分 <br /><br />Hisao & Hiroko Taki Plaza
+          <br />地下2階　イベントスペース
+        </p>
+        <p class="small">正門前の新しい木造建築の建物です。</p>
+      </div>
+      <div class="left">
+        <Image src={mapImg} class="map" alt="map" />
+      </div>
+    </div>
+
+    <div class="area area6">
+      <div class="left">
+        <div class="title" id="sns">
+          <Image src={icon4} alt="" />
+          <h3><b>SNS</b></h3>
+        </div>
+      </div>
+      <a href="https://x.com/TPGardener" class="koudaisaiHP"
+        >Taki Plaza Gardener 公式Twitter　(https://x.com/TPGardener)</a
+      >
+      <a
+        href="https://www.instagram.com/taki_plaza_gardener"
+        class="koudaisaiHP"
+        >Taki Plaza Gardener 公式Instagram　(https://www.instagram.com
+        /taki_plaza_gardener)</a
+      >
+      <a href="https://koudaisai.jp" class="koudaisaiHP"
+        >工大祭2025公式サイト　(https://koudaisai.jp)</a
+      >
+    </div>
+  </div>
+</Layout>
+
+<style>
+  p,
+  li {
+    font-size: 1rem;
+    color: #fff;
+  }
+  h3 {
+    font-size: 1.5rem;
+    color: #242626;
+  }
+  .fade {
+    margin-top: 130px; /* header */
+    margin-bottom: 90px;
+    width: 70%;
+    margin-left: 15%;
+    animation-name: fade;
+    animation-duration: 2s;
+  }
+  @keyframes fade {
+    /* fadein */
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  /* common.css */
+
+  .bg_pattern {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff;
+    opacity: 0.4;
+    z-index: -1;
+  }
+  .Polka {
+    background-image: radial-gradient(#000 2px, #ffffff 2px);
+    background-size: 20px 20px;
+  }
+
+  .area1 {
+    display: flex;
+    margin-bottom: 30px;
+    height: 80vw;
+  }
+  .area1 img {
+    width: 56vw;
+    height: auto;
+    /* margin-left: 90px; */
+  }
+  .btns {
+    position: relative;
+    width: 14vw;
+    height: 40vw;
+    /* margin-top: 5vw; */
+  }
+  .btn {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 5.5vw;
+    height: 5.5vw;
+    border-radius: 50%;
+  }
+  .btn:hover {
+    background-color: #fff;
+    transition: 0.3s;
+  }
+  .btn:hover .btn_normal {
+    display: none;
+  }
+  .btn:hover .btn_hover {
+    display: block;
+  }
+  .btn_normal {
+    display: block;
+  }
+  .btn_hover {
+    display: none;
+  }
+  .btn img {
+    position: absolute;
+    width: 40%;
+    height: auto;
+    margin-top: 30%;
+    margin-left: 30%;
+  }
+  .btn a {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .btn1 {
+    top: 4.5vw;
+    left: 50%;
+    background-color: #7d8a49;
+  }
+  .btn2 {
+    top: 13.5vw;
+    left: 50%;
+    background-color: #509159;
+  }
+  .btn3 {
+    top: 22.5vw;
+    left: 50%;
+    background-color: #91645d;
+  }
+  .btn4 {
+    top: 31.5vw;
+    left: 50%;
+    background-color: #454d6b;
+  }
+  .btn5 {
+    top: 40.5vw;
+    left: 50%;
+    background-color: #48704c;
+  }
+
+  .area {
+    display: flex;
+    width: 100%;
+    height: 40vw;
+    border-bottom: 1px solid #fff;
+  }
+  .area2 {
+    background-color: #7d8a49;
+    /* height: 45vw; */
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+  .area3 {
+    background-color: #509159;
+    height: 40vw;
+  }
+  .area4 {
+    height: 30vw;
+    background-color: #91645d;
+  }
+  .area5 {
+    background-color: #454d6b;
+    height: 35vw;
+  }
+  .area6 {
+    display: flex;
+    flex-flow: column;
+    background-color: #48704c;
+    height: 25vw;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+  .program {
+    text-align: right;
+    margin-top: 2vw;
+  }
+  .koudaisaiHP {
+    font-size: 1.2rem;
+    right: 20%;
+    /* line-height: 1.8rem; */
+    padding: 3px;
+    color: #000;
+  }
+  .area6 a {
+    margin-bottom: 2vw;
+    margin-left: 5%;
+    color: #fff;
+  }
+  .left {
+    width: 50%;
+    margin-left: 5%;
+  }
+  .right {
+    width: 35%;
+    margin-left: 5%;
+  }
+  .title {
+    display: flex;
+    width: 100%;
+    height: 3.5rem;
+    padding-top: 90px;
+    margin-top: -90px;
+  }
+  .title img {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    margin-top: 0.75rem;
+  }
+  h3 {
+    margin: 1rem;
+    padding: 0;
+    color: #fff;
+  }
+  .normal {
+    font-size: 1.2rem;
+    line-height: 2.5rem;
+    color: #fff;
+  }
+  .nowrap {
+    white-space: nowrap;
+    font-size: 1.2rem;
+    line-height: 2.5rem;
+    color: #fff;
+  }
+  .drink {
+    line-height: 2rem;
+  }
+  .left p {
+    margin-top: 1.2vw;
+  }
+  .day2 {
+    margin-top: 1.2vw;
+  }
+  .day2_top {
+    padding-top: 90px;
+    margin-top: -90px;
+  }
+  .game {
+    width: 80%;
+    height: auto;
+  }
+  .right_center {
+    text-align: center;
+    /*   transform: translate(-50%, 0);
+    margin-left: 50%;
+    white-space: nowrap;*/
+  }
+  .small {
+    font-size: 0.9rem;
+    color: #fff;
+  }
+  .map {
+    width: 80%;
+    height: auto;
+    margin-top: 20px;
+    margin-left: 10%;
+  }
+  .link {
+    display: inline-block;
+    width: 20px;
+    height: auto;
+    margin-top: 5px;
+    margin-right: 10px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .fade {
+      width: 84%;
+      margin-top: 120px;
+      margin-left: 8%;
+      margin-bottom: 25px;
+    }
+    .area1 {
+      display: flex;
+      height: 95vw;
+    }
+    .area1 img {
+      width: 80%;
+      height: auto;
+    }
+    .btns {
+      width: 20%;
+      height: auto;
+    }
+    .btn img {
+      width: 40%;
+      height: auto;
+      transform: translate(0, 50%);
+      margin-top: 5px;
+    }
+
+    .area2 {
+      height: 50vw;
+    }
+    .area3 {
+      height: 65vw;
+    }
+    .area4 {
+      height: 50vw;
+    }
+    .area5 {
+      height: 45vw;
+    }
+    .area6 {
+      height: 45vw;
+    }
+    .normal {
+      font-size: 1rem;
+      line-height: 2rem;
+    }
+  }
+  @media screen and (max-width: 670px) {
+    .area1 {
+      display: block;
+      height: 150vw;
+    }
+    .area1 img {
+      width: 100%;
+      height: auto;
+    }
+    .btns {
+      display: block;
+      width: 100%;
+      height: 35vw;
+    }
+    .btn {
+      display: block;
+      width: 35vw;
+      height: 7.5vw;
+      border-radius: 20px;
+    }
+    .btn img {
+      width: 7vw;
+      transform: translate(-50%, 0%);
+      margin-top: 0.3vw;
+      margin-left: 50%;
+    }
+    .btn1 {
+      top: 20%;
+      left: 25%;
+    }
+    .btn2 {
+      top: 20%;
+      left: 75%;
+    }
+    .btn3 {
+      top: 55%;
+      left: 25%;
+    }
+    .btn4 {
+      top: 55%;
+      left: 75%;
+    }
+    .btn5 {
+      top: 85%;
+    }
+    .day2 {
+      display: none;
+    }
+    .day2_top {
+      display: none;
+    }
+    .area {
+      font-weight: bold;
+      display: flex;
+      flex-flow: column;
+    }
+    .area2 {
+      height: 150vw;
+    }
+    .area3 {
+      height: 175vw;
+    }
+    .area4 {
+      height: 110vw;
+    }
+    .area5 {
+      height: 120vw;
+    }
+    .area6 {
+      height: 90vw;
+    }
+    .area6 a {
+      font-size: 1rem;
+    }
+    .title b {
+      font-size: 1.8rem;
+      transform: translate(0, -100px);
+    }
+
+    .left {
+      width: 90%;
+      margin-left: 5%;
+    }
+    .right {
+      width: 90%;
+      margin-left: 5%;
+    }
+
+    .game {
+      width: 70%;
+      margin-left: 15%;
+    }
+    .map {
+      width: 60%;
+      margin-left: 20%;
+    }
+
+    .normal {
+      font-size: 1rem;
+      line-height: 1.5rem;
+      color: #fff;
+    }
+    .small {
+      font-size: 1rem;
+      color: #fff;
+    }
+    .nowrap {
+      white-space: normal;
+      font-size: 1rem;
+      line-height: 1.5rem;
+      color: #fff;
+    }
+    #drink {
+      font-size: 1rem;
+      line-height: 1.5rem;
+      margin-top: 0px;
+      padding-top: 0px;
+    }
+  }
+  @media screen and (max-width: 400px) {
+    .area3 {
+      height: 195vw;
+    }
+  }
+  @media screen and (max-width: 380px) {
+    .area3 {
+      height: 210vw;
+    }
+  }
+</style>

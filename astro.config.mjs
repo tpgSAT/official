@@ -1,0 +1,25 @@
+// @ts-check
+import { defineConfig } from 'astro/config';
+
+import mdx from '@astrojs/mdx';
+
+// https://astro.build/config
+export default defineConfig({
+  vite: {
+      resolve: {
+          alias: {
+              '@layouts': '/src/layouts',
+              '@components': '/src/components',
+              '@lib': '/src/lib',
+              '@assets': '/src/assets',
+          },
+      },
+  },
+
+  // allow cms.tpgd.jp for remote images
+  image: {
+      domains: ["cms.tpgd.jp"],
+  },
+
+  integrations: [mdx()]
+});

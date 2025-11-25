@@ -1,25 +1,46 @@
-### ここはOfficialリポジトリです！
-#### TPG公式サイトの作業が出来ます。
+# Astro Starter Kit: Basics
 
----
+```sh
+npm create astro@latest -- --template basics
+```
 
-- 気を付けること
-  - masterブランチは、**[tpgd.jp](https://tpgd.jp)** と同期されます。
-  - developブランチは、**[dev.tpgd.jp](https://dev.tpgd.jp)** と同期されます。
-  - 1つの作業に対して1つのブランチの原則を守りましょう。コンフリクト解決時などに大変になってしまいます。
-  - masterブランチから新しくブランチを生やしたり、masterブランチにコミットしてはいけません。必ずdevelopブランチから新しくブランチを生やして自分の作業スペースを確保してからコミットしてください。正しいお仕事の仕方は下に書いてあります。よく読んでから着手してください。
-  - masterブランチにマージしていいのはdevelopブランチだけです。それ以外のブランチをmasterブランチにマージしてはいけません。
-  - masterブランチにマージする（つまり、develop→masterのマージをする）ためには、作業した人のほかに1人以上のApproveが必要です。Approveなしにマージしてはいけません。
-  - developブランチへのマージに他人のApproveは必要かどうかは、作業によって異なります。お仕事の仕方をよく読んで、Approveが必要か否かを自分で判断してください。
-    
-- お仕事の仕方
-  - developブランチから新しく作業ブランチを作る
-    - ブランチ名は、基本的に作業の内容が分かればOK。しかし、公開日が決まっているときは例外で、「20230401_(作業名)」のように、ブランチ名の頭に公開日を付ける。
-  - 作った作業ブランチで作業して、コミットする（すべての作業が終わるまで繰り返す、万が一公開日が決まっていて間に合わなさそうなときはトークに一報入れること！！）
-  - （公開日が決まっていないとき）作業ブランチ→developのマージを行う（勝手にマージしてOK）
-  - （公開日が決まっているとき）作業ブランチ→developのプルリクを出してApproveを貰う（Approveした人が、"前の"公開日が決まっている内容の公開（develop→masterプルリク）が済んだらMergeする：developブランチに保持できる公開日待ちの作業は1つだけ
-  - dev.tpgd.jpへの反映を待つ（通常数秒～1分くらいで終わります。3分経っても反映されない場合はプログラムが正しく動いているかチェック。）
-  - dev.tpgd.jpを見て、自分の作業が正しく反映されてるか確認する。ミスが見つかったら、作業ブランチで早急に直してコミット＆再度作業ブランチ→developマージする。
-  - dev.tpgd.jpに正しく反映されていたら、プルリクの画面から自分が作業していたブランチをDeleteする。（忘れる人多いので注意）
-  - （公開日が決まっていないとき）すぐに公開したいときは、develop→masterのプルリクを行う。必ず1人以上からApproveを貰った後でマージする。
-  - （公開日が決まっているとき）作業ブランチ→developのApproveとMergeを行った人が責任をもってdevelop→masterのマージも行う。
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+
+## 🚀 Project Structure
+
+Inside of your Astro project, you'll see the following folders and files:
+
+```text
+/
+├── public/
+│   └── favicon.svg
+├── src
+│   ├── assets
+│   │   └── astro.svg
+│   ├── components
+│   │   └── Welcome.astro
+│   ├── layouts
+│   │   └── Layout.astro
+│   └── pages
+│       └── index.astro
+└── package.json
+```
+
+To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+
+## 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
+
+## 👀 Want to learn more?
+
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

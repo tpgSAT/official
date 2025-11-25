@@ -1,0 +1,106 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Breadcrumb from '@components/Breadcrumb.astro';
+
+import { Image } from 'astro:assets';
+import Blobs from '@assets/generic/blobs.png';
+
+interface ListItem {
+  path: string;
+  name: string;
+}
+
+interface Props {
+	title: string;
+	description?: string;
+    ListItem?: ListItem[];
+}
+const { title, description, ListItem } = Astro.props;
+---
+
+<Layout title={title} description={description}>
+    <div class="breadcrumb-wrapper">
+        <Breadcrumb lists={ListItem} />
+    </div>
+    <div id="heading">
+        <h1>{title}</h1>
+        <p>{description}</p>
+    </div>
+    <!-- 背景装飾用のBlobs -->
+    <Image src={Blobs} id="blobs" alt="Blobs" />
+    <slot />
+</Layout>
+
+
+<style>
+    #heading h1 {
+        font-family: 'Midashi Go MB31', 'Noto Sans JP Variable', sans-serif;
+        font-weight: 500;
+    }
+
+    #heading p {
+        font-family: 'Noto Sans JP Variable', sans-serif;
+		color: #000;
+        margin: 30px 0;
+    }
+
+    #blobs {
+        position: absolute;
+		height: auto;
+		z-index: -1;
+    }
+
+    /* モバイル用のCSS */
+    @media screen and (max-width: 768px) {
+        #blobs {
+            top: 120px;
+            left: -120px;
+            width: 80vw;
+        }
+
+
+        #heading {
+            padding: 20px 5vw 0px;
+            margin-bottom: 60px;
+        }
+
+        #heading h1 {
+            font-size: 28px;
+            letter-spacing: 2px;
+        }
+        
+        #heading p {
+            font-size: 12px;
+            letter-spacing: 0.8px;
+            line-height: 200%;
+        }
+    }
+
+    /* デスクトップ用のCSS */
+    @media screen and (min-width: 769px) {
+        .breadcrumb-wrapper {
+            padding: 0 5vw;
+        }
+        #blobs {
+            top: 120px;
+            left: -120px;
+            width: 30vw;
+        }
+
+        #heading {
+            padding: 20px 10vw 0px;
+            margin-bottom: 90px;
+        }
+
+        #heading h1 {
+            font-size: 36px;
+            letter-spacing: 2px;
+        }
+
+        #heading p {
+            font-size: 16px;
+            letter-spacing: 1.2px;
+            line-height: 200%;
+        }
+    }
+</style>

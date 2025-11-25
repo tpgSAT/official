@@ -1,0 +1,119 @@
+---
+import TopPageSection from '@layouts/TopPageSection.astro';
+import { Image } from 'astro:assets';
+
+import linkToNews from '@assets/topPage/link_to_news.svg';
+import headingNews from '@assets/topPage/heading_news.svg';
+
+
+// newsを事前取得（Newsセクションで使用）
+import { getCollection } from 'astro:content';
+const newsEntries = await getCollection('news');
+---
+
+<TopPageSection headingSVG={headingNews}>
+	<div class="news-content-wrapper">
+		{[...newsEntries]
+		.sort((a, b) => new Date(b.data.date) - new Date(a.data.date)) // 日付で降順ソート
+		.slice(0, 3) // 最新3件のみ表示
+		.map(entry => (
+		<a href={`/news/${entry.slug}`}>
+			<div class="news-content">
+				<p class="news-date">
+					{entry.data.date.toLocaleDateString('ja-JP', {
+						year: 'numeric',
+						month: '2-digit',
+						day: '2-digit',
+					}).replace(/\//g, '.')}
+				</p>
+				<p class="news-type">{entry.data.tags.join(' ')}</p>
+				<h3 class="news-title">{entry.data.title}</h3>
+			</div>
+		</a>
+		))}
+	</div>
+	
+	<div class="link-wrapper">
+        <a href="/news/">
+            <Image src={linkToNews} alt="ニュース一覧" class="link-img" />
+        </a>
+    </div>
+</TopPageSection>
+
+<style>
+	.news-content-wrapper {
+
+	}
+
+    .news-content {
+        font-family: 'Noto Sans JP Variable', sans-serif;
+		padding: 5px;
+		border-bottom: 1px solid #B8B8B8;
+	}
+
+	.news-date, .news-type{
+		font-weight: 500;
+		font-size: 10px;
+		letter-spacing: 0.4px;
+		color: #000;
+		margin: 0 16px 0 0;
+		display: inline-block;
+		position: relative;
+	}
+
+	.news-type::before {
+		content: "";
+		background-color: #A6A6A6;
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		position: absolute;
+		left: -14px;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	.news-title {
+		font-weight: 500;
+		font-size: 15px;
+		margin: 12px 0;
+	}
+
+    .link-wrapper {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .link-img {
+        display: block;
+        margin: 20px auto 0;
+        width: auto;
+    }
+
+    /* モバイル用のCSS */
+    @media screen and (max-width: 768px) {
+        .link-wrapper {
+            margin: 0 5%;
+        }
+        
+        .link-img {
+            height: 13px;
+        }
+    }
+
+    /* デスクトップ用のCSS */
+    @media screen and (min-width: 769px) {
+		.news-content-wrapper {
+			width: 50%;
+			margin-left: 50%;
+		}
+
+        .link-wrapper {
+            margin: 30px  0 0;
+        }
+
+        .link-img {
+            height: 16px;
+        }
+    }
+</style>

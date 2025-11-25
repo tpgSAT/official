@@ -1,0 +1,30 @@
+---
+import GenericLayout from '@layouts/GenericLayout.astro';
+import Heading from '@components/Heading.astro';
+import ArticleImage from '@components/ArticleImage.astro';
+
+import Takimatsuri1 from '@assets/about/event/takimatsuri_1.jpeg';
+import Takimatsuri2 from '@assets/about/event/takimatsuri_2.jpg';
+import Wakabasai1 from '@assets/about/event/wakabasai_1.jpg';
+import Wakabasai2 from '@assets/about/event/wakabasai_2.jpg';
+
+const title = "イベント班";
+const description = "TPGを構成する5つの班のうちの1つ、イベント班を紹介します。イベント班はTaki Plaza内で行われるイベントの企画・運営を行っています。TPGが実施する企画の中でも大規模なものを行っており、TPGの根幹かつ花形の班です。";
+---
+<GenericLayout title={title} description={description} ListItem={[{ name: 'TPGについて', path: 'about' }, { name: 'イベント班', path: 'event' }]}>
+    <Heading title="活動内容">
+        Taki Plazaで行うイベントのアイデア出しから準備、当日の運営までをすべて自分たちで行います。
+        イベントの内容によっては大学内の様々なサークルや団体と連携することもあるので、コミュニケーション能力も身につきます。
+        今年度は昨年度に引き続き若葉祭（新歓イベント）、滝祭（日本の祭文化をテーマにした国際交流イベント）、工大祭へのボードゲームカフェの出店などを行いました。
+        それぞれのイベントの詳細は直近のイベントにありますので、興味のある方はぜひ確認してみてくださいね！！
+        <br />
+        <ArticleImage src={Wakabasai1} alt="若葉祭" caption="若葉祭" />
+        <ArticleImage src={Wakabasai2} alt="若葉祭" />
+        <ArticleImage src={Takimatsuri1} alt="滝祭" caption="滝祭" />
+        <ArticleImage src={Takimatsuri2} alt="滝祭" />
+    </Heading>
+    <Heading title="遊び">
+        毎年4月には新入生歓迎会、各企画後には打ち上げを開催していて、先輩後輩の垣根を越えてみんなで盛り上がっています。夏休みには恒例行事として、みんなで脱出ゲームに挑戦したり、ボードゲームカフェで新作ゲームを試したりと、アクティブに活動しています。
+        定例会は真面目に活動していますが、終わった後が本番という人も多いかも!?定例会後にはみんなでボードゲームを囲んで、気づけば夜通し盛り上がって徹夜してしまうことも‼人狼ゲームやカタンなど、戦略系からパーティー系まで、幅広いジャンルのゲームを楽しんでいます。
+    </Heading>
+</GenericLayout>
