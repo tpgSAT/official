@@ -31,7 +31,9 @@ const categories = post._embedded?.['wp:term']?.[0]?.map(cat => cat.name) || [];
 <Layout title={post.title.rendered} description={post.excerpt.rendered}>
     <div id="root">
       <div id="blog-header">
-        <img src={thumbnail} id="blog-thumbnail" alt={post.title.rendered}/>
+        <div class="thumbnail-wrapper">
+          <img src={thumbnail} id="blog-thumbnail" alt={post.title.rendered}/>
+        </div>
         <time id="blog-date" datetime={new Date(post.date).toISOString()}>
             {new Date(post.date).toLocaleDateString('ja-JP', {
               year: 'numeric',
@@ -62,8 +64,15 @@ const categories = post._embedded?.['wp:term']?.[0]?.map(cat => cat.name) || [];
     border-bottom: 1px solid #000;
   }
 
+  .thumbnail-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
   #blog-thumbnail {
     width: 100%;
+    max-width: 600px;
 		aspect-ratio: 16 / 9;
     object-fit: cover;
     border-radius: 20px;
