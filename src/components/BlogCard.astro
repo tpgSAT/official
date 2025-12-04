@@ -1,11 +1,11 @@
 ---
-const FallbackThumbnail = '/blog-fallback-thumbnail.jpg';
-
 interface Props {
     post: any;
 }
 
 const { post } = Astro.props as Props;
+
+const FallbackThumbnail = '/blog-fallback-thumbnail.jpg';
 
 // 🔸 サムネイルURLを取得（なければデフォルト表示）
 const thumbnail =
