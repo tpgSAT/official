@@ -1,0 +1,115 @@
+---
+const FallbackThumbnail = '/blog-fallback-thumbnail.jpg';
+
+interface Props {
+    post: any;
+}
+
+const { post } = Astro.props as Props;
+
+// 🔸 サムネイルURLを取得（なければデフォルト表示）
+const thumbnail =
+    post._embedded?.['wp:featuredmedia']?.[0]?.media_details?.sizes?.medium?.source_url ||
+    post._embedded?.['wp:featuredmedia']?.[0]?.source_url ||
+    FallbackThumbnail;
+
+// 🔸 カテゴリ名の配列を取得（なければ空配列）
+const categories = post._embedded?.['wp:term']?.[0]?.map(cat => cat.name) || [];
+---
+
+<a href={`/blog/${post.id}`}>
+    <div class="content">
+        <img src={thumbnail} class="thumbnail" alt={post.title.rendered} />
+        <div class="tags-wrapper"><p class="tag">{categories?.join(' ')}</p></div>
+        <h3 class="title">{post.title.rendered}</h3>
+        <p class="date">{new Date(post.date).toLocaleDateString('ja-JP')}</p>
+    </div>
+</a>
+
+
+<style>
+    .tags-wrapper {
+        grid-row: 1 / 2;
+    }
+
+    .tag {
+        padding: 0;
+        margin: 0;
+    }
+
+    .date {
+        grid-row: 3 / 4;
+    }
+
+    /* モバイル用のCSS */
+    @media screen and (max-width: 768px) {
+		.content {
+			font-family: 'Noto Sans JP Variable', sans-serif;
+			padding: 15px 0 0;
+			display: grid;
+			grid-template-columns: 40% 1fr;
+			grid-template-rows: 20px 1fr 20px;
+			gap: 0 10px;
+		}
+
+		.thumbnail {
+			width: 100%;
+			aspect-ratio: 16 / 10;
+			object-fit: cover;
+			border-radius: 10px;
+			grid-column: 1 / 2;
+			grid-row: 1 / 4;
+		}
+
+		.tags-wrapper, .date{
+			font-weight: 400;
+			font-size: 10px;
+			letter-spacing: 0.4px;
+			color: #707070;
+			margin: 0;
+			display: inline-block;
+			grid-column: 2 / 3;
+		}
+
+		.title {
+			font-weight: 500;
+			font-size: 14px;
+			margin: 0;
+			padding: 0;
+			grid-column: 2 / 3;
+			grid-row: 2 / 3;
+		}
+    }
+
+    /* デスクトップ用のCSS */
+    @media screen and (min-width: 769px) {
+		.content {
+			font-family: 'Noto Sans JP Variable', sans-serif;
+			padding:0;
+			width: 340px;
+		}
+
+		.thumbnail {
+			width: 100%;
+			aspect-ratio: 16 / 10;
+			object-fit: cover;
+			border-radius: 15px;
+		}
+
+		.tags-wrapper, .date{
+			font-weight: 400;
+			font-size: 10px;
+			letter-spacing: 0.4px;
+			color: #707070;
+			margin: 0;
+			display: inline-block;
+		}
+
+		.title {
+			font-weight: 500;
+			font-size: 14px;
+			margin: 0;
+			padding: 0;
+		}
+    }
+</style>
