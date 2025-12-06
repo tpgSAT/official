@@ -7,7 +7,7 @@ interface Props {
 const { event } = Astro.props as Props;
 ---
 
-<a href={`/event/${event.path}`}>
+<a href={`/events${event.path}`}>
     <div class="content">
 		<div class="img-wrapper"><Image src={event.thumbnail} class="thumbnail" alt={event.title} /></div>
         <div class="tags-wrapper"><p class="tag">Taki Plaza B2F</p></div>
