@@ -1,38 +1,18 @@
 ---
 import TopPageSection from '@layouts/TopPageSection.astro';
+import BlogCard from '@components/BlogCard.astro';
 import { getPosts } from '@lib/api';
 import { Image } from 'astro:assets';
 import headingBlog from '@assets/topPage/heading_blog.svg';
 
 import linkToBlog from '@assets/topPage/link_to_blog.svg';
 
-const FallbackThumbnail = '/blog-fallback-thumbnail.jpg';
 const posts = await getPosts();
 ---
 
 <TopPageSection headingSVG={headingBlog}>
 	<div class="blog-content-wrapper">
-    {[...posts].slice(0, 3).map(post => {
-        // 🔸 サムネイルURLを取得（なければデフォルト表示）
-        const thumbnail =
-            post._embedded?.['wp:featuredmedia']?.[0]?.media_details?.sizes?.medium?.source_url ||
-            post._embedded?.['wp:featuredmedia']?.[0]?.source_url ||
-            FallbackThumbnail;
-        
-        // 🔸 カテゴリ名の配列を取得（なければ空配列）
-        const categories = post._embedded?.['wp:term']?.[0]?.map(cat => cat.name) || [];
-
-        return (
-            <a href={`/blog/${post.id}`}>
-                <div class="blog-content">
-                    <img src={thumbnail} class="blog-thumbnail" alt={post.title.rendered} />
-                    <div class="blog-tags"><p class="blog-tag">{categories?.join(' ')}</p></div>
-                    <h3 class="blog-title">{post.title.rendered}</h3>
-                    <p class="blog-date">{new Date(post.date).toLocaleDateString('ja-JP')}</p>
-                </div>
-            </a>
-        );
-	})}
+    {[...posts].slice(0, 3).map(post => <BlogCard post={post} />)}
 	</div>
 
     <div class="link-wrapper">
@@ -53,68 +33,6 @@ const posts = await getPosts();
         margin: 0 auto 0;
         width: auto;
     }
-
-    /* モバイル用のCSS */
-    @media screen and (max-width: 768px) {
-		.blog-content {
-			font-family: 'Noto Sans JP Variable', sans-serif;
-			padding: 15px 0 0;
-			display: grid;
-			grid-template-columns: 40% 1fr;
-			grid-template-rows: 20px 1fr 20px;
-			gap: 0 10px;
-		}
-
-		.blog-thumbnail {
-			width: 100%;
-			aspect-ratio: 16 / 10;
-			object-fit: cover;
-			border-radius: 10px;
-			grid-column: 1 / 2;
-			grid-row: 1 / 4;
-		}
-
-		.blog-tags, .blog-date{
-			font-weight: 400;
-			font-size: 10px;
-			letter-spacing: 0.4px;
-			color: #707070;
-			margin: 0;
-			display: inline-block;
-			grid-column: 2 / 3;
-		}
-
-		.blog-title {
-			font-weight: 500;
-			font-size: 14px;
-			margin: 0;
-			padding: 0;
-			grid-column: 2 / 3;
-			grid-row: 2 / 3;
-		}
-
-		.blog-tags {
-			grid-row: 1 / 2;
-		}
-
-		.blog-tag {
-			padding: 0;
-			margin: 0;
-		}
-
-		.blog-date {
-			grid-row: 3 / 4;
-		}
-
-        .link-wrapper {
-            margin: 0 5%;
-        }
-        
-        .link-img {
-            height: 13px;
-        }
-    }
-
     /* デスクトップ用のCSS */
     @media screen and (min-width: 769px) {
 		.blog-content-wrapper {
@@ -125,56 +43,5 @@ const posts = await getPosts();
 			align-items: flex-start;
 			margin: 20px 0 0;
 		}
-
-		.blog-content {
-			font-family: 'Noto Sans JP Variable', sans-serif;
-			padding:0;
-			width: 340px;
-		}
-
-		.blog-thumbnail {
-			width: 100%;
-			aspect-ratio: 16 / 10;
-			object-fit: cover;
-			border-radius: 15px;
-		}
-
-		.blog-tags, .blog-date{
-			font-weight: 400;
-			font-size: 10px;
-			letter-spacing: 0.4px;
-			color: #707070;
-			margin: 0;
-			display: inline-block;
-		}
-
-		.blog-title {
-			font-weight: 500;
-			font-size: 14px;
-			margin: 0;
-			padding: 0;
-		}
-
-		.blog-tags {
-			grid-row: 1 / 2;
-		}
-
-		.blog-tag {
-			padding: 0;
-			margin: 0;
-		}
-
-		.blog-date {
-			grid-row: 3 / 4;
-		}
-
-        .link-wrapper {
-            margin: 10px 0 0;
-        }
-
-        .link-img {
-            height: 16px;
-			margin: 0;
-        }
     }
 </style>
