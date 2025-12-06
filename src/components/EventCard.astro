@@ -1,0 +1,110 @@
+---
+import { Image } from "astro:assets";
+interface Props {
+    event: any;
+}
+
+const { event } = Astro.props as Props;
+---
+
+<a href={`/event/${event.path}`}>
+    <div class="content">
+		<div class="img-wrapper"><Image src={event.thumbnail} class="thumbnail" alt={event.title} /></div>
+        <div class="tags-wrapper"><p class="tag">Taki Plaza B2F</p></div>
+        <h3 class="title">{event.title}</h3>
+        <p class="date">{new Date(event.date).toLocaleDateString('ja-JP')}</p>
+    </div>
+</a>
+
+
+<style>
+    .tags-wrapper {
+        grid-row: 1 / 2;
+    }
+
+    .tag {
+        padding: 0;
+        margin: 0;
+    }
+
+    .date {
+        grid-row: 3 / 4;
+    }
+
+	.thumbnail {
+		width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 15px;
+	}
+
+    /* モバイル用のCSS */
+    @media screen and (max-width: 768px) {
+		.content {
+			font-family: 'Noto Sans JP Variable', sans-serif;
+			padding: 15px 0 0;
+			display: grid;
+			grid-template-columns: 40% 1fr;
+			grid-template-rows: 20px 1fr 20px;
+			gap: 0 10px;
+		}
+
+		.img-wrapper {
+			width: 100%;
+			aspect-ratio: 16 / 10;
+			grid-column: 1 / 2;
+			grid-row: 1 / 4;
+        	overflow: hidden;
+		}
+
+		.tags-wrapper, .date{
+			font-weight: 400;
+			font-size: 10px;
+			letter-spacing: 0.4px;
+			color: #707070;
+			margin: 0;
+			display: inline-block;
+			grid-column: 2 / 3;
+		}
+
+		.title {
+			font-weight: 500;
+			font-size: 14px;
+			margin: 0;
+			padding: 0;
+			grid-column: 2 / 3;
+			grid-row: 2 / 3;
+		}
+    }
+
+    /* デスクトップ用のCSS */
+    @media screen and (min-width: 769px) {
+		.content {
+			font-family: 'Noto Sans JP Variable', sans-serif;
+			padding: 15px 0;
+			width: 340px;
+		}
+
+		.img-wrapper {
+			width: 100%;
+			aspect-ratio: 16 / 10;
+        	overflow: hidden;
+		}
+
+		.tags-wrapper, .date{
+			font-weight: 400;
+			font-size: 10px;
+			letter-spacing: 0.4px;
+			color: #707070;
+			margin: 0;
+			display: inline-block;
+		}
+
+		.title {
+			font-weight: 500;
+			font-size: 14px;
+			margin: 0;
+			padding: 0;
+		}
+    }
+</style>
