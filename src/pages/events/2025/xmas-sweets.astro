@@ -1,0 +1,120 @@
+---
+import Layout from "@layouts/Layout.astro";
+
+import { Image } from "astro:assets";
+
+import CristmasSweetsTitleImg from "@assets/events/2025/xmas-sweets/CristmasSweetsTitle.webp";
+import MakeSweetsTitleImg from "@assets/events/2025/xmas-sweets/Let'sMakeSweets.webp";
+import locationTitleImg from "@assets/events/2025/xmas-sweets/locationTitle.webp";
+import participateTitleImg from "@assets/events/2025/xmas-sweets/participateTitle.webp";
+import scheduleTitleImg from "@assets/events/2025/xmas-sweets/scheduleTitle.webp";
+import snowFlakeBigImg from "@assets/events/2025/xmas-sweets/snowFlakeBig.webp";
+import snowFlakeSmallImg from "@assets/events/2025/xmas-sweets/snowFlakeSmall.webp";
+import TPGLogoRedImg from "@assets/events/2025/xmas-sweets/TPGLogoRed.webp";
+
+
+
+
+
+
+
+const title = "クリスマススイーツを作ろう！";
+const description =
+  "TPG コミュニティ班が12月23日（火）にクリスマススイーツ作りイベントを開催します！";
+---
+
+<Layout title={title} description={description}>
+  <div class="content">
+    <div class="title">
+        <Image class="TPGLogoRed" src={TPGLogoRedImg} alt="TPGのロゴ" />
+        <div class="titleSet">
+            <Image class="snowFlakeBigLeft" src={snowFlakeBigImg} alt="雪の結晶のイラスト" />
+            <Image class="CristmasSweetsTitle" src={CristmasSweetsTitleImg} alt="クリスマススイーツを作ろう！のタイトル画像" />
+            <Image class="snowFlakeBigRight" src={snowFlakeBigImg} alt="雪の結晶のイラスト" />
+        </div>
+    </div>
+    <div class="intro">
+      <Image class="MakeSweetsTitle" src={MakeSweetsTitleImg} alt="Let's Make Sweetsのタイトル画像" />
+      <Image class="snowFlakeSmallLeft" src={snowFlakeSmallImg} alt="雪の結晶のイラスト" />
+      <Image class="snowFlakeSmallRight" src={snowFlakeSmallImg} alt="雪の結晶のイラスト" />
+      <p class="introText">TPG コミュニティ班が12月23日（火）にクリスマススイーツ作りイベントを開催します！<br>
+        自分の手でカップケーキとアイシングクッキーを作ってみませんか？ <br>
+        料理が得意な方も、苦手な方も大歓迎です！ <br>
+        クリスマスのささやかな思い出を私たちと作りましょう♡ 
+      </p>
+    </div>
+    <div class="schedule">
+      <Image class="scheduleTitle" src={scheduleTitleImg} alt="スケジュールのタイトル画像" />
+      <p class="date">12/23(TUE)</p>
+      <p class="time">
+        17:30-17:45 自己紹介<br>
+        17:45-18:15 カップケーキ作り<br>
+        18:15-19:15 アイシング、デコレーション<br>
+        19:15-19:30 片付け等
+      </p>
+    </div>
+    <div class="location">
+      <Image class="locationTitle" src={locationTitleImg} alt="場所のタイトル画像" />
+      <p class="locationText">Taki Plaza B2F キッチン</p>
+    </div>
+    <div>
+      <Image class="participateTitle" src={participateTitleImg} alt="参加方法のタイトル画像" />
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSeX_pwb8FoGJ8dDjXHb3t03uXK3E_n9jxHp8y0BwyvL100DqQ/viewform?usp=header">参加ご希望の方はこちらをクリック！</a>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  @media screen and (max-width: 1024px) {
+    html {
+      scroll-behavior: smooth; /* ページ内のボタンを押したときにスクロール風の動きをする */
+      font-size: 1vw; /* rem単位の基準値 */
+      padding: 0;
+    }
+    .content {
+      background-image: url("/events/2025/stainedglass/bg.webp");
+      object-fit: fill;
+      z-index: -150;
+      fill: blur(3px);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    
+  }
+
+  @media screen and (max-width: 670px) {
+    html {
+      scroll-behavior: smooth; /* ページ内のボタンを押したときにスクロール風の動きをする */
+      font-size: 1vw; /* rem単位の基準値 */
+      padding: 0;
+    }
+    .content {
+      background-image: url("/events/2025/stainedglass/bg.webp");
+
+      z-index: -150;
+      fill: blur(3px);
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    html {
+      scroll-behavior: smooth; /* ページ内のボタンを押したときにスクロール風の動きをする */
+      font-size: 1vw; /* rem単位の基準値 */
+      padding: 0;
+    }
+    .content {
+      background-image: url("/events/2025/stainedglass/bg.webp");
+      object-fit: fill;
+      z-index: -150;
+      fill: blur(3px);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      text-align: center;
+    }
+
+    
+  }
+</style>
