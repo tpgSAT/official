@@ -51,7 +51,7 @@ const description =
       <p class="time">
         17:30-17:45 自己紹介<br>
         17:45-18:15 カップケーキ作り<br>
-        18:15-19:15 アイシング、デコレーション<br>
+        18:15-19:15 デコレーション<br>
         19:15-19:30 片付け等
       </p>
     </div>
@@ -304,8 +304,9 @@ html {
   
       display: flex;
       align-items: center;   /* 縦方向の中央にそろえる */
-      justify-content: center; /* 横方向の中央にタイトルをおく */
-
+       /* 横方向の中央にタイトルをおく */
+      flex-direction: column;
+ 
       position: relative;
       overflow: hidden;      /* 雪の結晶が外にはみ出しても見せない */
       gap: 5rem;
@@ -329,9 +330,8 @@ html {
     .CristmasSweetsTitle{
       position: relative;
       z-index: 10;
-      width: 30%;
+      width: 70%;
       height: auto;
-      width: min(50%, 40rem);
     }
 
     
@@ -339,7 +339,7 @@ html {
     .TPGLogoRed{
       position: absolute;
       z-index: -10;
-      width: 50%;
+      width: 100%;
       height: auto;
       top: 50%;
       left: 50%;
@@ -362,7 +362,7 @@ html {
       left: 5rem;
       top: 15rem;
       flex-shrink: 0;   /* テキストに押しつぶされないように */
-
+      display: none;
     }
 
     
@@ -373,22 +373,25 @@ html {
       right: 5rem;
       top: 15rem;
       flex-shrink: 0;   /* テキストに押しつぶされないように */
-
+      display: none;
     }
 
     .MakeSweetsTitle{
-      margin-top: 3rem;
+      margin-top: 20rem;
       margin-bottom: 5rem;
-      width: 80%;
+      width: 100%;
       height: auto;
     }
 
     .introText{
+      margin-left: auto;
+      margin-right: auto;
+      width: 90%;
       color: white;
-      font-size: 1rem;
-      line-height: 5rem;
+      font-size: 2.5rem;
+      line-height: 10rem;
       letter-spacing: 0.3rem;
-      padding-bottom: 5rem;
+      padding-bottom: 20rem;
     }
 
     .container{
@@ -398,50 +401,50 @@ html {
     }
 
     .schedule{
-      margin-top: 3rem;
+      margin-top: 20rem;
       margin-bottom: 3rem;
     }
 
     .scheduleTitle{
-      width: 80%;
+      width: 100%;
       height: auto;
     } 
 
     .date{
       color: white;
-      font-size: 1rem;
+      font-size: 4rem;
       margin-top: 2rem;
       margin-bottom: 2rem;
       letter-spacing: 0.3rem;
     }
 
     .big{
-      font-size: 2rem;
+      font-size: 6rem;
     }
 
     .time{
-      margin-left: 20%;
+      margin-left: 10%;
       text-align: left;
       color: white;
-      font-size: 1rem;
-      line-height: 3rem;
+      font-size: 2.5em;
+      line-height: 10rem;
       letter-spacing: 0.2rem;
-      margin-bottom: 2rem;
+      margin-bottom: 20rem;
     }
     .location{
-      margin-top: 2.9rem;
+      margin-top: 19.9rem;
       margin-bottom: 2rem;
     }
 
     .locationTitle{
-      width: 80%;
+      width: 100%;
       height: auto;
     }
 
     .locationText{
       color: white;
-      font-size: 1rem;
-      margin-top: 30%;
+      font-size: 3rem;
+      margin-top: 50%;
       letter-spacing: 0.3rem;
     }
 
@@ -454,17 +457,17 @@ html {
     }
 
     .participateTitle{
-      margin-top: 3rem;
-      margin-bottom: 5rem;
-      width: 80%;
+      margin-top: 20rem;
+      margin-bottom: 10rem;
+      width: 100%;
       height: auto;
     }
 
     .participate a{
 
       color: white;
-      font-size: 1.2rem;
-      margin-bottom: 6rem;
+      font-size: 4rem;
+      margin-bottom: 20rem;
       display: inline-block;
       
       
