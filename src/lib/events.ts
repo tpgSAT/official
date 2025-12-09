@@ -9,12 +9,21 @@ export interface Event {
   date: string;
 }
 
+import xmasSweetsThumb from "@assets/events/2025/xmas-sweets/poster.png";
 import takiFarmImg from "@assets/events/2025/takipura-farm/poster.png";
 import tpgCafeThumb from "@assets/events/2025/tpg-cafe/poster.png";
 import takimatsuriThumb from "@assets/events/2025/takimatsuri/takimatsuri_thumbnail.webp";
 import stainedglassThumb from "@assets/events/2025/stainedglass/poster.webp";
 
 export const events: Event[] = [
+  {
+  title: "クリスマススイーツを作ろう！",
+  year: 2025,
+  description: "TPG コミュニティ班が12月23日（火）にクリスマススイーツ作りイベントを開催します！",
+  path: "/2025/xmas-sweets/",
+  thumbnail: xmasSweetsThumb,
+  date: "2025-12-23",
+  },
   {
     title: "工大祭でTPG Cafeを開催！",
     year: 2025,
