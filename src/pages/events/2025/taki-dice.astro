@@ -58,473 +58,88 @@ const description =
   </div>
 </Layout>
 
+<div id="dice-wrapper"></div>
+
+<script>
+  import * as THREE from 'three';
+  // 角丸ボックス用のジオメトリをインポート
+  import { RoundedBoxGeometry } from 'three-stdlib';
+
+  const container = document.getElementById('dice-wrapper');
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setSize(400, 400);
+  container.appendChild(renderer.domElement);
+
+  // --- 1. テクスチャ作成 ---
+  function createDiceTexture(number) {
+    const canvas = document.createElement('canvas');
+    canvas.width = 256; // 高解像度化
+    canvas.height = 256;
+    const ctx = canvas.getContext('2d');
+    
+    // 背景と角丸の描画（テクスチャ自体も少し余白を持たせると綺麗）
+    ctx.fillStyle = 'white';
+    ctx.fillRect(0, 0, 256, 256);
+    
+    ctx.fillStyle = 'black';
+    const dotRadius = 25;
+    const positions = {
+      1: [[128, 128]],
+      2: [[64, 64], [192, 192]],
+      3: [[64, 64], [128, 128], [192, 192]],
+      4: [[64, 64], [64, 192], [192, 64], [192, 192]],
+      5: [[64, 64], [64, 192], [128, 128], [192, 64], [192, 192]],
+      6: [[64, 64], [64, 128], [64, 192], [192, 64], [192, 128], [192, 192]]
+    };
+
+    positions[number].forEach(([x, y]) => {
+      ctx.beginPath(); ctx.arc(x, y, dotRadius, 0, Math.PI * 2); ctx.fill();
+    });
+    return new THREE.CanvasTexture(canvas);
+  }
+
+  const materials = [
+    new THREE.MeshStandardMaterial({ map: createDiceTexture(1) }),
+    new THREE.MeshStandardMaterial({ map: createDiceTexture(6) }),
+    new THREE.MeshStandardMaterial({ map: createDiceTexture(2) }),
+    new THREE.MeshStandardMaterial({ map: createDiceTexture(5) }),
+    new THREE.MeshStandardMaterial({ map: createDiceTexture(3) }),
+    new THREE.MeshStandardMaterial({ map: createDiceTexture(4) }),
+  ];
+
+  // --- 2. 角丸ジオメトリの適用 ---
+  // 引数: (幅, 高さ, 奥行き, 分割数, 角の半径)
+  const geometry = new RoundedBoxGeometry(2.5, 2.5, 2.5, 6, 0.2);
+  const dice = new THREE.Mesh(geometry, materials);
+  scene.add(dice);
+
+  // 照明（角の丸みを強調するために少し強めに）
+  const light = new THREE.DirectionalLight(0xffffff, 1.2);
+  light.position.set(5, 5, 5);
+  scene.add(light);
+  scene.add(new THREE.AmbientLight(0xffffff, 0.6));
+  
+  camera.position.z = 6;
+
+  // 速度管理
+  let currentSpeed = 0.5;
+  const targetSpeed = 0.01;
+  const friction = 0.98;
+
+  function animate() {
+    requestAnimationFrame(animate);
+    if (currentSpeed > targetSpeed) currentSpeed *= friction;
+    else currentSpeed = targetSpeed;
+
+    dice.rotation.x += currentSpeed;
+    dice.rotation.y += currentSpeed;
+    renderer.render(scene, camera);
+  }
+  animate();
+</script>
+
 <style>
-  @media screen and (max-width: 1024px) {
-    html {
-      scroll-behavior: smooth; /* ページ内のボタンを押したときにスクロール風の動きをする */
-      font-size: 1vw; /* rem単位の基準値 */
-      padding: 0;
-    }
-    .content {
-      background-image: url("/events/2025/stainedglass/bg.webp");
-      object-fit: fill;
-      z-index: -150;
-      fill: blur(3px);
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-
-    .background {
-      width: 90%;
-      height: 100%;
-      margin: 0 auto;
-
-      background-color: rgba(0, 0, 0, 0.5);
-
-      z-index: -100;
-    }
-    .content p {
-      color: #fff;
-      text-shadow: #fff 1px 0 7px;
-      font-weight: bold;
-    }
-    .content a {
-      color: #fff;
-    }
-    .original_header {
-      width: 100%;
-      height: 80px;
-      display: flex;
-      background-color: #181818;
-      justify-content: space-between;
-      font-weight: bold;
-      letter-spacing: 0.03em;
-      font-size: 0.02rem;
-    }
-
-    .language_selection {
-      display: flex;
-      align-items: center;
-      margin: 0 20px;
-    }
-
-    .header_item_original {
-      height: 84px;
-      display: flex;
-      gap: 30px;
-      text-align: center;
-      align-items: center;
-      text-decoration: none;
-      padding: 0 20px;
-    }
-
-    .title {
-      padding-top: 100px;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      opacity: 1;
-    }
-
-    .suki {
-      width: 25rem;
-      height: auto;
-    }
-
-    .pazzle {
-      width: 30rem;
-      height: auto;
-    }
-
-    .fee {
-      font-size: 1rem;
-      margin-top: 120px;
-      text-align: center;
-      letter-spacing: 0.12em;
-    }
-
-    .announcement {
-      font-size: 0.7rem;
-      margin-top: 100px;
-      text-align: center;
-      letter-spacing: 0.12em;
-    }
-    .introduction {
-      font-size: 0.7rem;
-      margin-top: 100px;
-      text-align: center;
-      letter-spacing: 0.12em;
-    }
-    .schedule {
-      width: 100%;
-      font-size: 1.7rem;
-      margin-top: 100px;
-      text-align: center;
-      letter-spacing: 0.12em;
-      font-weight: bolder;
-      text-shadow: #fff 1px 0 10px;
-    }
-    .date {
-      font-size: 0.7rem;
-      margin-top: 60px;
-      text-align: center;
-      letter-spacing: 0.12em;
-    }
-    .scheduleText {
-      font-size: 0.7rem;
-      margin-top: 40px;
-      margin-left: 35%;
-      letter-spacing: 0.12em;
-    }
-    .location {
-      width: 100%;
-      font-size: 1.7rem;
-      margin-top: 200px;
-      text-align: center;
-      letter-spacing: 0.12em;
-      font-weight: bolder;
-      text-shadow: #fff 1px 0 10px;
-    }
-    .locationText {
-      font-size: 0.7rem;
-      margin-top: 120px;
-      text-align: center;
-      letter-spacing: 0.12em;
-    }
-    .HowToParticipate {
-      width: 100%;
-      font-size: 1.7rem;
-      margin-top: 220px;
-      text-align: center;
-      letter-spacing: 0.12em;
-      font-weight: bolder;
-      text-shadow: #fff 1px 0 10px;
-    }
-    .HowToParticipateText {
-      font-size: 1.2rem;
-      margin-top: 100px;
-      padding-bottom: 150px;
-      text-align: center;
-      letter-spacing: 0.12em;
-      display: block;
-      text-shadow: #fff 1px 0 7px;
-      font-weight: bold;
-    }
-
-    .HowToParticipateText:hover {
-      text-decoration: underline;
-    }
-  }
-
-  @media screen and (max-width: 670px) {
-    html {
-      scroll-behavior: smooth; /* ページ内のボタンを押したときにスクロール風の動きをする */
-      font-size: 1vw; /* rem単位の基準値 */
-      padding: 0;
-    }
-    .content {
-      background-image: url("/events/2025/stainedglass/bg.webp");
-
-      z-index: -150;
-      fill: blur(3px);
-    }
-
-    .background {
-      width: 90%;
-      height: 100%;
-      margin: 0 auto;
-
-      background-color: rgba(0, 0, 0, 0.5);
-
-      z-index: -100;
-    }
-    .content p {
-      color: #fff;
-      text-shadow: #fff 1px 0 7px;
-      font-weight: bold;
-    }
-    .content a {
-      color: #fff;
-    }
-    .original_header {
-      width: 100%;
-      height: 60px;
-      display: flex;
-      background-color: #181818;
-      justify-content: space_between;
-      align-items: center;
-      font-weight: bold;
-    }
-
-    .language_selection {
-      display: flex;
-      align-items: center;
-      margin: 0 20px;
-    }
-
-    .header_item_original {
-      height: 84px;
-      display: flex;
-      gap: 15px;
-      text-align: center;
-      align-items: center;
-      text-decoration: none;
-      padding: 0 20px;
-    }
-
-    .title {
-      padding-top: 100px;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      opacity: 1;
-    }
-
-    .suki {
-      width: 20rem;
-      height: auto;
-    }
-
-    .pazzle {
-      width: 25rem;
-      height: auto;
-    }
-
-    .fee {
-      font-size: 1rem;
-      margin-top: 120px;
-      text-align: center;
-      letter-spacing: 0.12em;
-    }
-
-    .announcement {
-      font-size: 0.7rem;
-      margin-top: 100px;
-      text-align: center;
-      letter-spacing: 0.12em;
-    }
-    .introduction {
-      font-size: 0.7rem;
-      margin-top: 100px;
-      text-align: center;
-      letter-spacing: 0.12em;
-    }
-    .schedule {
-      width: 100%;
-      font-size: 1.7rem;
-      margin-top: 100px;
-      text-align: center;
-      letter-spacing: 0.12em;
-      font-weight: bolder;
-      text-shadow: #fff 1px 0 10px;
-    }
-    .date {
-      font-size: 0.7rem;
-      margin-top: 60px;
-      text-align: center;
-      letter-spacing: 0.12em;
-    }
-    .scheduleText {
-      font-size: 0.7rem;
-      margin-top: 40px;
-      margin-left: 20%;
-      letter-spacing: 0.12em;
-    }
-    .location {
-      width: 100%;
-      font-size: 1.7rem;
-      margin-top: 200px;
-      text-align: center;
-      letter-spacing: 0.12em;
-      font-weight: bolder;
-      text-shadow: #fff 1px 0 10px;
-    }
-    .locationText {
-      font-size: 0.7rem;
-      margin-top: 120px;
-      text-align: center;
-      letter-spacing: 0.12em;
-    }
-    .HowToParticipate {
-      width: 100%;
-      font-size: 1.7rem;
-      margin-top: 220px;
-      text-align: center;
-      letter-spacing: 0.12em;
-      font-weight: bolder;
-      text-shadow: #fff 1px 0 10px;
-    }
-    .HowToParticipateText {
-      font-size: 1rem;
-      margin-top: 100px;
-      padding-bottom: 150px;
-      text-align: center;
-      letter-spacing: 0.12em;
-      display: block;
-      text-shadow: #fff 1px 0 7px;
-      font-weight: bold;
-    }
-
-    .HowToParticipateText:hover {
-      text-decoration: underline;
-    }
-  }
-  @media screen and (min-width: 1024px) {
-    html {
-      scroll-behavior: smooth; /* ページ内のボタンを押したときにスクロール風の動きをする */
-      font-size: 1vw; /* rem単位の基準値 */
-      padding: 0;
-    }
-    .content {
-      background-image: url("/events/2025/stainedglass/bg.webp");
-      object-fit: fill;
-      z-index: -150;
-      fill: blur(3px);
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      text-align: center;
-    }
-
-    .background {
-      width: 90%;
-      height: 100%;
-      margin: 0 auto;
-
-      background-color: rgba(0, 0, 0, 0.5);
-
-      z-index: -100;
-    }
-    .content p {
-      color: #fff;
-      text-shadow: #fff 1px 0 7px;
-      font-weight: bold;
-    }
-    .content a {
-      color: #fff;
-    }
-    .original_header {
-      width: 100%;
-      height: 80px;
-      display: flex;
-      background-color: #181818;
-      justify-content: space-between;
-      font-weight: bold;
-      letter-spacing: 0.07em;
-    }
-
-    .language_selection {
-      display: flex;
-      align-items: center;
-      margin: 0 20px;
-    }
-
-    .header_item_original {
-      height: 84px;
-      display: flex;
-      gap: 30px;
-      text-align: center;
-      align-items: center;
-      text-decoration: none;
-      padding: 0 20px;
-    }
-
-    .title {
-      padding-top: 100px;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      opacity: 1;
-    }
-
-    .suki {
-      width: 50rem;
-      height: auto;
-    }
-
-    .pazzle {
-      margin: 0 auto;
-    }
-
-    .fee {
-      font-size: 1.5rem;
-      margin-top: 120px;
-      text-align: center;
-      letter-spacing: 0.12em;
-    }
-
-    .announcement {
-      font-size: 1rem;
-      margin-top: 100px;
-      text-align: center;
-      letter-spacing: 0.12em;
-    }
-    .introduction {
-      font-size: 1rem;
-      margin-top: 100px;
-      text-align: center;
-      letter-spacing: 0.12em;
-    }
-    .schedule {
-      width: 100%;
-      font-size: 2.2rem;
-      margin-top: 100px;
-      text-align: center;
-      letter-spacing: 0.12em;
-      font-weight: bolder;
-      text-shadow: #fff 1px 0 10px;
-    }
-    .date {
-      font-size: 1rem;
-      margin-top: 60px;
-      text-align: center;
-      letter-spacing: 0.12em;
-    }
-    .scheduleText {
-      font-size: 1rem;
-      margin-top: 40px;
-      margin-left: 35%;
-      text-align: left;
-      letter-spacing: 0.12em;
-    }
-    .location {
-      width: 100%;
-      font-size: 2.2rem;
-      margin-top: 200px;
-      text-align: center;
-      letter-spacing: 0.12em;
-      font-weight: bolder;
-      text-shadow: #fff 1px 0 10px;
-    }
-    .locationText {
-      font-size: 1rem;
-      margin-top: 120px;
-      text-align: center;
-      letter-spacing: 0.12em;
-    }
-    .HowToParticipate {
-      width: 100%;
-      font-size: 2.2rem;
-      margin-top: 220px;
-      text-align: center;
-      letter-spacing: 0.12em;
-      font-weight: bolder;
-      text-shadow: #fff 1px 0 10px;
-    }
-    .HowToParticipateText {
-      font-size: 1.4rem;
-      margin-top: 100px;
-      padding-bottom: 150px;
-      text-align: center;
-      letter-spacing: 0.12em;
-      display: block;
-      text-shadow: #fff 1px 0 7px;
-      font-weight: bold;
-    }
-
-    .HowToParticipateText:hover {
-      text-decoration: underline;
-    }
-  }
+  #dice-wrapper { display: flex; justify-content: center; }
 </style>
