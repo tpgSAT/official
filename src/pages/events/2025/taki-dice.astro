@@ -3,60 +3,48 @@ import Layout from "@layouts/Layout.astro";
 
 import { Image } from "astro:assets";
 
-import B_01_restaurant001_3d_front 1 from "@assets/events/2025/stainedglass/suki.png";
-import textPuzzleImg from "@assets/events/2025/stainedglass/puzzle.png";
+import takidice from "@assets/events/2025/taki-dice/takidice.svg";
+import caution from "@assets/events/2025/taki-dice/caution.svg";
+import contents from "@assets/events/2025/taki-dice/contents.svg";
+import headline_contents from "@assets/events/2025/taki-dice/headline_contents.svg";
+import headline_caution from "@assets/events/2025/taki-dice/headline_caution.svg";
 
 
 const title = "Takiダイス";
 const description =
-  "四人組でリアルすごろくをするイベントを開催します!";
+  "TPG イベント班が1月20日(火)に四人組でリアルすごろくをするイベントを開催します!";
 ---
 
 <Layout title={title} description={description}>
   <div class="content">
-    <div class="original_header">
-      <div class="language_selection">
-        <p>日本語 / <a href="#">ENGLISH</a></p>
-      </div>
-      <div class="header_item_original">
-        <a href="#schedule" class="headerSchdule">SCHEDULE</a>
-        <a href="#location" class="headerLocation">LOCATION</a>
-        <a href="#HowToParticipate" class="headerHowToParticioate">APPLY</a>
-      </div>
+    
+        <div class="titleSet">
+            <Image class="takidice" src={takidice} alt="Takidiceのテキスト" />
+        </div>
+    
+    <div class="intro">
+      <Image class="headline_contents" src={headline_contents} alt="企画内容の見出し" />
+      <Image class="contents" src={contents} alt="企画内容の背景" />
     </div>
-    <div class="background">
-      <div class="title">
-        <Image src={textSukiImg} class="suki" alt="好きでかたどる" />
-        <Image src={textPuzzleImg} class="pazzle" alt="ガラスパズル" />
-      </div>
-      <p class="fee">初！ステンドグラス風作品づくり体験開催！<br />誰でも無料で参加できます！</p>
-      <p class="announcement">TPGコミュニティ班が7月1日(火)に<br/>「好きでかたどるガラスパズル」イベントを開催します！</p>
-      <p class="introduction">
-        カラフルなガラスを組み合わせて、<br/>
-        自分だけのステンドグラス風作品を作ってみませんか？<br/>
-        普段から創作する人でもしない人でも大歓迎！<br />
-        作品を通じて知らない人とも仲良くなれるかも？<br/>
-        この機会にぜひ創作の楽しさを体験しよう！
-      </p>
-      <a name="schedule" class="schedule">SCHEDULE</a>
-      <p class="date">1月20日(火)</p>
-      <p class="scheduleText">
-        17:00~18:00　1回目<br />
-        18:00~19:00　2回目<br />
-        19:00~20:00　3回目<br />
-        20:00 　　　　解散
-      </p>
-      <a name="location" class="location">LOCATION</a>
-      <p class="locationText">Taki Plaza B2F ワークショップルーム１</p>
-      <a name="HowToParticipate" class="HowToParticipate">HOW TO PARTICIPATE</a>
-      <a
-        class="HowToParticipateText"
-        href="https://docs.google.com/forms/d/e/1FAIpQLScpSNRkjyPYo131Y0C_yZ1KGQMQ1ahexNFGt9nGbqnlzwr3Jw/viewform?usp=header"
-        >参加希望の方はここをクリック！</a
-      >
+    <div class="caution">
+      <Image class="headline_caution" src={headline_caution} alt="参加についての見出し" />
+      <Image class="aution" src={caution} alt="参加について背景" />
     </div>
-  </div>
-</Layout>
+    <div class="container">
+      <div class="schedule">
+        <p class="date"><span class="big">1/20</span>(TUE)</p>
+        <p class="time">
+          17:00~18:00　1回目<br />
+          18:00~19:00　2回目<br />
+          19:00~20:00　3回目<br />
+          20:00 　　　　解散
+        </p>
+      </div>
+      <div class="location">
+        <p class="locationText">Taki Plaza B2F イベントスペース</p>
+      </div>
+    </div></Layout>
+
 
 <div id="dice-wrapper"></div>
 
