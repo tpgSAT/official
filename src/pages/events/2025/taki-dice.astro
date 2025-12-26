@@ -15,43 +15,6 @@ const description =
   "TPG イベント班が1月20日(火)に四人組でリアルすごろくをするイベントを開催します!";
 ---
 
-<Layout title={title} description={description}>
-  <div class="content">
-    
-        <div class="titleSet">
-            <Image class="takidice" src={takidice} alt="Takidiceのテキスト" />
-        </div>
-    
-    <div class="intro">
-      <Image class="headline_contents" src={headline_contents} alt="企画内容の見出し" />
-      <Image class="contents" src={contents} alt="企画内容の背景" />
-      <p class="contents_text">
-      </p>
-    </div>
-    <div class="caution">
-      <Image class="headline_caution" src={headline_caution} alt="参加についての見出し" />
-      <Image class="caution" src={caution} alt="参加について背景" />
-      <p class="caution_text">
-      </p>
-    </div>
-    <div class="container">
-      <div class="schedule">
-        <p class="date"><span class="big">1/20</span>(TUE)</p>
-        <p class="time">
-          17:00~18:00　1回目<br />
-          18:00~19:00　2回目<br />
-          19:00~20:00　3回目<br />
-          20:00 　　　　解散
-        </p>
-      </div>
-      <div class="location">
-        <p class="locationText">Taki Plaza B2F イベントスペース</p>
-      </div>
-    </div></Layout>
-
-
-<div id="dice-wrapper"></div>
-
 <script>
   import * as THREE from 'three';
   // 角丸ボックス用のジオメトリをインポート
@@ -103,7 +66,7 @@ const description =
 
   // --- 2. 角丸ジオメトリの適用 ---
   // 引数: (幅, 高さ, 奥行き, 分割数, 角の半径)
-  const geometry = new RoundedBoxGeometry(2.5, 2.5, 2.5, 6, 0.2);
+  const geometry = new RoundedBoxGeometry(3.5, 3.5, 3.5, 6, 0.4);
   const dice = new THREE.Mesh(geometry, materials);
   scene.add(dice);
 
@@ -132,6 +95,134 @@ const description =
   animate();
 </script>
 
-<style>
-  #dice-wrapper { display: flex; justify-content: center; }
+<Layout title={title} description={description}>
+<div class="body">
+    
+    <div class="titleSet">
+      <Image class="takidice" src={takidice} alt="Takidiceのテキスト" />
+      <div id="dice-wrapper"></div>
+    </div>
+
+    <div class="topSchedule">
+      <p class="topDate">1<span>月</span>20<span>日</span><br>
+      17:00～20:00</p>
+      <p class="at">@Taki Plaza B2Fワークショップルーム</p>
+
+    </div>
+    
+    <div class="intro">
+      <Image class="headline_contents" src={headline_contents} alt="企画内容の見出し" />
+      <!-- <Image class="contents" src={contents} alt="企画内容の背景" /> -->
+      <p class="contents_text">
+      </p>
+    </div>
+    <div class="caution">
+      <Image class="headline_caution" src={headline_caution} alt="参加についての見出し" />
+      <!-- <Image class="caution" src={caution} alt="参加について背景" /> -->
+      <p class="caution_text">
+      </p>
+      <button onclick="">参加フォーム</button>
+    </div>
+    
+  </div>
+
+
+</Layout>
+
+
+<style define:vars={{ Contents : `url(${contents.src})`, Caution : `url(${caution.src})` }}>
+  .body{
+    background-image: linear-gradient(0deg, transparent calc(100% - 1px), #FFD8DA calc(100% - 1px)),
+                      linear-gradient(90deg, transparent calc(100% - 1px), #FFD8DA   calc(100% - 1px));
+    background-size: 30px 30px;
+    background-repeat: repeat;
+    background-position: center center;
+  }
+
+  #dice-wrapper { 
+    display: flex; 
+    justify-content: center;
+    grid-area: 1/1;
+  }
+
+.titleSet{
+  position: grid;
+  width: 100%;
+  display: grid;
+  justify-content: center;
+}
+
+.takidice{
+  width: 100%;
+  grid-area: 1/1;
+}
+
+.topSchedule{
+  color: #3B35AB;
+  font-size: 40px;
+  font-family: "A-P-OTF-A1Gothic-StdN";
+  font-weight: 600;
+  line-height: 123%;
+  letter-spacing: 2.52px;
+  margin-left: 20px;
+}
+
+.topSchedule span{
+  font-size: 24px;
+}
+
+.topDate{
+  margin: 0;
+}
+
+.at{
+  font-size: 20px;
+  letter-spacing: 1.4px;
+}
+
+
+.intro{
+  position: relative;
+  background-image: var(--Contents);
+  background-repeat: no-repeat;
+  height: 550px;
+
+}
+
+.headline_contents, .headline_caution{
+  position: absolute;
+  left: 50%;
+  transform: translate(-60%);
+}
+
+.headline_contents{
+  grid-area: 1/1;
+}
+
+.caution{
+  position: relative;
+  background-image: var(--Caution);
+  background-repeat: no-repeat;
+  height: 550px;
+}
+
+button{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+
+  font-size: 28px;
+  color: #3B35AB;
+  font-weight: 600;
+  border: solid 2px #3B35AB;
+  border-radius: 5%;
+  width: 240px;
+  height: 56px;
+}
+
+button:hover{
+  background-color: aliceblue;
+}
+
 </style>
