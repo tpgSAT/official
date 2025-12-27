@@ -113,15 +113,25 @@ const description =
     <div class="intro">
       <Image class="headline_contents" src={headline_contents} alt="企画内容の見出し" />
       <!-- <Image class="contents" src={contents} alt="企画内容の背景" /> -->
-      <p class="contents_text">
-      </p>
+      <div class="contents_text">
+        <ul>
+          <li>四人一組のグループでサイコロを振り、出た目の数だけ進むリアルすごろくイベントです。</li>
+          <li>様々なミニゲームをクリアしてゴールを目指そう！</li>
+          <li>17:00~18:00 / 18:00~19:00 / 19:00~20:00 のいずれかの時間帯で参加可能です。</li>
+          <li>参加費は無料で、当日参加も可能です。</li>
+        </ul>
+      </div>
     </div>
     <div class="caution">
       <Image class="headline_caution" src={headline_caution} alt="参加についての見出し" />
       <!-- <Image class="caution" src={caution} alt="参加について背景" /> -->
-      <p class="caution_text">
-      </p>
-      <button onclick="">参加フォーム</button>
+      <div class="caution_text">
+        <ul>
+          <li>フォームはグループの中で代表者が一人が入力してください。</li>
+          <li>グループの人数が4人に満たない場合、TPGのメンバーが入ることがあります。</li>
+        </ul>
+      </div>
+      <button onclick="location.href='https://forms.gle/VUrkgSETESSWRe7Q9'">参加フォーム</button>
     </div>
     
   </div>
@@ -197,6 +207,19 @@ const description =
 
 .headline_contents{
   grid-area: 1/1;
+}
+
+.contents_text, .caution_text{
+  padding-top: 160px;
+  padding-left: 10%;
+  width: 80%;
+  color: #F94141;
+  font-family: "Noto Sans JP";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 220%; /* 33px */
+  letter-spacing: 0.6px;
 }
 
 .caution{
