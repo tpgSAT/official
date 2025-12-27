@@ -1,0 +1,302 @@
+---
+import Layout from "@layouts/Layout.astro";
+
+import { Image } from "astro:assets";
+
+import takidice from "@assets/events/2025/taki-dice/takidice.svg";
+import caution from "@assets/events/2025/taki-dice/caution.svg";
+import contents from "@assets/events/2025/taki-dice/contents.svg";
+import headline_contents from "@assets/events/2025/taki-dice/headline_contents.svg";
+import headline_caution from "@assets/events/2025/taki-dice/headline_caution.svg";
+
+
+const title = "Takiダイス";
+const description =
+  "TPG イベント班が1月20日(火)に四人組でリアルすごろくをするイベントを開催します!";
+---
+
+<script>
+  import * as THREE from 'three';
+  // 角丸ボックス用のジオメトリをインポート
+  import { RoundedBoxGeometry } from 'three-stdlib';
+
+  const container = document.getElementById('dice-wrapper');
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setSize(400, 400);
+  container.appendChild(renderer.domElement);
+
+  // --- 1. テクスチャ作成 ---
+  function createDiceTexture(number) {
+    const canvas = document.createElement('canvas');
+    canvas.width = 256; // 高解像度化
+    canvas.height = 256;
+    const ctx = canvas.getContext('2d');
+    
+    // 背景と角丸の描画（テクスチャ自体も少し余白を持たせると綺麗）
+    ctx.fillStyle = 'white';
+    ctx.fillRect(0, 0, 256, 256);
+    
+    ctx.fillStyle = 'black';
+    const dotRadius = 25;
+    const positions = {
+      1: [[128, 128]],
+      2: [[64, 64], [192, 192]],
+      3: [[64, 64], [128, 128], [192, 192]],
+      4: [[64, 64], [64, 192], [192, 64], [192, 192]],
+      5: [[64, 64], [64, 192], [128, 128], [192, 64], [192, 192]],
+      6: [[64, 64], [64, 128], [64, 192], [192, 64], [192, 128], [192, 192]]
+    };
+
+    positions[number].forEach(([x, y]) => {
+      ctx.beginPath(); ctx.arc(x, y, dotRadius, 0, Math.PI * 2); ctx.fill();
+    });
+    return new THREE.CanvasTexture(canvas);
+  }
+
+  const materials = [
+    new THREE.MeshStandardMaterial({ map: createDiceTexture(1) }),
+    new THREE.MeshStandardMaterial({ map: createDiceTexture(6) }),
+    new THREE.MeshStandardMaterial({ map: createDiceTexture(2) }),
+    new THREE.MeshStandardMaterial({ map: createDiceTexture(5) }),
+    new THREE.MeshStandardMaterial({ map: createDiceTexture(3) }),
+    new THREE.MeshStandardMaterial({ map: createDiceTexture(4) }),
+  ];
+
+  // --- 2. 角丸ジオメトリの適用 ---
+  // 引数: (幅, 高さ, 奥行き, 分割数, 角の半径)
+  const geometry = new RoundedBoxGeometry(3.5, 3.5, 3.5, 6, 0.4);
+  const dice = new THREE.Mesh(geometry, materials);
+  scene.add(dice);
+
+  // 照明（角の丸みを強調するために少し強めに）
+  const light = new THREE.DirectionalLight(0xffffff, 1.2);
+  light.position.set(5, 5, 5);
+  scene.add(light);
+  scene.add(new THREE.AmbientLight(0xffffff, 0.6));
+  
+  camera.position.z = 6;
+
+  // 速度管理
+  let currentSpeed = 0.5;
+  const targetSpeed = 0.01;
+  const friction = 0.98;
+
+  function animate() {
+    requestAnimationFrame(animate);
+    if (currentSpeed > targetSpeed) currentSpeed *= friction;
+    else currentSpeed = targetSpeed;
+
+    dice.rotation.x += currentSpeed;
+    dice.rotation.y += currentSpeed;
+    renderer.render(scene, camera);
+  }
+  animate();
+</script>
+
+<Layout title={title} description={description}>
+<div class="body">
+    
+    <div class="titleSet">
+      <Image class="takidice" src={takidice} alt="Takidiceのテキスト" />
+      <div id="dice-wrapper"></div>
+    </div>
+
+    <div class="topSchedule">
+      <p class="topDate">1<span>月</span>20<span>日</span><br>
+      17:00～20:00</p>
+      <p class="at">@Taki Plaza B2Fワークショップルーム</p>
+
+    </div>
+    
+    <div class="intro">
+      <Image class="headline_contents" src={headline_contents} alt="企画内容の見出し" />
+      <!-- <Image class="contents" src={contents} alt="企画内容の背景" /> -->
+      <div class="contents_text">
+        <ul>
+          <li>四人一組のグループでサイコロを振り、出た目の数だけ進むリアルすごろくイベントです。</li>
+          <li>様々なミニゲームをクリアしてゴールを目指そう！</li>
+          <li>17:00~18:00 / 18:00~19:00 / 19:00~20:00 のいずれかの時間帯で参加可能です。</li>
+          <li>参加費は無料で、当日参加も可能です。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="caution">
+      <Image class="headline_caution" src={headline_caution} alt="参加についての見出し" />
+      <!-- <Image class="caution" src={caution} alt="参加について背景" /> -->
+      <div class="caution_text">
+        <ul>
+          <li>フォームはグループの中で代表者が一人が入力してください。</li>
+          <li>グループの人数が4人に満たない場合、TPGのメンバーが入ることがあります。</li>
+        </ul>
+      </div>
+      <button onclick="location.href='https://forms.gle/VUrkgSETESSWRe7Q9'">参加フォーム</button>
+    </div>
+    
+  </div>
+
+
+</Layout>
+
+
+<style define:vars={{ Contents : `url(${contents.src})`, Caution : `url(${caution.src})` }}>
+  .body{
+    background-image: linear-gradient(0deg, transparent calc(100% - 1px), #FFD8DA calc(100% - 1px)),
+                      linear-gradient(90deg, transparent calc(100% - 1px), #FFD8DA   calc(100% - 1px));
+    background-size: 30px 30px;
+    background-repeat: repeat;
+    background-position: center center;
+  }
+
+  #dice-wrapper { 
+    display: flex; 
+    justify-content: center;
+    grid-area: 1/1;
+  }
+
+.titleSet{
+  position: grid;
+  width: 100%;
+  display: grid;
+  justify-content: center;
+}
+
+.takidice{
+  width: 100%;
+  grid-area: 1/1;
+}
+
+.topSchedule{
+  color: #3B35AB;
+  font-size: 40px;
+  font-family: "A-P-OTF-A1Gothic-StdN";
+  font-weight: 600;
+  line-height: 123%;
+  letter-spacing: 2.52px;
+  margin-left: 20px;
+}
+
+.topSchedule span{
+  font-size: 24px;
+}
+
+.topDate{
+  margin: 0;
+}
+
+.at{
+  font-size: 20px;
+  letter-spacing: 1.4px;
+}
+
+
+.intro{
+  position: relative;
+  background-image: var(--Contents);
+  background-repeat: no-repeat;
+  height: 550px;
+
+}
+
+.headline_contents, .headline_caution{
+  position: absolute;
+  left: 50%;
+  transform: translate(-60%);
+}
+
+.headline_contents{
+  grid-area: 1/1;
+}
+
+.contents_text, .caution_text{
+  padding-top: 160px;
+  color: #F94141;
+  font-family: "Noto Sans JP";
+  font-style: normal;
+  font-weight: 700;
+  line-height: 220%; /* 33px */
+  letter-spacing: 0.6px;
+}
+
+.caution{
+  position: relative;
+  background-image: var(--Caution);
+  background-repeat: no-repeat;
+  height: 550px;
+}
+
+button {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+
+  color: #3B35AB;
+  font-family: "Noto Sans JP";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 220%; /* 33px */
+  letter-spacing: 0.6px;
+
+  border: solid 2px #3B35AB;
+  border-radius: 5%;
+  padding: 4px 24px;
+
+  background: white;
+  cursor: pointer;
+  overflow: hidden;       /* はみ出した背景を隠す */
+  transition: color 0.3s ease;
+}
+
+/* 背景用 */
+button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 0%;
+  height: 100%;
+  background-color: #3B35AB;
+
+  z-index: -1;
+  transition: width 0.3s ease;
+}
+
+/* hover時 */
+button:hover {
+  color: #fff;
+}
+
+button:hover::before {
+  width: 100%;
+}
+
+
+@media screen and (min-width: 670px) {
+  .contents_text, .caution_text{
+    padding-left: 10%;
+    width: 80%;
+    font-size: 16px;
+    line-height: 220%;
+  }
+
+  button {
+    top: 50%;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .contents_text, .caution_text{
+    padding-left: 5%;
+    width: 90%;
+    font-size: 14px;
+    line-height: 180%;
+  }
+
+  button {
+    top: 60%;
+  }
+}
+</style>
