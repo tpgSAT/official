@@ -211,11 +211,8 @@ const description =
 
 .contents_text, .caution_text{
   padding-top: 160px;
-  padding-left: 10%;
-  width: 80%;
   color: #F94141;
   font-family: "Noto Sans JP";
-  font-size: 16px;
   font-style: normal;
   font-weight: 700;
   line-height: 220%; /* 33px */
@@ -229,23 +226,77 @@ const description =
   height: 550px;
 }
 
-button{
+button {
   position: absolute;
-  top: 50%;
   left: 50%;
   transform: translate(-50%);
 
-  font-size: 28px;
   color: #3B35AB;
-  font-weight: 600;
+  font-family: "Noto Sans JP";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 220%; /* 33px */
+  letter-spacing: 0.6px;
+
   border: solid 2px #3B35AB;
   border-radius: 5%;
-  width: 240px;
-  height: 56px;
+  padding: 4px 24px;
+
+  background: white;
+  cursor: pointer;
+  overflow: hidden;       /* はみ出した背景を隠す */
+  transition: color 0.3s ease;
 }
 
-button:hover{
-  background-color: aliceblue;
+/* 背景用 */
+button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 0%;
+  height: 100%;
+  background-color: #3B35AB;
+
+  z-index: -1;
+  transition: width 0.3s ease;
 }
 
+/* hover時 */
+button:hover {
+  color: #fff;
+}
+
+button:hover::before {
+  width: 100%;
+}
+
+
+@media screen and (min-width: 670px) {
+  .contents_text, .caution_text{
+    padding-left: 10%;
+    width: 80%;
+    font-size: 16px;
+    line-height: 220%;
+  }
+
+  button {
+    top: 50%;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .contents_text, .caution_text{
+    padding-left: 5%;
+    width: 90%;
+    font-size: 14px;
+    line-height: 180%;
+  }
+
+  button {
+    top: 60%;
+  }
+}
 </style>
