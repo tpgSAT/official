@@ -24,5 +24,12 @@ export default defineConfig({
       domains: ["cms.tpgd.jp"],
   },
 
-  integrations: [mdx(), partytown()]
+  integrations: [
+    mdx(), 
+    partytown({
+      config: {
+        forward: ["dataLayer.push"],
+      },
+    })
+  ]
 });
