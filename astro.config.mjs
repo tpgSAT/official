@@ -3,6 +3,8 @@ import { defineConfig } from 'astro/config';
 
 import mdx from '@astrojs/mdx';
 
+import partytown from '@astrojs/partytown';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://tpgd.jp',
@@ -22,5 +24,5 @@ export default defineConfig({
       domains: ["cms.tpgd.jp"],
   },
 
-  integrations: [mdx()]
+  integrations: [mdx(), partytown()]
 });
