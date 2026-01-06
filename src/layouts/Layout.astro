@@ -3,6 +3,8 @@ import { SEO } from 'astro-seo';
 import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
 
+import GoogleAnalytics from '@components/GoogleAnalytics.astro';
+
 interface Props {
 	title: string;
 	description?: string;
@@ -61,6 +63,7 @@ import '@fontsource/m-plus-rounded-1c';
 
 		<!-- SakuraのWebフォント利用 -->
 		<script type="text/javascript" src="//webfonts.sakura.ne.jp/js/sakurav3.js"></script>
+		<GoogleAnalytics />
 	</head>
 	<body>
 		<Header />
