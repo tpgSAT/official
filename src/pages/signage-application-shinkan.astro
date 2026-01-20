@@ -4,22 +4,20 @@ import Heading from '@components/Heading.astro';
 import ContactCard from '@components/ContactCard.astro';
 import RoundedButton from '@components/RoundedButton.astro';
 
-import ShinkanPopup from '@components/ShinkanPopup.astro';
-
-const title = "Taki Plazaの大画面で映像を流しませんか？";
-const description = "Taki Plaza B2Fの大きなモニター(9面マルチモニター)で、皆さんのことを伝える動画や画像を募集しております。東京科学大学の公認サークルと公認の学生団体の皆さん、お申し込みをお待ちしています。";
+const title = "Taki Plazaの大画面で新歓映像を流してみませんか？";
+const description = "Taki Plaza B2Fの大きなモニター(9面マルチモニター)で新入生に向けて皆さんの団体のことを伝える動画や画像を募集しています。東京科学大学の公認サークル、公認の学生団体の皆さまのお申し込みをお待ちしています。";
 ---
-<GenericLayout title={title} description={description} ListItem={[{ name: 'サイネージ利用の募集', path: 'signage-application' }]}>
+<GenericLayout title={title} description={description} ListItem={[{ name: 'サイネージ利用の募集(新歓時期)', path: 'signage-application-shinkan' }]}>
     <Heading title="映像の内容例">
-        普段こんな活動をしています！<br />
-        イベントを開催します！ぜひ参加してください！<br />
-        大会に参加しました！こんな結果でした！<br />
+        どんなサークル・学生団体なのか、<br />
+        一年を通しての行事、<br />
+        新歓行事の予定 などなど<br />
         <br />
-        動画を作るのが難しいという方は、画像の募集もしておりますのでぜひご検討ください。
+        動画を作るのが難しい場合は画像での募集もしておりますので是非ご検討ください。
     </Heading>
     <Heading title="スケジュール">
         <table class="schedule-table" border="1" cellspacing="0" cellpadding="6">
-        <caption>2025年度スケジュール</caption>
+        <caption>2026年度スケジュール</caption>
         <thead>
             <tr>
             <th>期</th>
@@ -29,29 +27,9 @@ const description = "Taki Plaza B2Fの大きなモニター(9面マルチモニ�
         </thead>
         <tbody>
             <tr>
-            <td>第1期</td>
-            <td>4/21(月)</td>
-            <td>5/3(土)〜6/17(火)</td>
-            </tr>
-            <tr>
-            <td>第2期</td>
-            <td>6/9(月)</td>
-            <td>6/18(水)〜8/5(火)</td>
-            </tr>
-            <tr>
-            <td>第3期</td>
-            <td>9/22(月)</td>
-            <td>10/1(水)〜11/4(火)</td>
-            </tr>
-            <tr>
-            <td>第4期</td>
-            <td>10/27(月)</td>
-            <td>11/5(水)〜12/23(火)</td>
-            </tr>
-            <tr>
-            <td>第5期</td>
-            <td>12/15(月)</td>
-            <td>12/24(水)〜2/7(土)</td>
+            <td>新歓期(1次)</td>
+            <td>3/17(火)</td>
+            <td>3/27(金)〜5/1(金)</td>
             </tr>
         </tbody>
         </table>
@@ -84,12 +62,13 @@ const description = "Taki Plaza B2Fの大きなモニター(9面マルチモニ�
             公開期間については、こちらで用意した公開スケジュール通りに映像を差し替えいたします。基本的に例外は認めない方針ですのでご了承ください。
             <li>複数期間にわたって公開したい</li>
             複数の期間にわたって公開したい場合は、お手数ですが、該当するすべての期間の募集期間に同じファイルを提出してください。
+            <li>医歯学系の公認サークルも申し込める？</li>
+            東京科学大学の公認サークルであれば、医歯学系のサークルも申し込み可能です。
         </ul>
         <p class="link-list">学生掲示板の利用については<a href="/poster-application/">こちらのページ</a>をご覧ください。</p>
     </Heading>
     <ContactCard department="Taki Plaza Gardener マネジメント班" email="takiplazagardener.management@gmail.com" />
     
-    <ShinkanPopup />
 </GenericLayout>
 
 <style>
