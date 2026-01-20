@@ -8,8 +8,8 @@ const shouldShow = pathname === TARGET_PATH;
 {shouldShow && (
   <div id="shinkan-overlay">
     <div id="shinkan-popup">
-      <p class="title">新歓ページがあります</p>
-      <p class="text">新歓用の案内ページへ移動しますか？</p>
+      <p class="title">新歓向けのサイネージ募集ページがあります</p>
+      <p class="text">そちらへ移動しますか？</p>
 
       <div class="buttons">
         <button id="go" data-url={SHINKAN_URL}>今すぐ移動</button>
@@ -82,8 +82,8 @@ const shouldShow = pathname === TARGET_PATH;
   }
 
   #go {
-    background: #0070f3;
-    color: #fff;
+    background: #87F99B;
+    color: #000;
   }
 
   #stay {
