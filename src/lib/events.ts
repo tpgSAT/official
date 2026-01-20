@@ -9,6 +9,7 @@ export interface Event {
   date: string;
 }
 
+import takiDiceThumb from "@assets/events/2025/taki-dice/thumbnail.png";
 import xmasSweetsThumb from "@assets/events/2025/xmas-sweets/poster.png";
 import takiFarmImg from "@assets/events/2025/takipura-farm/poster.png";
 import tpgCafeThumb from "@assets/events/2025/tpg-cafe/poster.png";
@@ -16,6 +17,14 @@ import takimatsuriThumb from "@assets/events/2025/takimatsuri/takimatsuri_thumbn
 import stainedglassThumb from "@assets/events/2025/stainedglass/poster.webp";
 
 export const events: Event[] = [
+  {
+  title: "Taki ダイス",
+  year: 2025,
+  description: "TPG イベント班が1月20日（火）に四人組でリアルすごろくをするイベントを開催します！",
+  path: "/2025/taki-dice/",
+  thumbnail: takiDiceThumb,
+  date: "2025-01-20",
+  },
   {
   title: "クリスマススイーツを作ろう！",
   year: 2025,
