@@ -4,7 +4,6 @@ import Breadcrumb from '@components/Breadcrumb.astro';
 
 import { Image } from 'astro:assets';
 import Blobs from '@assets/generic/blobs.png';
-import ShinkanPopup from '@components/ShinkanPopup.astro';
 
 interface ListItem {
   path: string;
@@ -30,7 +29,6 @@ const { title, description, ListItem } = Astro.props;
     <!-- 背景装飾用のBlobs -->
     <Image src={Blobs} id="blobs" alt="Blobs" />
     <slot />
-    <ShinkanPopup />
 </Layout>
 
 
