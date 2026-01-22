@@ -9,8 +9,6 @@ const shouldShow = pathname === TARGET_PATH;
   <div id="shinkan-overlay">
     <div id="shinkan-popup">
       <p class="title">新歓向けのサイネージ募集ページがあります</p>
-      <p class="text">そちらへ移動しますか？</p>
-
       <div class="buttons">
         <button id="go" data-url={SHINKAN_URL}>今すぐ移動</button>
         <button id="stay">移動しない</button>
@@ -52,20 +50,17 @@ const shouldShow = pathname === TARGET_PATH;
   #shinkan-popup {
     background: #fff;
     padding: 24px;
-    border-radius: 8px;
+    border-radius: 24px;
+    border: 1px solid black;
     width: min(90%, 360px);
     text-align: center;
+    font-family: "Noto Sans JP Variable", sans-serif;
   }
 
   .title {
     font-size: 18px;
     font-weight: bold;
-    margin-bottom: 8px;
-  }
-
-  .text {
-    font-size: 14px;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
   }
 
   .buttons {
@@ -76,9 +71,10 @@ const shouldShow = pathname === TARGET_PATH;
 
   button {
     padding: 8px 16px;
-    border-radius: 4px;
+    border-radius: 20px;
     border: none;
     cursor: pointer;
+    font-size: 12px;
   }
 
   #go {

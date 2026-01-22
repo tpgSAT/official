@@ -4,12 +4,19 @@ import Heading from '@components/Heading.astro';
 import ContactCard from '@components/ContactCard.astro';
 import RoundedButton from '@components/RoundedButton.astro';
 
+import { Image } from 'astro:assets';
+
 import ShinkanPopup from '@components/ShinkanPopup.astro';
+
+import screenImg from '@assets/multi-monitor.png';
 
 const title = "Taki Plazaの大画面で映像を流しませんか？";
 const description = "Taki Plaza B2Fの大きなモニター(9面マルチモニター)で、皆さんのことを伝える動画や画像を募集しております。東京科学大学の公認サークルと公認の学生団体の皆さん、お申し込みをお待ちしています。";
 ---
 <GenericLayout title={title} description={description} ListItem={[{ name: 'サイネージ利用の募集', path: 'signage-application' }]}>
+    <div class="screen-img-wrapper">
+        <Image class="multi-screen" src={screenImg} alt="Taki Plaza 9面マルチモニター" />
+    </div>
     <Heading title="映像の内容例">
         普段こんな活動をしています！<br />
         イベントを開催します！ぜひ参加してください！<br />
@@ -75,7 +82,7 @@ const description = "Taki Plaza B2Fの大きなモニター(9面マルチモニ�
         <ul class="link-list">
             <li>非公認の団体でも申し込める？</li>
             トラブル防止のため、東京科学大学の公認サークルと、学内の組織が支援する学生団体以外からの申し込みはお断りしております。
-            学生掲示板の利用については、非公認の団体や個人でも申し込みが可能です。掲示板利用のページはこちらのページをご覧ください。
+            Taki Plaza B2Fの<a href="/poster-application/">学生掲示板の利用</a>については、非公認の団体や個人でも申し込みが可能です。
             <li>複数の動画を流して欲しい</li>
             各団体、同時期に流せる映像は1本に限定しておりますので、ご了承ください。
             <li>もっと長い動画を流したい！</li>
@@ -84,8 +91,10 @@ const description = "Taki Plaza B2Fの大きなモニター(9面マルチモニ�
             公開期間については、こちらで用意した公開スケジュール通りに映像を差し替えいたします。基本的に例外は認めない方針ですのでご了承ください。
             <li>複数期間にわたって公開したい</li>
             複数の期間にわたって公開したい場合は、お手数ですが、該当するすべての期間の募集期間に同じファイルを提出してください。
+            <li>医歯学系の公認サークルも申し込める？</li>
+            東京科学大学の公認サークルであれば、医歯学系のサークルも申し込み可能です。
         </ul>
-        <p class="link-list">学生掲示板の利用については<a href="/poster-application/">こちらのページ</a>をご覧ください。</p>
+        <p class="link-list">Taki Plaza B2Fの学生掲示板の利用については<a href="/poster-application/">こちらのページ</a>をご覧ください。</p>
     </Heading>
     <ContactCard department="Taki Plaza Gardener マネジメント班" email="takiplazagardener.management@gmail.com" />
     
@@ -93,6 +102,18 @@ const description = "Taki Plaza B2Fの大きなモニター(9面マルチモニ�
 </GenericLayout>
 
 <style>
+    .screen-img-wrapper {
+        margin: 20px 0 0;
+    }
+
+    .multi-screen {
+        width: 100%;
+        max-height: 100%;
+        height: auto;
+        margin: 0;
+        border-radius: 10px;
+    }
+
     .link-list {
         padding-left: 1.5em;
         font-family: 'Noto Sans JP Variable', sans-serif;
@@ -135,6 +156,11 @@ const description = "Taki Plaza B2Fの大きなモニター(9面マルチモニ�
 
     /* モバイル用のCSS */
     @media screen and (max-width: 768px) {
+        .screen-img-wrapper {
+            margin: 20px 5% 0;
+            width: 90%;
+        }
+
         .link-list {
             font-size: 12px;
             letter-spacing: 0.8px;
@@ -144,6 +170,11 @@ const description = "Taki Plaza B2Fの大きなモニター(9面マルチモニ�
 
     /* デスクトップ用のCSS */
     @media screen and (min-width: 769px) {
+        .screen-img-wrapper {
+            margin: 20px 20% 0;
+            width: 60%;
+        }
+
         .link-list {
             font-size: 16px;
             letter-spacing: 1.2px;
