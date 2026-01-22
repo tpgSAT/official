@@ -4,12 +4,19 @@ import Heading from '@components/Heading.astro';
 import ContactCard from '@components/ContactCard.astro';
 import RoundedButton from '@components/RoundedButton.astro';
 
+import { Image } from 'astro:assets';
+
 import ShinkanPopup from '@components/ShinkanPopup.astro';
+
+import screenImg from '@assets/multi-monitor.png';
 
 const title = "Taki Plazaの大画面で映像を流しませんか？";
 const description = "Taki Plaza B2Fの大きなモニター(9面マルチモニター)で、皆さんのことを伝える動画や画像を募集しております。東京科学大学の公認サークルと公認の学生団体の皆さん、お申し込みをお待ちしています。";
 ---
 <GenericLayout title={title} description={description} ListItem={[{ name: 'サイネージ利用の募集', path: 'signage-application' }]}>
+    <div class="screen-img-wrapper">
+        <Image class="multi-screen" src={screenImg} alt="Taki Plaza 9面マルチモニター" />
+    </div>
     <Heading title="映像の内容例">
         普段こんな活動をしています！<br />
         イベントを開催します！ぜひ参加してください！<br />
@@ -93,6 +100,18 @@ const description = "Taki Plaza B2Fの大きなモニター(9面マルチモニ�
 </GenericLayout>
 
 <style>
+    .screen-img-wrapper {
+        margin: 20px 0 0;
+    }
+
+    .multi-screen {
+        width: 100%;
+        max-height: 100%;
+        height: auto;
+        margin: 0;
+        border-radius: 10px;
+    }
+
     .link-list {
         padding-left: 1.5em;
         font-family: 'Noto Sans JP Variable', sans-serif;
@@ -135,6 +154,11 @@ const description = "Taki Plaza B2Fの大きなモニター(9面マルチモニ�
 
     /* モバイル用のCSS */
     @media screen and (max-width: 768px) {
+        .screen-img-wrapper {
+            margin: 20px 5% 0;
+            width: 90%;
+        }
+
         .link-list {
             font-size: 12px;
             letter-spacing: 0.8px;
@@ -144,6 +168,11 @@ const description = "Taki Plaza B2Fの大きなモニター(9面マルチモニ�
 
     /* デスクトップ用のCSS */
     @media screen and (min-width: 769px) {
+        .screen-img-wrapper {
+            margin: 20px 20% 0;
+            width: 60%;
+        }
+
         .link-list {
             font-size: 16px;
             letter-spacing: 1.2px;
