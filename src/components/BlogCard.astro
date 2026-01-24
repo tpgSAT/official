@@ -28,6 +28,10 @@ const categories = post._embedded?.['wp:term']?.[0]?.map(cat => cat.name) || [];
 
 
 <style>
+	a {
+        text-decoration: none;
+    }
+	
     .tags-wrapper {
         grid-row: 1 / 2;
     }
