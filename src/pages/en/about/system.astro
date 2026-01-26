@@ -1,0 +1,31 @@
+---
+import GenericLayout from '@layouts/GenericLayout.astro';
+import Heading from '@components/Heading.astro';
+import ArticleImage from '@components/ArticleImage.astro';
+
+import MeetingImg from '@assets/about/system/meeting.jpeg';
+import AsobiImg1 from '@assets/about/system/asobi_1.jpeg';
+import AsobiImg2 from '@assets/about/system/asobi_2.jpeg';
+
+const title = "システム班";
+const description = "TPGを構成する5つの班のうちの1つ、システム班を紹介します。システム班は、TPGのウェブサイトの更新、TPG内のインフラの管理・運用などを行っています。他班に比べて規模が小さいので、アットホームな雰囲気で、教え合いながら活動しています。";
+---
+<GenericLayout title={title} description={description} ListItem={[{ name: 'TPGについて', path: 'about' }, { name: 'システム班', path: 'system' }]}>
+    <Heading title="活動内容">
+        システム班の活動内容を大きく2つに分けて紹介します。
+        <br /><br />
+        1つ目は、ウェブサイトの更新です。TPGの公式ウェブサイト(このサイト)に掲載する内容を制作しており、イベント班やコミュニティ班が企画するイベントの広報を行っています。
+        <br />
+        2つ目は、インフラの管理・運用です。TPGでは、各班の業務効率化のために様々なツールを導入しており、例えば、クラウドストレージやチャットツールなどがあります。システム班は、これらのツールの管理・運用を担当しており、メンバーが快適に活動できるようサポートしています。
+        <br />
+        いずれの業務も、そこまで難しい技術を必要としないため、これまでプログラミングの経験が無い方でも安心して参加できます。
+        <ArticleImage src={MeetingImg} alt="定例会の画像" />
+    </Heading>
+    <Heading title="遊び">
+        規模が小さい分、班内の仲が良いこともシステム班の特徴です。
+        定例会の後にみんなでご飯を食べに行ったり、旅行に出かけることもあります。
+        <ArticleImage src={AsobiImg1} alt="遊び画像1" />
+        <ArticleImage src={AsobiImg2} alt="遊び画像2" />
+    </Heading>
+    
+</GenericLayout>

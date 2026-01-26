@@ -1,0 +1,130 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Events from "@components/Sections/Events.astro";
+import News from "@components/Sections/News.astro";
+import Blog from "@components/Sections/Blog.astro";
+import About from "@components/Sections/About.astro";
+import Banner from "@components/Banner.astro";
+
+import { Image } from "astro:assets";
+
+import Blobs1 from "@assets/topPage/blobs_1.png";
+import Blobs2 from "@assets/topPage/blobs_2.png";
+import Blobs3 from "@assets/topPage/blobs_3.png";
+import Blobs4 from "@assets/topPage/blobs_4.png";
+import Blobs5 from "@assets/topPage/blobs_5.png";
+import Blobs6 from "@assets/topPage/blobs_6.png";
+---
+
+<Layout title="トップ">
+  <Events />
+  <News />
+  <Blog />
+  <About />
+  <div class="spacer"></div>
+  <div class="banner-wrapper">
+    <Banner />
+  </div>
+  <div class="spacer"></div>
+
+  <!-- 背景装飾用のBlobs -->
+  <Image src={Blobs1} class="blobs" id="blobs_1" alt="Blobs1" />
+  <Image src={Blobs2} class="blobs" id="blobs_2" alt="Blobs2" />
+  <Image src={Blobs3} class="blobs" id="blobs_3" alt="Blobs3" />
+  <Image src={Blobs4} class="blobs" id="blobs_4" alt="Blobs4" />
+  <Image src={Blobs5} class="blobs" id="blobs_5" alt="Blobs5" />
+  <Image src={Blobs6} class="blobs" id="blobs_6" alt="Blobs6" />
+</Layout>
+
+<style>
+  .banner-wrapper{
+    margin: 0 5vw;
+  }
+  .spacer {
+    height: 60px;
+  }
+
+  .blobs {
+    position: absolute;
+    height: auto;
+    z-index: -1;
+  }
+
+  /* モバイル用のCSS */
+  @media screen and (max-width: 768px) {
+    #blobs_1 {
+      top: 150px;
+      right: -120px;
+      width: 65vw;
+    }
+
+    #blobs_2 {
+      top: 450px;
+      left: -140px;
+      width: 65vw;
+    }
+
+    #blobs_3 {
+      top: 520px;
+      right: -60px;
+      width: 65vw;
+    }
+
+    #blobs_4 {
+      top: 900px;
+      left: -40px;
+      width: 40vw;
+    }
+
+    #blobs_5 {
+      top: 1400px;
+      right: -40px;
+      width: 60vw;
+    }
+
+    #blobs_6 {
+      top: 1550px;
+      left: -50px;
+      width: 55vw;
+    }
+  }
+
+  /* デスクトップ用のCSS */
+  @media screen and (min-width: 769px) {
+    #blobs_1 {
+      top: 60px;
+      left: -20px;
+      width: 20vw;
+    }
+
+    #blobs_2 {
+      top: 460px;
+      left: -140px;
+      width: 23vw;
+    }
+
+    #blobs_3 {
+      top: 520px;
+      right: -60px;
+      width: 23vw;
+    }
+
+    #blobs_4 {
+      top: 900px;
+      left: -40px;
+      width: 20vw;
+    }
+
+    #blobs_5 {
+      top: 1400px;
+      right: -40px;
+      width: 20vw;
+    }
+
+    #blobs_6 {
+      top: 1550px;
+      left: -50px;
+      width: 20vw;
+    }
+  }
+</style>

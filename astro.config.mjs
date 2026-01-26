@@ -14,6 +14,7 @@ export default defineConfig({
               '@components': '/src/components',
               '@lib': '/src/lib',
               '@assets': '/src/assets',
+              '@i18n': '/src/i18n',
           },
       },
   },

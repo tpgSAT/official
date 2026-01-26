@@ -1,0 +1,22 @@
+---
+import GenericLayout from '@layouts/GenericLayout.astro';
+import Heading from '@components/Heading.astro';
+import ContactCard from '@components/ContactCard.astro';
+
+import ArticleImage from '@components/ArticleImage.astro';
+
+import TakiPlazaMapB2F from '@assets/contact/taki_plaza_map_b2f.png';
+
+const title = "お問い合わせ";
+const description = "Taki Plaza Gardenerへのお問い合わせはこちらからお願いいたします。";
+---
+<GenericLayout title={title} description={description} ListItem={[{ name: 'お問い合わせ', path: 'contact' }]}>
+    <Heading title="アクセス">
+        〒152-8550
+        <br />
+        東京都目黒区大岡山 2-12-1 Taki Plaza B2F TPG居室
+        <br />
+        <ArticleImage src={TakiPlazaMapB2F} alt="Taki Plaza B2F Map" />
+    </Heading>
+    <ContactCard />
+</GenericLayout>

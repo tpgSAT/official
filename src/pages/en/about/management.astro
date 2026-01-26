@@ -1,0 +1,31 @@
+---
+import GenericLayout from '@layouts/GenericLayout.astro';
+import Heading from '@components/Heading.astro';
+import ArticleImage from '@components/ArticleImage.astro';
+
+
+import MeetingImg from '@assets/about/management/meeting.jpg';
+import AsobiImg1 from '@assets/about/management/asobi_1.jpg';
+import AsobiImg2 from '@assets/about/management/asobi_2.jpg';
+
+const title = "マネジメント班";
+const description = "TPGを構成する5つの班のうちの1つ、マネジメント班を紹介します。マネジメント班は、TPGの内部に目を向け、メンバーがより快適に活動できるような環境づくりを目指して活動しています。";
+---
+<GenericLayout title={title} description={description} ListItem={[{ name: 'TPGについて', path: 'about' }, { name: 'マネジメント班', path: 'management' }]}>
+    <Heading title="活動内容">
+        マネジメント班の具体的な活動内容を大きく2つに分けて紹介します。
+        <br /><br />
+        1つ目は、事務的な業務です。各班の活動や企画に伴う経費の会計報告、居室の消耗品購入、備品の管理などを行っています。また、Taki Plaza B2F大階段下の大きなモニター（9面マルチモニター）で放送するコンテンツや、階段下の学生掲示板に掲示するポスターを募集することもしています。
+        <br />
+        2つ目は、班や学年を超えた交流を目的とした懇親会の企画です。メンバー全員を対象にした全体懇親会や、学年別の学年懇親会など、さまざまな企画を実施しています。さらに、お世話になった先輩方の卒業式の企画もマネジメント班の業務です。より多くのメンバーと関わり、より多様な活動を推進することを目指しています。
+        <ArticleImage src={MeetingImg} alt="定例会の様子" />
+    </Heading>
+    <Heading title="遊び">
+        マネジメント班では、班内での交流を深めることも大切にしています。
+        その一環として、年に3回ほど懇親会を開いています。例えば、今年の夏休みには甲府へドライブに出かけました。
+        マネジメント班は、班内での仲の良さや、企画の自由さも魅力の一つだと考えています。
+        <ArticleImage src={AsobiImg1} alt="遊び画像1" />
+        <ArticleImage src={AsobiImg2} alt="遊び画像2" />
+    </Heading>
+    
+</GenericLayout>

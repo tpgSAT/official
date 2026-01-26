@@ -1,0 +1,29 @@
+---
+import GenericLayout from '@layouts/GenericLayout.astro';
+import Heading from '@components/Heading.astro';
+import ArticleImage from '@components/ArticleImage.astro';
+
+import JackOLantern from '@assets/about/community/jack-o-lantern.jpeg';
+import WelcomeEvent from '@assets/about/community/welcome-event.jpg';
+import MeetingImg from '@assets/about/community/meeting.jpg';
+import Asobi from '@assets/about/community/enoshima.jpg';
+
+const title = "コミュニティ班";
+const description = "TPGを構成する5つの班のうちの1つ、コミュニティ班を紹介します。コミュニティ班はTaki Plazaで様々なコミュニティを形成することを目標にイベントの企画を行っています。企画の内容は様々で、色々なことに挑戦しています。";
+---
+<GenericLayout title={title} description={description} ListItem={[{ name: 'TPGについて', path: 'about' }, { name: 'コミュニティ班', path: 'community' }]}>
+    <Heading title="活動内容">
+        コミュニティ班とは人と人のつながりを作るきっかけを提供する班で、学生が他の誰かと会い、新たなコミュニティをつくれるようなワークショップやイベントを企画しています。
+        <br />
+        例えば、昨年度の2Qには留学生と日本人学生が交流できる国際交流イベントとして和菓子作りイベント「夏の和菓子教室」を開催しました。夏にぴったりの「水無月」と「琥珀糖」を選んで作ってもらい、多くの学生に参加してもらうことができました。
+        <br />
+        また、今年度の新歓期に新入生同士の親睦を深めコミュニティ形成を促す目的で「新入生交流会」を開催しました。2日間で300人以上の新入生が参加し、様々なゲームやアクティビティを通して交流を深めてもらいました。
+        <ArticleImage src={WelcomeEvent} alt="新入生交流会" caption='新入生交流会' />
+        <ArticleImage src={JackOLantern} alt="ジャック・オー・ランタン" caption='ジャックオーランタンを作ろう！' />
+    </Heading>
+    <Heading title="遊び">
+        コミュニティ班は自由な人が多く、遊びの回数自体は多くないですが、イベント開催後にご飯に行くなどして交流を深めています。また、年に数回懇親会を開いており、江の島に行ったりジョイポリスに行ったりレンタルスペースを借りたり…実は結構遊んでいるかもしれません。
+        <ArticleImage src={Asobi} alt="遊び" />
+        <ArticleImage src={MeetingImg} alt="定例会" />
+    </Heading>
+</GenericLayout>

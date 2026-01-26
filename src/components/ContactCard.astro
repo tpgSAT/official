@@ -1,4 +1,5 @@
 ---
+import { getLangFromUrl, useTranslations } from '@i18n/utils';
 import Heading from '@components/Heading.astro';
 
 import { Image } from 'astro:assets';
@@ -12,14 +13,16 @@ interface Props {
 }
 
 const { department="Taki Plaza Gardener", email="contact@tpgd.jp" } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
-<Heading title="お問い合わせ">
+<Heading title={t('contact.title')}>
     <div id="root">
         <h2>{department}</h2>
-        <h5>住所</h5>
+        <h5>{t('contact.address')}</h5>
         <p>〒152-8550<br />東京都目黒区大岡山 2-12-1 Taki Plaza B2F TPG居室</p>
-        <h5>メール</h5>
+        <h5>{t('contact.email')}</h5>
         <a href={`mailto:${email}`}><p>{email}</p></a>
         <Image src={Blobs1} alt="Blobs1" id="blobs1" />
         <Image src={Blobs2} alt="Blobs2" id="blobs2" />
