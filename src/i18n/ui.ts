@@ -8,6 +8,7 @@ export const showDefaultLang = false;
 
 export const ui = {
   ja: {
+    'breadcrumb.home': 'トップ',
     'contact.title': 'お問い合わせ',
     'contact.address': '住所',
     'contact.email': 'メール',
@@ -18,7 +19,7 @@ export const ui = {
     'team.system': 'システム班',
   },
   en: {
-    'contact.title': 'Contact',
+    'breadcrumb.home': 'Home',
     'contact.address': 'Address',
     'contact.email': 'Email',
     'team.event': 'Event Team',

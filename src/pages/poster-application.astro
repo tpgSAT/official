@@ -1,8 +1,12 @@
 ---
+import { getLangFromUrl, useTranslatedPath} from '@i18n/utils';
 import GenericLayout from '@layouts/GenericLayout.astro';
 import Heading from '@components/Heading.astro';
 import ContactCard from '@components/ContactCard.astro';
 import RoundedButton from '@components/RoundedButton.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
 
 const title = "掲示板でイベントやサークルを紹介しませんか？";
 const description = "Taki Plaza B2F大階段下の学生掲示板のスペースで、学生団体、個人が主催するイベントやサークル活動に関するポスターの掲示とビラの設置を受け付けています。皆さんのお申し込みをお待ちしております。";
@@ -14,7 +18,7 @@ const description = "Taki Plaza B2F大階段下の学生掲示板のスペース
         <br />
         <RoundedButton label="申し込みフォーム" href="https://docs.google.com/forms/d/e/1FAIpQLSdlmuFBuvEE28hYpWUNPsxCxCe17G5-MV-6JPhNaypZVDEVDA/viewform?usp=sf_link" />
         <br /><br />
-        公認サークルと公認の学生団体向けの映像募集については<a href="/signage-application/">こちら</a>のページをご覧ください。
+        公認サークルと公認の学生団体向けの映像募集については<a href={translatePath('/signage-application/')}>こちら</a>のページをご覧ください。
     </Heading>
     <ContactCard department="Taki Plaza Gardener マネジメント班" email="takiplazagardener.management@gmail.com" />
     

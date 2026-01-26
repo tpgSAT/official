@@ -1,21 +1,27 @@
 ---
+import { getLangFromUrl, useTranslations, useTranslatedPath} from '@i18n/utils';
+
 const { lists } = Astro.props;
 interface ListItem {
   path: string;
   name: string;
 }
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
 ---
 
 <nav>
   <ol>
     <li>
-      <a href="/">トップ</a>
+      <a href={translatePath('/')}>{t('breadcrumb.home')}</a>
     </li>
     {
       lists.map((list: ListItem, index: number) => (
         <li>
           {lists.length - 1 !== index ? (
-            <a href={`/${list.path}`}>{list.name}</a>
+            <a href={translatePath(`/${list.path}`)}>{list.name}</a>
           ) : (
             <span>{list.name}</span>
           )}
