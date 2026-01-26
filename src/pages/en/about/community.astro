@@ -8,22 +8,46 @@ import WelcomeEvent from '@assets/about/community/welcome-event.jpg';
 import MeetingImg from '@assets/about/community/meeting.jpg';
 import Asobi from '@assets/about/community/enoshima.jpg';
 
-const title = "コミュニティ班";
-const description = "TPGを構成する5つの班のうちの1つ、コミュニティ班を紹介します。コミュニティ班はTaki Plazaで様々なコミュニティを形成することを目標にイベントの企画を行っています。企画の内容は様々で、色々なことに挑戦しています。";
+const title = "Community Team";
+const description =
+  "The Community Team is one of the five teams that make up TPG. This team plans a wide variety of events with the goal of fostering communities within Taki Plaza, constantly taking on new challenges through diverse activities.";
 ---
-<GenericLayout title={title} description={description} ListItem={[{ name: 'TPGについて', path: 'about' }, { name: 'コミュニティ班', path: 'community' }]}>
-    <Heading title="活動内容">
-        コミュニティ班とは人と人のつながりを作るきっかけを提供する班で、学生が他の誰かと会い、新たなコミュニティをつくれるようなワークショップやイベントを企画しています。
-        <br />
-        例えば、昨年度の2Qには留学生と日本人学生が交流できる国際交流イベントとして和菓子作りイベント「夏の和菓子教室」を開催しました。夏にぴったりの「水無月」と「琥珀糖」を選んで作ってもらい、多くの学生に参加してもらうことができました。
-        <br />
-        また、今年度の新歓期に新入生同士の親睦を深めコミュニティ形成を促す目的で「新入生交流会」を開催しました。2日間で300人以上の新入生が参加し、様々なゲームやアクティビティを通して交流を深めてもらいました。
-        <ArticleImage src={WelcomeEvent} alt="新入生交流会" caption='新入生交流会' />
-        <ArticleImage src={JackOLantern} alt="ジャック・オー・ランタン" caption='ジャックオーランタンを作ろう！' />
-    </Heading>
-    <Heading title="遊び">
-        コミュニティ班は自由な人が多く、遊びの回数自体は多くないですが、イベント開催後にご飯に行くなどして交流を深めています。また、年に数回懇親会を開いており、江の島に行ったりジョイポリスに行ったりレンタルスペースを借りたり…実は結構遊んでいるかもしれません。
-        <ArticleImage src={Asobi} alt="遊び" />
-        <ArticleImage src={MeetingImg} alt="定例会" />
-    </Heading>
+<GenericLayout
+  title={title}
+  description={description}
+  ListItem={[
+    { name: 'About TPG', path: 'about' },
+    { name: 'Community Team', path: 'community' },
+  ]}
+>
+  <Heading title="Our Activities">
+    The Community Team aims to create opportunities for people to connect with one another.
+    We plan workshops and events that allow students to meet new people and form new communities.
+    <br />
+    For example, in the second quarter of the previous academic year, we held an international
+    exchange event called <strong>“Summer Wagashi Workshop”</strong>, where international and Japanese
+    students could interact while making traditional Japanese sweets.
+    Participants made seasonal sweets such as <em>Minazuki</em> and <em>Kohakuto</em>,
+    and the event was enjoyed by many students.
+    <br />
+    In addition, during the welcome period this academic year, we organized a
+    <strong>New Student Exchange Event</strong> to help first-year students get to know one another
+    and encourage the formation of new communities.
+    Over two days, more than 300 new students participated and deepened their connections
+    through various games and activities.
+    <ArticleImage src={WelcomeEvent} alt="New Student Exchange Event" caption="New Student Exchange Event" />
+    <ArticleImage src={JackOLantern} alt="Jack-o’-lantern" caption="Let’s Make a Jack-o’-Lantern!" />
+  </Heading>
+
+  <Heading title="Social Activities">
+    The Community Team is made up of many free-spirited members.
+    While we do not organize social outings very frequently, we often go out for meals together
+    after events to strengthen our connections.
+    We also hold social gatherings several times a year—going to places like Enoshima,
+    Joypolis, or renting spaces for casual get-togethers.
+    In fact, we might be having more fun than it seems!
+    <ArticleImage src={Asobi} alt="Social activities" />
+    <ArticleImage src={MeetingImg} alt="Regular meeting" />
+  </Heading>
 </GenericLayout>
+

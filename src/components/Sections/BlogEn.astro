@@ -1,0 +1,47 @@
+---
+import TopPageSection from '@layouts/TopPageSection.astro';
+import BlogCard from '@components/BlogCard.astro';
+import { getPosts } from '@lib/api';
+import { Image } from 'astro:assets';
+import headingBlog from '@assets/topPage/heading_blog.svg';
+
+import linkToBlog from '@assets/topPage/link_to_blog_en.svg';
+
+const posts = await getPosts();
+---
+
+<TopPageSection headingSVG={headingBlog}>
+	<div class="blog-content-wrapper">
+    {[...posts].slice(0, 3).map(post => <BlogCard post={post} />)}
+	</div>
+
+    <div class="link-wrapper">
+        <a href="/blog/">
+            <Image src={linkToBlog} alt="ブログ一覧" class="link-img" />
+        </a>
+    </div>
+</TopPageSection>
+
+<style>
+	.link-wrapper {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .link-img {
+        display: block;
+        margin: 0 auto 0;
+        width: auto;
+    }
+    /* デスクトップ用のCSS */
+    @media screen and (min-width: 769px) {
+		.blog-content-wrapper {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			align-items: flex-start;
+			margin: 20px 0 0;
+		}
+    }
+</style>

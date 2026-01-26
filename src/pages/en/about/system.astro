@@ -7,25 +7,32 @@ import MeetingImg from '@assets/about/system/meeting.jpeg';
 import AsobiImg1 from '@assets/about/system/asobi_1.jpeg';
 import AsobiImg2 from '@assets/about/system/asobi_2.jpeg';
 
-const title = "システム班";
-const description = "TPGを構成する5つの班のうちの1つ、システム班を紹介します。システム班は、TPGのウェブサイトの更新、TPG内のインフラの管理・運用などを行っています。他班に比べて規模が小さいので、アットホームな雰囲気で、教え合いながら活動しています。";
+const title = "System Team";
+const description = "This page introduces the System Team, one of the five teams that make up TPG. The System Team is responsible for updating the TPG website and managing and operating internal infrastructure. Compared to other teams, it is smaller in size, which creates a friendly, close-knit atmosphere where members support and teach one another.";
 ---
-<GenericLayout title={title} description={description} ListItem={[{ name: 'TPGについて', path: 'about' }, { name: 'システム班', path: 'system' }]}>
-    <Heading title="活動内容">
-        システム班の活動内容を大きく2つに分けて紹介します。
+<GenericLayout
+  title={title}
+  description={description}
+  ListItem={[
+    { name: 'About TPG', path: 'about' },
+    { name: 'System Team', path: 'system' }
+  ]}
+>
+    <Heading title="Activities">
+        The activities of the System Team can be broadly divided into two main areas.
         <br /><br />
-        1つ目は、ウェブサイトの更新です。TPGの公式ウェブサイト(このサイト)に掲載する内容を制作しており、イベント班やコミュニティ班が企画するイベントの広報を行っています。
+        The first is website updates. The team creates and maintains content for TPG’s official website (this site), supporting publicity for events planned by the Event Team and the Community Team.
         <br />
-        2つ目は、インフラの管理・運用です。TPGでは、各班の業務効率化のために様々なツールを導入しており、例えば、クラウドストレージやチャットツールなどがあります。システム班は、これらのツールの管理・運用を担当しており、メンバーが快適に活動できるようサポートしています。
+        The second area is infrastructure management and operation. TPG uses a variety of tools to improve the efficiency of each team’s work, such as cloud storage services and chat tools. The System Team is responsible for managing and operating these tools, providing support so that members can work comfortably and smoothly.
         <br />
-        いずれの業務も、そこまで難しい技術を必要としないため、これまでプログラミングの経験が無い方でも安心して参加できます。
-        <ArticleImage src={MeetingImg} alt="定例会の画像" />
+        None of these tasks require advanced technical skills, so even those with no prior programming experience can join with confidence.
+        <ArticleImage src={MeetingImg} alt="Regular meeting" />
     </Heading>
-    <Heading title="遊び">
-        規模が小さい分、班内の仲が良いこともシステム班の特徴です。
-        定例会の後にみんなでご飯を食べに行ったり、旅行に出かけることもあります。
-        <ArticleImage src={AsobiImg1} alt="遊び画像1" />
-        <ArticleImage src={AsobiImg2} alt="遊び画像2" />
+
+    <Heading title="Social Activities">
+        One of the characteristics of the System Team is the strong sense of camaraderie that comes from its small size.
+        Members often go out to eat together after regular meetings, and sometimes even take trips together.
+        <ArticleImage src={AsobiImg1} alt="Social activity image 1" />
+        <ArticleImage src={AsobiImg2} alt="Social activity image 2" />
     </Heading>
-    
 </GenericLayout>

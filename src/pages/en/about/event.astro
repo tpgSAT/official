@@ -10,26 +10,50 @@ import Takimatsuri2 from '@assets/about/event/takimatsuri_2.jpg';
 import Wakabasai1 from '@assets/about/event/wakabasai_1.jpg';
 import Wakabasai2 from '@assets/about/event/wakabasai_2.jpg';
 
-const title = "イベント班";
-const description = "TPGを構成する5つの班のうちの1つ、イベント班を紹介します。イベント班はTaki Plaza内で行われるイベントの企画・運営を行っています。TPGが実施する企画の中でも大規模なものを行っており、TPGの根幹かつ花形の班です。";
+
+const title = "Event Team";
+const description = "The Event Team is one of the five teams that make up TPG. This team is responsible for planning and managing events held at Taki Plaza. It handles some of TPG’s largest-scale projects and plays a central, flagship role within the organization.";
 
 const lang = Astro.currentLocale as Lang;
 const translatePath = (path: string) => getRelativeLocaleUrl(lang, path);
 ---
-<GenericLayout title={title} description={description} ListItem={[{ name: 'TPGについて', path: 'about' }, { name: 'イベント班', path: 'event' }]}>
-    <Heading title="活動内容">
-        Taki Plazaで行うイベントのアイデア出しから準備、当日の運営までをすべて自分たちで行います。
-        イベントの内容によっては大学内の様々なサークルや団体と連携することもあるので、コミュニケーション能力も身につきます。
-        今年度は昨年度に引き続き若葉祭（新歓イベント）、滝祭（日本の祭文化をテーマにした国際交流イベント）、工大祭へのボードゲームカフェの出店などを行いました。
-        それぞれのイベントの詳細は<a href={translatePath('/events/')}>直近のイベント</a>にありますので、興味のある方はぜひ確認してみてくださいね！！
-        <br />
-        <ArticleImage src={Wakabasai1} alt="若葉祭" caption="若葉祭" />
-        <ArticleImage src={Wakabasai2} alt="若葉祭" />
-        <ArticleImage src={Takimatsuri1} alt="滝祭" caption="滝祭" />
-        <ArticleImage src={Takimatsuri2} alt="滝祭" />
-    </Heading>
-    <Heading title="遊び">
-        毎年4月には新入生歓迎会、各企画後には打ち上げを開催していて、先輩後輩の垣根を越えてみんなで盛り上がっています。夏休みには恒例行事として、みんなで脱出ゲームに挑戦したり、ボードゲームカフェで新作ゲームを試したりと、アクティブに活動しています。
-        定例会は真面目に活動していますが、終わった後が本番という人も多いかも!?定例会後にはみんなでボードゲームを囲んで、気づけば夜通し盛り上がって徹夜してしまうことも‼人狼ゲームやカタンなど、戦略系からパーティー系まで、幅広いジャンルのゲームを楽しんでいます。
-    </Heading>
+<GenericLayout
+  title={title}
+  description={description}
+  ListItem={[
+    { name: 'About TPG', path: 'about' },
+    { name: 'Event Team', path: 'event' },
+  ]}
+>
+  <Heading title="Our Activities">
+    The Event Team is involved in every step of event organization at Taki Plaza,
+    from brainstorming ideas and preparing in advance to managing operations on the day of the event.
+    Depending on the nature of the event, we also collaborate with various clubs and student organizations
+    across the university, allowing members to develop strong communication skills.
+    <br /><br />
+    This academic year, following last year’s activities, we organized
+    <strong>Wakabasai</strong> (a welcome event for new students),
+    <strong>Takimatsuri</strong> (an international exchange event themed around Japanese festival culture),
+    and a board game café booth at the university festival.
+    <br />
+    For more details about each event, please visit
+    <a href={translatePath('/events/')}> our recent events page</a>.
+    If you are interested, be sure to check it out!
+    <br />
+    <ArticleImage src={Wakabasai1} alt="Wakabasai" caption="Wakabasai" />
+    <ArticleImage src={Wakabasai2} alt="Wakabasai" />
+    <ArticleImage src={Takimatsuri1} alt="Takimatsuri" caption="Takimatsuri" />
+    <ArticleImage src={Takimatsuri2} alt="Takimatsuri" />
+  </Heading>
+
+  <Heading title="Social Activities">
+    Every April, we hold a welcome party for new members, and after each major event,
+    we also organize after-parties where everyone—regardless of year—comes together and has a great time.
+    During the summer vacation, we stay active by taking on escape room challenges together
+    or trying out new games at board game cafés.
+    <br /><br />
+    While our regular meetings are focused and productive, many members say that the real fun begins afterward!
+    It’s not uncommon for us to gather around board games after meetings and end up playing late into the night.
+    From strategy games like Werewolf and Catan to party games, we enjoy a wide variety of genres together.
+  </Heading>
 </GenericLayout>

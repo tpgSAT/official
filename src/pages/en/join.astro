@@ -3,19 +3,21 @@ import GenericLayout from '@layouts/GenericLayout.astro';
 import Heading from '@components/Heading.astro';
 import ContactCard from '@components/ContactCard.astro';
 
-const title = "入会について";
-const description = "あなたも一緒にTPGで活動してみませんか？TPGは一年を通して新規メンバーを募集しています！";
+const title = "Joining TPG";
+const description = "Would you like to get involved with TPG? We welcome new members throughout the year!";
 ---
-<GenericLayout title={title} description={description} ListItem={[{ name: '入会について', path: 'join' }]}>
-    <Heading title="入会について">
-        学士3年以下の東京科学大生であれば、誰でもTPGに入会できます。留学生も大歓迎です！
+<GenericLayout title={title} description={description} ListItem={[{ name: 'Joining TPG', path: 'join' }]}>
+    <Heading title="Joining TPG">
+        Any undergraduate student (third year or below) at Institute of Science Tokyo is welcome to join TPG. International students are also very welcome!
         <br />
-        また、入会時に会費として年間1000円をいただいております。このお金は、サークル活動を豊かにするために使われるもので、皆さんに還元していきます。
+        In addition, we collect an annual membership fee of 1,000 yen upon joining. This fee is used to enrich our club activities and will be returned to members through events and activities.
     </Heading>
-    <Heading title="入会方法">
-        長期休みや期末試験・補講期間(およびその1週間前)以外は毎週火曜日17:30~から定例会を行っています。定例会の時間帯にTaki Plaza B2Fの奥にあるTPGの居室まで直接来て、声をかけてください！入会の手続きをご案内します。居室までのアクセスは、<a href="/contact/">こちら</a>をご覧ください。
+    <Heading title="How to Join">
+        Except during long vacations, final exam periods, and make-up class periods (and the week preceding them), we hold regular meetings every Tuesday from 17:30.
+        Please come directly to the TPG office located at the back of Taki Plaza B2F during the meeting time and let us know you would like to join. We will guide you through the membership process.
+        For directions to our office, please see <a href="/contact/">here</a>.
         <br />
-        また、入会に関する質問がある場合や長期休み等で、定例会での入会が難しい場合は、以下のメールアドレスまでお気軽にお問い合わせください。
+        If you have any questions about joining, or if it is difficult for you to attend a meeting due to long vacations or other reasons, please feel free to contact us at the email address below.
     </Heading>
-    <ContactCard department="Taki Plaza Gardener 入会担当" email="info@tpgd.jp" />
+    <ContactCard department="Taki Plaza Gardener Membership Team" email="info@tpgd.jp" />
 </GenericLayout>

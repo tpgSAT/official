@@ -15,35 +15,63 @@ import TpgLogo from '@assets/about/tpg-logo.png';
 const lang = Astro.currentLocale as Lang;
 const translatePath = (path: string) => getRelativeLocaleUrl(lang, path);
 
-const title = "TPGについて";
-const description = "Taki Plaza Gardener(以下TPG)は、東京科学大学に存在する国際交流と学⽣⽀援を⽬的とする施設であるHisao & Hiroko Taki Plazaでの、学⽣による活発な利⽤を促すことを⽬的として活動しています。";
+const title = "About TPG";
+const description = "Taki Plaza Gardener (TPG) works to promote active student use of Hisao & Hiroko Taki Plaza, a facility at the Institute of Science Tokyo dedicated to international exchange and student support.";
 ---
-<GenericLayout title={title} description={description} ListItem={[{ name: 'TPGについて', path: 'about' }]}>
-    <Heading title="活動内容">
-        TPGは年間を通してさまざまなイベントを企画・運営しています。 中でも、新入生向けの学内最大級の学生交流イベントである若葉祭を毎年開催してきました。 その他、留学生の参加者も多いTakiBarや音楽系サークルに発表を行ってもらうTakiFes、少人数でボードゲームを制作するボドゲ制作会、折り紙企画などを行ってきました。 これまでのイベントについては<a href={translatePath('/events/')}>こちら</a>をご覧ください。
+<GenericLayout title={title} description={description} ListItem={[{ name: 'About TPG', path: 'about' }]}>
+    <Heading title="Our Activities">
+        TPG plans and operates a wide variety of events throughout the year.
+        Among them, we have been hosting <strong>Wakaba Festival</strong>, one of the largest
+        student exchange events for new students on campus, every year.
+        In addition, we organize events such as <strong>TakiBar</strong>, which attracts many
+        international students, <strong>TakiFes</strong>, where music-related clubs perform,
+        board game creation workshops held in small groups, and origami workshops.
+        For details about our past events, please see
+        <a href={translatePath('/events/')}> this page</a>.
         <br /><br />
-        76名(2025.07現在)のメンバーが所属し、イベント班・コミュニティ班・制作班・マネジメント班・システム班の5つの班に分かれて活動しています。学士3年生以下の東京科学大学生で構成されており、留学生も所属しています。 活動は週1で、活動拠点となるTakiPlaza地下2階の居室では日頃から誰かしらが居てにぎやかに過ごしています。
-        <ArticleImage src={TpgLogo} alt="TPGのロゴ" />
+        As of July 2025, TPG consists of 76 members.
+        We are divided into five teams: the Event Team, Community Team, Creative Team,
+        Management Team, and System Team.
+        Our members are undergraduate students (up to third-year) of the Institute of Science Tokyo,
+        including international students.
+        We hold activities once a week, and our activity room on the basement floor (B2)
+        of Taki Plaza is usually lively, with members spending time there daily.
+        <ArticleImage src={TpgLogo} alt="TPG logo" />
     </Heading>
-    <Heading title="班の活動">
-        TPGはイベント班・コミュニティ班・制作班・マネジメント班・システム班の5つの班に分かれて活動しています。それぞれの班については以下からご確認ください。
+    <Heading title="Team Activities">
+        TPG operates through five teams: the Event Team, Community Team, Creative Team,
+        Management Team, and System Team.
+        You can learn more about each team below.
         <Slider />
     </Heading>
-    <Heading title="遊び">
-        TPGではメンバーが班や学年を超えて交流できるように「組活動」、「懇親会」や「合宿」などのイベントを定期的に開催しています。
+    
+    <Heading title="Social Activities">
+        To encourage interaction beyond teams and year levels,
+        TPG regularly hosts social events such as group activities, networking parties, and retreats.
         <br />
-        組活動では毎クォーターごとに異なるメンバーで様々なアクティビティを楽しんでいます。例えば昼休みに大岡山周辺のパン屋さんを巡ったり、日帰りで旅行に行ったりと幅広い活動を行っています。
-        また、毎年夏には2泊3日の合宿を行っており、今年は静岡県の伊東に行きました。BBQパーティーや花火、ビンゴ大会などを通じてメンバー同士の親睦を深めることができました。
-        懇親会としては、学年ごとの懇親会や全体での懇親会をマネジメント班が中心となって企画・開催しています。謎解き企画に参加したり、お台場でピクニックをしたりと、楽しい企画が盛りだくさんです。
+        In our group activities, members enjoy various activities with different teammates
+        each quarter—for example, visiting local bakeries around Ookayama during lunch breaks
+        or taking day trips together.
         <br />
-        ここで紹介した以外にも、TPGでは班での遊びや個人的に人を集めて行く遊びもたくさんあります。
-        各班の紹介ページもぜひご覧ください！
-        <ArticleImage src={ClubRetreatImg} alt="合宿の様子" />
+        Every summer, we also hold a three-day, two-night retreat.
+        This year, we visited Ito in Shizuoka Prefecture, where members deepened their friendships
+        through activities such as BBQ parties, fireworks, and bingo games.
+        <br />
+        As for networking events, the Management Team mainly plans and organizes gatherings
+        by year level as well as events for all members.
+        These include activities like puzzle-solving events and picnics in Odaiba.
+        <br />
+        In addition to what is introduced here, TPG members often organize team-based
+        or informal social activities on their own.
+        We hope you will also take a look at the introduction pages for each team!
+        <ArticleImage src={ClubRetreatImg} alt="Scenes from the retreat" />
     </Heading>
-    <Heading title="入会">
-        TPGでは常時メンバーを募集しています。興味のある方は以下のページをご覧ください。
+
+    <Heading title="Join TPG">
+        TPG is always welcoming new members.
+        If you are interested, please visit the page below.
         <div id="button-wrapper">
-            <RoundedButton label="入会について" href={translatePath('/join/')} />
+        <RoundedButton label="Join TPG" href={translatePath('/join/')} />
         </div>
     </Heading>
     <ContactCard />

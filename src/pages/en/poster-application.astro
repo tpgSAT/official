@@ -10,18 +10,29 @@ import RoundedButton from '@components/RoundedButton.astro';
 const lang = Astro.currentLocale as Lang;
 const translatePath = (path: string) => getRelativeLocaleUrl(lang, path);
 
-const title = "掲示板でイベントやサークルを紹介しませんか？";
-const description = "Taki Plaza B2F大階段下の学生掲示板のスペースで、学生団体、個人が主催するイベントやサークル活動に関するポスターの掲示とビラの設置を受け付けています。皆さんのお申し込みをお待ちしております。";
+const title = "Would you like to promote your event or club on our bulletin board?";
+const description = "We accept posters and flyers promoting events and club activities organized by student groups or individuals for display on the student bulletin board located beneath the main staircase on B2F of Taki Plaza. We look forward to your applications.";
 ---
-<GenericLayout title={title} description={description} ListItem={[{ name: '掲示板利用の募集', path: 'poster-application' }]}>
-    <Heading title="申し込み方法">
-        1. フォームに必要事項を入力し提出してください。<br />
-        2. Taki Plaza B2FのTPG居室前にある提出BOXにポスターやビラを投函してください。<br />
+<GenericLayout
+  title={title}
+  description={description}
+  ListItem={[{ name: 'Bulletin Board Applications', path: 'poster-application' }]}
+>
+    <Heading title="How to Apply">
+        1. Please fill out the required information in the application form and submit it.<br />
+        2. Place your poster or flyers in the submission box located in front of the TPG office on B2F of Taki Plaza.<br />
         <br />
-        <RoundedButton label="申し込みフォーム" href="https://docs.google.com/forms/d/e/1FAIpQLSdlmuFBuvEE28hYpWUNPsxCxCe17G5-MV-6JPhNaypZVDEVDA/viewform?usp=sf_link" />
+        <RoundedButton
+          label="Application Form"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSdlmuFBuvEE28hYpWUNPsxCxCe17G5-MV-6JPhNaypZVDEVDA/viewform?usp=sf_link"
+        />
         <br /><br />
-        公認サークルと公認の学生団体向けの映像募集については<a href={translatePath('/signage-application/')}>こちら</a>のページをご覧ください。
+        For information on video content submissions for officially recognized clubs and student organizations, please see
+        <a href={translatePath('/signage-application/')}> this page</a>.
     </Heading>
-    <ContactCard department="Taki Plaza Gardener マネジメント班" email="takiplazagardener.management@gmail.com" />
-    
+
+    <ContactCard
+      department="Taki Plaza Gardener Management Team"
+      email="takiplazagardener.management@gmail.com"
+    />
 </GenericLayout>
