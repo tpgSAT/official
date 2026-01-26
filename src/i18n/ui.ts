@@ -5,10 +5,10 @@ export const languages = {
 
 export type Lang = keyof typeof languages;
 
-export type Multilingual = Record<Lang, string>;
+export type Multilingual<T> = Record<Lang, T>;
 
 export function useTranslations(lang: Lang) {
-  return function t(multilingual: Multilingual): string {
+  return function t<T>(multilingual: Multilingual<T>): T {
     return multilingual[lang];
   };
 }
