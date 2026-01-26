@@ -1,0 +1,59 @@
+---
+import type { Lang } from '@i18n/ui';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import GenericLayout from '@layouts/GenericLayout.astro';
+import Heading from '@components/Heading.astro';
+import ArticleImage from '@components/ArticleImage.astro';
+
+import Takimatsuri1 from '@assets/about/event/takimatsuri_1.jpeg';
+import Takimatsuri2 from '@assets/about/event/takimatsuri_2.jpg';
+import Wakabasai1 from '@assets/about/event/wakabasai_1.jpg';
+import Wakabasai2 from '@assets/about/event/wakabasai_2.jpg';
+
+
+const title = "Event Team";
+const description = "The Event Team is one of the five teams that make up TPG. This team is responsible for planning and managing events held at Taki Plaza. It handles some of TPG’s largest-scale projects and plays a central, flagship role within the organization.";
+
+const lang = Astro.currentLocale as Lang;
+const translatePath = (path: string) => getRelativeLocaleUrl(lang, path);
+---
+<GenericLayout
+  title={title}
+  description={description}
+  ListItem={[
+    { name: 'About TPG', path: 'about' },
+    { name: 'Event Team', path: 'event' },
+  ]}
+>
+  <Heading title="Our Activities">
+    The Event Team is involved in every step of event organization at Taki Plaza,
+    from brainstorming ideas and preparing in advance to managing operations on the day of the event.
+    Depending on the nature of the event, we also collaborate with various clubs and student organizations
+    across the university, allowing members to develop strong communication skills.
+    <br /><br />
+    This academic year, following last year’s activities, we organized
+    <strong>Wakabasai</strong> (a welcome event for new students),
+    <strong>Takimatsuri</strong> (an international exchange event themed around Japanese festival culture),
+    and a board game café booth at the university festival.
+    <br />
+    For more details about each event, please visit
+    <a href={translatePath('/events/')}> our recent events page</a>.
+    If you are interested, be sure to check it out!
+    <br />
+    <ArticleImage src={Wakabasai1} alt="Wakabasai" caption="Wakabasai" />
+    <ArticleImage src={Wakabasai2} alt="Wakabasai" />
+    <ArticleImage src={Takimatsuri1} alt="Takimatsuri" caption="Takimatsuri" />
+    <ArticleImage src={Takimatsuri2} alt="Takimatsuri" />
+  </Heading>
+
+  <Heading title="Social Activities">
+    Every April, we hold a welcome party for new members, and after each major event,
+    we also organize after-parties where everyone—regardless of year—comes together and has a great time.
+    During the summer vacation, we stay active by taking on escape room challenges together
+    or trying out new games at board game cafés.
+    <br /><br />
+    While our regular meetings are focused and productive, many members say that the real fun begins afterward!
+    It’s not uncommon for us to gather around board games after meetings and end up playing late into the night.
+    From strategy games like Werewolf and Catan to party games, we enjoy a wide variety of genres together.
+  </Heading>
+</GenericLayout>

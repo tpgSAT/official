@@ -1,6 +1,14 @@
 ---
-const TARGET_PATH = "/signage-application/"; // ポップアップを表示するページ
-const SHINKAN_URL = "/signage-application-shinkan/"; // 移動先のページ
+import { useTranslations } from '@i18n/ui';
+import type { Lang } from '@i18n/ui';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+const lang = Astro.currentLocale as Lang;
+const t = useTranslations(lang);
+const translatePath = (path: string) => getRelativeLocaleUrl(lang, path);
+
+const TARGET_PATH = translatePath("/signage-application/"); // ポップアップを表示するページ
+const SHINKAN_URL = translatePath("/signage-application-shinkan/"); // 移動先のページ
 const pathname = Astro.url.pathname;
 const shouldShow = pathname === TARGET_PATH;
 ---
@@ -8,10 +16,10 @@ const shouldShow = pathname === TARGET_PATH;
 {shouldShow && (
   <div id="shinkan-overlay">
     <div id="shinkan-popup">
-      <p class="title">新歓向けのサイネージ募集ページがあります</p>
+      <p class="title">{t({ ja: "新歓向けのサイネージ募集ページがあります", en: "There is a signage application page for new students", })}</p>
       <div class="buttons">
-        <button id="go" data-url={SHINKAN_URL}>今すぐ移動</button>
-        <button id="stay">移動しない</button>
+        <button id="go" data-url={SHINKAN_URL}>{t({ ja: "今すぐ移動", en: "Go Now", })}</button>
+        <button id="stay">{t({ ja: "移動しない", en: "Stay", })}</button>
       </div>
     </div>
   </div>

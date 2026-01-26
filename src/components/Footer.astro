@@ -1,16 +1,30 @@
 ---
-// Astroの画像最適化を利用するため
-import { Image } from 'astro:assets';
-import logo from '../assets/header/logo_with_text.png';
+import { useTranslations } from '@i18n/ui';
+import type { Lang } from '@i18n/ui';
+import { getRelativeLocaleUrl } from 'astro:i18n';
 
-import iconX from '../assets/footer/icon_x.svg';
-import iconInstagram from '../assets/footer/icon_instagram.svg';
-import about from '../assets/footer/about.svg';
-import blog from '../assets/footer/blog.svg';
-import contact from '../assets/footer/contact.svg';
-import events from '../assets/footer/events.svg';
-import bulletinBboard from '../assets/footer/bulletin_board.svg';
-import multiScreen from '../assets/footer/multi_screen.svg';
+import { Image } from 'astro:assets';
+import logo from '@assets/header/logo_with_text.png';
+
+import iconX from '@assets/footer/icon_x.svg';
+import iconInstagram from '@assets/footer/icon_instagram.svg';
+import about from '@assets/footer/about.svg';
+import aboutEn from '@assets/footer/about_en.svg';
+import blog from '@assets/footer/blog.svg';
+import blogEn from '@assets/footer/blog_en.svg';
+import contact from '@assets/footer/contact.svg';
+import contactEn from '@assets/footer/contact_en.svg';
+import events from '@assets/footer/events.svg';
+import eventsEn from '@assets/footer/events_en.svg';
+import bulletinBboard from '@assets/footer/bulletin_board.svg';
+import bulletinBboardEn from '@assets/footer/bulletin_board_en.svg';
+import multiScreen from '@assets/footer/multi_screen.svg';
+import multiScreenEn from '@assets/footer/multi_screen_en.svg';
+
+
+const lang = Astro.currentLocale as Lang;
+const t = useTranslations(lang);
+const translatePath = (path: string) => getRelativeLocaleUrl(lang, path);
 ---
 
 <footer>
@@ -23,12 +37,12 @@ import multiScreen from '../assets/footer/multi_screen.svg';
     </div>
     
     <div id="footer-nav">
-        <a href="/about/"><Image id="about" src={about} alt="About" /></a>
-        <a href="/events/"><Image id="events" src={events} alt="Events" /></a>
-        <a href="/blog/"><Image id="blog" src={blog} alt="Blog" /></a>
-        <a href="/poster-application/"><Image id="bulletin-board" src={bulletinBboard} alt="Poster Application" /></a>
-        <a href="/signage-application/"><Image id="multi-screen" src={multiScreen} alt="Signage Application" /></a>
-        <a href="/contact/"><Image id="contact" src={contact} alt="Contact" /></a>
+        <a href={translatePath('/about/')}><Image id="about" src={t({ ja: about, en: aboutEn })} alt="About" /></a>
+        <a href={translatePath('/events/')}><Image id="events" src={t({ ja: events, en: eventsEn })} alt="Events" /></a>
+        <a href={translatePath('/blog/')}><Image id="blog" src={t({ ja: blog, en: blogEn })} alt="Blog" /></a>
+        <a href={translatePath('/poster-application/')}><Image id="bulletin-board" src={t({ ja: bulletinBboard, en: bulletinBboardEn })} alt="Poster Application" /></a>
+        <a href={translatePath('/signage-application/')}><Image id="multi-screen" src={t({ ja: multiScreen, en: multiScreenEn })} alt="Signage Application" /></a>
+        <a href={translatePath('/contact/')}><Image id="contact" src={t({ ja: contact, en: contactEn })} alt="Contact" /></a>
     </div>
     <p id="copyright">©︎ {new Date().getFullYear()} Taki Plaza Gardener All Rights Reserved.</p>
 </footer>

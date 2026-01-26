@@ -1,4 +1,7 @@
 ---
+import type { Lang } from '@i18n/ui';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
 import GenericLayout from '@layouts/GenericLayout.astro';
 import Heading from '@components/Heading.astro';
 import ContactCard from '@components/ContactCard.astro';
@@ -9,6 +12,10 @@ import { Image } from 'astro:assets';
 import ShinkanPopup from '@components/ShinkanPopup.astro';
 
 import screenImg from '@assets/multi-monitor.png';
+
+
+const lang = Astro.currentLocale as Lang;
+const translatePath = (path: string) => getRelativeLocaleUrl(lang, path);
 
 const title = "Taki Plazaの大画面で映像を流しませんか？";
 const description = "Taki Plaza B2Fの大きなモニター(9面マルチモニター)で、皆さんのことを伝える動画や画像を募集しております。東京科学大学の公認サークルと公認の学生団体の皆さん、お申し込みをお待ちしています。";
@@ -82,7 +89,7 @@ const description = "Taki Plaza B2Fの大きなモニター(9面マルチモニ�
         <ul class="link-list">
             <li>非公認の団体でも申し込める？</li>
             トラブル防止のため、東京科学大学の公認サークルと、学内の組織が支援する学生団体以外からの申し込みはお断りしております。
-            Taki Plaza B2Fの<a href="/poster-application/">学生掲示板の利用</a>については、非公認の団体や個人でも申し込みが可能です。
+            Taki Plaza B2Fの<a href={translatePath('/poster-application/')}>学生掲示板の利用</a>については、非公認の団体や個人でも申し込みが可能です。
             <li>複数の動画を流して欲しい</li>
             各団体、同時期に流せる映像は1本に限定しておりますので、ご了承ください。
             <li>もっと長い動画を流したい！</li>
@@ -94,7 +101,7 @@ const description = "Taki Plaza B2Fの大きなモニター(9面マルチモニ�
             <li>医歯学系の公認サークルも申し込める？</li>
             東京科学大学の公認サークルであれば、医歯学系のサークルも申し込み可能です。
         </ul>
-        <p class="link-list">Taki Plaza B2Fの学生掲示板の利用については<a href="/poster-application/">こちらのページ</a>をご覧ください。</p>
+        <p class="link-list">Taki Plaza B2Fの学生掲示板の利用については<a href={translatePath('/poster-application/')}>こちらのページ</a>をご覧ください。</p>
     </Heading>
     <ContactCard department="Taki Plaza Gardener マネジメント班" email="takiplazagardener.management@gmail.com" />
     

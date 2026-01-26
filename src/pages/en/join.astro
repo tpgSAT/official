@@ -1,0 +1,23 @@
+---
+import GenericLayout from '@layouts/GenericLayout.astro';
+import Heading from '@components/Heading.astro';
+import ContactCard from '@components/ContactCard.astro';
+
+const title = "Joining TPG";
+const description = "Would you like to get involved with TPG? We welcome new members throughout the year!";
+---
+<GenericLayout title={title} description={description} ListItem={[{ name: 'Joining TPG', path: 'join' }]}>
+    <Heading title="Joining TPG">
+        Any undergraduate student (third year or below) at Institute of Science Tokyo is welcome to join TPG. International students are also very welcome!
+        <br />
+        In addition, we collect an annual membership fee of 1,000 yen upon joining. This fee is used to enrich our club activities and will be returned to members through events and activities.
+    </Heading>
+    <Heading title="How to Join">
+        Except during long vacations, final exam periods, and make-up class periods (and the week preceding them), we hold regular meetings every Tuesday from 17:30.
+        Please come directly to the TPG office located at the back of Taki Plaza B2F during the meeting time and let us know you would like to join. We will guide you through the membership process.
+        For directions to our office, please see <a href="/contact/">here</a>.
+        <br />
+        If you have any questions about joining, or if it is difficult for you to attend a meeting due to long vacations or other reasons, please feel free to contact us at the email address below.
+    </Heading>
+    <ContactCard department="Taki Plaza Gardener Membership Team" email="info@tpgd.jp" />
+</GenericLayout>

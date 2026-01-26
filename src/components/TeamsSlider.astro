@@ -1,4 +1,8 @@
 ---
+import { useTranslations } from '@i18n/ui';
+import type { Lang } from '@i18n/ui';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
 import { Image } from 'astro:assets';
 import Event from '@assets/about/thumbnail/event.png';
 import Community from '@assets/about/thumbnail/community.png';
@@ -8,39 +12,43 @@ import System from '@assets/about/thumbnail/system.png';
 
 // Splideのスタイルをインポート
 import '@splidejs/splide/css';
+
+const lang = Astro.currentLocale as Lang;
+const t = useTranslations(lang);
+const translatePath = (path: string) => getRelativeLocaleUrl(lang, path);
 ---
 
 <div class="splide" role="group" aria-label="直近のイベント">
   <div class="splide__track">
 		<div class="splide__list">
-            <a href="/about/event/" class="splide__slide">
+            <a href={translatePath("/about/event/")} class="splide__slide">
                 <div class="team-slide-item">
                     <Image src={Event} class="team-thumbnail" alt="イベント班" />
-                    <h3>イベント班</h3>
+                    <h3>{t({ ja: 'イベント班', en: 'Event Team' })}</h3>
                 </div>
             </a>
-            <a href="/about/community/" class="splide__slide">
+            <a href={translatePath('/about/community/')} class="splide__slide">
                 <div class="team-slide-item">
                     <Image src={Community} class="team-thumbnail" alt="コミュニティ班" />
-                    <h3>コミュニティ班</h3>
+                    <h3>{t({ ja: 'コミュニティ班', en: 'Community Team' })}</h3>
                 </div>
             </a>
-            <a href="/about/production/" class="splide__slide">
+            <a href={translatePath('/about/production/')} class="splide__slide">
                 <div class="team-slide-item">
                     <Image src={Production} class="team-thumbnail" alt="制作班" />
-                    <h3>制作班</h3>
+                    <h3>{t({ ja: '制作班', en: 'Production Team' })}</h3>
                 </div>
             </a>
-            <a href="/about/management/" class="splide__slide">
+            <a href={translatePath('/about/management/')} class="splide__slide">
                 <div class="team-slide-item">
                     <Image src={Management} class="team-thumbnail" alt="マネジメント班" />
-                    <h3>マネジメント班</h3>
+                    <h3>{t({ ja: 'マネジメント班', en: 'Management Team' })}</h3>
                 </div>
             </a>
-            <a href="/about/system/" class="splide__slide">
+            <a href={translatePath('/about/system/')} class="splide__slide">
                 <div class="team-slide-item">
                     <Image src={System} class="team-thumbnail" alt="システム班" />
-                    <h3>システム班</h3>
+                    <h3>{t({ ja: 'システム班', en: 'System Team' })}</h3>
                 </div>
             </a>
 		</div>
