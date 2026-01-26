@@ -10,9 +10,13 @@ export default defineConfig({
   i18n: {
     locales: ["ja", "en"],
     defaultLocale: "ja",
+    fallback: {
+      en: "ja"
+    },
     routing: {
         prefixDefaultLocale: false,
         redirectToDefaultLocale: true,
+        fallbackType: "rewrite",
     }
   },
   vite: {
