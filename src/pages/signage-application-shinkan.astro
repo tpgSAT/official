@@ -1,5 +1,7 @@
 ---
-import { getLangFromUrl, useTranslatedPath} from '@i18n/utils';
+import type { Lang } from '@i18n/ui';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
 import GenericLayout from '@layouts/GenericLayout.astro';
 import Heading from '@components/Heading.astro';
 import ContactCard from '@components/ContactCard.astro';
@@ -9,8 +11,8 @@ import { Image } from 'astro:assets';
 
 import screenImg from '@assets/multi-monitor.png';
 
-const lang = getLangFromUrl(Astro.url);
-const translatePath = useTranslatedPath(lang);
+const lang = Astro.currentLocale as Lang;
+const translatePath = (path: string) => getRelativeLocaleUrl(lang, path);
 
 const title = "Taki Plazaの大画面で新歓映像を流してみませんか？";
 const description = "Taki Plaza B2Fの大きなモニター(9面マルチモニター)で新入生に向けて皆さんの団体のことを伝える動画や画像を募集しています。東京科学大学の公認サークル、公認の学生団体の皆さまのお申し込みをお待ちしています。";

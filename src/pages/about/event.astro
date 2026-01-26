@@ -1,5 +1,6 @@
 ---
-import { getLangFromUrl, useTranslations, useTranslatedPath} from '@i18n/utils';
+import type { Lang } from '@i18n/ui';
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import GenericLayout from '@layouts/GenericLayout.astro';
 import Heading from '@components/Heading.astro';
 import ArticleImage from '@components/ArticleImage.astro';
@@ -12,8 +13,8 @@ import Wakabasai2 from '@assets/about/event/wakabasai_2.jpg';
 const title = "イベント班";
 const description = "TPGを構成する5つの班のうちの1つ、イベント班を紹介します。イベント班はTaki Plaza内で行われるイベントの企画・運営を行っています。TPGが実施する企画の中でも大規模なものを行っており、TPGの根幹かつ花形の班です。";
 
-const lang = getLangFromUrl(Astro.url);
-const translatePath = useTranslatedPath(lang);
+const lang = Astro.currentLocale as Lang;
+const translatePath = (path: string) => getRelativeLocaleUrl(lang, path);
 ---
 <GenericLayout title={title} description={description} ListItem={[{ name: 'TPGについて', path: 'about' }, { name: 'イベント班', path: 'event' }]}>
     <Heading title="活動内容">

@@ -1,12 +1,14 @@
 ---
-import { getLangFromUrl, useTranslatedPath} from '@i18n/utils';
+import type { Lang } from '@i18n/ui';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
 import GenericLayout from '@layouts/GenericLayout.astro';
 import Heading from '@components/Heading.astro';
 import ContactCard from '@components/ContactCard.astro';
 import RoundedButton from '@components/RoundedButton.astro';
 
-const lang = getLangFromUrl(Astro.url);
-const translatePath = useTranslatedPath(lang);
+const lang = Astro.currentLocale as Lang;
+const translatePath = (path: string) => getRelativeLocaleUrl(lang, path);
 
 const title = "掲示板でイベントやサークルを紹介しませんか？";
 const description = "Taki Plaza B2F大階段下の学生掲示板のスペースで、学生団体、個人が主催するイベントやサークル活動に関するポスターの掲示とビラの設置を受け付けています。皆さんのお申し込みをお待ちしております。";

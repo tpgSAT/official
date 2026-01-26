@@ -7,6 +7,14 @@ import partytown from '@astrojs/partytown';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://tpgd.jp',
+  i18n: {
+    locales: ["ja", "en"],
+    defaultLocale: "ja",
+    routing: {
+        prefixDefaultLocale: false,
+        redirectToDefaultLocale: true,
+    }
+  },
   vite: {
       resolve: {
           alias: {

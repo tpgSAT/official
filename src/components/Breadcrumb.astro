@@ -1,5 +1,7 @@
 ---
-import { getLangFromUrl, useTranslations, useTranslatedPath} from '@i18n/utils';
+import { useTranslations } from '@i18n/ui';
+import type { Lang } from '@i18n/ui';
+import { getRelativeLocaleUrl } from 'astro:i18n';
 
 const { lists } = Astro.props;
 interface ListItem {
@@ -7,15 +9,15 @@ interface ListItem {
   name: string;
 }
 
-const lang = getLangFromUrl(Astro.url);
+const lang = Astro.currentLocale as Lang;
 const t = useTranslations(lang);
-const translatePath = useTranslatedPath(lang);
+const translatePath = (path: string) => getRelativeLocaleUrl(lang, path);
 ---
 
 <nav>
   <ol>
     <li>
-      <a href={translatePath('/')}>{t('breadcrumb.home')}</a>
+      <a href={translatePath('/')}>{t({ ja: 'トップ', en: 'Home' })}</a>
     </li>
     {
       lists.map((list: ListItem, index: number) => (
