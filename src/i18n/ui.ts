@@ -22,12 +22,22 @@ type LocalePath = {
 };
 
 export function generateLocalePaths(url: URL): LocalePath[] {
-  const pathnames = url.pathname.split('/');
+  const pathnames = url.pathname.split('/').filter(Boolean); // 空文字を除去
+  if (pathnames[0] === 'en') {
+    pathnames.shift(); // 先頭の 'en' を除去
+  }
 
   return Object.keys(languages).map((lang) => {
-    pathnames[1] = lang;
+    let newPathnames = [...pathnames]; // 元の配列をコピー
+
+    if (lang === 'ja') {
+      // 日本語は lang を入れない → pathnames はそのまま
+    } else {
+      newPathnames.unshift(lang);
+    }
+
     return {
-      path: pathnames.join('/').replace(/\/$/, ''),
+      path: '/' + newPathnames.join('/'), // 先頭に / を付与
       lang: lang as Lang,
       label: languages[lang as Lang],
     };

@@ -1,5 +1,5 @@
 ---
-import { useTranslations } from '@i18n/ui';
+import { useTranslations, generateLocalePaths } from '@i18n/ui';
 import type { Lang } from '@i18n/ui';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 
@@ -12,15 +12,21 @@ import blog from '@assets/header/blog.svg';
 import contact from '@assets/header/contact.svg';
 import iconX from '@assets/header/icon_x.svg';
 import iconInstagram from '@assets/header/icon_instagram.svg';
+import switchLang from '@assets/header/switch_lang_en.svg';
 
 import eventsEn from '@assets/header/events_en.svg';
 import newsEn from '@assets/header/news_en.svg';
 import blogEn from '@assets/header/blog_en.svg';
 import contactEn from '@assets/header/contact_en.svg';
+import switchLangEn from '@assets/header/switch_lang_ja.svg';
 
 const lang = Astro.currentLocale as Lang;
 const t = useTranslations(lang);
 const translatePath = (path: string) => getRelativeLocaleUrl(lang, path);
+
+const locales = generateLocalePaths(Astro.url);
+const jaLocale = locales.find((locale) => locale.lang === 'ja');
+const enLocale = locales.find((locale) => locale.lang === 'en');
 ---
 
 <header>
@@ -38,6 +44,7 @@ const translatePath = (path: string) => getRelativeLocaleUrl(lang, path);
                 <li><a href={translatePath('/news/')}><Image src={t({ ja: news, en: newsEn })} alt="News" /></a></li>
                 <li><a href={translatePath('/blog/')}><Image src={t({ ja: blog, en: blogEn })} alt="Blog" /></a></li>
                 <li><a href={translatePath('/contact/')}><Image src={t({ ja: contact, en: contactEn })} alt="Contact" /></a></li>
+                <li><a href={t({ ja: enLocale?.path || '/', en: jaLocale?.path || '/' })}><Image src={t({ ja: switchLang, en: switchLangEn })} alt="Switch Language" /></a></li>
             </ul>
             <div class="social-media">
                 <a href="https://x.com/TPGardener/"><Image src={iconX} alt="X" /></a>
@@ -130,7 +137,8 @@ const translatePath = (path: string) => getRelativeLocaleUrl(lang, path);
 	.header_nav.open li:nth-child(2) { transition-delay: 0.2s; }
 	.header_nav.open li:nth-child(3) { transition-delay: 0.3s; }
 	.header_nav.open li:nth-child(4) { transition-delay: 0.4s; }
-    .header_nav.open .social-media a{ transition-delay: 0.4s; }
+	.header_nav.open li:nth-child(5) { transition-delay: 0.5s; }
+    .header_nav.open .social-media a{ transition-delay: 0.5s; }
 
 	.header_nav.open {
 		width: 200px;
