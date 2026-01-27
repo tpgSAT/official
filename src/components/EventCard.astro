@@ -1,17 +1,25 @@
 ---
+import { useTranslations } from '@i18n/ui';
+import type { Lang } from '@i18n/ui';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
 import { Image } from "astro:assets";
 interface Props {
     event: any;
 }
 
+const lang = Astro.currentLocale as Lang;
+const t = useTranslations(lang);
+const translatePath = (path: string) => getRelativeLocaleUrl(lang, path);
+
 const { event } = Astro.props as Props;
 ---
 
-<a href={`/events${event.path}`}>
+<a href={translatePath(`/events${event.path}`)}>
     <div class="content">
 		<div class="img-wrapper"><Image src={event.thumbnail} class="thumbnail" alt={event.title} /></div>
         <div class="tags-wrapper"><p class="tag">Taki Plaza B2F</p></div>
-        <h3 class="title">{event.title}</h3>
+        <h3 class="title">{t({ja: event.title, en: event.titleEn})}</h3>
         <p class="date">{new Date(event.date).toLocaleDateString('ja-JP')}</p>
     </div>
 </a>

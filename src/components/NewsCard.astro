@@ -1,12 +1,20 @@
 ---
+import { useTranslations } from '@i18n/ui';
+import type { Lang } from '@i18n/ui';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
 interface Props {
     news: any;
 }
 
+const lang = Astro.currentLocale as Lang;
+const t = useTranslations(lang);
+const translatePath = (path: string) => getRelativeLocaleUrl(lang, path);
+
 const { news } = Astro.props as Props;
 ---
 
-<a href={`/news/${ news.slug}`}>
+<a href={translatePath(`/news/${ news.slug}`)}>
     <div class="content">
         <p class="date">
             {news.data.date.toLocaleDateString('ja-JP', {

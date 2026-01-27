@@ -1,4 +1,8 @@
 ---
+import { useTranslations } from '@i18n/ui';
+import type { Lang } from '@i18n/ui';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
 import TopPageSection from '@layouts/TopPageSection.astro';
 import BlogCard from '@components/BlogCard.astro';
 import { getPosts } from '@lib/api';
@@ -6,8 +10,13 @@ import { Image } from 'astro:assets';
 import headingBlog from '@assets/topPage/heading_blog.svg';
 
 import linkToBlog from '@assets/topPage/link_to_blog.svg';
+import linkToBlogEn from '@assets/topPage/link_to_blog_en.svg';
 
 const posts = await getPosts();
+
+const lang = Astro.currentLocale as Lang;
+const t = useTranslations(lang);
+const translatePath = (path: string) => getRelativeLocaleUrl(lang, path);
 ---
 
 <TopPageSection headingSVG={headingBlog}>
@@ -16,8 +25,8 @@ const posts = await getPosts();
 	</div>
 
     <div class="link-wrapper">
-        <a href="/blog/">
-            <Image src={linkToBlog} alt="ブログ一覧" class="link-img" />
+        <a href={translatePath('/blog/')}>
+            <Image src={t({ja: linkToBlog, en: linkToBlogEn})} alt={t({ja: "ブログ一覧", en: "Blog List"})} class="link-img" />
         </a>
     </div>
 </TopPageSection>

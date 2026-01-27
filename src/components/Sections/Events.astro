@@ -1,17 +1,27 @@
 ---
+import { useTranslations } from '@i18n/ui';
+import type { Lang } from '@i18n/ui';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
 import TopPageSection from '@layouts/TopPageSection.astro';
 import Slider from '@components/EventsSlider.astro';
 import { Image } from 'astro:assets';
 
 import linkToEvents from '@assets/topPage/link_to_events.svg';
 import headingEvents from '@assets/topPage/heading_events.svg';
+
+import linkToEventsEn from '@assets/topPage/link_to_events_en.svg';
+
+const lang = Astro.currentLocale as Lang;
+const t = useTranslations(lang);
+const translatePath = (path: string) => getRelativeLocaleUrl(lang, path);
 ---
 
 <TopPageSection headingSVG={headingEvents} isFullWidth={true}>
     <Slider />
     <div class="link-wrapper">
-        <a href="/events/">
-            <Image src={linkToEvents} alt="イベント一覧" class="link-img" />
+        <a href={translatePath('/events/')}>
+            <Image src={t({ja: linkToEvents, en: linkToEventsEn})} alt={t({ja: "イベント一覧", en: "Events List"})} class="link-img" />
         </a>
     </div>
 </TopPageSection>

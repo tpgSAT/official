@@ -1,0 +1,45 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Breadcrumb from "@components/Breadcrumb.astro";
+import EventCard from "@components/EventCard.astro";
+
+import { events } from "@lib/events";
+
+const ListItem = [{ path: "events", name: "Past Events" }];
+---
+
+<Layout title="Past Events">
+  <Breadcrumb lists={ListItem} />
+  <div id="root">
+    <h1>Past Events</h1>
+    <div class="events-wrapper">
+		{[...events].map(event => <EventCard event={event} />)}
+		</div>
+  </div>
+</Layout>
+
+<style>
+  #root {
+    margin: 0 5vw 40px;
+  }
+
+  #root h1 {
+    font-family: "Midashi Go MB31", "Noto Sans JP Variable", sans-serif;
+    font-size: 28px;
+    letter-spacing: 2px;
+    font-weight: 500;
+  }
+
+  /* デスクトップ用のCSS */
+  @media screen and (min-width: 769px) {
+    .events-wrapper {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin: 100px 0 0;
+    }
+  }
+ 
+</style>
