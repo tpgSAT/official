@@ -5,17 +5,17 @@ import NewsCard from '@components/NewsCard.astro';
 import Layout from '@layouts/Layout.astro';
 import Breadcrumb from '@components/Breadcrumb.astro';
 
-const newsEntries = await getCollection('news-ja');
+const newsEntries = await getCollection('news-en');
 
 const ListItem = [
-  { path: 'news', name: 'お知らせ' },
+  { path: 'news', name: 'News' },
 ];
 ---
 
 <Layout title="News">
     <Breadcrumb lists={ListItem} />
     <div id="root">
-        <h1>お知らせ</h1>
+        <h1>News</h1>
         {[...newsEntries]
             .sort((a, b) => new Date(b.data.date) - new Date(a.data.date)) // 日付で降順ソート
             .map(news => (
