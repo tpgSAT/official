@@ -1,0 +1,38 @@
+---
+import type { Lang } from '@i18n/ui';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+import GenericLayout from '@layouts/GenericLayout.astro';
+import Heading from '@components/Heading.astro';
+import ContactCard from '@components/ContactCard.astro';
+import RoundedButton from '@components/RoundedButton.astro';
+
+const lang = Astro.currentLocale as Lang;
+const translatePath = (path: string) => getRelativeLocaleUrl(lang, path);
+
+const title = "Would you like to promote your event or club on our bulletin board?";
+const description = "We accept posters and flyers promoting events and club activities organized by student groups or individuals for display on the student bulletin board located beneath the main staircase on B2F of Taki Plaza. We look forward to your applications.";
+---
+<GenericLayout
+  title={title}
+  description={description}
+  ListItem={[{ name: 'Bulletin Board Applications', path: 'poster-application' }]}
+>
+    <Heading title="How to Apply">
+        1. Please fill out the required information in the application form and submit it.<br />
+        2. Place your poster or flyers in the submission box located in front of the TPG office on B2F of Taki Plaza.<br />
+        <br />
+        <RoundedButton
+          label="Application Form"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSdlmuFBuvEE28hYpWUNPsxCxCe17G5-MV-6JPhNaypZVDEVDA/viewform?usp=sf_link"
+        />
+        <br /><br />
+        For information on video content submissions for officially recognized clubs and student organizations, please see
+        <a href={translatePath('/signage-application/')}> this page</a>.
+    </Heading>
+
+    <ContactCard
+      department="Taki Plaza Gardener Management Team"
+      email="takiplazagardener.management@gmail.com"
+    />
+</GenericLayout>

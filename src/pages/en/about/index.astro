@@ -1,0 +1,84 @@
+---
+import type { Lang } from '@i18n/ui';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+import GenericLayout from '@layouts/GenericLayout.astro';
+import Heading from '@components/Heading.astro';
+import ContactCard from '@components/ContactCard.astro';
+import Slider from '@components/TeamsSlider.astro'
+import RoundedButton from '@components/RoundedButton.astro';
+import ArticleImage from '@components/ArticleImage.astro';
+
+import ClubRetreatImg from '@assets/about/club-retreat.jpg';
+import TpgLogo from '@assets/about/tpg-logo.png';
+
+const lang = Astro.currentLocale as Lang;
+const translatePath = (path: string) => getRelativeLocaleUrl(lang, path);
+
+const title = "About TPG";
+const description = "Taki Plaza Gardener (TPG) works to promote active student use of Hisao & Hiroko Taki Plaza, a facility at the Institute of Science Tokyo dedicated to international exchange and student support.";
+---
+<GenericLayout title={title} description={description} ListItem={[{ name: 'About TPG', path: 'about' }]}>
+    <Heading title="Our Activities">
+        TPG plans and operates a wide variety of events throughout the year.
+        Among them, we have been hosting <strong>Wakaba Festival</strong>, one of the largest
+        student exchange events for new students on campus, every year.
+        In addition, we organize events such as <strong>TakiBar</strong>, which attracts many
+        international students, <strong>TakiFes</strong>, where music-related clubs perform,
+        board game creation workshops held in small groups, and origami workshops.
+        For details about our past events, please see
+        <a href={translatePath('/events/')}> this page</a>.
+        <br /><br />
+        As of July 2025, TPG consists of 76 members.
+        We are divided into five teams: the Event Team, Community Team, Creative Team,
+        Management Team, and System Team.
+        Our members are undergraduate students (up to third-year) of the Institute of Science Tokyo,
+        including international students.
+        We hold activities once a week, and our activity room on the basement floor (B2)
+        of Taki Plaza is usually lively, with members spending time there daily.
+        <ArticleImage src={TpgLogo} alt="TPG logo" />
+    </Heading>
+    <Heading title="Team Activities">
+        TPG operates through five teams: the Event Team, Community Team, Creative Team,
+        Management Team, and System Team.
+        You can learn more about each team below.
+        <Slider />
+    </Heading>
+    
+    <Heading title="Social Activities">
+        To encourage interaction beyond teams and year levels,
+        TPG regularly hosts social events such as group activities, networking parties, and retreats.
+        <br />
+        In our group activities, members enjoy various activities with different teammates
+        each quarter—for example, visiting local bakeries around Ookayama during lunch breaks
+        or taking day trips together.
+        <br />
+        Every summer, we also hold a three-day, two-night retreat.
+        This year, we visited Ito in Shizuoka Prefecture, where members deepened their friendships
+        through activities such as BBQ parties, fireworks, and bingo games.
+        <br />
+        As for networking events, the Management Team mainly plans and organizes gatherings
+        by year level as well as events for all members.
+        These include activities like puzzle-solving events and picnics in Odaiba.
+        <br />
+        In addition to what is introduced here, TPG members often organize team-based
+        or informal social activities on their own.
+        We hope you will also take a look at the introduction pages for each team!
+        <ArticleImage src={ClubRetreatImg} alt="Scenes from the retreat" />
+    </Heading>
+
+    <Heading title="Join TPG">
+        TPG is always welcoming new members.
+        If you are interested, please visit the page below.
+        <div id="button-wrapper">
+        <RoundedButton label="Join TPG" href={translatePath('/join/')} />
+        </div>
+    </Heading>
+    <ContactCard />
+</GenericLayout>
+
+<style>
+    #button-wrapper {
+        text-align: center;
+    }
+</style>

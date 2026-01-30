@@ -1,0 +1,37 @@
+---
+import GenericLayout from '@layouts/GenericLayout.astro';
+import Heading from '@components/Heading.astro';
+import ArticleImage from '@components/ArticleImage.astro';
+
+import MeetingImg from '@assets/about/management/meeting.jpg';
+import AsobiImg1 from '@assets/about/management/asobi_1.jpg';
+import AsobiImg2 from '@assets/about/management/asobi_2.jpg';
+
+const title = "Management Team";
+const description = "This page introduces the Management Team, one of the five teams that make up TPG. The Management Team focuses on TPG’s internal operations and works to create an environment where members can participate in activities comfortably and smoothly.";
+---
+<GenericLayout
+  title={title}
+  description={description}
+  ListItem={[
+    { name: 'About TPG', path: 'about' },
+    { name: 'Management Team', path: 'management' }
+  ]}
+>
+    <Heading title="Activities">
+        The activities of the Management Team can be broadly divided into two main areas.
+        <br /><br />
+        The first is administrative work. This includes handling expense reports related to each team’s activities and projects, purchasing consumable supplies for the club room, and managing equipment. The team also collects content to be displayed on the large monitor (the 9-screen multi-monitor) located under the main staircase on the B2F of Taki Plaza, as well as posters to be posted on the student bulletin board beneath the stairs.
+        <br />
+        The second area is planning social gatherings aimed at fostering interaction across teams and year groups. These include general social events for all members, as well as gatherings organized by academic year. In addition, planning graduation events for senior members who have supported the organization is also one of the Management Team’s responsibilities. Through these activities, the team aims to engage with more members and promote a wider variety of initiatives.
+        <ArticleImage src={MeetingImg} alt="Regular meeting" />
+    </Heading>
+
+    <Heading title="Social Activities">
+        The Management Team also places great importance on strengthening connections within the team.
+        As part of this effort, the team holds social gatherings about three times a year. For example, during this summer vacation, members went on a drive to Kofu together.
+        We believe that the close relationships within the team and the freedom in planning activities are among the key attractions of the Management Team.
+        <ArticleImage src={AsobiImg1} alt="Social activity image 1" />
+        <ArticleImage src={AsobiImg2} alt="Social activity image 2" />
+    </Heading>
+</GenericLayout>

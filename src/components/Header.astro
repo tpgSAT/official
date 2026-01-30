@@ -1,17 +1,36 @@
 ---
+import { useTranslations, generateLocalePaths } from '@i18n/ui';
+import type { Lang } from '@i18n/ui';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
 // Astroの画像最適化を利用するため
 import { Image } from 'astro:assets';
-import logo from '../assets/header/logo_with_text.png';
-import headerNavEvents from '../assets/header/header_nav_events.svg';
-import headerNavNews from '../assets/header/header_nav_news.svg';
-import headerNavBlog from '../assets/header/header_nav_blog.svg';
-import headerNavContact from '../assets/header/header_nav_contact.svg';
-import iconX from '../assets/header/icon_x.svg';
-import iconInstagram from '../assets/header/icon_instagram.svg';
+import logo from '@assets/header/logo_with_text.png';
+import events from '@assets/header/events.svg';
+import news from '@assets/header/news.svg';
+import blog from '@assets/header/blog.svg';
+import contact from '@assets/header/contact.svg';
+import iconX from '@assets/header/icon_x.svg';
+import iconInstagram from '@assets/header/icon_instagram.svg';
+import switchLang from '@assets/header/switch_lang_en.svg';
+
+import eventsEn from '@assets/header/events_en.svg';
+import newsEn from '@assets/header/news_en.svg';
+import blogEn from '@assets/header/blog_en.svg';
+import contactEn from '@assets/header/contact_en.svg';
+import switchLangEn from '@assets/header/switch_lang_ja.svg';
+
+const lang = Astro.currentLocale as Lang;
+const t = useTranslations(lang);
+const translatePath = (path: string) => getRelativeLocaleUrl(lang, path);
+
+const locales = generateLocalePaths(Astro.url);
+const jaLocale = locales.find((locale) => locale.lang === 'ja');
+const enLocale = locales.find((locale) => locale.lang === 'en');
 ---
 
 <header>
-	<a href="/"><Image src={logo} alt="TPG Logo" width="120" class="logo" /></a>
+	<a href={translatePath('/')}><Image src={logo} alt="TPG Logo" width="120" class="logo" /></a>
     <button class="hamburger" id="js-hamburger">
         <span></span>
         <span></span>
@@ -21,10 +40,11 @@ import iconInstagram from '../assets/header/icon_instagram.svg';
     <div class="header_nav" id="js-nav">
         <nav>
             <ul>
-                <li><a href="/events/"><Image src={headerNavEvents} alt="Events" /></a></li>
-                <li><a href="/news/"><Image src={headerNavNews} alt="News" /></a></li>
-                <li><a href="/blog/"><Image src={headerNavBlog} alt="Blog" /></a></li>
-                <li><a href="/contact/"><Image src={headerNavContact} alt="Contact" /></a></li>
+                <li><a href={translatePath('/events/')}><Image src={t({ ja: events, en: eventsEn })} alt="Events" /></a></li>
+                <li><a href={translatePath('/news/')}><Image src={t({ ja: news, en: newsEn })} alt="News" /></a></li>
+                <li><a href={translatePath('/blog/')}><Image src={t({ ja: blog, en: blogEn })} alt="Blog" /></a></li>
+                <li><a href={translatePath('/contact/')}><Image src={t({ ja: contact, en: contactEn })} alt="Contact" /></a></li>
+                <li><a href={t({ ja: enLocale?.path || '/', en: jaLocale?.path || '/' })}><Image src={t({ ja: switchLang, en: switchLangEn })} alt="Switch Language" /></a></li>
             </ul>
             <div class="social-media">
                 <a href="https://x.com/TPGardener/"><Image src={iconX} alt="X" /></a>
@@ -117,7 +137,8 @@ import iconInstagram from '../assets/header/icon_instagram.svg';
 	.header_nav.open li:nth-child(2) { transition-delay: 0.2s; }
 	.header_nav.open li:nth-child(3) { transition-delay: 0.3s; }
 	.header_nav.open li:nth-child(4) { transition-delay: 0.4s; }
-    .header_nav.open .social-media a{ transition-delay: 0.4s; }
+	.header_nav.open li:nth-child(5) { transition-delay: 0.5s; }
+    .header_nav.open .social-media a{ transition-delay: 0.5s; }
 
 	.header_nav.open {
 		width: 200px;

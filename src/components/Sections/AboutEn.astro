@@ -1,0 +1,30 @@
+---
+import TopPageSection from '@layouts/TopPageSection.astro';
+import RoundedButton from '@components/RoundedButton.astro';
+
+import headingAbout from '@assets/topPage/heading_about.svg';
+---
+
+<TopPageSection headingSVG={headingAbout}>
+	<p id="about-description">
+		Taki Plaza Gardener (TPG) is a student organization at Institute of Science Tokyo that works to promote active student use of Hisao & Hiroko Taki Plaza.
+	</p>
+	<div id="button-wrapper">
+		<RoundedButton label="About TPG" href="/en/about/" />
+	</div>
+</TopPageSection>
+
+<style>
+	#about-description {
+		font-family: 'Noto Sans JP Variable', sans-serif;
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 2;
+		letter-spacing: 1px;
+		color: #000;
+	}
+
+	#button-wrapper {
+		text-align: center;
+	}
+</style>

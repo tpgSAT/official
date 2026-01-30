@@ -1,18 +1,29 @@
 ---
+import { useTranslations } from '@i18n/ui';
+import type { Lang } from '@i18n/ui';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
 import TopPageSection from '@layouts/TopPageSection.astro';
 import { Image } from 'astro:assets';
 import NewsCard from '@components/NewsCard.astro';
 
 import linkToNews from '@assets/topPage/link_to_news.svg';
+import linkToNewsEn from '@assets/topPage/link_to_news_en.svg';
 import headingNews from '@assets/topPage/heading_news.svg';
 
 import { getCollection } from 'astro:content';
-const newsEntries = await getCollection('news');
+
+const newsEntries = await getCollection('news-ja');
+const newsEntriesEn = await getCollection('news-en');
+
+const lang = Astro.currentLocale as Lang;
+const t = useTranslations(lang);
+const translatePath = (path: string) => getRelativeLocaleUrl(lang, path);
 ---
 
 <TopPageSection headingSVG={headingNews}>
 	<div class="news-content-wrapper">
-		{[...newsEntries]
+		{[...(t({ja: newsEntries, en: newsEntriesEn}) as typeof newsEntries)]
 		.sort((a, b) => new Date(b.data.date) - new Date(a.data.date)) // 日付で降順ソート
 		.slice(0, 3) // 最新3件のみ表示
 		.map(news => (
@@ -21,8 +32,8 @@ const newsEntries = await getCollection('news');
 	</div>
 	
 	<div class="link-wrapper">
-        <a href="/news/">
-            <Image src={linkToNews} alt="ニュース一覧" class="link-img" />
+        <a href={translatePath('/news/')}>
+            <Image src={t({ja: linkToNews, en: linkToNewsEn})} alt={t({ja: "ニュース一覧", en: "News List"})} class="link-img" />
         </a>
     </div>
 </TopPageSection>

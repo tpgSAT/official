@@ -1,4 +1,7 @@
 ---
+import { useTranslations } from '@i18n/ui';
+import type { Lang } from '@i18n/ui';
+
 import Heading from '@components/Heading.astro';
 
 import { Image } from 'astro:assets';
@@ -11,15 +14,19 @@ interface Props {
   email?: string;
 }
 
+
+const lang = Astro.currentLocale as Lang;
+const t = useTranslations(lang);
+
 const { department="Taki Plaza Gardener", email="contact@tpgd.jp" } = Astro.props;
 ---
 
-<Heading title="お問い合わせ">
+<Heading title={t({ ja: 'お問い合わせ', en: 'Contact' })}>
     <div id="root">
         <h2>{department}</h2>
-        <h5>住所</h5>
+        <h5>{t({ ja: '住所', en: 'Address' })}</h5>
         <p>〒152-8550<br />東京都目黒区大岡山 2-12-1 Taki Plaza B2F TPG居室</p>
-        <h5>メール</h5>
+        <h5>{t({ ja: 'メール', en: 'Email' })}</h5>
         <a href={`mailto:${email}`}><p>{email}</p></a>
         <Image src={Blobs1} alt="Blobs1" id="blobs1" />
         <Image src={Blobs2} alt="Blobs2" id="blobs2" />

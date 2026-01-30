@@ -1,0 +1,36 @@
+---
+import GenericLayout from '@layouts/GenericLayout.astro';
+import Heading from '@components/Heading.astro';
+import ArticleImage from '@components/ArticleImage.astro';
+
+import DecorationImg from '@assets/about/production/takimatusri_decoration.jpg';
+import AsobiImg1 from '@assets/about/production/asobi_1.jpg';
+import AsobiImg2 from '@assets/about/production/asobi_2.jpg';
+import AsobiImg3 from '@assets/about/production/asobi_3.jpg';
+
+const title = "Production Team";
+const description = "The Production Team is one of the five teams that make up TPG. This team is responsible for creating promotional posters for events, decorating on the day of events, and producing videos showcasing past events.";
+---
+<GenericLayout title={title} description={description} ListItem={[{ name: 'About TPG', path: 'about' }, { name: 'Production Team', path: 'production' }]}>
+    <Heading title="Our Activities">
+        While individual work is common, before events we also discuss decorations together and create ornaments.
+        We also hold design study sessions within the team when time permits. Our room has books on design, and we study daily to ensure our productions are of the highest quality.
+        <ArticleImage src={DecorationImg} alt="Decoration Image" caption="Takimatsuri Decorations" />
+    </Heading>
+    <Heading title="Social Activities">
+        The Production Team also gathers to have fun during breaks in activities. We have picnics, play games, and make takoyaki. Through these times, we deepen our bonds and enjoy our activities even more.
+        <ArticleImage src={AsobiImg1} alt="遊び画像1" />
+        <ArticleImage src={AsobiImg2} alt="遊び画像2" />
+        <ArticleImage src={AsobiImg3} alt="遊び画像3" />
+    </Heading>
+</GenericLayout>
+
+<style>
+    .inline-img {
+        width: 100%;
+        max-height: 100%;
+        height: auto;
+        margin: 20px 0 0;
+        border-radius: 10px;
+    }
+</style>

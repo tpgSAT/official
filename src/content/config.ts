@@ -12,5 +12,6 @@ const newsCollection = defineCollection({
 });
 
 export const collections = {
-  'news': newsCollection,
+  'news-ja': newsCollection,
+  'news-en': newsCollection,
 };
