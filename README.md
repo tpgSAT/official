@@ -2,11 +2,9 @@
 
 TPGの公式Webサイトのソースコードです。Astroフレームワークを使用して構築されています。
 
-> 💡 このREADMEは、Astroの公式チュートリアルを終えた方を対象にしています。
-
 ## 📖 概要
 
-このプロジェクトは、TPG（東京プログラミング学園）の公式Webサイトです。静的サイトジェネレーター「Astro」を使用し、WordPress（HeadlessCMS）からブログ記事を取得して表示しています。
+このプロジェクトは、TPG(Taki Plaza Gardener)の公式Webサイトです。静的サイトジェネレーター「Astro」を使用し、WordPress（cms.tpgd.jp）からブログ記事を取得して表示しています。
 
 ### 主な機能
 - 静的サイト生成（SSG）によるパフォーマンスの最適化
@@ -73,32 +71,30 @@ npm run dev
 
 ## 🏗️ ビルドとデプロイ
 
-### 本番ビルド
+GitHub Actions で自動デプロイされています。  
+`develop` / `master` ブランチへの push をトリガーに、
 
-```sh
-npm run build
-```
+1. `npm ci` で依存をインストール  
+2. `npm run build` で Astro をビルド  
+3. `dist/` を rsync でサーバーへ配置  
 
-ビルドされたファイルは `./dist/` ディレクトリに出力されます。
+という流れになっています。
 
-### プレビュー
+`develop` ブランチの内容が`dev.tpgd.jp`へ、
+`master` ブランチの内容が`tpgd.jp`へ自動的に反映されるようになっています。
 
-ビルド後、デプロイ前にローカルで確認する場合：
-
-```sh
-npm run preview
-```
+---
 
 ## 🔄 ブランチとPRのワークフロー
 
 ### ブランチ戦略
 - **`develop`**: 開発用のメインブランチ
 - **`main`**: 本番環境用のブランチ
-- **`feature/*`**: 機能追加・修正用のブランチ
+- **`feat/*`**: 作業用のブランチ
 
 ### 開発の流れ
 
-1. **フィーチャーブランチを作成**
+1. **作業用ブランチを作成**
    ```sh
    git checkout develop
    git pull origin develop
@@ -147,11 +143,3 @@ npm run preview
 - [Astro公式ドキュメント](https://docs.astro.build)
 - [Astroチュートリアル](https://docs.astro.build/ja/tutorial/0-introduction/)
 - [WordPress REST API](https://developer.wordpress.org/rest-api/)
-
-## 🤝 コントリビューション
-
-プロジェクトへの貢献を歓迎します！上記のブランチ・PRワークフローに従って、変更を提案してください。
-
----
-
-Happy coding! 🚀
