@@ -1,0 +1,33 @@
+---
+import GenericLayout from '@layouts/GenericLayout.astro';
+import Heading from '@components/Heading.astro';
+import ContactCard from '@components/ContactCard.astro';
+
+const title = "新歓2026";
+const description = "あなたも一緒にTPGで活動してみませんか？TPGは一年を通して新規メンバーを募集しています！";
+---
+<GenericLayout title={title} description={description} ListItem={[{ name: '入会について', path: 'join' }]}>
+    <Heading title="TPGとは">
+        Taki Plaza Gardener(TPG)は、東京科学大学に存在する国際交流と学⽣⽀援を⽬的とする施設であるHisao & Hiroko Taki Plazaでの、学⽣による活発な利⽤を促すことを⽬的として活動している公認学生団体です。
+        TPGは年間を通してさまざまなイベントを企画・運営しています。 
+        <br />
+        76名(2025.07現在)のメンバーが所属し、イベント班・コミュニティ班・制作班・マネジメント班・システム班の5つの班に分かれて活動しています。
+        活動は週1で、活動拠点となるTakiPlaza地下2階の居室では日頃から誰かしらが居てにぎやかに過ごしています。
+        <br />
+        詳しくは<a href="/about/">こちら</a>をご覧ください！
+    </Heading>
+    <Heading title="入会について">
+        学士3年以下の東京科学大生であれば、誰でもTPGに入会できます。留学生も大歓迎です！
+        <br />
+        また、入会時に会費として前期・後期でそれぞれ1000円をいただいております。このお金は、サークル活動を豊かにするために使われるもので、皆さんに還元していきます。    
+    </Heading>
+    <Heading title="新歓イベント">
+        Coming soon
+    </Heading>
+    <Heading title="入会方法">
+        長期休みや期末試験・補講期間(およびその1週間前)以外は毎週火曜日17:30~から定例会を行っています。定例会の時間帯にTaki Plaza B2Fの奥にあるTPGの居室まで直接来て、声をかけてください！入会の手続きをご案内します。居室までのアクセスは、<a href="/contact/">こちら</a>をご覧ください。
+        <br />
+        また、入会に関する質問がある場合や長期休み等で、定例会での入会が難しい場合は、以下のメールアドレスまでお気軽にお問い合わせください。
+    </Heading>
+    <ContactCard department="Taki Plaza Gardener 入会担当" email="info@tpgd.jp" />
+</GenericLayout>
