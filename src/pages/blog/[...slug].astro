@@ -1,17 +1,14 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import {getPosts} from '@lib/api';
+import {getAllPages, getPostBySlug} from '@lib/api';
 
 const { slug } = Astro.params;
 
-// The getStaticPaths() is required for static Astro sites.
-// If using SSR, you will not need this function.
 export async function getStaticPaths() {
-  let posts = await getPosts();
-
-  return posts.map((post) => ({
-    params: { slug: post.id },
-    props: { post },
+  const posts = await getAllPages();
+  return posts.map(( post ) => ({
+      params: { slug: post.node.slug },
+      props: { post: post.node },
   }));
 }
 
@@ -19,20 +16,24 @@ const { post } = Astro.props;
 
 const FallbackThumbnail = '/blog-fallback-thumbnail.jpg';
 
-// 🔸 サムネイルURLを取得（なければデフォルト表示）
+/// 🔸 サムネイルURLを取得（なければデフォルト表示）
+const sizes = post.featuredImage?.node?.mediaDetails?.sizes ?? [];
+const medium = sizes.find((s: any) => s.name === "medium_large")?.sourceUrl;
+
 const thumbnail =
-    post._embedded?.['wp:featuredmedia']?.[0]?.media_details?.sizes?.medium?.source_url ||
-    post._embedded?.['wp:featuredmedia']?.[0]?.source_url ||
-    FallbackThumbnail;
+  medium ||
+  post.featuredImage?.node?.sourceUrl ||
+  FallbackThumbnail;
 
 // 🔸 カテゴリ名の配列を取得（なければ空配列）
-const categories = post._embedded?.['wp:term']?.[0]?.map(cat => cat.name) || [];
+const categories =
+  post.categories?.edges.map((c: any) => c.node.name) ?? [];
 ---
-<Layout title={post.title.rendered} description={post.excerpt.rendered}>
+<Layout title={post.title} description={post.excerpt}>
     <div id="root">
       <div id="blog-header">
         <div class="thumbnail-wrapper">
-          <img src={thumbnail} id="blog-thumbnail" alt={post.title.rendered}/>
+          <img src={thumbnail} id="blog-thumbnail" alt={post.title}/>
         </div>
         <time id="blog-date" datetime={new Date(post.date).toISOString()}>
             {new Date(post.date).toLocaleDateString('ja-JP', {
@@ -41,13 +42,13 @@ const categories = post._embedded?.['wp:term']?.[0]?.map(cat => cat.name) || [];
               day: '2-digit',
             }).replace(/\//g, '.')}
         </time>
-        <h1>{post.title.rendered}</h1>
+        <h1>{post.title}</h1>
         {categories.map(category => (
           <p class="blog-tags">{category}</p>
         ))}
       </div>
       <div class="blog-content">
-        <article set:html={post.content.rendered} />
+        <article set:html={post.content} />
       </div>
     </div>
 </Layout>

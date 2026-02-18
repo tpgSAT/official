@@ -2,7 +2,30 @@
 import Layout from '@layouts/Layout.astro';
 import Breadcrumb from '@components/Breadcrumb.astro';
 import BlogCard from '@components/BlogCard.astro';
-import { getPosts } from '@lib/api';
+import { getPosts, wpquery} from '@lib/api';
+
+const data = await wpquery({
+	query: `
+ 	 {
+        posts(first: 100) {
+            nodes {
+            slug
+            date
+            title
+            featuredImage {
+                node {
+                sourceUrl
+                mediaDetails {
+                    sizes { name sourceUrl }
+                }
+                }
+            }
+            categories { nodes { name slug } }
+            }
+        }
+    }
+ 	`,
+});
 
 const FallbackThumbnail = '/blog-fallback-thumbnail.jpg';
 
@@ -18,7 +41,7 @@ const ListItem = [
     <div id="root">
         <h1>ブログ記事</h1>
 		<div class="blog-content-wrapper">
-		{[...posts].map(post => <BlogCard post={post} />)}
+		{[...data.posts.nodes].map(post => <BlogCard post={post} />)}
 		</div>
     </div>
 </Layout>
