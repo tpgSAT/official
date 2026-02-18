@@ -1,0 +1,109 @@
+---
+// paginate()関数で取得したpageプロパティ
+const {page, baseUrl} = Astro.props;
+ 
+// ページネーションの総ページ数
+const totalPages = page.lastPage;
+ 
+// ページ番号の配列 [1, 2, 3]のような形式で生成
+const pageNumbers = Array.from({length: totalPages}, (_, i) => {
+  return i + 1;
+});
+ 
+// ページ番号からページURLを生成
+const getPageUrl = (pageNumber) => {
+  return pageNumber === 1 ? page.url.first : `${baseUrl}/${pageNumber}`;
+}
+---
+ 
+<nav class="pagination" aria-label="ページネーション">
+ 
+  <ul class="list">
+    <!-- 最初のページ -->
+    <li class="item">
+      {
+        page.url.first ? (
+          <a class="link" href={page.url.first}>&lt;&lt;</a>
+        ) : (
+          <span class="link">&lt;&lt;</span>
+        )
+      }
+    </li>
+ 
+    <!-- 前のページ -->
+    <li class="item">
+      {
+        page.url.prev ? (
+          <a class="link" href={page.url.prev}>&lt;</a>
+        ) : (
+          <span class="link">&lt;</span>
+        )
+      }
+    </li>
+ 
+    <!-- ○番目のページ -->
+    {
+      pageNumbers.map((pageNumber) => {
+        return (
+          <li class="item">
+            {
+              page.currentPage === pageNumber ? (
+                <span class="link current" aria-current="page">{pageNumber}</span>
+              ) : (
+                <a class="link" href={getPageUrl(pageNumber)}>{pageNumber}</a>
+              )
+            }
+          </li>
+        );
+      })
+    }
+ 
+    <!-- 次のページ -->
+    <li class="item">
+      {
+        page.url.next ? (
+          <a class="link" href={page.url.next}>&gt;</a>
+        ) : (
+          <span class="link">&gt;</span>
+        )
+      }
+    </li>
+ 
+    <!-- 最後のページ -->
+    <li class="item">
+      {
+        page.url.last ? (
+          <a class="link" href={page.url.last}>&gt;&gt;</a>
+        ) : (
+          <span class="link">&gt;&gt;</span>
+        )
+      }
+    </li>
+  </ul>
+</nav>
+ 
+<style>
+  .pagination {
+    width: 100%;
+ 
+    .list {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+ 
+    .link {
+      width: 4rem;
+      height: 4rem;
+      border: 1px solid;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+ 
+      &.current {
+        background-color: #333;
+        color: #fff;
+      }
+    }
+  }
+</style>

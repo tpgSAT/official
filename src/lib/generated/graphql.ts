@@ -9590,12 +9590,26 @@ export type WritingSettings = {
   useSmilies?: Maybe<Scalars['Boolean']['output']>;
 };
 
+export type GetAllCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetAllCategoriesQuery = { __typename?: 'RootQuery', categories?: { __typename?: 'RootQueryToCategoryConnection', nodes: Array<{ __typename?: 'Category', name?: string | null }> } | null };
+
 export type GetAllPostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetAllPostsQuery = { __typename?: 'RootQuery', posts?: { __typename?: 'RootQueryToPostConnection', edges: Array<{ __typename?: 'RootQueryToPostConnectionEdge', node: { __typename?: 'Post', slug?: string | null, excerpt?: string | null, title?: string | null, date?: string | null, content?: string | null, categories?: { __typename?: 'PostToCategoryConnection', edges: Array<{ __typename?: 'PostToCategoryConnectionEdge', node: { __typename?: 'Category', name?: string | null } }> } | null, tags?: { __typename?: 'PostToTagConnection', edges: Array<{ __typename?: 'PostToTagConnectionEdge', node: { __typename?: 'Tag', name?: string | null } }> } | null, featuredImage?: { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge', node: { __typename?: 'MediaItem', sourceUrl?: string | null, altText?: string | null, mediaDetails?: { __typename?: 'MediaDetails', sizes?: Array<{ __typename?: 'MediaSize', name?: string | null, sourceUrl?: string | null, width?: string | null, height?: string | null } | null> | null } | null } } | null } }> } | null };
 
 
+export const GetAllCategoriesDocument = gql`
+    query GetAllCategories {
+  categories {
+    nodes {
+      name
+    }
+  }
+}
+    `;
 export const GetAllPostsDocument = gql`
     query GetAllPosts {
   posts(first: 10000) {
@@ -9647,6 +9661,9 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationTy
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
+    GetAllCategories(variables?: GetAllCategoriesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<GetAllCategoriesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetAllCategoriesQuery>({ document: GetAllCategoriesDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'GetAllCategories', 'query', variables);
+    },
     GetAllPosts(variables?: GetAllPostsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<GetAllPostsQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetAllPostsQuery>({ document: GetAllPostsDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'GetAllPosts', 'query', variables);
     }

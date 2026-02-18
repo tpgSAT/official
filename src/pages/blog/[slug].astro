@@ -1,6 +1,6 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import {getAllPosts} from '@lib/api';
+import { getAllPosts } from '@lib/api';
 
 export async function getStaticPaths() {
   const posts = await getAllPosts();
@@ -16,16 +16,15 @@ const FallbackThumbnail = '/blog-fallback-thumbnail.jpg';
 
 /// 🔸 サムネイルURLを取得（なければデフォルト表示）
 const sizes = post.featuredImage?.node?.mediaDetails?.sizes ?? [];
-const medium = sizes.find((s: any) => s.name === "medium_large")?.sourceUrl;
+const mediumLarge = sizes.find((s: any) => s.name === "medium_large")?.sourceUrl;
 
 const thumbnail =
-  medium ||
+  mediumLarge ||
   post.featuredImage?.node?.sourceUrl ||
   FallbackThumbnail;
 
 // 🔸 カテゴリ名の配列を取得（なければ空配列）
-const categories =
-  post.categories?.edges.map((c: any) => c.node.name) ?? [];
+const categories = post.categories?.edges.map((c: any) => c.node.name) ?? [];
 ---
 <Layout title={post.title} description={post.excerpt}>
     <div id="root">
@@ -42,7 +41,7 @@ const categories =
         </time>
         <h1>{post.title}</h1>
         {categories.map(category => (
-          <p class="blog-tags">{category}</p>
+          <a href={`/blog/tags/${category}`}><p class="blog-tags">{category}</p></a>
         ))}
       </div>
       <div class="blog-content">

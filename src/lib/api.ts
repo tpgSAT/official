@@ -14,3 +14,8 @@ export async function getAllPosts() {
   const res = await sdk.GetAllPosts();
   return res.posts?.edges;
 }
+
+export async function getAllCategories() {
+  const res = await sdk.GetAllCategories();
+  return res.categories?.nodes;
+}
