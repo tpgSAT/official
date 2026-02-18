@@ -1,0 +1,9 @@
+schema: "https://cms.tpgd.jp/graphql"
+documents:
+  - "src/**/*.graphql"
+generates:
+  src/lib/generated/graphql.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-graphql-request

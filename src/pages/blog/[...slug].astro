@@ -1,12 +1,12 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import {getAllPages, getPostBySlug} from '@lib/api';
+import {getAllPosts} from '@lib/api';
 
 const { slug } = Astro.params;
 
 export async function getStaticPaths() {
-  const posts = await getAllPages();
-  return posts.map(( post ) => ({
+  const posts = await getAllPosts();
+  return posts?.map(( post ) => ({
       params: { slug: post.node.slug },
       props: { post: post.node },
   }));
