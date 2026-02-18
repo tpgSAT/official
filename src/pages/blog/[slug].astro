@@ -2,8 +2,6 @@
 import Layout from '@layouts/Layout.astro';
 import {getAllPosts} from '@lib/api';
 
-const { slug } = Astro.params;
-
 export async function getStaticPaths() {
   const posts = await getAllPosts();
   return posts?.map(( post ) => ({
@@ -59,10 +57,11 @@ const categories =
   }
 
   #blog-header {
-    margin: 10px 0 20px;
+    margin: 10px auto 20px;
     font-family: 'Noto Sans JP Variable', sans-serif;
     font-weight: 500;
     border-bottom: 1px solid #000;
+    width: min(100%, 700px);
   }
 
   .thumbnail-wrapper {
@@ -81,7 +80,7 @@ const categories =
   }
 
   #blog-date {
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.6px;
     color: #666666;
   }
@@ -109,7 +108,8 @@ const categories =
     font-size: 13px;
     letter-spacing: 0.8px;
     line-height: 200%;
-    margin-bottom: 100px;
+    margin: 0 auto 100px;
+    width: min(100%, 700px);
   }
 
   .blog-content :global(img) {
