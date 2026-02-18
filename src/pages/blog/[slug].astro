@@ -25,6 +25,10 @@ const thumbnail =
 
 // 🔸 カテゴリ名の配列を取得（なければ空配列）
 const categories = post.categories?.edges.map((c: any) => c.node.name) ?? [];
+
+// 🔸 タグ名の配列を取得（なければ空配列）
+const tags = post.tags?.edges.map((t: any) => t.node.name) ?? [];
+
 ---
 <Layout title={post.title} description={post.excerpt}>
     <div id="root">
@@ -46,6 +50,9 @@ const categories = post.categories?.edges.map((c: any) => c.node.name) ?? [];
       </div>
       <div class="blog-content">
         <article set:html={post.content} />
+      </div>
+      <div class="blog-footer">
+        {tags.map(tag => (<p class="blog-tags">#{tag}</p>))}
       </div>
     </div>
 </Layout>
@@ -115,5 +122,13 @@ const categories = post.categories?.edges.map((c: any) => c.node.name) ?? [];
     max-width: 100%;
     height: auto;
     display: block;
+  }
+
+  .blog-footer {
+    margin: 10px auto 20px;
+    font-family: 'Noto Sans JP Variable', sans-serif;
+    font-weight: 500;
+    border-top: 1px solid #000;
+    width: min(100%, 700px);
   }
 </style>
