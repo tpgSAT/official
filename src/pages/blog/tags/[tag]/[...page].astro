@@ -1,0 +1,71 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Breadcrumb from '@components/Breadcrumb.astro';
+import BlogCard from '@components/BlogCard.astro';
+import Pagination from '@components/Pagination.astro';
+import { getAllPosts, getAllCategories } from '@lib/api';
+
+export async function getStaticPaths({paginate}) {
+    const categories = await getAllCategories();
+    const posts = await getAllPosts();
+
+    return categories?.flatMap((category) => {
+        // カテゴリに属する記事をフィルタリング
+        const filteredPosts = posts?.filter((post) => post.node.categories?.edges.some(c => c.node.name === category.name));
+    
+        // 記事を新しい順に並び替え
+        const sortedPosts = filteredPosts?.sort((a, b) => {
+        return new Date(b.node.date) - new Date(a.node.date);
+        });
+    
+        // ページネーションのパスを生成 + 1Pごとの記事数を指定
+        return paginate(sortedPosts, {
+        params: { tag: category.name },
+        pageSize: 15
+        });
+    })
+}
+ 
+const { page } = Astro.props;
+const params = Astro.params;
+
+const ListItem = [
+  { path: 'blog', name: 'ブログ記事' },
+  { path: `blog/tags/${params.tag}`, name: `#${params.tag}` },
+];
+---
+
+<Layout title="Blog">
+    <Breadcrumb lists={ListItem} />
+    <div id="root">
+        <h1># {params.tag}</h1>
+		<div class="blog-content-wrapper">
+		{page.data?.map(post => <BlogCard post={post.node} />)}
+    </div>
+    <Pagination page={page} baseUrl={`/blog/tags/${params.tag}`} />
+</Layout>
+
+<style>
+    #root {
+        margin: 0 5vw 40px;
+    }
+
+    #root h1 {
+        font-family: 'Midashi Go MB31', 'Noto Sans JP Variable', sans-serif;
+        font-size: 28px;
+        letter-spacing: 2px;
+        font-weight: 500;
+    }
+
+	/* デスクトップ用のCSS */
+    @media screen and (min-width: 769px) {
+		.blog-content-wrapper {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			align-items: flex-start;
+			margin: 100px 0 0;
+		}
+    }
+</style>
