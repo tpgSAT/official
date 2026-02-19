@@ -1,17 +1,21 @@
-export async function getPosts() {
-  const allPosts = [];
-  let page = 1;
-  let totalPages = 1;
+import { GraphQLClient } from "graphql-request";
 
-  do {
-    const res = await fetch(`https://cms.tpgd.jp/wp-json/wp/v2/posts?per_page=100&page=${page}&_embed`);
-    if (!res.ok) break;
+export const wpClient = new GraphQLClient("https://cms.tpgd.jp/graphql", {
+  headers: {
+    // 認証が必要ならここに token など
+  },
+});
 
-    const posts = await res.json();
-    totalPages = parseInt(res.headers.get('X-WP-TotalPages')) || 1;
-    allPosts.push(...posts);
-    page++;
-  } while (page <= totalPages);
+import { getSdk } from "./generated/graphql";
 
-  return allPosts;
+const sdk = getSdk(wpClient);
+
+export async function getAllPosts() {
+  const res = await sdk.GetAllPosts();
+  return res.posts?.edges;
+}
+
+export async function getAllCategories() {
+  const res = await sdk.GetAllCategories();
+  return res.categories?.nodes;
 }

@@ -2,11 +2,17 @@
 import Layout from '@layouts/Layout.astro';
 import Breadcrumb from '@components/Breadcrumb.astro';
 import BlogCard from '@components/BlogCard.astro';
-import { getPosts } from '@lib/api';
+import Pagination from '@components/Pagination.astro';
+import { getAllPosts } from '@lib/api';
 
-const FallbackThumbnail = '/blog-fallback-thumbnail.jpg';
+export async function getStaticPaths({paginate}) {
+    const posts = await getAllPosts();
 
-const posts = await getPosts();
+    // ページネーションのパスを生成 + 1Pごとの記事数を指定
+    return paginate(posts, {pageSize: 15});
+}
+ 
+const { page } = Astro.props;
 
 const ListItem = [
   { path: 'blog', name: 'ブログ記事' },
@@ -18,9 +24,10 @@ const ListItem = [
     <div id="root">
         <h1>ブログ記事</h1>
 		<div class="blog-content-wrapper">
-		{[...posts].map(post => <BlogCard post={post} />)}
+		{page.data?.map(post => <BlogCard post={post.node} />)}
 		</div>
     </div>
+    <Pagination page={page} baseUrl={`/blog`} />
 </Layout>
 
 <style>

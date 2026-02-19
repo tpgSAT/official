@@ -16,7 +16,7 @@ export default defineConfig({
     routing: {
         prefixDefaultLocale: false,
         redirectToDefaultLocale: true,
-        fallbackType: "rewrite",
+        fallbackType: "redirect",
     }
   },
   vite: {

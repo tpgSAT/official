@@ -5,14 +5,14 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 
 import TopPageSection from '@layouts/TopPageSection.astro';
 import BlogCard from '@components/BlogCard.astro';
-import { getPosts } from '@lib/api';
+import { getAllPosts } from '@lib/api';
 import { Image } from 'astro:assets';
 import headingBlog from '@assets/topPage/heading_blog.svg';
 
 import linkToBlog from '@assets/topPage/link_to_blog.svg';
 import linkToBlogEn from '@assets/topPage/link_to_blog_en.svg';
 
-const posts = await getPosts();
+const posts = await getAllPosts();
 
 const lang = Astro.currentLocale as Lang;
 const t = useTranslations(lang);
@@ -21,7 +21,7 @@ const translatePath = (path: string) => getRelativeLocaleUrl(lang, path);
 
 <TopPageSection headingSVG={headingBlog}>
 	<div class="blog-content-wrapper">
-    {[...posts].slice(0, 3).map(post => <BlogCard post={post} />)}
+    {posts?.slice(0, 3).map(post => <BlogCard post={post.node} />)}
 	</div>
 
     <div class="link-wrapper">
