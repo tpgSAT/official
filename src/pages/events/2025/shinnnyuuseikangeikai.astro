@@ -1,0 +1,376 @@
+---
+import Layout from "@layouts/Layout.astro";
+
+import { Image } from "astro:assets";
+
+import backgroundImg from "@assets/events/2025/shinnnyuuseikangeikai/background.jpeg";
+
+const title = "新入生交流会";
+const description =
+  "TPGでは、ボードゲームを通して新入生が自由に交流できるイベントを開催します。";
+---
+
+<Layout title={title} description={description}>
+    <div class="content" style={`background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${backgroundImg.src});`}>
+        <p class="ST">SCIENCE TOKYO</p>
+        <p class="contentTitle">新入生交流会</p>
+        <p class="contentDate">3/28 in Taki Plaza</p>
+    </div>
+    <div class="about">
+        <h4 class="aboutTitle">ABOUT</h4>
+        <p class="aboutText">
+            TPGでは、ボードゲームを通じて新入生が自由に交流できるイベントを開催します。<br/>
+            会場には様々なボードゲームを用意しており、初心者の方でも安心して楽しめます。<br/>
+            途中参加・途中退出は自由で、当日の飛び入り参加も可能です。<br/>
+            また、工大祭のボードゲームカフェと同様にお菓子やジュースも用意しています。<br/>
+            参加費は無料ですので、ぜひ気軽にお越しください。
+        </p>
+    </div>
+    <div class="schedule">
+        <h4 class="scheduleTitle">SCHEDULE</h4>
+        <p class="scheduleDate">２０２６年３月２７日 （金）   １０：００～１７：００</p>
+        <p class="scheduleDate">２０２６年３月３０日 （月）   １０：００～１７：００</p>
+        <p class="scheduleDate">２０２６年３月３１日 （火）   １０：００～１７：００</p>
+    </div>
+</Layout>
+
+<style>
+    @media screen and (min-width: 1024px) {
+        html {
+            scroll-behavior: smooth; /* ページ内のボタンを押したときにスクロール風の動きをする */
+            font-size: 1vw; /* rem単位の基準値 */
+            padding: 0;
+            }
+        .content{
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            margin-top: 0;
+            margin-bottom: 0;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .ST{
+            width: 60%;
+            height: auto;
+            display: flex;
+            padding-top: 7.5%;
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: center;
+            font-size: 60px;
+            font-weight: 900;
+            color: white;
+        }
+        .contentTitle{
+            width: 40%;
+            height: auto;
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: center;
+            letter-spacing: 0.3rem;
+            font-size: 75px;
+            font-weight: 800;
+            color: white;
+        }
+        .contentDate{
+            width: 25%;
+            height: auto;
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: center;
+            font-size: 30px;
+            color: white;
+        }
+        .about{
+            width: 100%;
+            aspect-ratio: 16/7;
+            background-color: #91bbfe;
+            margin-top: 0;
+            overflow: hidden;
+        }
+        .aboutTitle{
+            width: 12%;
+            height: auto;
+            display: flex;
+            padding-top: 5%;
+            margin: 0 auto 80px auto;
+            justify-content: center;
+            font-size: 60px;
+            font-weight: 900;
+            color: white;
+        }
+        .aboutText{
+            width: 90%;
+            height: auto;
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: center;
+            letter-spacing: 0.5rem;
+            line-height: 2;
+            font-size: 20px;
+            font-weight: 200;
+            color: white;
+        }
+        .schedule{
+            width: 100%;
+            aspect-ratio: 16/7;
+            background-color: #3E6FB8;
+            margin-top: 0;
+            overflow: hidden;
+        }
+        .scheduleTitle{
+            width: 12%;
+            height: auto;
+            display: flex;
+            padding-top: 5%;
+            margin: 0 auto 80px auto;
+            justify-content: center;
+            font-size: 60px;
+            font-weight: 900;
+            color: white;
+        }
+        .scheduleDate{
+            width: 90%;
+            height: auto;
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: center;
+            letter-spacing: 0.5rem;
+            line-height: 2;
+            font-size: 20px;
+            font-weight: 200;
+            color: white;
+        }
+    }
+
+    @media screen and (max-width: 1024px) {
+        html {
+            scroll-behavior: smooth; /* ページ内のボタンを押したときにスクロール風の動きをする */
+            font-size: 1vw; /* rem単位の基準値 */
+            padding: 0;
+            }
+        .content{
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            margin-top: 0;
+            margin-bottom: 0;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .ST{
+            width: 60%;
+            height: auto;
+            display: flex;
+            padding-top: 5.5%;
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: center;
+            font-size: 40px;
+            font-weight: 800;
+            color: white;
+        }
+        .contentTitle{
+            width: 40%;
+            height: auto;
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: center;
+            font-size: 40px;
+            font-weight: 800;
+            letter-spacing: 0.5rem;
+            color: white;
+        }
+        .contentDate{
+            width: 25%;
+            height: auto;
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: center;
+            font-size: 20px;
+            color: white;
+        }
+        .about{
+            width: 100%;
+            aspect-ratio: 16/8;
+            background-color: #91bbfe;
+            margin-top: 0;
+            overflow: hidden;
+        }
+        .aboutTitle{
+            width: 12%;
+            height: auto;
+            display: flex;
+            padding-top: 5%;
+            margin: 0 auto 50px auto;
+            justify-content: center;
+            font-size: 35px;
+            font-weight: 900;
+            color: white;
+        }
+        .aboutText{
+            width: 90%;
+            height: auto;
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: center;
+            letter-spacing: 0.5rem;
+            line-height: 2;
+            font-size: 12.5px;
+            font-weight: 200;
+            color: white;
+        }
+        .schedule{
+            width: 100%;
+            aspect-ratio: 16/7;
+            background-color: #3E6FB8;
+            margin-top: 0;
+            overflow: hidden;
+        }
+        .scheduleTitle{
+            width: 12%;
+            height: auto;
+            display: flex;
+            padding-top: 5%;
+            margin: 0 auto 45px auto;
+            justify-content: center;
+            font-size: 35px;
+            font-weight: 900;
+            color: white;
+        }
+        .scheduleDate{
+            width: 90%;
+            height: auto;
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: center;
+            letter-spacing: 0.5rem;
+            line-height: 2;
+            font-size: 12.5px;
+            font-weight: 200;
+            color: white;
+        }
+    }
+    @media screen and (max-width: 670px) {
+        html {
+            scroll-behavior: smooth; /* ページ内のボタンを押したときにスクロール風の動きをする */
+            font-size: 1vw; /* rem単位の基準値 */
+            padding: 0;
+            }
+        .p{margin: 0;}
+        .content{
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            margin-top: 0;
+            margin-bottom: 0;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .ST{
+            width: 70%;
+            height: 35px;
+            display: flex;
+            padding-top: 1%;
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: center;
+            font-size: 30px;
+            font-weight: 800;
+            color: white;
+            overflow: hidden;
+        }
+        .contentTitle{
+            width: 70%;
+            height: auto;
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: center;
+            font-size: 30px;
+            font-weight: 800;
+            letter-spacing: 1.0rem;
+            color: white;
+        }
+        .contentDate{
+            width: 60%;
+            height: auto;
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: center;
+            font-size: 17.5px;
+            color: white;
+        }
+        .about{
+            width: 100%;
+            aspect-ratio: 16/14;
+            background-color: #91bbfe;
+            margin-top: 0;
+        }
+        .aboutTitle{
+            width: 12%;
+            height: auto;
+            display: flex;
+            padding-top: 3%;
+            margin: 0 auto 20px auto;
+            justify-content: center;
+            font-size: 25px;
+            font-weight: 900;
+            color: white;
+        }
+        .aboutText{
+            width: min(92%, 520px);
+            margin: 0 auto;
+            display: block;
+            text-align: left;
+            line-height: 1.9;
+            font-size: 14px;
+            letter-spacing: 0.08rem;
+            line-height: 2;
+        }
+        .schedule{
+            width: 100%;
+            aspect-ratio: 16/8;
+            background-color: #3E6FB8;
+            margin-top: 0;
+            overflow: hidden;
+        }
+        .scheduleTitle{
+            width: 12%;
+            height: auto;
+            display: flex;
+            padding-top: 3%;
+            margin: 0 auto 20px auto;
+            justify-content: center;
+            font-size: 25px;
+            font-weight: 900;
+            color: white;
+        }
+        .scheduleDate{
+            width: 90%;
+            height: auto;
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: center;
+            letter-spacing: 0.5rem;
+            line-height: 2;
+            font-size: 12.5px;
+            font-weight: 200;
+            color: white;
+        }
+    }
+</style>
