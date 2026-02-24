@@ -8,7 +8,8 @@ TPGの公式Webサイトのソースコードです。Astroフレームワーク
 
 ### 主な機能
 - 静的サイト生成（SSG）によるパフォーマンスの最適化
-- WordPress REST APIを利用したブログ記事の取得
+- WordPress GraphQL APIを利用したブログ記事の取得
+- WordPressで記事が公開されたときの自動ビルド・デプロイ
 - 多言語対応（日本語・英語）
 - レスポンシブデザイン
 
@@ -64,8 +65,11 @@ npm run dev
 │   ├── i18n/            # 多言語対応の設定とUI翻訳
 │   ├── layouts/         # ページレイアウトコンポーネント
 │   ├── lib/             # ユーティリティ関数（API連携等）
+│   │   ├── generated/   # GraphQL Codegenで自動生成された型定義・SDK
+│   │   └── queries/     # GraphQLクエリファイル（.graphql）
 │   └── pages/           # ページファイル（ルーティング）
 ├── astro.config.mjs     # Astroの設定ファイル
+├── codegen.yml          # GraphQL Codegenの設定ファイル
 └── package.json         # プロジェクトの依存関係とスクリプト
 ```
 
@@ -82,6 +86,11 @@ GitHub Actions で自動デプロイされています。
 
 `develop` ブランチの内容が`dev.tpgd.jp`へ、
 `master` ブランチの内容が`tpgd.jp`へ自動的に反映されるようになっています。
+
+### WordPress記事公開時の自動ビルド
+
+WordPressで記事が公開されると、WordPressのWebhookからGitHub Actionsの `repository_dispatch` イベント（`wp_published`）がトリガーされ、自動的にビルド・デプロイが実行されます。  
+対応するワークフローは `.github/workflows/wp-trigger-build.yml` です。
 
 ---
 
@@ -126,10 +135,15 @@ GitHub Actions で自動デプロイされています。
 
 ### 実装詳細
 
-**API取得ロジック**: `src/lib/api.ts`
-- `getPosts()` 関数でWordPress REST APIからすべての記事を取得
-- ページネーション対応（1ページあたり100件）
-- `_embed` パラメータで画像やカテゴリーなどの関連データも含めて取得
+**APIクライアント**: `src/lib/api.ts`
+- `graphql-request` ライブラリの `GraphQLClient` を使用して `https://cms.tpgd.jp/graphql` に接続
+- GraphQL Codegen（`codegen.yml`）で自動生成した型定義・SDK（`src/lib/generated/graphql.ts`）を利用
+- `getAllPosts()` 関数で全記事を取得
+- `getAllCategories()` 関数で全カテゴリーを取得
+
+**GraphQLクエリ**: `src/lib/queries/`
+- `getAllPosts.graphql` - 記事一覧取得クエリ（スラッグ・タイトル・本文・アイキャッチ画像・カテゴリー・タグ等）
+- `getAllCategories.graphql` - カテゴリー一覧取得クエリ
 
 **使用箇所**:
 - `src/pages/blog/index.astro` - ブログ記事一覧ページ
@@ -142,4 +156,6 @@ GitHub Actions で自動デプロイされています。
 
 - [Astro公式ドキュメント](https://docs.astro.build)
 - [Astroチュートリアル](https://docs.astro.build/ja/tutorial/0-introduction/)
-- [WordPress REST API](https://developer.wordpress.org/rest-api/)
+- [WPGraphQL](https://www.wpgraphql.com/)
+- [graphql-request](https://github.com/jasonkuhrt/graphql-request)
+- [GraphQL Code Generator](https://the-guild.dev/graphql/codegen)
