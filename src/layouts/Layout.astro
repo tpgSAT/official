@@ -6,6 +6,8 @@ import { SEO } from 'astro-seo';
 import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
 
+import PopupBanner from '@components/PopupBanner.astro';
+
 import GoogleAnalytics from '@components/GoogleAnalytics.astro';
 
 interface Props {
@@ -79,6 +81,7 @@ import '@fontsource/m-plus-rounded-1c';
 	</head>
 	<body>
 		<Header />
+		<PopupBanner text="2026年度TPG新歓情報を公開中！<br>新歓ページはこちらから" link="/shinkan" />
 		<slot />
 		<Footer />
 	</body>
