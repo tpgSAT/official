@@ -3,7 +3,7 @@ import Layout from "@layouts/Layout.astro";
 
 import { Image } from "astro:assets";
 
-import backgroundImg from "@assets/events/2025/shinnnyuuseikangeikai/background.jpeg";
+import backgroundImg from "@assets/events/2025/freshman-meetup/background.jpeg";
 
 const title = "新入生交流会";
 const description =
@@ -14,23 +14,27 @@ const description =
     <div class="content" style={`background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${backgroundImg.src});`}>
         <p class="ST">SCIENCE TOKYO</p>
         <p class="contentTitle">新入生交流会</p>
-        <p class="contentDate">3/28 in Taki Plaza</p>
+        <p class="contentText">健康診断の日にTaki Plazaで交流を深めませんか？</p>
+        <p class="contentDate">3/30,31 10:00~17:00<br/>in Taki Plaza B2F イベントスペース</p>
     </div>
     <div class="about">
         <h4 class="aboutTitle">ABOUT</h4>
         <p class="aboutText">
-            TPGでは、ボードゲームを通じて新入生が自由に交流できるイベントを開催します。<br/>
+            健康診断の2, 3日目に、ボードゲームを通じて新入生が自由に交流できるイベントを開催します。<br/>
             会場には様々なボードゲームを用意しており、初心者の方でも安心して楽しめます。<br/>
             途中参加・途中退出は自由で、当日の飛び入り参加も可能です。<br/>
-            また、工大祭のボードゲームカフェと同様にお菓子やジュースも用意しています。<br/>
+            昨年度は150名以上もの参加がありました。<br/>
             参加費は無料ですので、ぜひ気軽にお越しください。
         </p>
     </div>
-    <div class="schedule">
-        <h4 class="scheduleTitle">SCHEDULE</h4>
-        <p class="scheduleDate">２０２６年３月２７日 （金）   １０：００～１７：００</p>
-        <p class="scheduleDate">２０２６年３月３０日 （月）   １０：００～１７：００</p>
-        <p class="scheduleDate">２０２６年３月３１日 （火）   １０：００～１７：００</p>
+    <div class="about_tpg">
+        <h4 class="about_tpg_Title">ABOUT TPG</h4>
+        <p class="about_tpg_Text">Taki Plaza Gardener(TPG)は、東京科学大学にあるHisao & Hiroko Taki Plazaにおいて、国際交流と学生支援の促進を目的に活動している公認学生団体です。<br/>
+            TPGは、本イベントをはじめ、学生がTaki Plazaをもっと身近に、もっと活発に利用できるよう、年間を通してさまざまな学生向けイベントを企画・運営しています。<br/>
+            少しでもTPGに興味を持った方は、ぜひTaki Plaza 地下2階の居室へお越しください！<br/>
+            皆さんの参加をお待ちしています。<br/>
+        </p>
+        <a href=https://tpgd.jp/shinkan/ class="tpg_tag">詳しくはこちらから！</a>
     </div>
 </Layout>
 
@@ -52,7 +56,7 @@ const description =
             background-repeat: no-repeat;
         }
         .ST{
-            width: 60%;
+            width: 100%;
             height: auto;
             display: flex;
             padding-top: 7.5%;
@@ -64,7 +68,7 @@ const description =
             color: white;
         }
         .contentTitle{
-            width: 40%;
+            width: 100%;
             height: auto;
             display: flex;
             margin-left: auto;
@@ -75,13 +79,24 @@ const description =
             font-weight: 800;
             color: white;
         }
-        .contentDate{
-            width: 25%;
-            height: auto;
-            display: flex;
+        .contentText{
+            width: 100%;
             margin-left: auto;
             margin-right: auto;
-            justify-content: center;
+            text-align: center;
+            font-size: 28px;
+            font-weight: 500;
+            color: white;
+            letter-spacing: 0.05em;
+            line-height: 1.6;
+        }
+        .contentDate{
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
             font-size: 30px;
             color: white;
         }
@@ -110,21 +125,21 @@ const description =
             margin-left: auto;
             margin-right: auto;
             justify-content: center;
-            letter-spacing: 0.5rem;
+            letter-spacing: 0.3rem;
             line-height: 2;
             font-size: 20px;
             font-weight: 200;
             color: white;
         }
-        .schedule{
+        .about_tpg{
             width: 100%;
             aspect-ratio: 16/7;
             background-color: #3E6FB8;
             margin-top: 0;
             overflow: hidden;
         }
-        .scheduleTitle{
-            width: 12%;
+        .about_tpg_Title{
+            width: 50%;
             height: auto;
             display: flex;
             padding-top: 5%;
@@ -134,7 +149,7 @@ const description =
             font-weight: 900;
             color: white;
         }
-        .scheduleDate{
+        .about_tpg_Text{
             width: 90%;
             height: auto;
             display: flex;
@@ -147,6 +162,15 @@ const description =
             font-weight: 200;
             color: white;
         }
+        .tpg_tag{
+            display: block;
+            text-align: center;
+            margin: 20px auto 0 auto;
+            width: fit-content;
+            font-size: 18px;
+            color: white;
+            text-decoration: underline;
+        }
     }
 
     @media screen and (max-width: 1024px) {
@@ -157,7 +181,7 @@ const description =
             }
         .content{
             width: 100%;
-            aspect-ratio: 16 / 9;
+            aspect-ratio: 16 / 10;
             margin-top: 0;
             margin-bottom: 0;
             overflow: hidden;
@@ -166,7 +190,7 @@ const description =
             background-repeat: no-repeat;
         }
         .ST{
-            width: 60%;
+            width: 100%;
             height: auto;
             display: flex;
             padding-top: 5.5%;
@@ -178,7 +202,7 @@ const description =
             color: white;
         }
         .contentTitle{
-            width: 40%;
+            width: 80%;
             height: auto;
             display: flex;
             margin-left: auto;
@@ -189,13 +213,24 @@ const description =
             letter-spacing: 0.5rem;
             color: white;
         }
-        .contentDate{
-            width: 25%;
-            height: auto;
-            display: flex;
+        .contentText{
+            width: 100%;
             margin-left: auto;
             margin-right: auto;
-            justify-content: center;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 500;
+            color: white;
+            letter-spacing: 0.04em;
+            line-height: 1.6;
+        }
+        .contentDate{
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
             font-size: 20px;
             color: white;
         }
@@ -226,19 +261,19 @@ const description =
             justify-content: center;
             letter-spacing: 0.5rem;
             line-height: 2;
-            font-size: 12.5px;
+            font-size: 14px;
             font-weight: 200;
             color: white;
         }
-        .schedule{
+        .about_tpg{
             width: 100%;
             aspect-ratio: 16/7;
             background-color: #3E6FB8;
             margin-top: 0;
             overflow: hidden;
         }
-        .scheduleTitle{
-            width: 12%;
+        .about_tpg_Title{
+            width: 100%;
             height: auto;
             display: flex;
             padding-top: 5%;
@@ -248,7 +283,7 @@ const description =
             font-weight: 900;
             color: white;
         }
-        .scheduleDate{
+        .about_tpg_Text{
             width: 90%;
             height: auto;
             display: flex;
@@ -260,6 +295,18 @@ const description =
             font-size: 12.5px;
             font-weight: 200;
             color: white;
+        }
+        .tpg_tag{
+            display: block;
+            text-align: center;
+
+            margin: 30px auto 0 auto;
+
+            font-size: 16px;
+            font-weight: 400;
+
+            color: white;
+            text-decoration: underline;
         }
     }
     @media screen and (max-width: 670px) {
@@ -304,24 +351,35 @@ const description =
             letter-spacing: 1.0rem;
             color: white;
         }
+        .contentText{
+            width: 85%;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+            color: white;
+            letter-spacing: 0.03em;
+            line-height: 1.6;
+        }
         .contentDate{
             width: 60%;
             height: auto;
-            display: flex;
+            display: block;
             margin-left: auto;
             margin-right: auto;
-            justify-content: center;
+            text-align: center;
             font-size: 17.5px;
             color: white;
         }
         .about{
             width: 100%;
-            aspect-ratio: 16/14;
+            aspect-ratio: 16/8;
             background-color: #91bbfe;
             margin-top: 0;
         }
         .aboutTitle{
-            width: 12%;
+            width: 70%;
             height: auto;
             display: flex;
             padding-top: 3%;
@@ -341,15 +399,15 @@ const description =
             letter-spacing: 0.08rem;
             line-height: 2;
         }
-        .schedule{
+        .about_tpg{
             width: 100%;
-            aspect-ratio: 16/8;
+            aspect-ratio: 16/10;
             background-color: #3E6FB8;
             margin-top: 0;
             overflow: hidden;
         }
-        .scheduleTitle{
-            width: 12%;
+        .about_tpg_Title{
+            width: 70%;
             height: auto;
             display: flex;
             padding-top: 3%;
@@ -359,7 +417,7 @@ const description =
             font-weight: 900;
             color: white;
         }
-        .scheduleDate{
+        .about_tpg_Text{
             width: 90%;
             height: auto;
             display: flex;
@@ -371,6 +429,18 @@ const description =
             font-size: 12.5px;
             font-weight: 200;
             color: white;
+        }
+        .tpg_tag{
+            display: block;
+            text-align: center;
+
+            margin: 25px auto 0 auto;
+
+            font-size: 14px;
+            font-weight: 400;
+
+            color: white;
+            text-decoration: underline;
         }
     }
 </style>
