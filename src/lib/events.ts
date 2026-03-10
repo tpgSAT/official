@@ -15,8 +15,17 @@ import takiFarmImg from "@assets/events/2025/takipura-farm/poster.png";
 import tpgCafeThumb from "@assets/events/2025/tpg-cafe/poster.png";
 import takimatsuriThumb from "@assets/events/2025/takimatsuri/takimatsuri_thumbnail.webp";
 import stainedglassThumb from "@assets/events/2025/stainedglass/poster.webp";
+import freshmanMeetupThumb from "@assets/events/2025/freshman-meetup/thumbnail.png";
 
 export const events: Event[] = [
+  {
+  title: "新入生交流会を開催します！",
+  titleEn: "Freshman Meetup",
+  year: 2025,
+  path: "/2025/freshman-meetup/",
+  thumbnail: freshmanMeetupThumb,
+  date: "2025-03-30",
+  },
   {
   title: "Taki ダイス",
   titleEn: "Taki Dice",
