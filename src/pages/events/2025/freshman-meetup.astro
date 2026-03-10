@@ -14,433 +14,181 @@ const description =
     <div class="content" style={`background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${backgroundImg.src});`}>
         <p class="ST">SCIENCE TOKYO</p>
         <p class="contentTitle">新入生交流会</p>
-        <p class="contentText">健康診断の日にTaki Plazaで交流を深めませんか？</p>
-        <p class="contentDate">3/30,31 10:00~17:00<br/>in Taki Plaza B2F イベントスペース</p>
+        <p class="contentText text-body">健康診断の日にTaki Plazaで交流を深めませんか？</p>
+        <p class="contentDate">3/30, 31 10:00~17:00<br/>in Taki Plaza B2F イベントスペース</p>
     </div>
     <div class="about">
         <h4 class="aboutTitle">ABOUT</h4>
-        <p class="aboutText">
-            健康診断の2, 3日目に、ボードゲームを通じて新入生が自由に交流できるイベントを開催します。<br/>
-            会場には様々なボードゲームを用意しており、初心者の方でも安心して楽しめます。<br/>
+        <p class="aboutText text-body">
+            昨年度に引き続き、健康診断の2, 3日目に、ボードゲームを通じて新入生が自由に交流できるイベントを開催します！
+            会場には様々なボードゲームを用意しており、初心者の方でも安心して楽しめます。
             途中参加・途中退出は自由で、当日の飛び入り参加も可能です。<br/>
-            昨年度は150名以上もの参加がありました。<br/>
-            参加費は無料ですので、ぜひ気軽にお越しください。
+            参加費は無料ですので、ぜひ気軽にお越しください！
         </p>
     </div>
     <div class="about_tpg">
         <h4 class="about_tpg_Title">ABOUT TPG</h4>
-        <p class="about_tpg_Text">Taki Plaza Gardener(TPG)は、東京科学大学にあるHisao & Hiroko Taki Plazaにおいて、国際交流と学生支援の促進を目的に活動している公認学生団体です。<br/>
+        <p class="about_tpg_Text text-body">Taki Plaza Gardener(TPG)は、東京科学大学にあるHisao & Hiroko Taki Plazaにおいて、国際交流と学生支援の促進を目的に活動している公認学生団体です。<br/>
             TPGは、本イベントをはじめ、学生がTaki Plazaをもっと身近に、もっと活発に利用できるよう、年間を通してさまざまな学生向けイベントを企画・運営しています。<br/>
-            少しでもTPGに興味を持った方は、ぜひTaki Plaza 地下2階の居室へお越しください！<br/>
-            皆さんの参加をお待ちしています。<br/>
+            少しでもTPGに興味を持った方は、ぜひTaki Plaza 地下2階の居室へお越しください！
         </p>
         <a href="/shinkan" class="tpg_tag">詳しくはこちらから！</a>
     </div>
 </Layout>
 
 <style>
+    html {
+        scroll-behavior: smooth;
+        padding: 0;
+    }
+
+    .text-body{
+        font-family: "Noto Sans JP Variable", sans-serif;
+        font-size: clamp(11px, 1.8vw, 16px);
+        font-style: normal;
+        font-weight: 400;
+        line-height: 220%;
+        letter-spacing: 1.2px;
+    }
+
+    /* ── Hero ── */
+    .content {
+        width: 100%;
+        min-height: 56vw; /* approx 16/9 on mobile */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding: 8% 5% 6%;
+        box-sizing: border-box;
+    }
+    .ST {
+        width: 100%;
+        text-align: center;
+        font-size: clamp(22px, 4vw, 60px);
+        font-weight: 900;
+        color: white;
+        margin: 0 0 0.2em;
+    }
+    .contentTitle {
+        width: 100%;
+        text-align: center;
+        letter-spacing: 0.3rem;
+        font-size: clamp(26px, 5vw, 75px);
+        font-weight: 800;
+        color: white;
+        margin: 0 0 0.4em;
+    }
+    .contentText {
+        width: 90%;
+        margin: 0 auto 0.6em;
+        text-align: center;
+        color: white;
+    }
+    .contentDate {
+        width: 100%;
+        text-align: center;
+        font-size: clamp(14px, 2vw, 30px);
+        color: white;
+        line-height: 1.8;
+        margin: 0;
+    }
+
+    /* ── About ── */
+    .about {
+        width: 100%;
+        background-color: #91bbfe;
+        padding: 5% 5% 6%;
+        box-sizing: border-box;
+    }
+    .aboutTitle {
+        text-align: center;
+        font-size: clamp(24px, 4vw, 60px);
+        font-weight: 900;
+        color: white;
+        margin: 0 auto 0.8em;
+    }
+    .aboutText {
+        width: min(90%, 900px);
+        margin: 0 auto;
+        display: block;
+        text-align: left;
+        color: white;
+    }
+
+    /* ── About TPG ── */
+    .about_tpg {
+        width: 100%;
+        background-color: #3E6FB8;
+        padding: 5% 5% 6%;
+        box-sizing: border-box;
+    }
+    .about_tpg_Title {
+        text-align: center;
+        font-size: clamp(24px, 4vw, 60px);
+        font-weight: 900;
+        color: white;
+        margin: 0 auto 0.8em;
+    }
+    .about_tpg_Text {
+        width: min(90%, 900px);
+        margin: 0 auto;
+        display: block;
+        text-align: left;
+        color: white;
+    }
+    .tpg_tag {
+        display: block;
+        text-align: center;
+        margin: 1.5em auto 0;
+        font-size: clamp(14px, 1.2vw, 18px);
+        font-weight: 400;
+        color: white;
+        text-decoration: underline;
+    }
+
+    /* ── Desktop tweaks (≥1024px) ── */
     @media screen and (min-width: 1024px) {
-        html {
-            scroll-behavior: smooth; /* ページ内のボタンを押したときにスクロール風の動きをする */
-            font-size: 1vw; /* rem単位の基準値 */
-            padding: 0;
-            }
-        .content{
-            width: 100%;
+        .content {
+            min-height: 0;
             aspect-ratio: 16 / 9;
-            margin-top: 0;
-            margin-bottom: 0;
-            overflow: hidden;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        .ST{
-            width: 100%;
-            height: auto;
-            display: flex;
-            padding-top: 7.5%;
-            margin-left: auto;
-            margin-right: auto;
+            padding: 0;
             justify-content: center;
-            font-size: 60px;
-            font-weight: 900;
-            color: white;
         }
-        .contentTitle{
-            width: 100%;
-            height: auto;
-            display: flex;
-            margin-left: auto;
-            margin-right: auto;
-            justify-content: center;
-            letter-spacing: 0.3rem;
-            font-size: 75px;
-            font-weight: 800;
-            color: white;
+        .ST {
+            padding-top: 0;
+            margin-bottom: 0.1em;
         }
-        .contentText{
-            width: 100%;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-            font-size: 28px;
-            font-weight: 500;
-            color: white;
-            letter-spacing: 0.05em;
-            line-height: 1.6;
+        .aboutTitle,
+        .about_tpg_Title {
+            margin-bottom: 1.2em;
         }
-        .contentDate{
-            width: 100%;
-            height: auto;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-            font-size: 30px;
-            color: white;
+        .aboutText,
+        .about_tpg_Text {
+            letter-spacing: 0.3em;
         }
-        .about{
-            width: 100%;
-            aspect-ratio: 16/7;
-            background-color: #91bbfe;
-            margin-top: 0;
-            overflow: hidden;
-        }
-        .aboutTitle{
-            width: 12%;
-            height: auto;
-            display: flex;
-            padding-top: 5%;
-            margin: 0 auto 80px auto;
-            justify-content: center;
-            font-size: 60px;
-            font-weight: 900;
-            color: white;
-        }
-        .aboutText{
-            width: 90%;
-            height: auto;
-            display: flex;
-            margin-left: auto;
-            margin-right: auto;
-            justify-content: center;
-            letter-spacing: 0.3rem;
-            line-height: 2;
-            font-size: 20px;
-            font-weight: 200;
-            color: white;
-        }
-        .about_tpg{
-            width: 100%;
-            aspect-ratio: 16/7;
-            background-color: #3E6FB8;
-            margin-top: 0;
-            overflow: hidden;
-        }
-        .about_tpg_Title{
-            width: 50%;
-            height: auto;
-            display: flex;
-            padding-top: 5%;
-            margin: 0 auto 80px auto;
-            justify-content: center;
-            font-size: 60px;
-            font-weight: 900;
-            color: white;
-        }
-        .about_tpg_Text{
-            width: 90%;
-            height: auto;
-            display: flex;
-            margin-left: auto;
-            margin-right: auto;
-            justify-content: center;
-            letter-spacing: 0.5rem;
-            line-height: 2;
-            font-size: 20px;
-            font-weight: 200;
-            color: white;
-        }
-        .tpg_tag{
-            display: block;
-            text-align: center;
-            margin: 20px auto 0 auto;
-            width: fit-content;
-            font-size: 18px;
-            color: white;
-            text-decoration: underline;
+        .tpg_tag {
+            margin-top: 1.2em;
         }
     }
 
-    @media screen and (max-width: 1024px) {
-        html {
-            scroll-behavior: smooth; /* ページ内のボタンを押したときにスクロール風の動きをする */
-            font-size: 1vw; /* rem単位の基準値 */
-            padding: 0;
-            }
-        .content{
-            width: 100%;
-            aspect-ratio: 16 / 10;
-            margin-top: 0;
-            margin-bottom: 0;
-            overflow: hidden;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+    /* ── Small mobile (<480px) ── */
+    @media screen and (max-width: 480px) {
+        .content {
+            min-height: 0;
+            aspect-ratio: unset;
+            padding: 12% 5% 10%;
         }
-        .ST{
-            width: 100%;
-            height: auto;
-            display: flex;
-            padding-top: 5.5%;
-            margin-left: auto;
-            margin-right: auto;
-            justify-content: center;
-            font-size: 40px;
-            font-weight: 800;
-            color: white;
+        .contentTitle {
+            letter-spacing: 0.15rem;
         }
-        .contentTitle{
-            width: 80%;
-            height: auto;
-            display: flex;
-            margin-left: auto;
-            margin-right: auto;
-            justify-content: center;
-            font-size: 40px;
-            font-weight: 800;
-            letter-spacing: 0.5rem;
-            color: white;
-        }
-        .contentText{
-            width: 100%;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-            font-size: 20px;
-            font-weight: 500;
-            color: white;
+        .aboutText,
+        .about_tpg_Text {
+            width: 95%;
             letter-spacing: 0.04em;
-            line-height: 1.6;
-        }
-        .contentDate{
-            width: 100%;
-            height: auto;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-            font-size: 20px;
-            color: white;
-        }
-        .about{
-            width: 100%;
-            aspect-ratio: 16/8;
-            background-color: #91bbfe;
-            margin-top: 0;
-            overflow: hidden;
-        }
-        .aboutTitle{
-            width: 12%;
-            height: auto;
-            display: flex;
-            padding-top: 5%;
-            margin: 0 auto 50px auto;
-            justify-content: center;
-            font-size: 35px;
-            font-weight: 900;
-            color: white;
-        }
-        .aboutText{
-            width: 90%;
-            height: auto;
-            display: flex;
-            margin-left: auto;
-            margin-right: auto;
-            justify-content: center;
-            letter-spacing: 0.5rem;
-            line-height: 2;
-            font-size: 14px;
-            font-weight: 200;
-            color: white;
-        }
-        .about_tpg{
-            width: 100%;
-            aspect-ratio: 16/9;
-            background-color: #3E6FB8;
-            margin-top: 0;
-            overflow: hidden;
-        }
-        .about_tpg_Title{
-            width: 100%;
-            height: auto;
-            display: flex;
-            padding-top: 5%;
-            margin: 0 auto 45px auto;
-            justify-content: center;
-            font-size: 35px;
-            font-weight: 900;
-            color: white;
-        }
-        .about_tpg_Text{
-            width: 90%;
-            height: auto;
-            display: flex;
-            margin-left: auto;
-            margin-right: auto;
-            justify-content: center;
-            letter-spacing: 0.5rem;
-            line-height: 2;
-            font-size: 12.5px;
-            font-weight: 200;
-            color: white;
-        }
-        .tpg_tag{
-            display: block;
-            text-align: center;
-
-            margin: 30px auto 0 auto;
-
-            font-size: 16px;
-            font-weight: 400;
-
-            color: white;
-            text-decoration: underline;
-        }
-    }
-    @media screen and (max-width: 670px) {
-        html {
-            scroll-behavior: smooth; /* ページ内のボタンを押したときにスクロール風の動きをする */
-            font-size: 1vw; /* rem単位の基準値 */
-            padding: 0;
-            }
-        .p{margin: 0;}
-        .content{
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            margin-top: 0;
-            margin-bottom: 0;
-            overflow: hidden;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        .ST{
-            width: 70%;
-            height: 35px;
-            display: flex;
-            padding-top: 1%;
-            margin-left: auto;
-            margin-right: auto;
-            justify-content: center;
-            font-size: 30px;
-            font-weight: 800;
-            color: white;
-            overflow: hidden;
-        }
-        .contentTitle{
-            width: 70%;
-            height: auto;
-            display: flex;
-            margin-left: auto;
-            margin-right: auto;
-            justify-content: center;
-            font-size: 30px;
-            font-weight: 800;
-            letter-spacing: 1.0rem;
-            color: white;
-        }
-        .contentText{
-            width: 85%;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-            font-size: 14px;
-            font-weight: 500;
-            color: white;
-            letter-spacing: 0.03em;
-            line-height: 1.6;
-        }
-        .contentDate{
-            width: 60%;
-            height: auto;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-            font-size: 17.5px;
-            color: white;
-        }
-        .about{
-            width: 100%;
-            aspect-ratio: 16/8;
-            background-color: #91bbfe;
-            margin-top: 0;
-        }
-        .aboutTitle{
-            width: 70%;
-            height: auto;
-            display: flex;
-            padding-top: 3%;
-            margin: 0 auto 20px auto;
-            justify-content: center;
-            font-size: 25px;
-            font-weight: 900;
-            color: white;
-        }
-        .aboutText{
-            width: min(92%, 520px);
-            margin: 0 auto;
-            display: block;
-            text-align: left;
-            line-height: 1.9;
-            font-size: 14px;
-            letter-spacing: 0.08rem;
-            line-height: 2;
-        }
-        .about_tpg{
-            width: 100%;
-            aspect-ratio: 16/10;
-            background-color: #3E6FB8;
-            margin-top: 0;
-            overflow: hidden;
-        }
-        .about_tpg_Title{
-            width: 70%;
-            height: auto;
-            display: flex;
-            padding-top: 3%;
-            margin: 0 auto 20px auto;
-            justify-content: center;
-            font-size: 25px;
-            font-weight: 900;
-            color: white;
-        }
-        .about_tpg_Text{
-            width: 90%;
-            height: auto;
-            display: flex;
-            margin-left: auto;
-            margin-right: auto;
-            justify-content: center;
-            letter-spacing: 0.5rem;
-            line-height: 2;
-            font-size: 12.5px;
-            font-weight: 200;
-            color: white;
-        }
-        .tpg_tag{
-            display: block;
-            text-align: center;
-
-            margin: 25px auto 0 auto;
-
-            font-size: 14px;
-            font-weight: 400;
-
-            color: white;
-            text-decoration: underline;
         }
     }
 </style>
