@@ -1,0 +1,76 @@
+<!-- 
+section要素をふわっと表示させる
+使い方:
+このファイルをimportし、section要素をFadeInではさむ
+---
+import FadeIn from "@components/FadeIn.astro";
+---
+...
+<FadeIn>
+  <section>
+    ...
+  </section>
+</FadeIn>
+ -->
+
+<fade-in-section>
+  <slot />
+</fade-in-section>
+
+<style>
+  /* 初期状態：透明で少し下に配置 */
+  fade-in-section {
+    display: block; /* カスタム要素はデフォルトでinlineなのでblockにします */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, transform; /* パフォーマンス最適化 */
+  }
+
+  /* クラスが付与されたら元の位置・不透明度に戻す */
+  fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* アクセシビリティ対応：視覚効果を減らしているユーザーにはアニメーションを無効化 */
+  @media (prefers-reduced-motion: reduce) {
+    fade-in-section {
+      transition: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>
+
+<script>
+  // カスタム要素を定義して、コンポーネントごとのロジックをカプセル化します
+  class FadeInSection extends HTMLElement {
+    constructor() {
+      super();
+
+      // Intersection Observerの設定
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            // 要素が画面に入ったら
+            if (entry.isIntersecting) {
+              this.classList.add('is-visible');
+              observer.unobserve(this); // 一度出現したら監視を解除する（何度もアニメーションさせない場合）
+            }
+          });
+        },
+        {
+          rootMargin: '0px 0px -100px 0px', // 画面の下から100pxのラインを超えたら発火
+          threshold: 0,
+        }
+      );
+
+      // この要素自身の監視を開始
+      observer.observe(this);
+    }
+  }
+
+  // Astroはスクリプトを自動的にバンドルし、1度だけ実行します
+  customElements.define('fade-in-section', FadeInSection);
+</script>

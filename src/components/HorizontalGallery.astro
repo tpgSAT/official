@@ -1,0 +1,121 @@
+<!--
+画像をスクロールで複数表示させる
+使い方:
+このファイルと表示したい画像をimportして、
+画像を定数としてまとめ、それをHorizontalGalleryのimagesとして指定する
+例:
+---
+import HorizontalGallery from "@components/HorizontalGallery.astro";
+const myGallery = [
+    { src: img_name1, alt: imageの説明1},
+    { src: img_name2, alt: imageの説明2},
+    ...
+];
+---
+...
+<HorizontalGallery images={myGallery} />
+-->
+---
+// src/components/HorizontalGallery.astro
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+// 1. まず、画像1枚分のデータの型（GalleryImage）を定義します
+type GalleryImage = {
+  src: ImageMetadata;
+  alt: string;
+};
+
+// 2. Propsでは、上で定義した型の配列（GalleryImage[]）を受け取ると指定します
+interface Props {
+  images: GalleryImage[];
+}
+
+const { images } = Astro.props as Props;
+---
+
+<div class="gallery-wrapper">
+
+  <ul class="scroll-container">
+    {images.map((image: GalleryImage) => (
+      <li class="scroll-slide">
+        <Image 
+          src={image.src} 
+          alt={image.alt} 
+          width={800}
+          class="gallery-image"
+        />
+      </li>
+    ))}
+  </ul>
+</div>
+
+<style>
+  .gallery-wrapper {
+    width: 100%;
+    margin: 2rem 0;
+  }
+
+  @keyframes bounceRight {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(5px); }
+  }
+
+  /* スクロール領域本体 */
+  .scroll-container {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    /* スクロール時にピタッと止まるようにする設定 */
+    scroll-snap-type: x mandatory; 
+    padding: 0 1rem 1rem 1rem;
+    margin: 0;
+    list-style: none;
+    scroll-behavior: smooth;
+    /* Firefox向けスクロールバー調整 */
+    scrollbar-width: thin; 
+    scrollbar-color: #c1c1c1 #f1f1f1;
+  }
+
+  /* 1枚ずつのスライド */
+  .scroll-slide {
+    /* 幅を85%にすることで、次の画像が画面右端に「チラ見え」します */
+    flex: 0 0 85%; 
+    scroll-snap-align: center; /* 画面中央でスナップさせる */
+    display: flex;
+    justify-content: center;
+  }
+
+  .gallery-image {
+    width: 100%;
+    height: auto;
+    /* アスペクト比や高さを固定すると綺麗に揃います */
+    /* aspect-ratio: 16 / 9;  */
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    /* スワイプしやすくするため画像選択を無効化 */
+    user-select: none; 
+    -webkit-user-drag: none;
+  }
+
+  /* WebKit系（Chrome/Safari）のスクロールバーカスタマイズ */
+  .scroll-container::-webkit-scrollbar {
+    height: 8px;
+  }
+  .scroll-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+  .scroll-container::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+  }
+
+  /* PCなど画面が広い場合は、表示割合を調整 */
+  @media (min-width: 1024px) {
+    .scroll-slide {
+      flex: 0 0 60%; 
+    }
+  }
+</style>
