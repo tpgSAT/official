@@ -1,0 +1,95 @@
+<!--
+桜を降らせるエフェクト
+使用方法:
+使用したいサイトに対応する.astroファイルの上部
+---
+---
+内に
+import Sakura from "@components/Sakura.astro";
+と書いて
+<Layout title={title} description={description}>
+のすぐ下に
+<Sakura />
+と書く
+使用例は2026新入生交流会(events/2025/freshman-meetup.astro)を参照して下さい
+-->
+
+<div id="sakura-container" aria-hidden="true"></div>
+
+<style>
+  /* 画面全体を覆うコンテナの設定 */
+  #sakura-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 9999; /* 一番手前に表示 */
+    pointer-events: none; /* ★超重要：クリック判定を無効化し、下のボタン等を押せるようにする */
+  }
+
+  /* 桜の花びらの基本デザイン（CSSで形を作ります！） */
+  /* global() で囲むことで、JSで後から追加される要素にもスタイルを当てます */
+  :global(.petal) {
+    position: absolute;
+    top: -10%; /* 画面の少し上からスタート */
+    background-color: #ffd1dc; /* 桜色 */
+    border-radius: 15px 0px 15px 0px; /* 対角の角を丸めて花びらっぽく */
+    opacity: 0.8;
+  }
+
+  /* 落ちるアニメーション */
+  :global(@keyframes fall) {
+    0% { top: -10%; }
+    100% { top: 110%; }
+  }
+
+  /* 左右に揺れるアニメーション */
+  :global(@keyframes sway) {
+    0% { transform: translateX(0px) rotate(0deg); }
+    50% { transform: translateX(30px) rotate(45deg); }
+    100% { transform: translateX(-30px) rotate(90deg); }
+  }
+</style>
+
+<script>
+  // クライアント側（ブラウザ）で動くJavaScript
+  function createPetal() {
+    const container = document.getElementById('sakura-container');
+    if (!container) return;
+
+    // 1. 新しい花びら（div要素）を作る
+    const petal = document.createElement('div');
+    petal.classList.add('petal');
+
+    // 2. 花びらのサイズをランダムに決定（10px 〜 20px）
+    const size = Math.random() * 10 + 10;
+    petal.style.width = `${size}px`;
+    petal.style.height = `${size}px`;
+
+    // 3. 発生する横位置（左から何％か）をランダムに決定
+    petal.style.left = `${Math.random() * 100}vw`;
+
+    // 4. アニメーションの速度をランダムに決定して適用
+    const fallDuration = Math.random() * 3 + 4; // 落ちる速度（4秒〜7秒）
+    const swayDuration = Math.random() * 2 + 2; // 揺れる速度（2秒〜4秒）
+    
+    // fall（落下）とsway（揺れ）のアニメーションを同時に適用
+    petal.style.animation = `
+      fall ${fallDuration}s linear forwards,
+      sway ${swayDuration}s ease-in-out infinite alternate
+    `;
+
+    // 5. コンテナに花びらを追加
+    container.appendChild(petal);
+
+    // 6. 落ちきった頃（約7秒後）にHTMLから削除する（重くなるのを防ぐため）
+    setTimeout(() => {
+      petal.remove();
+    }, 7000);
+  }
+
+  // 300ミリ秒（0.3秒）ごとに新しい花びらを生成し続ける
+  setInterval(createPetal, 300);
+</script>
