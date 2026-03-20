@@ -1,18 +1,11 @@
 ---
 import Layout from "@layouts/Layout.astro";
-
 import backgroundImg from "@assets/events/2025/freshman-meetup/background.jpeg";
-
 import past_event1 from "@assets/events/2025/freshman-meetup/past_event1.jpg"
-
 import past_event2 from "@assets/events/2025/freshman-meetup/past_event2.jpg"
-
 import past_event3 from "@assets/events/2025/freshman-meetup/past_event3.jpg"
-
 import Sakura from "@components/Effects/Sakura.astro";
-
 import FadeIn from "@components/Effects/FadeIn.astro";
-
 import HorizontalGallery from "@components/HorizontalGallery.astro";
 
 const title = "新入生交流会";
@@ -41,7 +34,7 @@ const past_event_gallery = [
             <h2>新入生交流会とは</h2>
             <HorizontalGallery images={past_event_gallery} />
             <div class="slider-dots" id="slider-dots"></div>
-            <p>
+            <p class="text-body">
                 健康診断の2, 3日目に、ボードゲームを通じて新入生が自由に交流できるイベントを開催します。
                 会場には様々なボードゲームを準備しているので、初心者の方でも安心して楽しめます。
                 <br>昨年度は150名以上の方が参加してくれました！
@@ -53,7 +46,7 @@ const past_event_gallery = [
     <FadeIn>
         <section id="about_tpg">
             <h2>TPGについて</h2>
-            <p>
+            <p class="text-body">
                 Taki Plaza Gardener(通称TPG)は、国際交流と学生支援を目的とする大岡山キャンパスの施設Hisao & Hiroko Taki Plaza で活動している公認学生団体です。<br/>
                 TPGは本イベントをはじめ、学生がTaki Plazaをもっと身近に、もっと活発に利用できるよう、年間を通してさまざまな学生向けイベントを企画・運営しています。<br/>
                 少しでもTPGに興味を持った方は、ぜひTaki Plaza 地下2階の居室へお越しください！
@@ -80,6 +73,7 @@ const past_event_gallery = [
 
     /* ── Hero ── */
     .content {
+        font-family: "Noto Sans JP Variable", sans-serif;
         height: 70vh;
         width: 100%;
         min-height: 56vw; /* approx 16/9 on mobile */
@@ -151,6 +145,7 @@ const past_event_gallery = [
     }
 
     section {
+        font-family: "Noto Sans JP Variable", sans-serif;
         max-width: 900px;
         margin: 60px auto;
         background-color: white;
