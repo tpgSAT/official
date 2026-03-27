@@ -1,6 +1,9 @@
 ErrorDocument 404 /404.html
 RewriteEngine On
 
+# 短縮リンク
+RewriteRule ^r/instagram/?$ https://www.instagram.com/taki_plaza_gardener/ [R=301,L]
+
 # たきぷら農園301リダイレクト
 Redirect 301 /whatsnew/20251007_takipurasityu-/ /whatsnew/20251014_takipuranouen/
 
