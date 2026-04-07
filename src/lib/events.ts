@@ -1,14 +1,28 @@
 import type { ImageMetadata } from "astro";
 
-export interface Event {
+interface EventBase {
   title: string;
   titleEn?: string;
   year: number;
-  path: string;
   thumbnail: ImageMetadata;
   date: string;
+  endDate?: string;
+  time?: string;
 }
 
+type InternalEventLink = {
+  path: string;
+  externalUrl?: never;
+};
+
+type ExternalEventLink = {
+  path?: never;
+  externalUrl: string;
+};
+
+export type Event = EventBase & (InternalEventLink | ExternalEventLink);
+
+import wakabasai2026Thumb from "@assets/events/2026/wakabasai/thumbnail.png";
 import takiDiceThumb from "@assets/events/2025/taki-dice/thumbnail.png";
 import xmasSweetsThumb from "@assets/events/2025/xmas-sweets/poster.png";
 import takiFarmImg from "@assets/events/2025/takipura-farm/poster.png";
@@ -19,12 +33,22 @@ import freshmanMeetupThumb from "@assets/events/2025/freshman-meetup/thumbnail.p
 
 export const events: Event[] = [
   {
+  title: "若葉祭2026",
+  titleEn: "Freshman Meetup",
+  year: 2026,
+  externalUrl: "https://wakabasai.tpgd.jp",
+  thumbnail: wakabasai2026Thumb,
+  date: "2026-04-10",
+  },
+  {
   title: "新入生交流会を開催します！",
   titleEn: "Freshman Meetup",
   year: 2025,
   path: "/2025/freshman-meetup/",
   thumbnail: freshmanMeetupThumb,
   date: "2025-03-30",
+  endDate: "2025-03-31",
+  time: "10:00~17:00",
   },
   {
   title: "Taki ダイス",
