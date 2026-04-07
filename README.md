@@ -103,31 +103,7 @@ WordPressで記事が公開されると、WordPressのWebhookからGitHub Action
 
 ### 開発の流れ
 
-1. **作業用ブランチを作成**
-   ```sh
-   git checkout develop
-   git pull origin develop
-   git checkout -b feature/your-feature-name
-   ```
-
-2. **変更を加えてコミット**
-   ```sh
-   git add .
-   git commit -m "feat: 機能の説明"
-   ```
-
-3. **リモートにプッシュ**
-   ```sh
-   git push origin feature/your-feature-name
-   ```
-
-4. **プルリクエストを作成**
-   - GitHubでPRを作成
-   - ターゲットブランチ: `develop`
-   - レビュー依頼: Slack `sys-連絡` チャンネルでレビューを依頼
-
-5. **レビュー後にマージ**
-   - レビューが承認されたら、`develop` ブランチにマージ
+詳細は [`docs/development-flow.md`](./docs/development-flow.md) を参照してください。
 
 ## 📝 WordPress連携について
 
