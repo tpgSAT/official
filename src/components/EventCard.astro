@@ -4,23 +4,47 @@ import type { Lang } from '@i18n/ui';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 
 import { Image } from "astro:assets";
+import type { Event } from "@lib/events";
 interface Props {
-    event: any;
+    event: Event;
 }
 
 const lang = Astro.currentLocale as Lang;
 const t = useTranslations(lang);
 const translatePath = (path: string) => getRelativeLocaleUrl(lang, path);
+const locale = lang === "en" ? "en-US" : "ja-JP";
 
 const { event } = Astro.props as Props;
+
+if (!event.externalUrl && !event.path) {
+    throw new Error("EventCard requires either event.path or event.externalUrl");
+}
+
+const href = event.externalUrl ?? translatePath(`/events${event.path}`);
+const isExternalLink = Boolean(event.externalUrl);
+const title = t({ ja: event.title, en: event.titleEn ?? event.title });
+const formatDate = (value: string) =>
+    new Date(value).toLocaleDateString(locale, {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+    });
+const dateText =
+    event.endDate && event.endDate !== event.date
+        ? `${formatDate(event.date)} - ${formatDate(event.endDate)}`
+        : formatDate(event.date);
 ---
 
-<a href={translatePath(`/events${event.path}`)}>
+<a href={href} target={isExternalLink ? "_blank" : undefined} rel={isExternalLink ? "noopener noreferrer" : undefined}>
     <div class="content">
-		<div class="img-wrapper"><Image src={event.thumbnail} class="thumbnail" alt={event.title} /></div>
-        <div class="tags-wrapper"><p class="tag">Taki Plaza B2F</p></div>
-        <h3 class="title">{t({ja: event.title, en: event.titleEn})}</h3>
-        <p class="date">{new Date(event.date).toLocaleDateString('ja-JP')}</p>
+		<div class="img-wrapper"><Image src={event.thumbnail} class="thumbnail" alt={title} /></div>
+        <div class="info">
+            <h3 class="title">{title}</h3>
+            <div class="meta">
+                <p class="date">{dateText}</p>
+                {event.time && <p class="time">{event.time}</p>}
+            </div>
+        </div>
     </div>
 </a>
 
@@ -28,19 +52,7 @@ const { event } = Astro.props as Props;
 <style>
 	a {
         text-decoration: none;
-    }
-	
-    .tags-wrapper {
-        grid-row: 1 / 2;
-    }
-
-    .tag {
-        padding: 0;
-        margin: 0;
-    }
-
-    .date {
-        grid-row: 3 / 4;
+        color: inherit;
     }
 
 	.thumbnail {
@@ -50,6 +62,32 @@ const { event } = Astro.props as Props;
         border-radius: 15px;
 	}
 
+    .info {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .title {
+        margin: 0;
+        padding: 0;
+        font-weight: 500;
+    }
+
+    .meta {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .date,
+    .time {
+        margin: 0;
+        color: #707070;
+        letter-spacing: 0.4px;
+        font-weight: 400;
+    }
+
     /* モバイル用のCSS */
     @media screen and (max-width: 768px) {
 		.content {
@@ -57,36 +95,28 @@ const { event } = Astro.props as Props;
 			padding: 15px 0 0;
 			display: grid;
 			grid-template-columns: 40% 1fr;
-			grid-template-rows: 20px 1fr 20px;
 			gap: 0 10px;
+            align-items: start;
 		}
 
 		.img-wrapper {
 			width: 100%;
 			aspect-ratio: 16 / 10;
-			grid-column: 1 / 2;
-			grid-row: 1 / 4;
         	overflow: hidden;
-		}
+        }
 
-		.tags-wrapper, .date{
-			font-weight: 400;
-			font-size: 10px;
-			letter-spacing: 0.4px;
-			color: #707070;
-			margin: 0;
-			display: inline-block;
-			grid-column: 2 / 3;
-		}
+        .info {
+            grid-column: 2 / 3;
+        }
 
-		.title {
-			font-weight: 500;
-			font-size: 14px;
-			margin: 0;
-			padding: 0;
-			grid-column: 2 / 3;
-			grid-row: 2 / 3;
-		}
+        .title {
+            font-size: 14px;
+        }
+
+        .date,
+        .time {
+            font-size: 10px;
+        }
     }
 
     /* デスクトップ用のCSS */
@@ -103,20 +133,17 @@ const { event } = Astro.props as Props;
         	overflow: hidden;
 		}
 
-		.tags-wrapper, .date{
-			font-weight: 400;
-			font-size: 10px;
-			letter-spacing: 0.4px;
-			color: #707070;
-			margin: 0;
-			display: inline-block;
-		}
+        .info {
+            margin-top: 10px;
+        }
 
-		.title {
-			font-weight: 500;
-			font-size: 14px;
-			margin: 0;
-			padding: 0;
-		}
+        .title {
+            font-size: 14px;
+        }
+
+        .date,
+        .time {
+            font-size: 10px;
+        }
     }
 </style>
