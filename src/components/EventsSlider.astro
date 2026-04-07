@@ -5,7 +5,7 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 
 import { Image } from 'astro:assets';
 
-import { events } from "@lib/events";
+import { events, type Event } from "@lib/events";
 
 // Splideのスタイルをインポート
 import '@splidejs/splide/css';
@@ -13,18 +13,53 @@ import '@splidejs/splide/css';
 const lang = Astro.currentLocale as Lang;
 const t = useTranslations(lang);
 const translatePath = (path: string) => getRelativeLocaleUrl(lang, path);
+const locale = lang === "en" ? "en-US" : "ja-JP";
+
+const getEventHref = (event: Event) => {
+    if (event.externalUrl) return event.externalUrl;
+    if (event.path) return translatePath(`/events${event.path}`);
+    throw new Error("EventsSlider requires either event.path or event.externalUrl");
+};
+
+const isExternalEvent = (event: Event) => Boolean(event.externalUrl);
+const formatDate = (value: string) =>
+    new Date(value).toLocaleDateString(locale, {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+    });
+
+const getEventDateText = (event: Event) =>
+    event.endDate && event.endDate !== event.date
+        ? `${formatDate(event.date)} - ${formatDate(event.endDate)}`
+        : formatDate(event.date);
 ---
 
 <div class="splide" role="group" aria-label="直近のイベント">
   <div class="splide__track">
 		<div class="splide__list">
             {events.slice(0, 5).map((event) => (
-                <a href={translatePath(`/events${event.path}`)} class="splide__slide">
+                <a
+                    href={getEventHref(event)}
+                    class="splide__slide"
+                    target={isExternalEvent(event) ? "_blank" : undefined}
+                    rel={isExternalEvent(event) ? "noopener noreferrer" : undefined}
+                >
                     <div class="event-slide-item">
-                        <div class="img-wrapper"><Image src={event.thumbnail} class="event_image" alt={event.title} /></div>
-                        <p class="event_tag">Taki Plaza B2F</p>
-                        <h3 class="event_title">{t({ja: event.title, en: event.titleEn})}</h3>
-                        <p class="event_date">{new Date(event.date).toLocaleDateString('ja-JP')}</p>
+                        <div class="img-wrapper">
+                            <Image
+                                src={event.thumbnail}
+                                class="event_image"
+                                alt={t({ ja: event.title, en: event.titleEn ?? event.title })}
+                            />
+                        </div>
+                        <div class="event_info">
+                            <h3 class="event_title">{t({ja: event.title, en: event.titleEn ?? event.title})}</h3>
+                            <div class="event_meta">
+                                <p class="event_date">{getEventDateText(event)}</p>
+                                {event.time && <p class="event_time">{event.time}</p>}
+                            </div>
+                        </div>
                     </div>
                 </a>
             ))}
@@ -35,6 +70,7 @@ const translatePath = (path: string) => getRelativeLocaleUrl(lang, path);
 <style>
     a {
         text-decoration: none;
+        color: inherit;
     }
     
     .splide {
@@ -56,46 +92,48 @@ const translatePath = (path: string) => getRelativeLocaleUrl(lang, path);
         border-radius: 20px;
     }
 
-    .event_tag {
-        font-family: 'Noto Sans JP Variable', sans-serif;
-        font-weight: 400;
-        padding: 4px 6px;
-        color: #FFF;
-        background-color: #000;
-        border-radius: 6px;
-        display: inline-block;
-        margin: 10px 8px 0;
-    }
-
     .event_title {
         font-family: 'Noto Sans JP Variable', sans-serif;
         font-weight: 500;
-        margin: 8px 8px 4px;
+        margin: 0;
     }
 
-    .event_date {
+    .event_info {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        margin: 10px 8px 0;
+    }
+
+    .event_date,
+    .event_time {
         font-family: 'Noto Sans JP Variable', sans-serif;
+        margin: 0;
+        color: #717171;
+    }
+
+    .event_meta {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
     }
 
     /* モバイル用のCSS */
     @media screen and (max-width: 768px) {
-        .event_tag {
-            font-size: 10px;
-            letter-spacing: 0.4px;
-        }
-
         .event_title {
             font-size: 18px;
         }
 
-        .event_date {
+        .event_date,
+        .event_time {
             font-size: 12px;
-            margin: 0 22px;
-            color: #000;
+            margin: 0;
             position: relative;
+            padding-left: 14px;
         }
 
-        .event_date::before {
+        .event_date::before,
+        .event_time::before {
             content: "";
             display: inline-block;
             width: 8px;
@@ -103,7 +141,7 @@ const translatePath = (path: string) => getRelativeLocaleUrl(lang, path);
             border-radius: 50%;
             background-color: #000;
             position: absolute;
-            left: -12px;
+            left: 0;
             top: 50%;
             transform: translateY(-40%);
         }
@@ -113,38 +151,29 @@ const translatePath = (path: string) => getRelativeLocaleUrl(lang, path);
     @media screen and (min-width: 769px) {
         .event-slide-item {
             display: grid;
-            grid-template-rows: 80px 1fr 40px;
             grid-template-columns: 1fr 30px 1fr;
+            align-items: stretch;
         }
 
         .img-wrapper {
             grid-column: 1 /  2;
-            grid-row: 1 / span 3;
+            grid-row: 1 / 2;
         }
 
-        .event_tag {
+        .event_info {
             grid-column: 3 /  4;
             grid-row: 1 / 2;
-            width: max-content;
-            height: max-content;
-            justify-self: start;
-            align-self: end;
-            font-size: 12px;
-            letter-spacing: 0.5px;
+            margin: 0;
+            justify-content: center;
         }
 
         .event_title {
-            grid-column: 3 /  4;
-            grid-row: 2 / 3;
             font-size: 28px;
         }
 
-        .event_date {
-            grid-column: 3 /  4;
-            grid-row: 3 / 4;
+        .event_date,
+        .event_time {
             font-size: 15px;
-            margin: 0 10px;
-            color: #717171;
         }
 
     }
