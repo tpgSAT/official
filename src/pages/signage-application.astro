@@ -9,7 +9,8 @@ import RoundedButton from '@components/RoundedButton.astro';
 
 import { Image } from 'astro:assets';
 
-import ShinkanPopup from '@components/ShinkanPopup.astro';
+// 新歓期は新歓期用のページに分けるため、ShinkanPopupでページにリダイレクトしています
+// import ShinkanPopup from '@components/ShinkanPopup.astro';
 
 import screenImg from '@assets/multi-monitor.png';
 
@@ -44,28 +45,28 @@ const description = "Taki Plaza B2Fの大きなモニター(9面マルチモニ�
         <tbody>
             <tr>
             <td>第1期</td>
-            <td>4/21(月)</td>
-            <td>5/3(土)〜6/17(火)</td>
+            <td>4/27(月)</td>
+            <td>5/7(木)〜6/23(火)</td>
             </tr>
             <tr>
             <td>第2期</td>
-            <td>6/9(月)</td>
-            <td>6/18(水)〜8/5(火)</td>
+            <td>6/15(月)</td>
+            <td>6/24(水)〜8/6(木)</td>
             </tr>
             <tr>
             <td>第3期</td>
-            <td>9/22(月)</td>
-            <td>10/1(水)〜11/4(火)</td>
+            <td>9/22(火)</td>
+            <td>10/1(木)〜11/17(火)</td>
             </tr>
             <tr>
             <td>第4期</td>
-            <td>10/27(月)</td>
-            <td>11/5(水)〜12/23(火)</td>
+            <td>11/9(月)</td>
+            <td>11/18(水)〜12/26(土)</td>
             </tr>
             <tr>
             <td>第5期</td>
-            <td>12/15(月)</td>
-            <td>12/24(水)〜2/7(土)</td>
+            <td>12/21(月)</td>
+            <td>1/4(月)〜2/8(月)</td>
             </tr>
         </tbody>
         </table>
@@ -82,7 +83,7 @@ const description = "Taki Plaza B2Fの大きなモニター(9面マルチモニ�
         <ul class="link-list">
             <li><a href="/signage_application.pdf" download="signage_application.pdf">Taki Plaza 9面マルチモニター サイネージ利用の募集要項 2025/2/18更新</a></li>
             <li><a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSekVpm9eIK-8ECjf88kReDK26bveictA8dQDYvA1lJaOv0w_Q/viewform?usp=sf_link">9面マルチ動画/画像提出（Googleフォーム）</a></li>
-            <li><a href="/signage_schedule_2025.pdf" download="signage_schedule_2025.pdf">2025年度公開スケジュール</a></li>
+            <li><a href="/signage_schedule.pdf" download="signage_schedule.pdf">2026年度公開スケジュール</a></li>
         </ul>
     </Heading>
     <Heading title="FAQ">
@@ -105,7 +106,7 @@ const description = "Taki Plaza B2Fの大きなモニター(9面マルチモニ�
     </Heading>
     <ContactCard department="Taki Plaza Gardener マネジメント班" email="takiplazagardener.management@gmail.com" />
     
-    <ShinkanPopup />
+    {/* <ShinkanPopup /> */}
 </GenericLayout>
 
 <style>
