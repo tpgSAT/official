@@ -9,7 +9,8 @@ import RoundedButton from '@components/RoundedButton.astro';
 
 import { Image } from 'astro:assets';
 
-import ShinkanPopup from '@components/ShinkanPopup.astro';
+// 新歓期は新歓期用のページに分けるため、ShinkanPopupでページにリダイレクトしています
+// import ShinkanPopup from '@components/ShinkanPopup.astro';
 
 import screenImg from '@assets/multi-monitor.png';
 
@@ -105,7 +106,7 @@ const description = "Taki Plaza B2Fの大きなモニター(9面マルチモニ�
     </Heading>
     <ContactCard department="Taki Plaza Gardener マネジメント班" email="takiplazagardener.management@gmail.com" />
     
-    <ShinkanPopup />
+    {/* <ShinkanPopup /> */}
 </GenericLayout>
 
 <style>
