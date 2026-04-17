@@ -38,7 +38,6 @@ const description = "あなたもTPGで活動でしてみませんか？TPGで�
           <h3>若葉祭</h3>
           <p class="meta">開催日 4/10・11</p>
           <p class="meta">場所 Taki Plaza・70周年記念講堂</p>
-          </p>
           <p>
             TPGは4/10(金)と4/11(土)に新歓イベントである若葉祭を開催します！
             <br/>
@@ -90,7 +89,6 @@ const description = "あなたもTPGで活動でしてみませんか？TPGで�
   box-shadow: 0 8px 24px rgba(0,0,0,.08);
   transition: .25s;
   margin-top: 1rem;
-  font-family: 'Noto Sans JP Variable', sans-serif;
 }
 
 .event-card:hover {
@@ -98,9 +96,43 @@ const description = "あなたもTPGで活動でしてみませんか？TPGで�
   box-shadow: 0 14px 36px rgba(0,0,0,.12);
 }
 
+.event-card h3 {
+  margin: 0;
+  font-family: 'Noto Sans JP Variable', sans-serif;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.event-card p {
+  font-family: 'Noto Sans JP Variable', sans-serif;
+  line-height: 200%;
+  letter-spacing: 1.2px;
+}
+
 .meta {
   font-size: .85rem;
   color: #666;
   margin: .3rem 0 .5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .event-card h3 {
+    font-size: 14px;
+  }
+
+  .event-card p {
+    font-size: 12px;
+    letter-spacing: 0.8px;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .event-card h3 {
+    font-size: 18px;
+  }
+
+  .event-card p {
+    font-size: 16px;
+  }
 }
 </style>
