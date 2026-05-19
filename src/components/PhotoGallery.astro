@@ -1,0 +1,64 @@
+---
+import { Image } from 'astro:assets';
+
+interface ImageItem {
+  src: ImageMetadata;
+  alt: string;
+}
+
+interface Props {
+  title?: string;
+  images: ImageItem[];
+}
+
+const { title, images } = Astro.props;
+---
+
+<section class="gallery-wrapper">
+  {title && <h2>{title}</h2>}
+  
+  <div class="photo-grid">
+    {images.map((item) => (
+      <div class="photo-card">
+        <Image src={item.src} alt={item.alt} />
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .gallery-wrapper {
+    margin: 2rem 0;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    width: 100%;
+  }
+
+  .photo-card {
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .photo-card:hover {
+    transform: translateY(-4px); 
+  }
+
+  .photo-grid img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+  }
+</style>
