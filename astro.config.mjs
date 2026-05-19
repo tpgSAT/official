@@ -5,9 +5,12 @@ import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import sitemap from '@astrojs/sitemap';
 
+import cloudflare from "@astrojs/cloudflare";
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://tpgd.jp',
+
   i18n: {
     locales: ["ja", "en"],
     defaultLocale: "ja",
@@ -20,6 +23,7 @@ export default defineConfig({
         fallbackType: "redirect",
     }
   },
+
   vite: {
       resolve: {
           alias: {
@@ -45,5 +49,7 @@ export default defineConfig({
         forward: [["dataLayer.push"],"gtm.push"],
       },
     })
-  ]
+  ],
+
+  adapter: cloudflare()
 });
