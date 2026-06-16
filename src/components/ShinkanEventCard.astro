@@ -1,0 +1,75 @@
+---
+interface Props {
+    title: String;
+    date: String;
+    location: String;
+}
+
+const { title, date, location } = Astro.props;
+---
+
+
+<div class="event-card">
+    <h3>{title}</h3>
+    <p class="meta">開催日 {date}</p>
+    <p class="meta">場所 {location}</p>
+    <p>
+        <slot />
+    </p>
+</div>
+
+<style>
+    .event-card {
+    padding: 1.2rem 1.4rem;
+    border-radius: 14px;
+    background: white;
+    box-shadow: 0 8px 24px rgba(0,0,0,.08);
+    transition: .25s;
+    margin-top: 1rem;
+    }
+
+    .event-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 36px rgba(0,0,0,.12);
+    }
+
+    .event-card h3 {
+    margin: 0;
+    font-family: 'Noto Sans JP Variable', sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
+    }
+
+    .event-card p {
+    font-family: 'Noto Sans JP Variable', sans-serif;
+    line-height: 200%;
+    letter-spacing: 1.2px;
+    }
+
+    .meta {
+    font-size: .85rem;
+    color: #666;
+    margin: .3rem 0 .5rem;
+    }
+
+    @media screen and (max-width: 768px) {
+    .event-card h3 {
+        font-size: 14px;
+    }
+
+    .event-card p {
+        font-size: 12px;
+        letter-spacing: 0.8px;
+    }
+    }
+
+    @media screen and (min-width: 769px) {
+    .event-card h3 {
+        font-size: 18px;
+    }
+
+    .event-card p {
+        font-size: 16px;
+    }
+    }
+</style>
