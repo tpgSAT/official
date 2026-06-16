@@ -1,0 +1,55 @@
+---
+import GenericLayout from '@layouts/GenericLayout.astro';
+import Heading from '@components/Heading.astro';
+import ContactCard from '@components/ContactCard.astro';
+import ShinkanEventCard from '@components/ShinkanEventCard.astro';
+
+const title = "新歓2026";
+const description = "あなたもTPGで活動でしてみませんか？TPGでは新しいメンバーを募集しています！";
+---
+<GenericLayout title={title} description={description} ListItem={[{ name: '入会について', path: 'join' }]}>
+    <Heading title="TPGとは">
+        Taki Plaza Gardener(TPG)は、東京科学大学に存在する国際交流と学⽣⽀援を⽬的とする施設であるHisao & Hiroko Taki Plazaでの、学⽣による活発な利⽤を促すことを⽬的として活動している公認学生団体です。
+        TPGは年間を通してさまざまなイベントを企画・運営しています。 
+        <br />
+        76名(2025.07現在)のメンバーが所属し、イベント班・コミュニティ班・制作班・マネジメント班・システム班の5つの班に分かれて活動しています。
+        活動は週1で、活動拠点となるTakiPlaza地下2階の居室では日頃から誰かしらが居てにぎやかに過ごしています。
+        <br />
+        詳しくは<a href="/about/">こちら</a>をご覧ください！
+    </Heading>
+    <Heading title="入会について">
+        学士3年以下の東京科学大生であれば、誰でもTPGに入会できます。留学生も大歓迎です！
+        <br />
+        また、入会時に会費として前期・後期でそれぞれ1000円をいただいております。このお金は、サークル活動を豊かにするために使われるもので、皆さんに還元していきます。    
+    </Heading>
+    <Heading title="新歓イベント">
+      <ShinkanEventCard title="新入生交流会" date="3/30・31" location="Taki Plaza B2F イベントスペース">
+        健康診断の2・3日目にTaki Plaza B2Fで新入生向けの交流会を行います！
+        <br/>
+        昨年度は150名以上もの参加がありました。参加費等もないのでぜひ気軽に覗きにきてください！
+      </ShinkanEventCard>
+      <ShinkanEventCard title="若葉祭" date="4/10・11" location="Taki Plaza・70周年記念講堂">
+        TPGは4/10(金)と4/11(土)に新歓イベントである若葉祭を開催します！
+        <br/>
+        このイベントは、TPGに限らず、40以上の様々な公認サークルや団体が集まって合同で新歓をする理工学系最大級の新歓イベントです。
+        <br/>
+        サークル選びにもユニットと交流する機会にも最適なイベントです！
+        <br/>
+        是非お越しください！
+      </ShinkanEventCard>
+      <ShinkanEventCard title="TPG体験会" date="4/14・21 7, 8限後~" location="Taki Plaza B2F ワークショップルーム">
+        TPGの活動を体験できます。イベントを企画してみたい人、デザインに興味ある人、web制作をやってみたい人、なんとなく気になる人などお気軽にご参加ください！
+      </ShinkanEventCard>
+      <ShinkanEventCard title="なんでも会" date="4/17・24 15:30-17:30" location="Taki Plaza B2F TPG居室">
+        TPGメンバーと気軽に話せる日です！TPGのこともそうでないことでも大歓迎！Taki Plaza B2Fの奥、TPG居室でお待ちしています。
+      </ShinkanEventCard>
+      <ShinkanEventCard title="入会日" date="4/28 7, 8限後~" location="Taki Plaza B2F ワークショップルーム">
+        この日までに入会をきめた人の顔合わせ会です。
+      </ShinkanEventCard>
+    </Heading>
+    <Heading title="入会方法">
+        28日の入会日に参加いただくと入会いただけます。</br>
+        また、都合が合わない場合でも、いずれかの新歓イベントへの参加やSNSのDMへお問い合わせいただければいつでも入会できます！
+    </Heading>
+    <ContactCard department="Taki Plaza Gardener 入会担当" email="info@tpgd.jp" />
+</GenericLayout>
