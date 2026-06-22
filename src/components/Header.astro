@@ -5,7 +5,7 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 
 // Astroの画像最適化を利用するため
 import { Image } from 'astro:assets';
-import logo from '@assets/header/logo_with_text.png';
+import logo from '@assets/tpg-logo.svg';
 import events from '@assets/header/events.svg';
 import news from '@assets/header/news.svg';
 import blog from '@assets/header/blog.svg';
@@ -73,7 +73,7 @@ const enLocale = locales.find((locale) => locale.lang === 'en');
     }
 
 	.logo {
-
+		display: block;
 	}
 
 	.header_nav {
@@ -91,7 +91,12 @@ const enLocale = locales.find((locale) => locale.lang === 'en');
 		z-index: 1000;
 	}
 
-	.header_nav.open nav{
+	.header_nav a {
+		display: inline-flex;
+		align-items: center;
+	}
+
+	.header_nav nav {
 		margin: 50px 0 10px;
 	}
 
@@ -145,17 +150,17 @@ const enLocale = locales.find((locale) => locale.lang === 'en');
 		height: 300px;
 		opacity: 1;
 	}
-
+	
 	.hamburger {
 		position: absolute;
-		right: 10px;
+		right: 20px;
 		top: 0;
 		background-color: transparent;
 		border-color: transparent;
 		z-index: 9999;
-		width: 50px;
+		width: 66px;
   		height: 100%;
-		padding: 16px 20px 16px 0px;
+		padding: 16px;
 	}
 
 	.hamburger span {
@@ -187,7 +192,7 @@ const enLocale = locales.find((locale) => locale.lang === 'en');
 	.hamburger.active span:nth-child(2) {
 		opacity: 0;
 	}
-
+	
 	.hamburger.active span:nth-child(3) {
 		top: -13px;
 		transform: rotate(-45deg);

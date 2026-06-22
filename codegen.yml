@@ -3,6 +3,8 @@ documents:
   - "src/**/*.graphql"
 generates:
   src/lib/generated/graphql.ts:
+    config:
+      useTypeImports: true
     plugins:
       - typescript
       - typescript-operations
