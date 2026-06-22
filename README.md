@@ -7,6 +7,7 @@ TPGの公式Webサイトのソースコードです。Astroフレームワーク
 このプロジェクトは、TPG(Taki Plaza Gardener)の公式Webサイトです。静的サイトジェネレーター「Astro」を使用し、WordPress（cms.tpgd.jp）からブログ記事を取得して表示しています。
 
 ### 主な機能
+
 - 静的サイト生成（SSG）によるパフォーマンスの最適化
 - WordPress GraphQL APIを利用したブログ記事の取得
 - WordPressで記事が公開されたときの自動ビルド・デプロイ
@@ -16,25 +17,45 @@ TPGの公式Webサイトのソースコードです。Astroフレームワーク
 ## 🚀 セットアップ
 
 ### 前提条件
-- Node.js（推奨: v18以上）
-- npm
+
+- `Node.js`（推奨: v18以上）
+- `npm` または `pnpm`
 
 ### インストール手順
 
 1. リポジトリをクローン
+
 ```sh
 git clone https://github.com/tpgSAT/official.git
 cd official
 ```
 
-2. 依存関係をインストール
+1. 依存関係をインストール
+
+`npm`の場合
+
 ```sh
 npm install
 ```
 
-3. 開発サーバーを起動
+`pnpm`の場合
+
+```sh
+pnpm install
+```
+
+1. 開発サーバーを起動
+
+`npm`の場合
+
 ```sh
 npm run dev
+```
+
+`pnpm`の場合
+
+```sh
+pnpm dev
 ```
 
 ブラウザで `http://localhost:4321` にアクセスすると、サイトが表示されます。
@@ -45,13 +66,13 @@ npm run dev
 
 プロジェクトのルートディレクトリから、以下のコマンドを実行できます：
 
-| コマンド | 説明 |
-| :--- | :--- |
-| `npm install` | 依存関係をインストール |
-| `npm run dev` | 開発サーバーを起動（`localhost:4321`） |
-| `npm run build` | 本番用サイトを `./dist/` にビルド |
-| `npm run preview` | ビルドしたサイトをローカルでプレビュー |
-| `npm run astro ...` | Astro CLIコマンドを実行（例: `astro add`, `astro check`） |
+| `npm` | `pnpm` | 説明 |
+| :--- | :--- | :--- |
+| `npm install` | `pnpm install` | 依存関係をインストール |
+| `npm run dev` | `pnpm dev` | 開発サーバーを起動（`localhost:4321`） |
+| `npm run build` | `pnpm build` | 本番用サイトを `./dist/` にビルド |
+| `npm run preview` | `pnpm preview` | ビルドしたサイトをローカルでプレビュー |
+| `npm run astro ...` | `pnpm astro ...` | Astro CLIコマンドを実行（例: `astro add`, `astro check`） |
 
 ### プロジェクト構造
 
@@ -97,6 +118,7 @@ WordPressで記事が公開されると、WordPressのWebhookからGitHub Action
 ## 🔄 ブランチとPRのワークフロー
 
 ### ブランチ戦略
+
 - **`develop`**: 開発用のメインブランチ
 - **`main`**: 本番環境用のブランチ
 - **`feat/*`**: 作業用のブランチ
@@ -112,16 +134,19 @@ WordPressで記事が公開されると、WordPressのWebhookからGitHub Action
 ### 実装詳細
 
 **APIクライアント**: `src/lib/api.ts`
+
 - `graphql-request` ライブラリの `GraphQLClient` を使用して `https://cms.tpgd.jp/graphql` に接続
 - GraphQL Codegen（`codegen.yml`）で自動生成した型定義・SDK（`src/lib/generated/graphql.ts`）を利用
 - `getAllPosts()` 関数で全記事を取得
 - `getAllCategories()` 関数で全カテゴリーを取得
 
 **GraphQLクエリ**: `src/lib/queries/`
+
 - `getAllPosts.graphql` - 記事一覧取得クエリ（スラッグ・タイトル・本文・アイキャッチ画像・カテゴリー・タグ等）
 - `getAllCategories.graphql` - カテゴリー一覧取得クエリ
 
 **使用箇所**:
+
 - `src/pages/blog/index.astro` - ブログ記事一覧ページ
 - `src/pages/blog/[...slug].astro` - 個別記事ページ（動的ルーティング）
 - `src/components/Sections/Blog.astro` - トップページのブログセクション（最新3件表示）
@@ -132,6 +157,8 @@ WordPressで記事が公開されると、WordPressのWebhookからGitHub Action
 
 - [Astro公式ドキュメント](https://docs.astro.build)
 - [Astroチュートリアル](https://docs.astro.build/ja/tutorial/0-introduction/)
+- [pnpm公式サイト](https://pnpm.io/)
+- [pnpmを使う動機](https://pnpm.io/motivation)
 - [WPGraphQL](https://www.wpgraphql.com/)
 - [graphql-request](https://github.com/jasonkuhrt/graphql-request)
 - [GraphQL Code Generator](https://the-guild.dev/graphql/codegen)
