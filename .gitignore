@@ -31,3 +31,6 @@ pnpm-debug.log*
 
 # pnpm
 .pnpm-store
+
+# VSCode settings
+.vscode/settings.json
