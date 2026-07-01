@@ -1,0 +1,808 @@
+---
+import Layout from "@layouts/Layout.astro";
+
+import key from "@assets/events/2026/taki-sports-day/key.webp";
+import background from "@assets/events/2026/taki-sports-day/background.webp";
+
+const title = "Taki Sports Day 2026 | Play to Your Heart's Content!";
+const description = "Join Taki Sports Day on July 13, 2026 at Taki Plaza B2F. Enjoy games, activities, and prizes with Taki Plaza Gardener.";
+---
+
+<Layout title={title} description={description}>
+  <div class="event-page">
+    <div class="event-bg" aria-hidden="true">
+      <img src={background.src} alt="" class="event-bg-image" />
+    </div>
+
+    <div class="content-column-wrapper">
+      <section class="hero">
+        <div class="hero-inner">
+          <p class="kicker">Taki Plaza Gardener presents</p>
+          <img src={key.src} alt="Taki Sports Day 2026 Key Visual" class="key-visual" />
+        </div>
+
+        <div class="stamp" aria-hidden="true">
+          <svg viewBox="-160 -160 320 320" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <path
+                id="star"
+                d="M 0.000,-8.000 L 1.796,-2.472 L 7.608,-2.472 L 2.906,0.944 L 4.702,6.472 L 0.000,3.056 L -4.702,6.472 L -2.906,0.944 L -7.608,-2.472 L -1.796,-2.472 Z"
+              ></path>
+            </defs>
+            <g transform="rotate(24)">
+              <circle class="stamp-border" stroke-width="5" r="78"></circle>
+              <circle class="stamp-border" stroke-width="5" r="88"></circle>
+              <circle class="stamp-border" stroke-width="5" r="132"></circle>
+              <circle class="stamp-border" stroke-width="10" r="144"></circle>
+              <rect
+                class="stamp-rect"
+                stroke-width="5"
+                x="-156"
+                y="-40"
+                width="312"
+                height="80"></rect>
+              <use
+                class="stamp-content"
+                href="#star"
+                transform="translate(24,-56) scale(1.3)"></use>
+              <use
+                class="stamp-content"
+                href="#star"
+                transform="translate(0,-56) scale(1.3)"></use>
+              <use
+                class="stamp-content"
+                href="#star"
+                transform="translate(-24,-56) scale(1.3)"></use>
+              <use
+                class="stamp-content"
+                href="#star"
+                transform="translate(24,56) scale(1.3) rotate(180)"></use>
+              <use
+                class="stamp-content"
+                href="#star"
+                transform="translate(0,56) scale(1.3) rotate(180)"></use>
+              <use
+                class="stamp-content"
+                href="#star"
+                transform="translate(-24,56) scale(1.3) rotate(180)"></use>
+              <path class="stamp-content" transform="scale(0.7) translate(-215.5 -55.5)" d="M18.900 59.475L18.900 80.175L6.300 80.175L6.300 26.625L37.425 26.625L37.425 36.975L18.900 36.975L18.900 49.125L36.075 49.125L36.075 59.475L18.900 59.475ZM69.750 38.250L69.750 38.250Q70.950 38.250 72.225 38.362Q73.500 38.475 74.175 38.700L74.175 38.700L73.050 50.625Q72.225 50.475 71.137 50.325Q70.050 50.175 68.250 50.175L68.250 50.175Q66.675 50.175 65.025 50.587Q63.375 51 61.950 52.013Q60.525 53.025 59.625 54.825Q58.725 56.625 58.725 59.550L58.725 59.550L58.725 80.175L46.050 80.175L46.050 39L55.575 39L57.525 45.750L58.125 45.750Q59.250 43.650 61.050 41.925Q62.850 40.200 65.100 39.225Q67.350 38.250 69.750 38.250ZM98.325 38.250L98.325 38.250Q104.250 38.250 108.487 40.350Q112.725 42.450 115.012 46.650Q117.300 50.850 117.300 57L117.300 57L117.300 62.925L91.275 62.925Q91.425 66.900 93.937 69.300Q96.450 71.700 101.175 71.700L101.175 71.700Q105.075 71.700 108.225 70.950Q111.375 70.200 114.750 68.625L114.750 68.625L114.750 77.925Q111.750 79.500 108.300 80.212Q104.850 80.925 99.750 80.925L99.750 80.925Q93.525 80.925 88.725 78.675Q83.925 76.425 81.187 71.737Q78.450 67.050 78.450 59.850L78.450 59.850Q78.450 52.500 80.962 47.737Q83.475 42.975 87.937 40.612Q92.400 38.250 98.325 38.250ZM98.700 47.025L98.700 47.025Q95.700 47.025 93.825 48.938Q91.950 50.850 91.575 54.675L91.575 54.675L105.600 54.675Q105.600 52.500 104.812 50.813Q104.025 49.125 102.487 48.075Q100.950 47.025 98.700 47.025ZM143.850 38.250L143.850 38.250Q149.775 38.250 154.012 40.350Q158.250 42.450 160.537 46.650Q162.825 50.850 162.825 57L162.825 57L162.825 62.925L136.800 62.925Q136.950 66.900 139.463 69.300Q141.975 71.700 146.700 71.700L146.700 71.700Q150.600 71.700 153.750 70.950Q156.900 70.200 160.275 68.625L160.275 68.625L160.275 77.925Q157.275 79.500 153.825 80.212Q150.375 80.925 145.275 80.925L145.275 80.925Q139.050 80.925 134.250 78.675Q129.450 76.425 126.712 71.737Q123.975 67.050 123.975 59.850L123.975 59.850Q123.975 52.500 126.487 47.737Q129 42.975 133.463 40.612Q137.925 38.250 143.850 38.250ZM144.225 47.025L144.225 47.025Q141.225 47.025 139.350 48.938Q137.475 50.850 137.100 54.675L137.100 54.675L151.125 54.675Q151.125 52.500 150.337 50.813Q149.550 49.125 148.012 48.075Q146.475 47.025 144.225 47.025ZM209.700 70.875L209.700 70.875Q211.650 70.875 213.300 70.500Q214.950 70.125 216.675 69.525L216.675 69.525L216.675 78.825Q214.650 79.725 212.025 80.325Q209.400 80.925 205.800 80.925L205.800 80.925Q201.975 80.925 199.012 79.688Q196.050 78.450 194.363 75.412Q192.675 72.375 192.675 66.975L192.675 66.975L192.675 48.450L187.425 48.450L187.425 43.200L193.725 39.150L197.175 30.450L205.275 30.450L205.275 39L216.225 39L216.225 48.450L205.275 48.450L205.275 66.525Q205.275 68.700 206.475 69.787Q207.675 70.875 209.700 70.875ZM262.950 59.475L262.950 59.475Q262.950 64.575 261.563 68.587Q260.175 72.600 257.512 75.337Q254.850 78.075 251.100 79.500Q247.350 80.925 242.625 80.925L242.625 80.925Q238.200 80.925 234.487 79.500Q230.775 78.075 228.112 75.337Q225.450 72.600 223.950 68.587Q222.450 64.575 222.450 59.475L222.450 59.475Q222.450 52.650 224.887 47.887Q227.325 43.125 231.900 40.688Q236.475 38.250 242.850 38.250L242.850 38.250Q248.700 38.250 253.237 40.688Q257.775 43.125 260.363 47.887Q262.950 52.650 262.950 59.475ZM235.350 59.475L235.350 59.475Q235.350 63.225 236.100 65.925Q236.850 68.625 238.500 69.975Q240.150 71.325 242.775 71.325L242.775 71.325Q245.400 71.325 246.975 69.975Q248.550 68.625 249.300 65.925Q250.050 63.225 250.050 59.475L250.050 59.475Q250.050 55.650 249.300 53.063Q248.550 50.475 246.938 49.125Q245.325 47.775 242.700 47.775L242.700 47.775Q238.800 47.775 237.075 50.775Q235.350 53.775 235.350 59.475ZM287.175 96.375L287.175 96.375Q284.850 96.375 283.125 96.150Q281.400 95.925 280.125 95.625L280.125 95.625L280.125 85.350Q281.325 85.575 282.637 85.837Q283.950 86.100 285.450 86.100L285.450 86.100Q287.700 86.100 289.238 85.200Q290.775 84.300 291.525 82.200Q292.275 80.100 292.275 76.500L292.275 76.500L292.275 26.625L305.100 26.625L305.100 75.900Q305.100 83.325 302.813 87.862Q300.525 92.400 296.512 94.388Q292.500 96.375 287.175 96.375ZM355.275 59.475L355.275 59.475Q355.275 64.575 353.887 68.587Q352.500 72.600 349.837 75.337Q347.175 78.075 343.425 79.500Q339.675 80.925 334.950 80.925L334.950 80.925Q330.525 80.925 326.813 79.500Q323.100 78.075 320.438 75.337Q317.775 72.600 316.275 68.587Q314.775 64.575 314.775 59.475L314.775 59.475Q314.775 52.650 317.212 47.887Q319.650 43.125 324.225 40.688Q328.800 38.250 335.175 38.250L335.175 38.250Q341.025 38.250 345.563 40.688Q350.100 43.125 352.688 47.887Q355.275 52.650 355.275 59.475ZM327.675 59.475L327.675 59.475Q327.675 63.225 328.425 65.925Q329.175 68.625 330.825 69.975Q332.475 71.325 335.100 71.325L335.100 71.325Q337.725 71.325 339.300 69.975Q340.875 68.625 341.625 65.925Q342.375 63.225 342.375 59.475L342.375 59.475Q342.375 55.650 341.625 53.063Q340.875 50.475 339.262 49.125Q337.650 47.775 335.025 47.775L335.025 47.775Q331.125 47.775 329.400 50.775Q327.675 53.775 327.675 59.475ZM363.975 39L376.650 39L376.650 80.175L363.975 80.175L363.975 39ZM370.350 22.575L370.350 22.575Q373.125 22.575 375.150 23.813Q377.175 25.050 377.175 28.500L377.175 28.500Q377.175 31.875 375.150 33.112Q373.125 34.350 370.350 34.350L370.350 34.350Q367.500 34.350 365.512 33.112Q363.525 31.875 363.525 28.500L363.525 28.500Q363.525 25.050 365.512 23.813Q367.500 22.575 370.350 22.575ZM411.825 38.250L411.825 38.250Q418.425 38.250 422.400 41.813Q426.375 45.375 426.375 53.325L426.375 53.325L426.375 80.175L413.625 80.175L413.625 56.850Q413.625 52.575 412.237 50.438Q410.850 48.300 407.775 48.300L407.775 48.300Q403.200 48.300 401.550 51.675Q399.900 55.050 399.900 61.425L399.900 61.425L399.900 80.175L387.225 80.175L387.225 39L396.825 39L398.625 44.475L399.150 44.475Q400.500 42.450 402.337 41.063Q404.175 39.675 406.575 38.962Q408.975 38.250 411.825 38.250Z" />
+
+            </g>
+          </svg>
+        </div>
+
+        <div class="hero-info">
+          <p class="hero-title-en">Taki Sports Day</p>
+          <p class="hero-date">
+            <span class="hero-date-year">2026.</span><span class="hero-date-em"
+              >7</span
+            ><span class="hero-date-mid">.</span><span class="hero-date-em"
+              >13</span
+            ><span class="hero-date-mid">(Mon)</span>
+          </p>
+          <p>17:00 - 20:00</p>
+          <p>Taki Plaza B2</p>
+          <a class="page-link" href={('/events/2026/taki-sports-day')}>日本語のページはこちら</a>
+        </div>
+      </section>
+
+      <section class="about">
+        <p class="eyebrow">About</p>
+        <h2 class="tagline">Play to Your Heart's Content!</h2>
+        <div class="intro-card">
+          <p>
+            The Taki Plaza Gardener Event Team will host <span class="red">Taki Sports Day</span> on Monday, July 13, at Taki Plaza B2F!
+          </p>
+          <p>
+            Enjoy classic Japanese school sports day activities, including tug-of-war and item relay races.
+          </p>
+          <p>
+            Come join us, get moving, and make memories together across years, fields, and nationalities!
+          </p>
+        </div>
+      </section>
+
+      <section class="activity">
+        <p class="eyebrow">What to expect</p>
+        <h2 class="tagline">Activities</h2>
+        <div class="activity-grid">
+          <article class="activity-card">
+            <p class="activity-number">01</p>
+            <h3>Tissue Box Table Tennis</h3>
+            <p>
+              The well-received <span class="red">Tissue Box Table Tennis</span> will be back at Taki Sports Day!
+            </p>
+            <p>
+              Play table tennis using an item familiar to science and engineering students: KimWipes!
+            </p>
+          </article>
+          <article class="activity-card">
+            <p class="activity-number">02</p>
+            <h3>Quiz Item Relay Race</h3>
+            <p>
+              A popular event at Japanese school sports days, now with a quiz twist!
+            </p>
+            <p>
+              Test your knowledge and speed in this unique item relay race!
+            </p>
+          </article>
+          <article class="activity-card">
+            <p class="activity-number">03</p>
+            <h3>Struck Out Showdown</h3>
+            <p>
+              A fast-paced target-throwing challenge with unlimited throws within the time limit!
+            </p>
+            <p>
+              Stay calm, aim for the targets, and go for a high score!
+            </p>
+          </article>
+          <article class="activity-card">
+            <p class="activity-number">04</p>
+            <h3>Tug-of-War Showdown</h3>
+            <p>
+              Work together and pull your way to victory!
+            </p>
+            <p>
+              Any number of participants is welcome, whether you're going solo or in a group!
+            </p>
+            <p>
+              Team up, match your timing, and take on an exciting tug-of-war challenge!
+            </p>
+            <p class="red">
+              * Sandals are not allowed for this activity.
+            </p>
+          </article>
+          <article class="activity-card">
+            <p class="activity-number">05</p>
+            <h3>Refreshment Stand</h3>
+            <p>
+              Exchange the tickets you earn from other activities for ice cream, juice, and other treats.
+            </p>
+            <p>
+              We'll have plenty of options waiting for you!
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="info">
+        <p class="eyebrow">Things you should know</p>
+        <h2 class="tagline">Event Information</h2>
+        <div class="info-card">
+          <dl class="info-list">
+            <div class="info-row">
+              <dt>Time & Date</dt>
+              <dd>July 13, 2026 (Mon) 17:00 - 20:00</dd>
+            </div>
+
+            <div class="info-row">
+              <dt>Location</dt>
+              <dd>Taki Plaza B2F</dd>
+            </div>
+
+            <div class="info-row">
+              <dt>Entry Fee</dt>
+              <dd>Free</dd>
+            </div>
+
+            <div class="info-row">
+              <dt>Contact</dt>
+              <dd>
+                <a href="mailto:takiplazagardener.event@gmail.com">
+                  takiplazagardener.event@gmail.com
+                </a>
+              </dd>
+            </div>
+
+            <div class="info-row">
+              <dt>Host</dt>
+              <dd>Taki Plaza Gardener</dd>
+            </div>
+
+            <div class="info-row">
+              <dt>Sponsor</dt>
+              <dd><a href="https://www.kuramae.ne.jp/">Kuramae Alumni Association of Science Tokyo</a></dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="notes">
+        <p class="eyebrow">For Your Safety</p>
+        <h2 class="tagline">Things to Note</h2>
+
+        <div class="notes-card">
+          <ul class="notes-list">
+            <li>Please wear comfortable clothing that allows you to move easily.</li>
+            <li>Athletic shoes are required for some activities.</li>
+            <li>Please do not participate if you are feeling unwell.</li>
+            <li>Event details may change without prior notice.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .event-page {
+    --red: #f20d0d;
+    --black: #050505;
+    --white: #ffffff;
+    --gray: #b8b8b8;
+    --beige: #f4f0e6;
+
+    position: relative;
+    min-height: 100vh;
+    overflow: clip;
+    isolation: isolate;
+    background: var(--beige);
+    color: var(--black);
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Noto Sans JP",
+      sans-serif;
+  }
+
+  .event-page * {
+    box-sizing: border-box;
+  }
+
+  .content-column-wrapper {
+    position: relative;
+    z-index: 1;
+
+    width: min(94vw, 960px);
+    margin-inline: auto;
+    min-height: 100vh;
+
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(2px);
+    padding-inline: clamp(1rem, 4vw, 3rem);
+  }
+
+  .event-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .event-bg-image {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: max(100%, 100vh);
+    width: auto;
+    min-width: 100%;
+    object-fit: cover;
+    object-position: center top;
+    transform: translateX(-50%) translateY(var(--bg-y, 0px));
+    will-change: transform;
+    opacity: 0.9;
+  }
+
+  .key-visual {
+    display: block;
+    width: min(80%, 760px);
+    height: auto;
+    margin-inline: auto;
+  }
+
+  .hero {
+    position: relative;
+    display: grid;
+    place-items: center;
+    padding: clamp(1rem, 5vw, 2rem) clamp(1rem, 5vw, 4rem) 0
+      clamp(1rem, 5vw, 4rem);
+  }
+
+  .hero-inner {
+    width: min(1120px, 100%);
+    transform: rotate(-5deg);
+  }
+
+  .hero-info {
+    position: absolute;
+    left: clamp(1rem, 5vw, 4rem);
+    bottom: -1.5rem;
+    z-index: 3;
+    display: grid;
+    gap: 0.15rem;
+    padding: 0.75rem 1rem;
+    background: rgb(255 255 255 / 0.88);
+    border: 4px solid var(--black);
+    box-shadow: 8px 8px 0 var(--black);
+    color: var(--black);
+    font-weight: 800;
+    line-height: 1;
+    transform: rotate(-2deg);
+  }
+
+  .hero-info p {
+    margin: 0;
+    font-size: clamp(1.05rem, 2.3vw, 1.55rem);
+    letter-spacing: -0.03em;
+  }
+
+  .hero-title-en {
+    font-size: clamp(1.5rem, 3.5vw, 2.8rem);
+    font-weight: 1000;
+    letter-spacing: -0.05em;
+  }
+
+  .hero-date {
+    color: var(--red);
+    white-space: nowrap;
+  }
+
+  .hero-date-year {
+    font-size: clamp(1rem, 2vw, 1.35rem);
+  }
+
+  .hero-date-mid {
+    font-size: clamp(1.15rem, 2.6vw, 1.8rem);
+  }
+
+  .hero-date-em {
+    font-size: clamp(2.1rem, 6vw, 3.3rem);
+    letter-spacing: -0.08em;
+  }
+
+  .red {
+    color: var(--red);
+  }
+
+  .stamp {
+    position: absolute;
+    top: clamp(1rem, 5vw, 4rem);
+    right: 0;
+    width: clamp(120px, 20vw, 200px);
+  }
+
+  .stamp-border {
+    fill: none;
+    stroke: var(--red);
+  }
+
+  .stamp-rect {
+    fill: var(--white);
+    stroke: var(--red);
+  }
+
+  .stamp-content {
+    fill: var(--red);
+    stroke: none;
+  }
+
+  .kicker {
+    margin: 0 0 1rem;
+    font-size: clamp(0.8rem, 1.4vw, 1rem);
+    font-weight: 1000;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .tagline {
+    display: inline-block;
+    margin: -1rem 0 2rem;
+    padding: 0.25em 0.55em;
+    background: var(--black);
+    color: var(--white);
+    font-size: clamp(2rem, 7vw, 5rem);
+    font-weight: 1000;
+    line-height: 0.95;
+    transform: rotate(-2deg);
+  }
+
+  .eyebrow {
+    margin: 0 0 2rem;
+    color: var(--red);
+    transform: rotate(-2deg);
+    font-size: 1rem;
+    font-weight: 1000;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .activity > .eyebrow,
+  .activity > .tagline,
+  .info > .eyebrow,
+  .info > .tagline,
+  .notes > .eyebrow,
+  .notes > .tagline {
+    text-align: left;
+    justify-self: start;
+  }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    font-size: clamp(1.1rem, 2.6vw, 2rem);
+    font-weight: 1000;
+  }
+
+  .meta span {
+    padding: 0.25em 0.45em;
+    background: var(--white);
+    border: 4px solid var(--black);
+    box-shadow: 8px 8px 0 var(--black);
+  }
+
+  .info {
+    position: relative;
+    padding: clamp(4rem, 10vw, 8rem) clamp(1rem, 5vw, 4rem);
+  }
+
+  .intro-card,
+  .notes-card,
+  .info-card {
+    width: calc(100% - 16px);
+    margin-inline: auto;
+    padding: clamp(1.5rem, 5vw, 4rem);
+    background: rgb(255 255 255 / 0.92);
+    border: 5px solid var(--black);
+    box-shadow: 12px 12px 0 var(--black);
+    transform: rotate(1deg);
+  }
+
+  .intro-card {
+    transform: rotate(-1deg);
+  }
+
+  .notes-card {
+    transform: rotate(1deg);
+  }
+
+  .intro-card p {
+    margin: 0;
+    font-size: clamp(1.05rem, 2.4vw, 1.4rem);
+    font-weight: 800;
+    line-height: 1.8;
+  }
+
+  .intro-card p + p {
+    margin-top: 1rem;
+  }
+
+  .info-list {
+    display: grid;
+    gap: 1rem;
+    margin: 0;
+  }
+
+  .info-row {
+    display: grid;
+    grid-template-columns: 8rem 1fr;
+    gap: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 3px solid var(--black);
+  }
+
+  .info-row dt {
+    font-weight: 1000;
+  }
+
+  .info-row dd {
+    margin: 0;
+    font-weight: 800;
+    color: var(--red);
+  }
+
+  .info-row a {
+    color: inherit;
+  }
+
+  .notes,
+  .about,
+  .activity {
+    position: relative;
+    padding: clamp(2rem, 10vw, 4rem) clamp(1rem, 5vw, 4rem);
+  }
+
+  .notes-list {
+    display: grid;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .notes-list li {
+    position: relative;
+    padding: 0.9rem 0 0.9rem 2rem;
+    border-bottom: 3px solid var(--black);
+    color: var(--red);
+    font-weight: 800;
+    line-height: 1.6;
+  }
+
+  .notes-list li::before {
+    content: "";
+    position: absolute;
+    left: 0.2rem;
+    top: 1.4rem;
+    width: 0.6rem;
+    height: 0.6rem;
+    bottom: 0.2rem;
+    background: var(--red);
+    transform: rotate(46deg);
+  }
+
+  .notes-list li:last-child {
+    border-bottom: 0;
+  }
+
+  .section-title {
+    max-width: 900px;
+    margin: 0 0 2rem;
+    color: var(--red);
+    font-size: clamp(3rem, 13vw, 10rem);
+    line-height: 0.9;
+    font-weight: 1000;
+    letter-spacing: -0.08em;
+    text-shadow: 12px 12px 0 var(--black);
+    transform: rotate(-3deg);
+  }
+
+  .activity-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .activity-card {
+    min-height: 18rem;
+    padding: 1.4rem;
+    background: var(--white);
+    border: 5px solid var(--black);
+    box-shadow: 10px 10px 0 var(--black);
+  }
+
+  .activity-card:nth-child(1) {
+    transform: rotate(-2deg);
+  }
+
+  .activity-card:nth-child(2) {
+    transform: rotate(1deg);
+  }
+
+  .activity-card:nth-child(3) {
+    transform: rotate(-1deg);
+  }
+
+  .activity-card:nth-child(4) {
+    transform: rotate(2deg);
+  }
+
+  .activity-card:nth-child(5) {
+    grid-column: 1 / -1;
+    width: min(100%, calc((100% - 1rem) / 2));
+    justify-self: center;
+    transform: rotate(-1deg);
+  }
+
+  .activity-number {
+    margin: 0 0 2rem;
+    color: var(--red);
+    font-size: 3rem;
+    font-weight: 1000;
+    line-height: 1;
+  }
+
+  .activity-card h3 {
+    margin: 0 0 0.75rem;
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    line-height: 0.95;
+  }
+
+  .activity-card p {
+    margin: 0;
+    font-weight: 800;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 760px) {
+    .hero {
+      place-items: end start;
+      padding-bottom: 5rem;
+    }
+
+    .hero-inner {
+      transform: rotate(-7deg);
+    }
+
+    .meta {
+      display: grid;
+    }
+
+    .info-row {
+      grid-template-columns: 1fr;
+      gap: 0.2rem;
+    }
+
+    .activity-grid {
+      display: block;
+      scroll-snap-type: y mandatory;
+    }
+
+    .intro-card,
+    .notes-card,
+    .info-card {
+      width: calc(100% - 8px);
+      box-shadow: 6px 6px 0 var(--black);
+      transform: rotate(0.5deg);
+    }
+
+    .activity-card {
+      position: sticky;
+      top: 0;
+      display: grid;
+      margin-bottom: 2rem;
+      scroll-snap-align: start;
+    }
+
+    .activity-card:nth-child(5) {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 420px) {
+  .content-column-wrapper {
+    width: 100%;
+    padding-inline: 0.75rem;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 0.75rem 0.25rem 4.25rem;
+  }
+
+  .key-visual {
+    width: min(94%, 620px);
+  }
+
+  .kicker {
+    margin-bottom: 0.4rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+  }
+
+  .stamp {
+    top: 0.65rem;
+    right: -0.25rem;
+    width: clamp(82px, 27vw, 112px);
+  }
+
+  .hero-info {
+    left: 0.25rem;
+    bottom: 0.25rem;
+    max-width: calc(100% - 0.5rem);
+    padding: 0.55rem 0.65rem;
+    border-width: 3px;
+    box-shadow: 5px 5px 0 var(--black);
+  }
+
+  .hero-info p {
+    font-size: clamp(0.82rem, 4.4vw, 1.05rem);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+  }
+
+  .hero-date-year {
+    font-size: clamp(0.78rem, 3.6vw, 0.95rem);
+  }
+
+  .hero-date-mid {
+    font-size: clamp(0.92rem, 4.4vw, 1.15rem);
+  }
+
+  .hero-date-em {
+    font-size: clamp(1.55rem, 9vw, 2.25rem);
+  }
+
+  .about,
+  .activity,
+  .info,
+  .notes {
+    padding-inline: 0.25rem;
+  }
+
+  .tagline {
+    margin-bottom: 1.35rem;
+    font-size: clamp(1.7rem, 12vw, 2.6rem);
+  }
+
+  .eyebrow {
+    margin-bottom: 1.25rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+  }
+
+  .intro-card,
+  .notes-card,
+  .info-card {
+    width: calc(100% - 6px);
+    padding: 1.1rem;
+    border-width: 4px;
+    box-shadow: 5px 5px 0 var(--black);
+  }
+
+  .info-list {
+    gap: 0.8rem;
+  }
+
+  .info-row {
+    min-width: 0;
+    gap: 0.25rem;
+    padding-bottom: 0.65rem;
+  }
+
+  .info-row dt,
+  .info-row dd {
+    min-width: 0;
+  }
+
+  .info-row dd {
+    font-size: 0.95rem;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  .info-row a {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .activity-card {
+    min-height: 14rem;
+    padding: 1.1rem;
+    border-width: 4px;
+    box-shadow: 6px 6px 0 var(--black);
+  }
+
+  .activity-number {
+    margin-bottom: 1.25rem;
+    font-size: 2.35rem;
+  }
+}
+
+@media (max-width: 340px) {
+  .hero {
+    padding-bottom: 3.75rem;
+  }
+
+  .stamp {
+    width: 76px;
+  }
+
+  .hero-info {
+    padding: 0.45rem 0.55rem;
+    box-shadow: 4px 4px 0 var(--black);
+  }
+
+  .hero-info p {
+    font-size: 0.78rem;
+  }
+
+  .hero-date-em {
+    font-size: 1.55rem;
+  }
+
+  .info-row dd {
+    font-size: 0.88rem;
+  }
+}
+
+  @media (prefers-reduced-motion: reduce) {
+    .activity-card {
+      position: static;
+    }
+  }
+</style>
