@@ -586,6 +586,154 @@ const description = "filler"; // TODO
       scroll-snap-align: start;
     }
   }
+  
+  @media (max-width: 420px) {
+  .content-column-wrapper {
+    width: 100%;
+    padding-inline: 0.75rem;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 0.75rem 0.25rem 4.25rem;
+  }
+
+  .key-visual {
+    width: min(94%, 620px);
+  }
+
+  .kicker {
+    margin-bottom: 0.4rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+  }
+
+  .stamp {
+    top: 0.65rem;
+    right: -0.25rem;
+    width: clamp(82px, 27vw, 112px);
+  }
+
+  .hero-info {
+    left: 0.25rem;
+    bottom: 0.25rem;
+    max-width: calc(100% - 0.5rem);
+    padding: 0.55rem 0.65rem;
+    border-width: 3px;
+    box-shadow: 5px 5px 0 var(--black);
+  }
+
+  .hero-info p {
+    font-size: clamp(0.82rem, 4.4vw, 1.05rem);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+  }
+
+  .hero-date-year {
+    font-size: clamp(0.78rem, 3.6vw, 0.95rem);
+  }
+
+  .hero-date-mid {
+    font-size: clamp(0.92rem, 4.4vw, 1.15rem);
+  }
+
+  .hero-date-em {
+    font-size: clamp(1.55rem, 9vw, 2.25rem);
+  }
+
+  .about,
+  .activity,
+  .info,
+  .notes {
+    padding-inline: 0.25rem;
+  }
+
+  .tagline {
+    margin-bottom: 1.35rem;
+    font-size: clamp(1.7rem, 12vw, 2.6rem);
+  }
+
+  .eyebrow {
+    margin-bottom: 1.25rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+  }
+
+  .intro-card,
+  .notes-card,
+  .info-card {
+    width: calc(100% - 6px);
+    padding: 1.1rem;
+    border-width: 4px;
+    box-shadow: 5px 5px 0 var(--black);
+  }
+
+  .info-list {
+    gap: 0.8rem;
+  }
+
+  .info-row {
+    min-width: 0;
+    gap: 0.25rem;
+    padding-bottom: 0.65rem;
+  }
+
+  .info-row dt,
+  .info-row dd {
+    min-width: 0;
+  }
+
+  .info-row dd {
+    font-size: 0.95rem;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  .info-row a {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .activity-card {
+    min-height: 14rem;
+    padding: 1.1rem;
+    border-width: 4px;
+    box-shadow: 6px 6px 0 var(--black);
+  }
+
+  .activity-number {
+    margin-bottom: 1.25rem;
+    font-size: 2.35rem;
+  }
+}
+
+@media (max-width: 340px) {
+  .hero {
+    padding-bottom: 3.75rem;
+  }
+
+  .stamp {
+    width: 76px;
+  }
+
+  .hero-info {
+    padding: 0.45rem 0.55rem;
+    box-shadow: 4px 4px 0 var(--black);
+  }
+
+  .hero-info p {
+    font-size: 0.78rem;
+  }
+
+  .hero-date-em {
+    font-size: 1.55rem;
+  }
+
+  .info-row dd {
+    font-size: 0.88rem;
+  }
+}
 
   @media (prefers-reduced-motion: reduce) {
     .activity-card {
