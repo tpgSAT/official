@@ -1,0 +1,434 @@
+---
+import Layout from "@layouts/Layout.astro";
+import "@fontsource/rocknroll-one";
+import background from "@assets/events/2026/koudaisai/radiation.png"
+import key from "@assets/events/2026/koudaisai/thumbnail-noBack.svg";
+import partTitle from "@assets/events/2026/koudaisai/partTitle.svg";
+
+const title = "ボボボーボ・ボードゲ";
+
+const description = "工大祭2026 Sparkle にて、Taki Plaza Gardener が Taki Plaza 地下2階でボドゲカフェを開催します！ドリンク、スイーツを楽しみながら皆でボドゲ！";
+
+const quickGames = [
+  "音速飯店",
+  "Dobble",
+  "ラブレター",
+  "あいうえバトル",
+  "6nimmt!",
+  "おばけキャッチ",
+  "ワードスナイパー",
+];
+const longGames = ["カタン", "ドミニオン"];
+const drinks = [
+  "コカ・コーラ",
+  "三ツ矢サイダー",
+  "バリヤースオレンジ",
+  "UCCブレンドコーヒー微糖",
+  "午後の紅茶 レモンティー",
+];
+const foods = ["バウムクーヘン", "コーヒーゼリー", "桃ゼリー"];
+---
+
+<Layout title={title} description={description}>
+  <div class="event-page" style={`--part-title: url(${partTitle.src})`}>
+    <div class="event-bg" aria-hidden="true">
+      <img src={background.src} alt="" class="event-bg-image" />
+    </div>
+
+    <div class="content-column-wrapper">
+      <section class="hero">
+          <img src={key.src} alt={`ボドゲカフェ ${title}`} class="key-visual" />
+
+        <div class="hero-info">
+          <div class="hero-datetime">
+            <p>日時：</p>
+            <div>
+              <p>2026/10/10（土）10:00～18:00</p>
+              <p>2026/10/11（日）10:00～17:00</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="about">
+        <h2 class="tagline">ボードゲーム</h2>
+        <div class="game-box">
+          <div class="game-col">
+            <h3>すぐに楽しめる</h3>
+            <ul class="list">
+              {quickGames.map((game) => <li>{game}</li>)}
+            </ul>
+          </div>
+          <div class="game-col">
+            <h3>じっくり遊ぶ</h3>
+            <ul class="list">
+              {longGames.map((game) => <li>{game}</li>)}
+            </ul>
+          </div>
+        </div>
+        <p class="more">その他も沢山あります!!</p>
+      </section>
+
+      <section class="menu">
+        <h2 class="tagline">メニュー</h2>
+        <p class="menu-note">※ワンオーダー制です</p>
+        <div class="game-box menu-box">
+          <div class="game-col">
+            <h3>Drink</h3>
+            <ul class="list">
+              {drinks.map((item) => <li>{item}</li>)}
+            </ul>
+            <p class="price">…各100円</p>
+          </div>
+          <div class="game-col">
+            <h3>Food</h3>
+            <ul class="list">
+              {foods.map((item) => <li>{item}</li>)}
+            </ul>
+            <p class="price">…各300円</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="info">
+        <h2 class="tagline">イベント情報</h2>
+        <div class="info-card">
+          <dl class="info-list">
+            <div class="info-row">
+              <dt>日時</dt>
+              <dd>
+                2026/10/10（土）10:00～18:00<br />
+                2026/10/11（日）10:00～17:00
+              </dd>
+            </div>
+
+            <div class="info-row">
+              <dt>場所</dt>
+              <dd>Taki Plaza 地下2階（8番の建物）</dd>
+            </div>
+
+            <div class="info-row">
+              <dt>問い合わせ</dt>
+              <dd>
+                <a href="mailto:takiplazagardener.event@gmail.com">
+                  takiplazagardener.event@gmail.com
+                </a>
+              </dd>
+            </div>
+
+            <div class="info-row">
+              <dt>主催</dt>
+              <dd>Taki Plaza Gardener</dd>
+            </div>
+
+            <div class="info-row">
+              <dt>後援</dt>
+              <dd><a href="https://www.kuramae.ne.jp/">蔵前工業会</a></dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .event-page {
+    --red: #f20d0d;
+    --pink: #ff2d8f;
+    --sky: #38bdf8;
+    --black: #050505;
+    --white: #ffffff;
+    --bg: #baf4ff;
+
+    position: relative;
+    min-height: 100vh;
+    overflow: clip;
+    isolation: isolate;
+    background: var(--bg);
+    color: var(--black);
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Noto Sans JP",
+      sans-serif;
+  }
+
+  .event-page * {
+    box-sizing: border-box;
+  }
+
+  .event-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .event-bg-image {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: max(100%, 100vh);
+    width: auto;
+    min-width: 100%;
+    object-fit: cover;
+    object-position: center top;
+    transform: translateX(-50%);
+  }
+
+  .content-column-wrapper {
+    position: relative;
+    z-index: 1;
+    width: min(94vw, 960px);
+    min-height: 100vh;
+    margin-inline: auto;
+    padding-inline: clamp(1rem, 4vw, 3rem);
+    background: rgba(255, 255, 255, 0.8);
+  }
+
+  .hero {
+    position: relative;
+    padding: clamp(1.5rem, 5vw, 3rem) clamp(1rem, 5vw, 4rem) 5rem;
+  }
+
+  .key-visual {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-inline: auto;
+  }
+
+  .hero-info {
+    position: absolute;
+    left: clamp(1rem, 5vw, 4rem);
+    bottom: 0;
+    display: grid;
+    gap: 0.35rem;
+    padding: 0.75rem 1rem;
+    background: rgb(255 255 255 / 0.88);
+    border: 3px solid var(--pink);
+    box-shadow:
+      0 0 6px var(--pink),
+      0 0 18px rgba(255, 45, 143, 0.55),
+      0 0 36px rgba(255, 45, 143, 0.3);
+    font-family: "RocknRoll One", "Noto Sans JP Variable", sans-serif;
+    font-weight: 400;
+    transform: rotate(-2deg);
+  }
+
+  .hero-datetime {
+    display: flex;
+    align-items: baseline;
+  }
+
+  .hero-info p {
+    margin: 0;
+    font-size: clamp(0.95rem, 2.3vw, 1.3rem);
+  }
+
+  .tagline {
+    display: inline-block;
+    margin: -1rem 0 2rem;
+    /* partTitle.svg (389x108) の斜めの両端は固定し、中央だけ文字幅に合わせて伸ばす。
+       高さは 1.2em + 0.06em×2 = 1.32em で、両端の幅は元画像の 40 / 60 を 1.32em/108 倍にした値。 */
+    padding: 0.06em 0.1em;
+    border-style: solid;
+    border-width: 0 0.733em 0 0.489em;
+    border-image: var(--part-title) 0 60 0 40 fill / 0 0.733em 0 0.489em stretch;
+    color: var(--white);
+    font-family: "Noto Sans JP Variable", "Noto Sans JP", sans-serif;
+    font-size: clamp(2rem, 9vw, 5rem);
+    font-style: italic;
+    font-weight: 900;
+    line-height: 1.2;
+    text-shadow: 0.075em 0 0 #000;
+    /* 枠の形（partTitle.svgの平行四辺形）はそのまま、ネオンの発光だけを追加する。
+       border-imageは透明な角があるため、box-shadowではなく形状に沿うdrop-shadowを使う。
+       他のネオン枠と同じ 6/18/36px・不透明度 .55/.3 の質感に揃えている。 */
+    filter:
+      drop-shadow(0 0 6px var(--sky))
+      drop-shadow(0 0 18px rgba(56, 189, 248, 0.55))
+      drop-shadow(0 0 36px rgba(56, 189, 248, 0.3));
+    transform: rotate(-2deg);
+  }
+
+  .about,
+  .menu {
+    padding: clamp(2rem, 10vw, 4rem) clamp(1rem, 5vw, 4rem);
+  }
+
+  .info {
+    padding: clamp(4rem, 10vw, 8rem) clamp(1rem, 5vw, 4rem);
+  }
+
+  .menu-note {
+    margin: 0 0 1rem;
+    color: var(--black);
+    font-weight: 1000;
+  }
+
+  .game-box {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    background: #6788ff;
+    border: 3px solid var(--pink);
+    box-shadow:
+      0 0 6px var(--pink),
+      0 0 18px rgba(255, 45, 143, 0.55),
+      0 0 36px rgba(255, 45, 143, 0.3);
+    transform: rotate(-1deg);
+    font-family: "RocknRoll One", "Noto Sans JP Variable", sans-serif;
+  }
+
+  .menu-box {
+    background: #8c5bff;
+    transform: rotate(1deg);
+  }
+
+  /* RocknRoll One は太さが1種類のため、疑似ボールドを避ける */
+  .game-box h3,
+  .game-box .list,
+  .game-box .price {
+    font-weight: 400;
+  }
+
+  .game-col {
+    padding: 1.4rem;
+  }
+
+  .game-col + .game-col {
+    border-left: 2px solid var(--pink);
+    box-shadow:
+      0 0 6px var(--pink),
+      0 0 18px rgba(255, 45, 143, 0.55),
+      0 0 36px rgba(255, 45, 143, 0.3);
+  }
+
+  .game-col h3 {
+    margin: 0 0 1rem;
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+  }
+
+  .info-card {
+    width: calc(100% - 16px);
+    margin-inline: auto;
+    padding: clamp(1.5rem, 5vw, 3rem);
+    background: var(--white);
+    border: 3px solid var(--pink);
+    box-shadow:
+      0 0 6px var(--pink),
+      0 0 18px rgba(255, 45, 143, 0.55),
+      0 0 36px rgba(255, 45, 143, 0.3);
+    transform: rotate(1deg);
+  }
+
+  .list {
+    display: grid;
+    gap: 0.4rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-weight: 800;
+  }
+
+  .list li::before {
+    content: "▶ ";
+    color: var(--red);
+  }
+
+  .price {
+    margin: 1rem 0 0;
+    text-align: right;
+    font-size: 1.3rem;
+    font-weight: 1000;
+  }
+
+  .more {
+    margin: 1.5rem 0 0;
+    font-family: "RocknRoll One", "Noto Sans JP Variable", sans-serif;
+    font-weight: 400;
+    text-align: right;
+  }
+
+  .info-list {
+    display: grid;
+    gap: 1rem;
+    margin: 0;
+  }
+
+  .info-row {
+    display: grid;
+    grid-template-columns: 8rem 1fr;
+    gap: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--pink);
+  }
+
+  .info-row dt {
+    font-weight: 1000;
+  }
+
+  .info-row dd {
+    margin: 0;
+    font-weight: 800;
+    color: var(--red);
+  }
+
+  .info-row a {
+    color: inherit;
+  }
+
+  .note {
+    margin: 1.5rem 0 0;
+    font-size: 0.9rem;
+    font-weight: 800;
+  }
+
+  @media (max-width: 760px) {
+    .hero {
+      padding-bottom: 7rem;
+    }
+
+    .info-row {
+      grid-template-columns: 1fr;
+      gap: 0.2rem;
+    }
+
+    .info-card {
+      width: calc(100% - 8px);
+      box-shadow:
+        0 0 4px var(--pink),
+        0 0 12px rgba(255, 45, 143, 0.45);
+    }
+  }
+
+  @media (max-width: 420px) {
+    .content-column-wrapper {
+      width: 100%;
+      padding-inline: 0.75rem;
+    }
+
+    .hero-info {
+      left: 0.25rem;
+      max-width: calc(100% - 0.5rem);
+      box-shadow:
+        0 0 4px var(--pink),
+        0 0 12px rgba(255, 45, 143, 0.45);
+    }
+
+    .about,
+    .menu,
+    .info {
+      padding-inline: 0.25rem;
+    }
+
+    .info-row dd {
+      font-size: 0.95rem;
+      overflow-wrap: anywhere;
+    }
+  }
+</style>
