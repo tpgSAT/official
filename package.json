@@ -18,6 +18,7 @@
     "@astrojs/sitemap": "^3.7.0",
     "@fontsource-variable/noto-sans-jp": "^5.2.9",
     "@fontsource/m-plus-rounded-1c": "^5.2.9",
+    "@fontsource/rocknroll-one": "^5.3.0",
     "@splidejs/react-splide": "^0.7.12",
     "@splidejs/splide": "^4.1.4",
     "astro-seo": "^0.8.4",
