@@ -41,6 +41,7 @@ export const events: Event[] = [
     path: "/2026/koudaisai/",
     thumbnail: koudaisai2026Thumb,
     date: "2026-10-10",
+    endDate: "2026-10-11",
     time: "10:00~18:00",
   },
   {
