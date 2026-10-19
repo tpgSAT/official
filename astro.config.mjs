@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, envField } from 'astro/config';
 
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
@@ -33,6 +33,16 @@ export default defineConfig({
               '@assets': '/src/assets',
               '@i18n': '/src/i18n',
           },
+      },
+  },
+
+  // ブログのプレビュー（/blog/preview/[id]）で使う秘密情報。Cloudflare の secret / ローカルは .dev.vars で設定する
+  env: {
+      schema: {
+          // 下書きを読める Directus のトークン
+          DIRECTUS_PREVIEW_TOKEN: envField.string({ context: "server", access: "secret", optional: true }),
+          // プレビューURLに付ける合言葉（?secret=...）
+          PREVIEW_SECRET: envField.string({ context: "server", access: "secret", optional: true }),
       },
   },
 

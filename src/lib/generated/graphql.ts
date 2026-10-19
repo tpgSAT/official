@@ -579,6 +579,14 @@ export type GetAllPostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type GetAllPostsQuery = { __typename?: 'Query', Post: Array<{ __typename?: 'Post', UUID: string, Title?: string | null, Content?: string | null, PublishedDate?: any | null, Tags?: any | null, Thumbnail?: { __typename?: 'directus_files', id: string } | null, Category?: { __typename?: 'categories', name?: string | null, parent?: { __typename?: 'categories', name?: string | null } | null } | null }> };
 
+export type GetPreviewPostQueryVariables = Exact<{
+  id: Scalars['ID']['input'];
+  version?: InputMaybe<Scalars['String']['input']>;
+}>;
+
+
+export type GetPreviewPostQuery = { __typename?: 'Query', Post_by_id?: { __typename?: 'Post', UUID: string, Title?: string | null, Content?: string | null, PublishedDate?: any | null, Tags?: any | null, Thumbnail?: { __typename?: 'directus_files', id: string } | null, Category?: { __typename?: 'categories', name?: string | null, parent?: { __typename?: 'categories', name?: string | null } | null } | null } | null };
+
 export type PostFieldsFragment = { __typename?: 'Post', UUID: string, Title?: string | null, Content?: string | null, PublishedDate?: any | null, Tags?: any | null, Thumbnail?: { __typename?: 'directus_files', id: string } | null, Category?: { __typename?: 'categories', name?: string | null, parent?: { __typename?: 'categories', name?: string | null } | null } | null };
 
 export const PostFieldsFragmentDoc = gql`
@@ -613,6 +621,13 @@ export const GetAllPostsDocument = gql`
   }
 }
     ${PostFieldsFragmentDoc}`;
+export const GetPreviewPostDocument = gql`
+    query GetPreviewPost($id: ID!, $version: String) {
+  Post_by_id(id: $id, version: $version) {
+    ...PostFields
+  }
+}
+    ${PostFieldsFragmentDoc}`;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string, variables?: any) => Promise<T>;
 
@@ -626,6 +641,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     GetAllPosts(variables?: GetAllPostsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<GetAllPostsQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetAllPostsQuery>({ document: GetAllPostsDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'GetAllPosts', 'query', variables);
+    },
+    GetPreviewPost(variables: GetPreviewPostQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<GetPreviewPostQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetPreviewPostQuery>({ document: GetPreviewPostDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'GetPreviewPost', 'query', variables);
     }
   };
 }

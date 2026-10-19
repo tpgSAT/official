@@ -69,3 +69,15 @@ export async function getAllCategories() {
   const res = await sdk.GetAllCategories();
   return res.categories;
 }
+
+/**
+ * プレビュー用: Status を問わず1件取得する（version を指定するとその版の内容）。
+ * token は下書きを読める Directus のトークン。
+ */
+export async function getPreviewPost(id: string, token: string, version?: string) {
+  const res = await sdk.GetPreviewPost(
+    { id, version },
+    { Authorization: `Bearer ${token}` },
+  );
+  return res.Post_by_id ? toBlogPost(res.Post_by_id) : null;
+}
