@@ -43,7 +43,7 @@ npm run codegen
 
 - イベント表示は `src/lib/events.ts` の配列順に依存する箇所があるため、順序変更は意図を持って行う。
 - `src/components/Heading.astro` は `<slot />` を `<p>` で包むため、子要素はインライン前提で扱う。
-- リダイレクトは `public/.htaccess` で管理されているため、URL変更時はここも確認する。
+- リダイレクトは `public/_redirects`（Cloudflare Workers の静的アセット用）で管理されているため、URL変更時はここも確認する。
 
 ## 期待するコミット品質
 

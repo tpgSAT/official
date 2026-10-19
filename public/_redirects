@@ -1,0 +1,54 @@
+# Cloudflare Workers 静的アセット用のリダイレクト設定
+# 書式: <元のパス> <リダイレクト先> <ステータス>
+# 静的ルール（ワイルドカードなし）を先に、動的ルール（* を含む）を後に書く
+
+# 短縮リンク
+/r/instagram https://www.instagram.com/taki_plaza_gardener/ 301
+/r/instagram/ https://www.instagram.com/taki_plaza_gardener/ 301
+
+# たきぷら農園301リダイレクト（移行先の /events/2025/takipura-farm/ へ直接）
+/whatsnew/20251007_takipurasityu- /events/2025/takipura-farm/ 301
+/whatsnew/20251007_takipurasityu-/ /events/2025/takipura-farm/ 301
+
+# Astro移行に伴うURL変更のリダイレクト
+
+# kyumenmaruti → signage-application にリダイレクト
+/kyumenmaruti /signage-application/ 301
+/kyumenmaruti/ /signage-application/ 301
+/kyumenmaruti/index.html /signage-application/ 301
+
+# keijibutu → poster-application にリダイレクト
+/keijibutu /poster-application/ 301
+/keijibutu/ /poster-application/ 301
+/keijibutu/index.html /poster-application/ 301
+
+# aboutus → about にリダイレクト（配下は末尾の動的ルールで処理）
+/aboutus /about/ 301
+
+# whatsnew → events にリダイレクト
+/whatsnew /events/ 301
+/whatsnew/ /events/ 301
+/whatsnew/index.html /events/ 301
+
+# /whatsnew/20250624_stainedglass → /events/2025/stainedglass にリダイレクト
+/whatsnew/20250624_stainedglass /events/2025/stainedglass/ 301
+/whatsnew/20250624_stainedglass/ /events/2025/stainedglass/ 301
+/whatsnew/20250624_stainedglass/index.html /events/2025/stainedglass/ 301
+
+# /whatsnew/20250621_takimatsuri → /events/2025/takimatsuri にリダイレクト
+/whatsnew/20250621_takimatsuri /events/2025/takimatsuri/ 301
+/whatsnew/20250621_takimatsuri/ /events/2025/takimatsuri/ 301
+/whatsnew/20250621_takimatsuri/index.html /events/2025/takimatsuri/ 301
+
+# /whatsnew/20251014_takipuranouen → /events/2025/takipura-farm にリダイレクト
+/whatsnew/20251014_takipuranouen /events/2025/takipura-farm/ 301
+/whatsnew/20251014_takipuranouen/ /events/2025/takipura-farm/ 301
+/whatsnew/20251014_takipuranouen/index.html /events/2025/takipura-farm/ 301
+
+# /whatsnew/20251014_koudaisai → /events/2025/tpg-cafe にリダイレクト
+/whatsnew/20251014_koudaisai /events/2025/tpg-cafe/ 301
+/whatsnew/20251014_koudaisai/ /events/2025/tpg-cafe/ 301
+/whatsnew/20251014_koudaisai/index.html /events/2025/tpg-cafe/ 301
+
+# 動的ルール
+/aboutus/* /about/ 301
