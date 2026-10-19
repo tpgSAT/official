@@ -1,0 +1,16 @@
+fragment PostFields on Post {
+  UUID
+  Title
+  Content
+  PublishedDate
+  Tags
+  Thumbnail {
+    id
+  }
+  Category {
+    name
+    parent {
+      name
+    }
+  }
+}

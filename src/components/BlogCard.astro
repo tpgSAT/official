@@ -1,6 +1,8 @@
 ---
+import type { BlogPost } from '@lib/api';
+
 interface Props {
-    post: any;
+    post: BlogPost;
 }
 
 const { post } = Astro.props as Props;
@@ -8,21 +10,13 @@ const { post } = Astro.props as Props;
 const FallbackThumbnail = '/blog-fallback-thumbnail.jpg';
 
 // 🔸 サムネイルURLを取得（なければデフォルト表示）
-const sizes = post.featuredImage?.node?.mediaDetails?.sizes ?? [];
-const mediumLarge = sizes.find((s: any) => s.name === "medium_large")?.sourceUrl;
+const thumbnail = post.thumbnail ?? FallbackThumbnail;
 
-const thumbnail =
-  mediumLarge ||
-  post.featuredImage?.node?.sourceUrl ||
-  FallbackThumbnail;
-
-// 🔸 カテゴリ名の配列を取得（なければ空配列）
-const categories =
-  post.categories?.nodes?.map((c: any) => c.name) ?? [];
+const { categories } = post;
 
 ---
 
-<a href={`/blog/${post.slug}`}>
+<a href={`/blog/${post.id}/`}>
     <div class="content">
         <img src={thumbnail} class="thumbnail" alt={post.title} />
         <div class="tags-wrapper"><p class="tag">{categories?.join(' ')}</p></div>

@@ -36,9 +36,9 @@ export default defineConfig({
       },
   },
 
-  // allow cms.tpgd.jp for remote images
+  // allow directus.tpgd.jp for remote images
   image: {
-      domains: ["cms.tpgd.jp"],
+      domains: ["directus.tpgd.jp"],
   },
 
   integrations: [
