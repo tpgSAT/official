@@ -24,7 +24,7 @@ const ListItem = [
     <div id="root">
         <h1>ブログ記事</h1>
 		<div class="blog-content-wrapper">
-		{page.data?.map(post => <BlogCard post={post.node} />)}
+		{page.data?.map(post => <BlogCard post={post} />)}
 		</div>
     </div>
     <Pagination page={page} baseUrl={`/blog`} />

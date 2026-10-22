@@ -1,0 +1,5 @@
+query GetPreviewPost($id: ID!, $version: String) {
+  Post_by_id(id: $id, version: $version) {
+    ...PostFields
+  }
+}

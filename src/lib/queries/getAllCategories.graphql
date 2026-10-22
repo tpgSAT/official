@@ -1,7 +1,5 @@
 query GetAllCategories {
-  categories {
-    nodes {
-      name
-    }
+  categories(limit: -1) {
+    name
   }
 }

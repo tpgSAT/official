@@ -10,12 +10,12 @@ export async function getStaticPaths({paginate}) {
     const posts = await getAllPosts();
 
     return categories?.flatMap((category) => {
-        // カテゴリに属する記事をフィルタリング
-        const filteredPosts = posts?.filter((post) => post.node.categories?.edges.some(c => c.node.name === category.name));
-    
+        // カテゴリに属する記事をフィルタリング（post.categories には親カテゴリも含まれるため、親カテゴリのページには子カテゴリの記事も並ぶ）
+        const filteredPosts = posts.filter((post) => post.categories.includes(category.name ?? ''));
+
         // 記事を新しい順に並び替え
-        const sortedPosts = filteredPosts?.sort((a, b) => {
-        return new Date(b.node.date) - new Date(a.node.date);
+        const sortedPosts = filteredPosts.sort((a, b) => {
+        return new Date(b.date) - new Date(a.date);
         });
     
         // ページネーションのパスを生成 + 1Pごとの記事数を指定
@@ -40,7 +40,7 @@ const ListItem = [
     <div id="root">
         <h1># {params.tag}</h1>
 		<div class="blog-content-wrapper">
-		{page.data?.map(post => <BlogCard post={post.node} />)}
+		{page.data?.map(post => <BlogCard post={post} />)}
     </div>
     <Pagination page={page} baseUrl={`/blog/tags/${params.tag}`} />
 </Layout>

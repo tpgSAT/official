@@ -2,8 +2,15 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "official",
   "compatibility_date": "2026-05-20",
+  "compatibility_flags": ["nodejs_compat"],
+  // ブログのプレビュー（/blog/preview/*）だけ Astro のサーバー側で描画する
+  "main": "./dist/_worker.js/index.js",
   "assets": {
+    "binding": "ASSETS",
     "directory": "./dist",
-    "not_found_handling": "404-page"
+    "not_found_handling": "404-page",
+    // 404-page を使うとページ遷移のリクエストは Worker に届かないため、プレビューのパスだけ先に Worker を通す
+    // /_image はプレビューのページ内の画像（astro:assets）を返すエンドポイント
+    "run_worker_first": ["/blog/preview/*", "/_image"]
   }
 }

@@ -5,7 +5,7 @@
 ## 目的
 
 - Astro製のTPG公式サイトを安全に更新する
-- 既存の実装・運用フロー（GitHub Actions / WordPress連携）を壊さない
+- 既存の実装・運用フロー（Cloudflare Workers Builds / Directus連携）を壊さない
 - 変更を最小限かつ明確に保つ
 
 ## プロジェクト概要
@@ -13,12 +13,12 @@
 - フレームワーク: Astro
 - コンテンツ:
   - 固定ページ: `src/pages/`
-  - ブログ: WordPress GraphQL (`https://cms.tpgd.jp/graphql`)
+  - ブログ: Directus GraphQL (`https://directus.tpgd.jp/graphql`)
 - 生成物: `dist/`
 - 主なデプロイ:
   - `develop` push -> 開発環境
   - `master` push -> 本番環境
-  - `repository_dispatch (wp_published)` -> WordPress公開連動ビルド
+  - Directus の Flow -> Cloudflare の Deploy Hook -> 記事公開連動ビルド
 
 ## 基本コマンド
 
@@ -43,7 +43,8 @@ npm run codegen
 
 - イベント表示は `src/lib/events.ts` の配列順に依存する箇所があるため、順序変更は意図を持って行う。
 - `src/components/Heading.astro` は `<slot />` を `<p>` で包むため、子要素はインライン前提で扱う。
-- リダイレクトは `public/.htaccess` で管理されているため、URL変更時はここも確認する。
+- リダイレクトは `public/_redirects`（Cloudflare Workers の静的アセット用）で管理されているため、URL変更時はここも確認する。
+- サーバー側で描画するのはブログのプレビュー（`src/pages/blog/preview/[id].astro`）だけ。`wrangler.jsonc` の `run_worker_first` で、このパスとプレビュー内の画像用の `/_image` だけ Worker に通している。
 
 ## 期待するコミット品質
 
