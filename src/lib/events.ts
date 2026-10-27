@@ -35,6 +35,15 @@ import freshmanMeetupThumb from "@assets/events/2025/freshman-meetup/thumbnail.p
 
 export const events: Event[] = [
   {
+    title: "",
+    titleEn: "",
+    year: 2026,
+    path: "/2026/koudaisai/",
+    thumbnail: koudaisai2026Thumb,
+    date: "2026-11-09",
+    time: "17:00~20:00",
+  },
+  {
     title: "ボドゲカフェ: ボボボーボ・ボードゲ",
     titleEn: "Board game Cafe: Bobobo-bo Bo-ard game",
     year: 2026,
