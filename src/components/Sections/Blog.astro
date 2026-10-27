@@ -21,7 +21,7 @@ const translatePath = (path: string) => getRelativeLocaleUrl(lang, path);
 
 <TopPageSection headingSVG={headingBlog}>
 	<div class="blog-content-wrapper">
-    {posts?.slice(0, 3).map(post => <BlogCard post={post.node} />)}
+    {posts.slice(0, 3).map(post => <BlogCard post={post} />)}
 	</div>
 
     <div class="link-wrapper">

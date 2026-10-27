@@ -1,4 +1,4 @@
-schema: "https://cms.tpgd.jp/graphql"
+schema: "https://directus.tpgd.jp/graphql"
 documents:
   - "src/**/*.graphql"
 generates:

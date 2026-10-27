@@ -1,41 +1,5 @@
 query GetAllPosts {
-    posts(first: 10000) {
-      edges {
-        node {
-          slug
-          excerpt
-				  title
-          date
-          categories {
-            edges {
-              node {
-                name
-              }
-            }
-          }
-          tags {
-            edges {
-              node {
-                name
-              }
-            }
-          }
-          featuredImage {
-            node {
-              sourceUrl
-              altText
-              mediaDetails {
-                sizes {
-                  name
-                  sourceUrl
-                  width
-                  height
-                }
-              }
-            }
-          }
-          content
-        }
-      }
-    }
+  Post(filter: { Status: { _eq: "published" } }, sort: ["-PublishedDate"], limit: -1) {
+    ...PostFields
   }
+}

@@ -1,0 +1,7 @@
+# ローカルで wrangler dev / astro dev を使うときの秘密情報（.dev.vars にコピーして値を入れる）
+# 本番は Cloudflare のダッシュボード、または `npx wrangler secret put <KEY>` で設定する
+
+# 下書きを読める Directus のトークン（読み取り専用の Preview ユーザーのもの）
+DIRECTUS_PREVIEW_TOKEN=
+# プレビューURLに付ける合言葉（?secret=...）
+PREVIEW_SECRET=
