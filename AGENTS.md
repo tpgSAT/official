@@ -44,6 +44,7 @@ npm run codegen
 - イベント表示は `src/lib/events.ts` の配列順に依存する箇所があるため、順序変更は意図を持って行う。
 - `src/components/Heading.astro` は `<slot />` を `<p>` で包むため、子要素はインライン前提で扱う。
 - リダイレクトは `public/.htaccess` で管理されているため、URL変更時はここも確認する。
+- サーバー側で処理するのは予約の空き状況の API（`src/pages/api/`、D1 の binding `DB`）だけ。`wrangler.jsonc` の `run_worker_first` で、このパスだけ Worker に通している。
 
 ## 期待するコミット品質
 
