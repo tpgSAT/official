@@ -1,7 +1,9 @@
 ---
 import Layout from "@layouts/Layout.astro";
 
-const title = "たき地下サバゲー";
+import nerf from "@assets/events/2026/sabage/nerf.webp";
+
+const title = "TAKIサバイバー";
 const description =
   "TPG イベント班が2026年11月9日(月)に Taki Plaza 地下2階 ワークショップルームでスポンジ弾を使ったサバゲーを開催します！";
 ---
@@ -9,9 +11,70 @@ const description =
 <Layout title={title} description={description}>
   <div class="sabage-page">
     <section class="hero">
-      <p class="hero-label">Taki Plaza Gardener presents</p>
-      <h1 class="hero-title">たき地下サバゲー</h1>
-      <p class="hero-date">2026.11.09 MON 17:00 - 20:00</p>
+      <div class="hero-title-wrap">
+        <div class="hero-title-box">
+          <svg
+            class="hero-underline"
+            viewBox="0 0 1000 140"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            <defs>
+              <filter id="brush-stroke" x="-5%" y="-40%" width="110%" height="180%">
+                <feTurbulence
+                  type="fractalNoise"
+                  baseFrequency="0.003 0.25"
+                  numOctaves="3"
+                  seed="7"
+                  result="streak"
+                ></feTurbulence>
+                <feColorMatrix
+                  in="streak"
+                  type="matrix"
+                  values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  6 0 0 0 -1.6"
+                  result="streak-mask"
+                ></feColorMatrix>
+                <feComposite
+                  in="SourceGraphic"
+                  in2="streak-mask"
+                  operator="in"
+                  result="streaked"
+                ></feComposite>
+                <feTurbulence
+                  type="fractalNoise"
+                  baseFrequency="0.035 0.09"
+                  numOctaves="3"
+                  seed="3"
+                  result="rough"
+                ></feTurbulence>
+                <feDisplacementMap
+                  in="streaked"
+                  in2="rough"
+                  scale="16"
+                  xChannelSelector="R"
+                  yChannelSelector="G"
+                ></feDisplacementMap>
+              </filter>
+            </defs>
+            <path
+              d="M0 40 C200 26 560 18 1000 30 C980 44 940 52 880 58 C640 82 340 104 0 124 Z"
+              fill="#c8161d"
+              filter="url(#brush-stroke)"></path>
+          </svg>
+          <h1 class="hero-title">{title}</h1>
+          <p class="hero-fee">参加費無料</p>
+        </div>
+      </div>
+      <div class="hero-meta">
+        <img
+          src={nerf.src}
+          width={nerf.width}
+          height={nerf.height}
+          alt="当日使用するナーフのトイガンとスポンジ弾"
+          class="hero-photo"
+        />
+        <p class="hero-date">2026.11.09 MON 17:00 - 20:00</p>
+      </div>
     </section>
 
     <div class="container">
@@ -21,6 +84,14 @@ const description =
           Taki Plaza 地下2階のワークショップルームで、スポンジ弾を使ったサバイバルゲームを開催します。<br />
           チームで協力しながら、体を動かして楽しみましょう！
         </p>
+      </section>
+
+      <section class="block">
+        <h2 class="block-title">持ち物</h2>
+        <ul class="belongings">
+          <li>露出の少ない服</li>
+          <li>動きやすい靴（サンダルなどは不可）</li>
+        </ul>
       </section>
 
       <section class="block">
@@ -51,21 +122,20 @@ const description =
 
       <section class="block">
         <h2 class="block-title">参加にあたって</h2>
-        <div class="notice" role="note">
-          <svg class="notice-icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 2 1 21h22L12 2Zm1 16h-2v-2h2v2Zm0-4h-2v-4h2v4Z" fill="currentColor"></path>
-          </svg>
-          <div class="notice-body">
-            <p class="notice-title">参加には同意事項への同意が必要です</p>
-            <p class="notice-text">参加前に、同意事項の内容をご確認いただきますようお願いいたします。</p>
-          </div>
-        </div>
+        <p class="notice-title">参加には同意事項への同意が必要です</p>
+        <p class="notice-text">参加前に、同意事項の内容をご確認いただきますようお願いいたします。</p>
       </section>
     </div>
   </div>
 </Layout>
 
 <style>
+  @font-face {
+    font-family: "Soukou Mincho";
+    src: url("/fonts/takisurvivor/SoukouMincho-subset.woff2") format("woff2");
+    font-display: swap;
+  }
+
   .sabage-page {
     --olive: #4b5320;
     --olive-dark: #2f3414;
@@ -74,8 +144,6 @@ const description =
     --text: #1a1a1a;
     --text-sub: #4d4d4d;
     --border: #cccccc;
-    --notice-border: #b85a00;
-    --notice-bg: #fff6ec;
 
     min-height: 100vh;
     background-color: var(--sand);
@@ -88,6 +156,7 @@ const description =
 
   .hero {
     display: flex;
+    overflow: hidden;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -111,12 +180,80 @@ const description =
     opacity: 0.8;
   }
 
-  .hero-title {
-    margin: 0;
+  .hero-title-wrap {
+    position: relative;
+    margin-bottom: clamp(40px, 6vw, 72px);
+  }
+
+  .hero-meta {
+    position: relative;
+  }
+
+  .hero-photo {
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    width: clamp(80px, 14vw, 180px);
+    height: auto;
+    margin-right: clamp(4px, 1.5vw, 16px);
+    filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.5));
+    transform: translateY(-50%) rotate(-10deg);
+  }
+
+  @media screen and (max-width: 420px) {
+    .hero-photo {
+      width: 64px;
+      margin-right: 0;
+    }
+  }
+
+  .hero-title-box {
+    position: relative;
+    padding: 0 0.2em;
+  }
+
+  .hero-underline {
+    position: absolute;
+    left: -16%;
+    bottom: -0.32em;
+    z-index: 1;
+    width: 130%;
+    height: 0.8em;
     font-size: clamp(36px, 8vw, 88px);
-    font-weight: 900;
+    pointer-events: none;
+  }
+
+  .hero-title {
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    margin: 0;
+    font-family: "Soukou Mincho", serif;
+    font-size: clamp(36px, 8vw, 88px);
+    font-weight: 400;
+    font-synthesis: none;
     line-height: 1.3;
     letter-spacing: 0.08em;
+  }
+
+  .hero-fee {
+    position: absolute;
+    right: -0.4em;
+    bottom: -2.4em;
+    z-index: 3;
+    margin: 0;
+    padding: 0.2em 0.6em;
+    font-family: "Soukou Mincho", serif;
+    font-size: clamp(14px, 2.2vw, 24px);
+    font-synthesis: none;
+    line-height: 1.4;
+    letter-spacing: 0.1em;
+    color: #c8161d;
+    background-color: #fff;
+    border: 3px solid #c8161d;
+    border-radius: 4px;
+    transform: rotate(-6deg);
+    white-space: nowrap;
   }
 
   .hero-date {
@@ -154,6 +291,15 @@ const description =
 
   .block-text {
     margin: 0;
+  }
+
+  .belongings {
+    margin: 0;
+    padding-left: 1.5em;
+  }
+
+  .belongings li + li {
+    margin-top: 8px;
   }
 
   .info {
@@ -201,23 +347,6 @@ const description =
     border-radius: 4px;
   }
 
-  .notice {
-    display: flex;
-    gap: 12px;
-    padding: 20px 24px;
-    background-color: var(--notice-bg);
-    border: 3px solid var(--notice-border);
-    border-radius: 12px;
-  }
-
-  .notice-icon {
-    flex-shrink: 0;
-    width: 24px;
-    height: 24px;
-    margin-top: 2px;
-    color: var(--notice-border);
-  }
-
   .notice-title {
     margin: 0 0 4px;
     font-weight: 700;
@@ -236,10 +365,6 @@ const description =
     .info-row {
       grid-template-columns: 1fr;
       gap: 4px;
-      padding: 16px;
-    }
-
-    .notice {
       padding: 16px;
     }
   }
