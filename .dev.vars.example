@@ -1,0 +1,5 @@
+# ローカルで wrangler dev / astro dev を使うときの秘密情報（.dev.vars にコピーして値を入れる）
+# 本番は Cloudflare のダッシュボード、または `npx wrangler secret put <KEY>` で設定する
+
+# Apps Script から空き状況の API（/api/reserve, /api/sync）を呼ぶときの合言葉
+RESERVATION_API_SECRET=

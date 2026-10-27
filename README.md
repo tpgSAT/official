@@ -78,6 +78,7 @@ pnpm dev
 
 ```text
 /
+├── migrations/          # D1（予約の空き状況）のテーブル定義
 ├── public/              # 静的ファイル（画像、フォント等）
 ├── src/
 │   ├── assets/          # ビルド時に処理される画像等のアセット
@@ -152,6 +153,64 @@ WordPressで記事が公開されると、WordPressのWebhookからGitHub Action
 - `src/components/Sections/Blog.astro` - トップページのブログセクション（最新3件表示）
 
 実装の詳細を確認したい場合は、上記のファイルを参照してください。
+
+## 📅 予約の空き状況
+
+Googleフォームで受け付けた予約の空き状況を、ページに ○（空きあり）△（残りわずか）×（満席）で表示します。ページ自体は静的なままで、空き状況だけをブラウザが API から取得して30秒ごとに更新します。
+
+```text
+Googleフォーム送信 → Apps Script（onFormSubmit）→ POST /api/reserve → D1（枠ごとの予約数）
+Apps Script（10分ごと、回答シートを集計）→ POST /api/sync → D1（全枠を上書き）
+ページ（SlotAvailability）→ GET /api/status → D1
+```
+
+- 予約の正本は Google の回答シートです。D1 には枠ごとの予約数だけを持ち、名前や連絡先は送りません
+- キャンセルは回答シートの行を削除して行います。onFormSubmit では拾えないので、定期実行の `/api/sync` で数が戻ります
+- 満席になってもフォームの受付は止まりません。確定の連絡の前に回答シートで人数を確認してください
+
+### 実装
+
+| ファイル | 内容 |
+|---|---|
+| `migrations/0001_create_slots.sql` | `slots` テーブル（`event_id`, `id`, `label`, `capacity`, `reserved`, `sort_order`, `updated_at`） |
+| `src/pages/api/status.ts` | `GET /api/status?event=<eventId>`：枠ごとの定員と予約数を返す（認証なし） |
+| `src/pages/api/reserve.ts` | `POST /api/reserve`：`{ eventId, slotId, count }` の人数を枠の予約数に足す |
+| `src/pages/api/sync.ts` | `POST /api/sync`：`{ eventId, slots: [{ id, reserved }] }` で全枠を上書きする（送られなかった枠は0） |
+| `src/lib/reservation.ts` | 認証と入力チェックの共通処理 |
+| `src/components/SlotAvailability.astro` | 空き状況の表示。残りが定員の20%（切り上げ）以下で △ |
+
+`/api/reserve` と `/api/sync` は `Authorization: Bearer <RESERVATION_API_SECRET>` がないと 401 を返します。
+
+### 初回の設定
+
+1. D1 データベースを作り、表示された `database_id` を `wrangler.jsonc` の `d1_databases` に書く
+   ```sh
+   npx wrangler d1 create official-reservations
+   ```
+2. テーブルを作る
+   ```sh
+   npx wrangler d1 migrations apply DB --remote
+   ```
+3. Cloudflare の Worker（`official`）に secret `RESERVATION_API_SECRET`（十分に長いランダムな文字列）を登録する（ダッシュボード、または `npx wrangler secret put RESERVATION_API_SECRET`）
+
+### イベントごとの設定
+
+1. 枠を D1 に登録する（`id` はフォームの選択肢と対応させる枠ID、`sort_order` は表示順）
+   ```sh
+   npx wrangler d1 execute DB --remote --command "INSERT INTO slots (event_id, id, label, capacity, sort_order, updated_at) VALUES ('koudaisai-2026', '1400', '14:00-15:00', 10, 1, strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))"
+   ```
+2. ページにコンポーネントを置く
+   ```astro
+   <SlotAvailability eventId="koudaisai-2026" />
+   ```
+3. フォームの回答先スプレッドシートで、拡張機能 → Apps Script を開き、スクリプトを貼り付ける
+   - ファイル先頭の設定に、API のURL、イベントID、枠と人数の質問のタイトル、**選択肢の文言 → 枠ID の対応表** を書く。フォームの選択肢の文言を変えたら、この対応表も直す
+   - プロジェクトの設定 → スクリプト プロパティに `RESERVATION_API_SECRET` を登録する
+   - トリガーを2つ追加する：`onFormSubmit`（スプレッドシートから・フォーム送信時）、`syncAll`（時間主導型・10分ごと）
+
+動作を確かめるときは、テスト用の `event_id` で枠を登録して試し、終わったら `DELETE FROM slots WHERE event_id = '<テスト用のID>'` で消してください。
+
+ローカルでは `.dev.vars.example` を `.dev.vars` にコピーして `RESERVATION_API_SECRET` を入れ、`npx wrangler d1 migrations apply DB --local` でテーブルを作り、`--local` を付けて枠を登録してから `npm run preview` で起動します。
 
 ## 📚 参考リンク
 
