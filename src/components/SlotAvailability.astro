@@ -1,0 +1,183 @@
+---
+import { useTranslations } from '@i18n/ui';
+import type { Lang } from '@i18n/ui';
+
+// 予約枠ごとの空き状況（○△×）。ページは静的なまま、表示だけをブラウザで /api/status から取得して更新する
+// 使い方: <SlotAvailability eventId="koudaisai-2026" />（eventId は D1 の slots.event_id）
+interface Props {
+  eventId: string;
+}
+
+const { eventId } = Astro.props;
+const lang = Astro.currentLocale as Lang;
+const t = useTranslations(lang);
+---
+
+<div
+  class="slot-availability"
+  data-slot-availability
+  data-event-id={eventId}
+  data-error-text={t({ ja: "空き状況を取得できません", en: "Availability is currently unavailable" })}
+  data-label-available={t({ ja: "空きあり", en: "Available" })}
+  data-label-few={t({ ja: "残りわずか", en: "Few left" })}
+  data-label-full={t({ ja: "満席", en: "Full" })}
+>
+  <ul class="slots" aria-live="polite">
+    <li class="message">{t({ ja: "空き状況を読み込み中…", en: "Loading availability…" })}</li>
+  </ul>
+  <p class="legend">
+    {t({ ja: "○ 空きあり　△ 残りわずか　× 満席", en: "○ Available　△ Few left　× Full" })}
+  </p>
+</div>
+
+<script>
+  // 空き状況を取得し直す間隔（ミリ秒）
+  const POLL_INTERVAL = 30_000;
+  // 残りが定員のこの割合（切り上げ）以下になったら △ にする
+  const FEW_RATIO = 0.2;
+
+  type Slot = { id: string; label: string; capacity: number; reserved: number };
+  type Status = "available" | "few" | "full";
+
+  const MARKS: Record<Status, string> = { available: "○", few: "△", full: "×" };
+
+  const getStatus = ({ capacity, reserved }: Slot): Status => {
+    const remaining = Math.max(0, capacity - reserved);
+    if (remaining === 0) return "full";
+    if (remaining <= Math.ceil(capacity * FEW_RATIO)) return "few";
+    return "available";
+  };
+
+  const setup = (root: HTMLElement) => {
+    const list = root.querySelector("ul");
+    const { eventId, errorText, labelAvailable, labelFew, labelFull } = root.dataset;
+    if (!list || !eventId) return;
+    const labels: Record<Status, string> = {
+      available: labelAvailable ?? "",
+      few: labelFew ?? "",
+      full: labelFull ?? "",
+    };
+
+    const showMessage = (text: string) => {
+      const item = document.createElement("li");
+      item.className = "message";
+      item.textContent = text;
+      list.replaceChildren(item);
+    };
+
+    const showSlots = (slots: Slot[]) => {
+      list.replaceChildren(
+        ...slots.map((slot) => {
+          const status = getStatus(slot);
+          const item = document.createElement("li");
+          item.className = `slot ${status}`;
+
+          const label = document.createElement("span");
+          label.className = "label";
+          label.textContent = slot.label;
+
+          // 記号は読み上げず、代わりに文字で状態を伝える
+          const mark = document.createElement("span");
+          mark.className = "mark";
+          mark.setAttribute("aria-hidden", "true");
+          mark.textContent = MARKS[status];
+
+          const text = document.createElement("span");
+          text.className = "visually-hidden";
+          text.textContent = labels[status];
+
+          item.replaceChildren(label, mark, text);
+          return item;
+        }),
+      );
+    };
+
+    const update = async () => {
+      try {
+        const res = await fetch(`/api/status?event=${encodeURIComponent(eventId)}`);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const { slots } = (await res.json()) as { slots: Slot[] };
+        showSlots(slots);
+      } catch (error) {
+        console.error(error);
+        showMessage(errorText ?? "");
+      }
+    };
+
+    // タブが表示されている間だけ取得し直す
+    let timer: number | undefined;
+    const start = () => {
+      stop();
+      update();
+      timer = window.setInterval(update, POLL_INTERVAL);
+    };
+    const stop = () => {
+      window.clearInterval(timer);
+      timer = undefined;
+    };
+    document.addEventListener("visibilitychange", () => (document.hidden ? stop() : start()));
+    if (!document.hidden) start();
+  };
+
+  document.querySelectorAll<HTMLElement>("[data-slot-availability]").forEach(setup);
+</script>
+
+<style>
+  .slot-availability {
+    font-family: 'Noto Sans JP Variable', sans-serif;
+  }
+
+  .slots {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid #ddd;
+  }
+
+  /* 枠の行はスクリプトで作るので :global で当てる */
+  .slots :global(li) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 10px 4px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .slots :global(.message) {
+    justify-content: center;
+    color: #707070;
+    font-size: 14px;
+  }
+
+  .slots :global(.label) {
+    font-weight: 500;
+    letter-spacing: 0.4px;
+  }
+
+  .slots :global(.mark) {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .slots :global(.full) {
+    color: #707070;
+  }
+
+  .slots :global(.visually-hidden) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .legend {
+    margin: 8px 0 0;
+    color: #707070;
+    font-size: 12px;
+    letter-spacing: 0.4px;
+  }
+</style>
