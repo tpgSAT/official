@@ -1,5 +1,6 @@
 ---
 import Layout from "@layouts/Layout.astro";
+import SlotAvaiability from "@components/SlotAvailability.astro";
 
 import nerf from "@assets/events/2026/sabage/nerf.webp";
 
@@ -94,6 +95,21 @@ const description =
         </ul>
       </section>
 
+
+      <section class="block">
+        <h2 class="block-title">事前予約はこちらから</h2>
+        <p class="block-text">
+          予約状況
+        </p>
+        <SlotAvaiability eventId="survival-game-2026" />
+        <a
+          href="https://forms.gle/re1RFuMtUKVyGXu78"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="block-text"
+          >事前予約フォーム</a>
+      </section>
+
       <section class="block">
         <h2 class="block-title">開催情報</h2>
         <dl class="info">
@@ -120,11 +136,11 @@ const description =
         </dl>
       </section>
 
-      <section class="block">
+      <!-- <section class="block">
         <h2 class="block-title">参加にあたって</h2>
         <p class="notice-title">参加には同意事項への同意が必要です</p>
         <p class="notice-text">参加前に、同意事項の内容をご確認いただきますようお願いいたします。</p>
-      </section>
+      </section> -->
     </div>
   </div>
 </Layout>
