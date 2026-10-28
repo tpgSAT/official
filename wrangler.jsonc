@@ -2,8 +2,24 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "official",
   "compatibility_date": "2026-05-20",
+  "compatibility_flags": ["nodejs_compat"],
+  // 空き状況の API（/api/*）だけ Astro のサーバー側で処理する
+  "main": "./dist/_worker.js/index.js",
+  // 予約の空き状況（枠ごとの予約数）。個人情報は入れない
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "official-reservations",
+      "database_id": "d7a8a872-89e8-4dbc-a166-b675f03f86de",
+      "migrations_dir": "migrations"
+    }
+  ],
   "assets": {
+    "binding": "ASSETS",
     "directory": "./dist",
-    "not_found_handling": "404-page"
+    "not_found_handling": "404-page",
+    // 404-page を使うとページ遷移のリクエストは Worker に届かないため、API のパスだけ先に Worker を通す
+    // /api/* は空き状況の API（src/pages/api/）
+    "run_worker_first": ["/api/*"]
   }
 }
