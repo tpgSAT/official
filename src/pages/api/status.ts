@@ -19,11 +19,19 @@ export const GET: APIRoute = async ({ url, locals }) => {
     return json({ error: 'event is required' }, { status: 400 });
   }
 
-  const { results } = await locals.runtime.env.DB.prepare(
-    'SELECT id, label, capacity, reserved, updated_at FROM slots WHERE event_id = ? ORDER BY sort_order, id',
-  )
-    .bind(eventId)
-    .all<Row>();
+  // DB に繋がらないときも例外にはせず、表示側には「空き状況を取得できません」とだけ出させる
+  // （例外にすると、astro dev ではページ全体がエラー画面で覆われてしまう）
+  let results: Row[];
+  try {
+    ({ results } = await locals.runtime.env.DB.prepare(
+      'SELECT id, label, capacity, reserved, updated_at FROM slots WHERE event_id = ? ORDER BY sort_order, id',
+    )
+      .bind(eventId)
+      .all<Row>());
+  } catch (error) {
+    console.error(error);
+    return json({ error: 'database unavailable' }, { status: 503 });
+  }
   if (results.length === 0) {
     return json({ error: 'event not found' }, { status: 404 });
   }
