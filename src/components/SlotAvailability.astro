@@ -2,7 +2,7 @@
 import { useTranslations } from '@i18n/ui';
 import type { Lang } from '@i18n/ui';
 
-// 予約枠ごとの空き状況（○△×）。ページは静的なまま、表示だけをブラウザで /api/status から取得して更新する
+// 予約枠ごとの空き状況（○△× と残り人数）。ページは静的なまま、表示だけをブラウザで /api/status から取得して更新する
 // 使い方: <SlotAvailability eventId="koudaisai-2026" />（eventId は D1 の slots.event_id）
 interface Props {
   eventId: string;
@@ -18,9 +18,8 @@ const t = useTranslations(lang);
   data-slot-availability
   data-event-id={eventId}
   data-error-text={t({ ja: "空き状況を取得できません", en: "Availability is currently unavailable" })}
-  data-label-available={t({ ja: "空きあり", en: "Available" })}
-  data-label-few={t({ ja: "残りわずか", en: "Few left" })}
-  data-label-full={t({ ja: "満席", en: "Full" })}
+  data-remaining-text={t({ ja: "残り{n}名", en: "{n} left" })}
+  data-full-text={t({ ja: "満席", en: "Full" })}
 >
   <ul class="slots" aria-live="polite">
     <li class="message">{t({ ja: "空き状況を読み込み中…", en: "Loading availability…" })}</li>
@@ -41,22 +40,19 @@ const t = useTranslations(lang);
 
   const MARKS: Record<Status, string> = { available: "○", few: "△", full: "×" };
 
-  const getStatus = ({ capacity, reserved }: Slot): Status => {
-    const remaining = Math.max(0, capacity - reserved);
+  const getRemaining = ({ capacity, reserved }: Slot) => Math.max(0, capacity - reserved);
+
+  const getStatus = (slot: Slot): Status => {
+    const remaining = getRemaining(slot);
     if (remaining === 0) return "full";
-    if (remaining <= Math.ceil(capacity * FEW_RATIO)) return "few";
+    if (remaining <= Math.ceil(slot.capacity * FEW_RATIO)) return "few";
     return "available";
   };
 
   const setup = (root: HTMLElement) => {
     const list = root.querySelector("ul");
-    const { eventId, errorText, labelAvailable, labelFew, labelFull } = root.dataset;
+    const { eventId, errorText, remainingText, fullText } = root.dataset;
     if (!list || !eventId) return;
-    const labels: Record<Status, string> = {
-      available: labelAvailable ?? "",
-      few: labelFew ?? "",
-      full: labelFull ?? "",
-    };
 
     const showMessage = (text: string) => {
       const item = document.createElement("li");
@@ -76,17 +72,22 @@ const t = useTranslations(lang);
           label.className = "label";
           label.textContent = slot.label;
 
-          // 記号は読み上げず、代わりに文字で状態を伝える
+          // 記号は読み上げず、残り人数（満席なら「満席」）の文字で状態を伝える
           const mark = document.createElement("span");
           mark.className = "mark";
           mark.setAttribute("aria-hidden", "true");
           mark.textContent = MARKS[status];
 
-          const text = document.createElement("span");
-          text.className = "visually-hidden";
-          text.textContent = labels[status];
+          const remaining = document.createElement("span");
+          remaining.className = "remaining";
+          remaining.textContent =
+            status === "full" ? (fullText ?? "") : (remainingText ?? "").replace("{n}", String(getRemaining(slot)));
 
-          item.replaceChildren(label, mark, text);
+          const state = document.createElement("span");
+          state.className = "state";
+          state.replaceChildren(mark, remaining);
+
+          item.replaceChildren(label, state);
           return item;
         }),
       );
@@ -155,23 +156,26 @@ const t = useTranslations(lang);
     letter-spacing: 0.4px;
   }
 
+  .slots :global(.state) {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
   .slots :global(.mark) {
     font-size: 20px;
     font-weight: 700;
     line-height: 1;
   }
 
-  .slots :global(.full) {
-    color: #707070;
+  .slots :global(.remaining) {
+    min-width: 4.5em;
+    font-size: 14px;
+    text-align: right;
   }
 
-  .slots :global(.visually-hidden) {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
+  .slots :global(.full) {
+    color: #707070;
   }
 
   .legend {
