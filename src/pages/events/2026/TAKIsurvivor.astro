@@ -5,6 +5,7 @@ import SlotAvaiability from "@components/SlotAvailability.astro";
 const title = "TAKIサバイバー";
 const description =
   "TPG イベント班が2026年11月9日(月)に Taki Plaza 地下2階 ワークショップルームでスポンジ弾を使ったサバゲーを開催します！";
+const reservationFormUrl = "https://forms.gle/re1RFuMtUKVyGXu78";
 ---
 
 <Layout title={title} description={description}>
@@ -81,6 +82,12 @@ const description =
       <div class="hero-meta">
         <p class="hero-date">11/9 MON 17:00 - 20:00</p>
         <p class="hero-place">@Taki Plaza B2F ワークショップルーム</p>
+        <a
+          href={reservationFormUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="entry-button hero-entry"
+          >事前予約フォーム</a>
       </div>
     </section>
 
@@ -112,7 +119,7 @@ const description =
         </p>
         <SlotAvaiability eventId="survival-game-2026" />
         <a
-          href="https://forms.gle/re1RFuMtUKVyGXu78"
+          href={reservationFormUrl}
           target="_blank"
           rel="noopener noreferrer"
           class="entry-button"
@@ -409,6 +416,16 @@ const description =
   .entry-button:focus-visible {
     outline: 4px solid #000;
     outline-offset: 2px;
+  }
+
+  /* ヒーローの予約ボタン。暗い動画の上なので、フォーカスの枠は白にする */
+  .hero-entry {
+    margin-top: 1em;
+    font-size: clamp(15px, 2vw, 18px);
+  }
+
+  .hero-entry:focus-visible {
+    outline-color: #fff;
   }
 
   .belongings {
