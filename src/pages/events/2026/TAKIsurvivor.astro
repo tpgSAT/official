@@ -79,12 +79,14 @@ const description =
         </div>
       </div>
       <div class="hero-meta">
-        <p class="hero-date">2026.11.09 MON 17:00 - 20:00</p>
+        <p class="hero-date">11/9 MON 17:00 - 20:00</p>
+        <p class="hero-place">@Taki Plaza B2F ワークショップルーム</p>
       </div>
     </section>
 
     <div class="container">
       <section class="block">
+        <p class="block-label" aria-hidden="true">BRIEFING</p>
         <h2 class="block-title">サバゲーを開催します</h2>
         <p class="block-text">
           Taki Plaza 地下2階のワークショップルームで、スポンジ弾を使ったサバイバルゲームを開催します。<br />
@@ -93,6 +95,7 @@ const description =
       </section>
 
       <section class="block">
+        <p class="block-label" aria-hidden="true">GEAR</p>
         <h2 class="block-title">持ち物</h2>
         <ul class="belongings">
           <li>露出の少ない服</li>
@@ -102,8 +105,9 @@ const description =
 
 
       <section class="block">
+        <p class="block-label" aria-hidden="true">ENTRY</p>
         <h2 class="block-title">事前予約はこちらから</h2>
-        <p class="block-text">
+        <p class="block-text slot-heading">
           予約状況
         </p>
         <SlotAvaiability eventId="survival-game-2026" />
@@ -111,11 +115,12 @@ const description =
           href="https://forms.gle/re1RFuMtUKVyGXu78"
           target="_blank"
           rel="noopener noreferrer"
-          class="block-text"
+          class="entry-button"
           >事前予約フォーム</a>
       </section>
 
       <section class="block">
+        <p class="block-label" aria-hidden="true">INFO</p>
         <h2 class="block-title">開催情報</h2>
         <dl class="info">
           <div class="info-row">
@@ -172,13 +177,21 @@ const description =
     --olive-dark: #2f3414;
     --sand: #e8e0c8;
     --accent: #e07a1f;
+    --red: #c8161d;
+    --paper: #faf7ef;
     --text: #1a1a1a;
     --text-sub: #4d4d4d;
-    --border: #cccccc;
+    --border: #cfc6ab;
 
     min-height: 100vh;
-    background-color: var(--sand);
     color: var(--text);
+    /* ヒーローの下も、動画の暗いトーンに合わせてオリーブの迷彩風の地にする */
+    background-color: var(--olive-dark);
+    background-image: repeating-linear-gradient(
+      -45deg,
+      transparent 0 24px,
+      rgba(255, 255, 255, 0.04) 24px 48px
+    );
     font-family: "Noto Sans JP Variable", sans-serif;
     font-size: 16px;
     line-height: 1.7;
@@ -241,6 +254,10 @@ const description =
   .hero-meta {
     position: relative;
     z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6em;
   }
 
   .hero-title-box {
@@ -303,6 +320,14 @@ const description =
     border-radius: 4px;
   }
 
+  .hero-place {
+    margin: 0;
+    font-size: clamp(13px, 1.8vw, 18px);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+  }
+
   .container {
     display: flex;
     flex-direction: column;
@@ -312,26 +337,88 @@ const description =
     padding: 56px 16px 80px;
   }
 
+  /* 右上の角を切り落とした、作戦資料のようなカード */
   .block {
-    padding: 28px 24px;
-    background-color: #fff;
+    padding: 32px 28px;
+    background-color: var(--paper);
+    border-top: 6px solid var(--red);
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%);
+  }
+
+  /* Soukou Mincho はサブセットで、英大文字と数字は入っているが見出しの日本語は入っていない */
+  .block-label {
+    margin: 0 0 4px;
+    font-family: "Soukou Mincho", serif;
+    font-size: 14px;
+    font-synthesis: none;
+    line-height: 1.4;
+    letter-spacing: 0.3em;
+    color: var(--red);
   }
 
   .block-title {
-    margin: 0 0 24px;
+    position: relative;
+    margin: 0 0 28px;
+    padding-bottom: 12px;
     font-size: clamp(24px, 3.2vw, 32px);
     font-weight: 700;
     line-height: 1.5;
-    color: var(--text);
+    color: var(--olive-dark);
+  }
+
+  /* ヒーローの筆の下線に合わせた、短い赤の線 */
+  .block-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 64px;
+    height: 5px;
+    background-color: var(--red);
+    transform: skewX(-20deg);
   }
 
   .block-text {
     margin: 0;
   }
 
+  .slot-heading {
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+
+  .entry-button {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 0.7em 2em;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #fff;
+    text-decoration: none;
+    background-color: var(--red);
+    border-radius: 4px;
+    box-shadow: 0 4px 0 #8a0f14;
+    transition: transform 0.1s, box-shadow 0.1s;
+  }
+
+  .entry-button:hover {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #8a0f14;
+  }
+
+  .entry-button:focus-visible {
+    outline: 4px solid #000;
+    outline-offset: 2px;
+  }
+
   .belongings {
     margin: 0;
     padding-left: 1.5em;
+    list-style: square;
+  }
+
+  .belongings li::marker {
+    color: var(--red);
   }
 
   .belongings li + li {
@@ -341,7 +428,7 @@ const description =
   .info {
     margin: 0;
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: 4px;
   }
 
   .info-row {
@@ -358,6 +445,7 @@ const description =
 
   .info-row dt {
     font-weight: 700;
+    color: var(--olive);
   }
 
   .info-row dd {
@@ -366,13 +454,13 @@ const description =
   }
 
   .info-row a {
-    color: #0031d8;
+    color: var(--red);
     text-decoration: underline;
     text-underline-offset: 3px;
   }
 
   .info-row a:hover {
-    color: #00118f;
+    color: #8a0f14;
     text-decoration-thickness: 3px;
   }
 
