@@ -2,15 +2,30 @@
 import Layout from "@layouts/Layout.astro";
 import SlotAvaiability from "@components/SlotAvailability.astro";
 
-import nerf from "@assets/events/2026/taki-survivor/nerf.webp";
-
 const title = "TAKIサバイバー";
 const description =
   "TPG イベント班が2026年11月9日(月)に Taki Plaza 地下2階 ワークショップルームでスポンジ弾を使ったサバゲーを開催します！";
+const reservationFormUrl = "https://forms.gle/re1RFuMtUKVyGXu78";
 ---
 
 <Layout title={title} description={description}>
   <div class="sabage-page">
+    <!-- ページ全体の背景で流す動画（装飾なので読み上げない）。スクロールしても動かず、上の要素だけが流れる -->
+    <div class="page-bg" aria-hidden="true">
+      <video
+        class="bg-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        poster="/events/2026/taki-survivor/hero-poster.jpg"
+      >
+        <source src="/events/2026/taki-survivor/hero.mp4" type="video/mp4" />
+      </video>
+      <div class="bg-overlay"></div>
+    </div>
+
     <section class="hero">
       <div class="hero-title-wrap">
         <div class="hero-title-box">
@@ -67,19 +82,20 @@ const description =
         </div>
       </div>
       <div class="hero-meta">
-        <img
-          src={nerf.src}
-          width={nerf.width}
-          height={nerf.height}
-          alt="当日使用するナーフのトイガンとスポンジ弾"
-          class="hero-photo"
-        />
-        <p class="hero-date">2026.11.09 MON 17:00 - 20:00</p>
+        <p class="hero-date">11/9 MON 17:00 - 20:00</p>
+        <p class="hero-place">@Taki Plaza B2F ワークショップルーム</p>
+        <a
+          href={reservationFormUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="entry-button hero-entry"
+          >事前予約フォーム</a>
       </div>
     </section>
 
     <div class="container">
       <section class="block">
+        <p class="block-label" aria-hidden="true">BRIEFING</p>
         <h2 class="block-title">サバゲーを開催します</h2>
         <p class="block-text">
           Taki Plaza 地下2階のワークショップルームで、スポンジ弾を使ったサバイバルゲームを開催します。<br />
@@ -88,6 +104,7 @@ const description =
       </section>
 
       <section class="block">
+        <p class="block-label" aria-hidden="true">GEAR</p>
         <h2 class="block-title">持ち物</h2>
         <ul class="belongings">
           <li>露出の少ない服</li>
@@ -97,20 +114,22 @@ const description =
 
 
       <section class="block">
+        <p class="block-label" aria-hidden="true">ENTRY</p>
         <h2 class="block-title">事前予約はこちらから</h2>
-        <p class="block-text">
+        <p class="block-text slot-heading">
           予約状況
         </p>
         <SlotAvaiability eventId="survival-game-2026" />
         <a
-          href="https://forms.gle/re1RFuMtUKVyGXu78"
+          href={reservationFormUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="block-text"
+          class="entry-button"
           >事前予約フォーム</a>
       </section>
 
       <section class="block">
+        <p class="block-label" aria-hidden="true">INFO</p>
         <h2 class="block-title">開催情報</h2>
         <dl class="info">
           <div class="info-row">
@@ -145,6 +164,16 @@ const description =
   </div>
 </Layout>
 
+<script>
+  // 動きを減らす設定のときは動画を止めて、最初のフレーム（poster）だけを見せる
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    document.querySelectorAll<HTMLVideoElement>(".bg-video").forEach((video) => {
+      video.removeAttribute("autoplay");
+      video.pause();
+    });
+  }
+</script>
+
 <style>
   @font-face {
     font-family: "Soukou Mincho";
@@ -157,13 +186,20 @@ const description =
     --olive-dark: #2f3414;
     --sand: #e8e0c8;
     --accent: #e07a1f;
+    --red: #c8161d;
+    --paper: #faf7ef;
     --text: #1a1a1a;
     --text-sub: #4d4d4d;
-    --border: #cccccc;
+    --border: #cfc6ab;
+    /* 固定ヘッダーの高さ（Layout.astro の body の padding-top と合わせる） */
+    --header-height: 80px;
 
+    position: relative;
+    clip-path: inset(0);
     min-height: 100vh;
-    background-color: var(--sand);
     color: var(--text);
+    /* 動画が読み込まれるまでの色 */
+    background-color: var(--olive-dark);
     font-family: "Noto Sans JP Variable", sans-serif;
     font-size: 16px;
     line-height: 1.7;
@@ -171,20 +207,48 @@ const description =
   }
 
   .hero {
+    position: relative;
     display: flex;
     overflow: hidden;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 0.6em;
+    box-sizing: border-box;
+    min-height: 100svh;
     padding: 18vh 16px 12vh;
     text-align: center;
     color: var(--sand);
-    background-color: var(--olive-dark);
-    background-image: repeating-linear-gradient(
-      -45deg,
-      transparent 0 24px,
-      rgba(255, 255, 255, 0.04) 24px 48px
+  }
+
+  /*
+   * ヘッダーの下に固定したままの背景。
+   * Layout.astro で body に overflow-x: hidden があり sticky が効かないため fixed にし、
+   * .sabage-page の clip-path でページの範囲の外（フッターなど）には出ないようにしている
+   */
+  .page-bg {
+    position: fixed;
+    inset: var(--header-height) 0 0;
+    overflow: hidden;
+  }
+
+  /* 縦長の動画を、画面全体を埋めるように切り抜く */
+  .bg-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* 文字を読みやすくするために動画を暗くする */
+  .bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.35),
+      rgba(0, 0, 0, 0.55)
     );
   }
 
@@ -198,29 +262,17 @@ const description =
 
   .hero-title-wrap {
     position: relative;
+    z-index: 2;
     margin-bottom: clamp(40px, 6vw, 72px);
   }
 
   .hero-meta {
     position: relative;
-  }
-
-  .hero-photo {
-    position: absolute;
-    top: 50%;
-    right: 100%;
-    width: clamp(80px, 14vw, 180px);
-    height: auto;
-    margin-right: clamp(4px, 1.5vw, 16px);
-    filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.5));
-    transform: translateY(-50%) rotate(-10deg);
-  }
-
-  @media screen and (max-width: 420px) {
-    .hero-photo {
-      width: 64px;
-      margin-right: 0;
-    }
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6em;
   }
 
   .hero-title-box {
@@ -283,7 +335,17 @@ const description =
     border-radius: 4px;
   }
 
+  .hero-place {
+    margin: 0;
+    font-size: clamp(13px, 1.8vw, 18px);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+  }
+
   .container {
+    /* 背景の動画より前に出す */
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 32px;
@@ -292,26 +354,98 @@ const description =
     padding: 56px 16px 80px;
   }
 
+  /* 右上の角を切り落とした、作戦資料のようなカード */
   .block {
-    padding: 28px 24px;
-    background-color: #fff;
+    padding: 32px 28px;
+    background-color: var(--paper);
+    border-top: 6px solid var(--red);
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%);
+  }
+
+  /* Soukou Mincho はサブセットで、英大文字と数字は入っているが見出しの日本語は入っていない */
+  .block-label {
+    margin: 0 0 4px;
+    font-family: "Soukou Mincho", serif;
+    font-size: 14px;
+    font-synthesis: none;
+    line-height: 1.4;
+    letter-spacing: 0.3em;
+    color: var(--red);
   }
 
   .block-title {
-    margin: 0 0 24px;
+    position: relative;
+    margin: 0 0 28px;
+    padding-bottom: 12px;
     font-size: clamp(24px, 3.2vw, 32px);
     font-weight: 700;
     line-height: 1.5;
-    color: var(--text);
+    color: var(--olive-dark);
+  }
+
+  /* ヒーローの筆の下線に合わせた、短い赤の線 */
+  .block-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 64px;
+    height: 5px;
+    background-color: var(--red);
+    transform: skewX(-20deg);
   }
 
   .block-text {
     margin: 0;
   }
 
+  .slot-heading {
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+
+  .entry-button {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 0.7em 2em;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #fff;
+    text-decoration: none;
+    background-color: var(--red);
+    border-radius: 4px;
+    box-shadow: 0 4px 0 #8a0f14;
+    transition: transform 0.1s, box-shadow 0.1s;
+  }
+
+  .entry-button:hover {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #8a0f14;
+  }
+
+  .entry-button:focus-visible {
+    outline: 4px solid #000;
+    outline-offset: 2px;
+  }
+
+  /* ヒーローの予約ボタン。暗い動画の上なので、フォーカスの枠は白にする */
+  .hero-entry {
+    margin-top: 1em;
+    font-size: clamp(15px, 2vw, 18px);
+  }
+
+  .hero-entry:focus-visible {
+    outline-color: #fff;
+  }
+
   .belongings {
     margin: 0;
     padding-left: 1.5em;
+    list-style: square;
+  }
+
+  .belongings li::marker {
+    color: var(--red);
   }
 
   .belongings li + li {
@@ -321,7 +455,7 @@ const description =
   .info {
     margin: 0;
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: 4px;
   }
 
   .info-row {
@@ -338,6 +472,7 @@ const description =
 
   .info-row dt {
     font-weight: 700;
+    color: var(--olive);
   }
 
   .info-row dd {
@@ -346,13 +481,13 @@ const description =
   }
 
   .info-row a {
-    color: #0031d8;
+    color: var(--red);
     text-decoration: underline;
     text-underline-offset: 3px;
   }
 
   .info-row a:hover {
-    color: #00118f;
+    color: #8a0f14;
     text-decoration-thickness: 3px;
   }
 
