@@ -2,6 +2,8 @@
 import Layout from '@layouts/Layout.astro';
 import { getAllPosts } from '@lib/api';
 
+import LikeButton from '../../components/LikeButton.astro';
+
 export async function getStaticPaths() {
   const posts = await getAllPosts();
   return posts?.map(( post ) => ({
@@ -50,6 +52,11 @@ const tags = post.tags?.edges.map((t: any) => t.node.name) ?? [];
       </div>
       <div class="blog-content">
         <article set:html={post.content} />
+      </div>
+      <div>
+        <LikeButton blogId={String(post.slug ?? '')} />      </div>
+      <div>
+        ここにおすすめ記事を三つほど掲載
       </div>
       <div class="blog-footer">
         {tags.map(tag => (<p class="blog-tags">#{tag}</p>))}

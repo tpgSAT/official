@@ -1,0 +1,100 @@
+---
+interface Props {
+  blogId: string;
+}
+
+const { blogId } = Astro.props;
+---
+
+<div class="like-button-wrapper">
+  <button id="like-button" data-blog-id={blogId} class="like-btn">
+    <span class="heart-icon">❤️</span>
+    <span class="btn-text">いいね</span>
+    <span id="like-count" class="count">0</span>
+  </button>
+</div>
+
+<script>
+  import { actions } from 'astro:actions';
+
+  const button = document.getElementById('like-button') as HTMLButtonElement;
+  const countEl = document.getElementById('like-count') as HTMLSpanElement;
+  
+  if (button && countEl) {
+    const blogId = button.getAttribute('data-blog-id')!;
+
+    const initLike = async () => {
+      const { data, error } = await actions.getLike({ blogId });
+      if (!error && data) {
+        countEl.textContent = String(data.likeCount);
+      }
+      
+      if (localStorage.getItem(`liked-${blogId}`)) {
+        button.disabled = true;
+        button.classList.add('is-liked');
+        button.innerHTML = `<span class="heart-icon">💖</span> いいね済み <span class="count">${countEl.textContent}</span>`;
+      }
+    };
+
+    button.addEventListener('click', async () => {
+      button.disabled = true;
+      
+      const { data, error } = await actions.addLike({ blogId });
+      
+      if (!error && data) {
+        countEl.textContent = String(data.likeCount);
+
+        localStorage.setItem(`liked-${blogId}`, 'true');
+        button.classList.add('is-liked');
+        button.innerHTML = `<span class="heart-icon">💖</span> いいね済み <span class="count">${data.likeCount}</span>`;
+      } else {
+        button.disabled = false;
+        console.error('いいねの更新に失敗しました:', error);
+      }
+    });
+
+    initLike();
+  }
+</script>
+
+<style>
+  .like-button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+  }
+  .like-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    border-radius: 9999px;
+    padding: 10px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .like-btn:hover:not(:disabled) {
+    background-color: #e2e8f0;
+    transform: scale(1.05);
+  }
+  .like-btn:disabled {
+    cursor: not-allowed;
+  }
+  .like-btn.is-liked {
+    background-color: #ffe4e6;
+    border-color: #fda4af;
+    color: #e11d48;
+  }
+  .count {
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 2px 8px;
+    border-radius: 9999px;
+    font-size: 14px;
+  }
+  .like-btn.is-liked .count {
+    background-color: rgba(225, 29, 72, 0.1);
+  }
+</style>
