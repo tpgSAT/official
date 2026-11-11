@@ -1,0 +1,728 @@
+---
+import Layout from "@layouts/Layout.astro";
+import "@fontsource/shippori-mincho/500.css";
+import "@fontsource/shippori-mincho/700.css";
+
+const title = "グランメゾン東工";
+
+const description =
+  "ドラマ「グランメゾン東京」の料理を再現しながら交流する料理会「グランメゾン東工」を Taki Plaza B2F キッチンスペースで開催します！";
+
+const sessions = [
+  { label: "第1回", date: "12/8（火）" },
+  { label: "第2回", date: "12/22（火）" },
+  { label: "第3回", date: "1/5（火）" },
+  { label: "第4回", date: "1/19（火）" },
+];
+
+const timeline = [
+  {
+    time: "17:00-17:20",
+    title: "オリエンテーション",
+    desc: "企画の概要説明・自己紹介・担当料理ごとのチーム分け",
+  },
+  {
+    time: "17:20-19:00",
+    title: "調理タイム",
+    desc: "複数の料理を並行して調理します（後半は片付けも一緒に進めます）",
+  },
+  {
+    time: "19:00-19:40",
+    title: "実食",
+    desc: "みんなで作った一皿を、同じ食卓で囲みます",
+  },
+  {
+    time: "19:40-19:55",
+    title: "片付け",
+    desc: "使った道具やキッチンをみんなで分担して片付けます",
+  },
+];
+---
+
+<Layout title={title} description={description}>
+  <div class="event-page">
+    <div class="content-column-wrapper">
+      <section class="hero">
+        <p class="kicker">Taki Plaza Gardener presents</p>
+        <div class="emblem" aria-hidden="false">
+          <div class="emblem-ring">
+            <h1 class="hero-title">グランメゾン<br /><span class="hero-title-sub">東工</span></h1>
+          </div>
+        </div>
+        <p class="hero-copy">
+          ドラマ『グランメゾン東京』の料理を、仲間と一緒に再現してみませんか？
+        </p>
+
+        <div class="hero-info">
+          <div class="hero-datetime">
+            <p>日時：</p>
+            <div>
+              <p>全4回　12/8・12/22・1/5・1/19（火）</p>
+              <p>17:00〜20:00</p>
+            </div>
+          </div>
+          <p>場所：Taki Plaza B2F キッチンスペース</p>
+        </div>
+      </section>
+
+      <section class="about">
+        <h2 class="tagline">概要・目的</h2>
+        <div class="intro-card">
+          <p>
+            TPGコミュニティ班が、ドラマ『グランメゾン東京』に登場する料理をみんなで再現する料理会「グランメゾン東工」を開催します！
+          </p>
+          <p>一緒に食材を選んで、調理して、同じ食卓を囲んでみませんか？</p>
+          <p>
+            料理を通して、ドラマの世界観を楽しみながら、TPGのコミュニティも盛り上げていけたらと思います！
+          </p>
+        </div>
+      </section>
+
+      <section class="menu">
+        <h2 class="tagline">再現する料理</h2>
+        <p class="menu-note">※全4回に分けて、ドラマに登場する4品を再現します！</p>
+
+        <ol class="dish-menu">
+          <li class="dish-item">
+            <div class="dish-head">
+              <span class="dish-no">I</span>
+              <div class="dish-photo" aria-hidden="true">
+                <div class="photo-frame">
+                  <svg viewBox="0 0 120 120">
+                    <circle class="photo-ring" cx="60" cy="60" r="34"></circle>
+                    <path
+                      class="photo-ink"
+                      d="M60 34c-14 0-26 12-26 26s12 26 26 26 26-12 26-26"
+                      fill="none"
+                    ></path>
+                    <circle class="photo-dot" cx="46" cy="52" r="3"></circle>
+                    <circle class="photo-dot" cx="66" cy="44" r="2.5"></circle>
+                    <circle class="photo-dot" cx="56" cy="68" r="3"></circle>
+                  </svg>
+                </div>
+                <p class="photo-label">写真準備中</p>
+              </div>
+            </div>
+            <div class="dish-body">
+              <h3>抹茶のクリームパスタ</h3>
+              <p>抹茶のソースをまとわせた、生ハムとベーコンの濃厚クリームパスタ。</p>
+            </div>
+          </li>
+
+          <li class="dish-item">
+            <div class="dish-head">
+              <span class="dish-no">II</span>
+              <div class="dish-photo" aria-hidden="true">
+                <div class="photo-frame">
+                  <svg viewBox="0 0 120 120">
+                    <ellipse class="photo-ink" cx="46" cy="52" rx="16" ry="24" fill="none"></ellipse>
+                    <ellipse class="photo-ink" cx="74" cy="68" rx="16" ry="24" fill="none"></ellipse>
+                    <rect class="photo-dot" x="56" y="56" width="8" height="8"></rect>
+                  </svg>
+                </div>
+                <p class="photo-label">写真準備中</p>
+              </div>
+            </div>
+            <div class="dish-body">
+              <h3>茄子のプレッセ</h3>
+              <p>焼いたレバーを茄子でプレスした一皿。カカオクッキーがアクセントに。</p>
+            </div>
+          </li>
+
+          <li class="dish-item">
+            <div class="dish-head">
+              <span class="dish-no">III</span>
+              <div class="dish-photo" aria-hidden="true">
+                <div class="photo-frame">
+                  <svg viewBox="0 0 120 120">
+                    <path
+                      class="photo-ink"
+                      d="M28 58a32 22 0 0 1 64 0z"
+                      fill="none"
+                    ></path>
+                    <path class="photo-ink" d="M24 58h72" fill="none"></path>
+                    <path class="photo-ink" d="M50 34c0-6 4-8 4-14" fill="none"></path>
+                    <path class="photo-ink" d="M62 34c0-6 4-8 4-14" fill="none"></path>
+                  </svg>
+                </div>
+                <p class="photo-label">写真準備中</p>
+              </div>
+            </div>
+            <div class="dish-body">
+              <h3>ジビエカレー</h3>
+              <p>鹿すね肉を煮込んだルーを、ガーリックライスにたっぷりと。</p>
+            </div>
+          </li>
+
+          <li class="dish-item">
+            <div class="dish-head">
+              <span class="dish-no">IV</span>
+              <div class="dish-photo" aria-hidden="true">
+                <div class="photo-frame">
+                  <svg viewBox="0 0 120 120">
+                    <path
+                      class="photo-ink"
+                      d="M60 30c14 0 20 10 20 20 0 8-6 12-20 12s-20-4-20-12c0-10 6-20 20-20z"
+                      fill="none"
+                    ></path>
+                    <path class="photo-ink" d="M44 62l10 30h12l10-30" fill="none"></path>
+                  </svg>
+                </div>
+                <p class="photo-label">写真準備中</p>
+              </div>
+            </div>
+            <div class="dish-body">
+              <h3>メレンゲのアイスクリーム</h3>
+              <p>メレンゲと生クリームを合わせて冷やし固めた、優しい甘さのデザート。</p>
+            </div>
+          </li>
+        </ol>
+
+        <p class="more">
+          ※試作の結果により品目や日程が変わることがあります。11月中旬に決定予定です！
+        </p>
+      </section>
+
+      <section class="schedule">
+        <h2 class="tagline">当日の流れ</h2>
+        <ol class="timeline">
+          {
+            timeline.map((step) => (
+              <li class="timeline-step">
+                <p class="timeline-time">{step.time}</p>
+                <div>
+                  <h3>{step.title}</h3>
+                  <p>{step.desc}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+      </section>
+
+      <section class="info">
+        <h2 class="tagline">開催概要</h2>
+        <div class="info-card">
+          <dl class="info-list">
+            <div class="info-row">
+              <dt>日程</dt>
+              <dd>
+                {
+                  sessions.map((session, i) => (
+                    <>
+                      {session.label}　{session.date}
+                      {i < sessions.length - 1 && <br />}
+                    </>
+                  ))
+                }
+                <br />
+                <span class="note-inline">
+                  ※試作の結果により変わることがあります。11月中旬に決定予定です！
+                </span>
+              </dd>
+            </div>
+
+            <div class="info-row">
+              <dt>時間</dt>
+              <dd>17:00〜20:00</dd>
+            </div>
+
+            <div class="info-row">
+              <dt>場所</dt>
+              <dd>Taki Plaza B2F キッチンスペース</dd>
+            </div>
+
+            <div class="info-row">
+              <dt>募集人数</dt>
+              <dd>各回5人前後</dd>
+            </div>
+
+            <div class="info-row">
+              <dt>問い合わせ</dt>
+              <dd>
+                <a href="mailto:takiplazagardener.event@gmail.com">
+                  takiplazagardener.event@gmail.com
+                </a>
+              </dd>
+            </div>
+
+            <div class="info-row">
+              <dt>主催</dt>
+              <dd>Taki Plaza Gardener</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="notes">
+        <h2 class="tagline">参加にあたって</h2>
+        <div class="notes-card">
+          <ul class="notes-list">
+            <li>お申し込みの際に、食物アレルギーがないか確認させてください！</li>
+            <li>
+              生の肉はしっかり冷蔵・加熱してから使うなど、衛生面にも気をつけて運営します。
+            </li>
+            <li>品目や日程は試作の結果で変わることがあります（11月中旬に決定予定）。</li>
+            <li>当日の詳しいご案内は、参加者の方に個別にお伝えします！</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .event-page {
+    --wine: #7a1626;
+    --gold: #c9a227;
+    --black: #141110;
+    --white: #ffffff;
+    --bg: #f7efe0;
+
+    position: relative;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--black);
+    font-family:
+      "Noto Sans JP Variable",
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      sans-serif;
+  }
+
+  .event-page * {
+    box-sizing: border-box;
+  }
+
+  .content-column-wrapper {
+    width: min(94vw, 880px);
+    min-height: 100vh;
+    margin-inline: auto;
+    padding-inline: clamp(1rem, 4vw, 3rem);
+  }
+
+  .hero {
+    padding: clamp(3rem, 10vw, 6rem) clamp(1rem, 5vw, 4rem) clamp(2rem, 6vw, 3rem);
+    text-align: center;
+  }
+
+  .kicker {
+    margin: 0 0 1.75rem;
+    font-family: "Shippori Mincho", "Noto Sans JP Variable", serif;
+    font-weight: 500;
+    font-size: clamp(0.7rem, 1.6vw, 0.85rem);
+    letter-spacing: 0.3em;
+    color: var(--wine);
+  }
+
+  .emblem {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.75rem;
+  }
+
+  .emblem-ring {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: clamp(220px, 52vw, 320px);
+    aspect-ratio: 1;
+    padding: 1.4rem;
+    border: 3px double var(--gold);
+    border-radius: 50%;
+  }
+
+  .emblem-ring::before {
+    content: "";
+    position: absolute;
+    inset: 9px;
+    border: 1px solid var(--wine);
+    border-radius: 50%;
+  }
+
+  .hero-title {
+    position: relative;
+    margin: 0;
+    font-family: "Shippori Mincho", "Noto Sans JP Variable", serif;
+    font-weight: 700;
+    font-size: clamp(1.4rem, 5.6vw, 2rem);
+    line-height: 1.6;
+    letter-spacing: 0.16em;
+    color: var(--black);
+  }
+
+  .hero-title-sub {
+    display: inline-block;
+  }
+
+  .hero-copy {
+    margin: 0 auto 2rem;
+    max-width: 28rem;
+    font-size: clamp(0.95rem, 2.3vw, 1.1rem);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-info {
+    display: inline-grid;
+    gap: 0.6rem;
+    padding: 1.25rem 1.75rem;
+    background: var(--white);
+    border: 1px solid var(--wine);
+    box-shadow:
+      0 0 0 4px var(--bg),
+      0 0 0 5px var(--gold);
+    font-weight: 500;
+    text-align: left;
+  }
+
+  .hero-datetime {
+    display: flex;
+    align-items: baseline;
+    gap: 0.25rem;
+  }
+
+  .hero-info p {
+    margin: 0;
+    font-size: clamp(0.95rem, 2.1vw, 1.1rem);
+  }
+
+  .tagline {
+    display: inline-flex;
+    align-items: center;
+    margin: 0 0 2rem;
+    padding: 0.6em 1.4em 0.6em 1em;
+    clip-path: polygon(0 0, 100% 0, 91% 50%, 100% 100%, 0 100%);
+    background: var(--wine);
+    font-family: "Shippori Mincho", "Noto Sans JP Variable", serif;
+    font-weight: 700;
+    font-size: clamp(1.25rem, 4vw, 1.6rem);
+    letter-spacing: 0.08em;
+    color: var(--white);
+  }
+
+  .about,
+  .menu,
+  .schedule {
+    padding: clamp(2rem, 8vw, 4rem) clamp(1rem, 5vw, 4rem);
+  }
+
+  .info {
+    padding: clamp(3rem, 10vw, 6rem) clamp(1rem, 5vw, 4rem);
+  }
+
+  .notes {
+    padding: clamp(2rem, 8vw, 4rem) clamp(1rem, 5vw, 4rem) clamp(4rem, 10vw, 6rem);
+  }
+
+  .intro-card,
+  .info-card,
+  .notes-card {
+    width: calc(100% - 10px);
+    margin-inline: auto;
+    padding: clamp(1.75rem, 5vw, 2.75rem);
+    background: var(--white);
+    border: 1px solid var(--wine);
+    box-shadow:
+      0 0 0 4px var(--bg),
+      0 0 0 5px var(--gold);
+  }
+
+  .intro-card p {
+    margin: 0 0 1rem;
+    font-weight: 500;
+    line-height: 1.9;
+  }
+
+  .intro-card p:last-child {
+    margin-bottom: 0;
+  }
+
+  .menu-note {
+    margin: -1rem 0 2rem;
+    font-weight: 700;
+    color: var(--wine);
+  }
+
+  .dish-menu {
+    display: grid;
+    gap: 0;
+    margin: 0 0 1.5rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .dish-item {
+    display: grid;
+    grid-template-columns: 7.5rem 1fr;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--gold);
+  }
+
+  .dish-item:first-child {
+    padding-top: 0;
+  }
+
+  .dish-item:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .dish-head {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+  }
+
+  .dish-no {
+    display: grid;
+    place-items: center;
+    width: 2.1rem;
+    height: 2.1rem;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    font-family: "Shippori Mincho", "Noto Sans JP Variable", serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--wine);
+  }
+
+  .dish-photo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .photo-frame {
+    display: grid;
+    place-items: center;
+    width: 4.6rem;
+    height: 4.6rem;
+    background: radial-gradient(circle, rgba(201, 162, 39, 0.12), transparent 70%);
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+  }
+
+  .photo-frame svg {
+    width: 58%;
+    height: 58%;
+  }
+
+  .photo-ink {
+    stroke: var(--wine);
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .photo-ring {
+    fill: none;
+    stroke: var(--gold);
+    stroke-width: 2;
+  }
+
+  .photo-dot {
+    fill: var(--wine);
+  }
+
+  .photo-label {
+    margin: 0;
+    font-size: 0.62rem;
+    letter-spacing: 0.04em;
+    color: var(--wine);
+    opacity: 0.85;
+  }
+
+  .dish-body h3 {
+    margin: 0 0 0.4rem;
+    font-family: "Shippori Mincho", "Noto Sans JP Variable", serif;
+    font-weight: 700;
+    font-size: clamp(1.05rem, 2.6vw, 1.25rem);
+    letter-spacing: 0.04em;
+  }
+
+  .dish-body p {
+    margin: 0;
+    font-weight: 500;
+    line-height: 1.75;
+  }
+
+  .more {
+    margin: 1.5rem 0 0;
+    text-align: right;
+    letter-spacing: 0.02em;
+    color: var(--wine);
+  }
+
+  .timeline {
+    display: grid;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .timeline-step {
+    display: grid;
+    grid-template-columns: 7rem 1fr;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--gold);
+  }
+
+  .timeline-step:first-child {
+    padding-top: 0;
+  }
+
+  .timeline-step:last-child {
+    border-bottom: none;
+  }
+
+  .timeline-time {
+    margin: 0;
+    font-family: "Shippori Mincho", "Noto Sans JP Variable", serif;
+    font-weight: 500;
+    color: var(--wine);
+    font-size: 0.95rem;
+  }
+
+  .timeline-step h3 {
+    margin: 0 0 0.3rem;
+    font-size: clamp(1.05rem, 2.6vw, 1.2rem);
+    font-weight: 700;
+  }
+
+  .timeline-step p {
+    margin: 0;
+    font-weight: 500;
+    line-height: 1.7;
+  }
+
+  .info-list {
+    display: grid;
+    gap: 1rem;
+    margin: 0;
+  }
+
+  .info-row {
+    display: grid;
+    grid-template-columns: 8rem 1fr;
+    gap: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--gold);
+  }
+
+  .info-row:last-child {
+    border-bottom: none;
+  }
+
+  .info-row dt {
+    font-family: "Shippori Mincho", "Noto Sans JP Variable", serif;
+    font-weight: 700;
+  }
+
+  .info-row dd {
+    margin: 0;
+    font-weight: 600;
+    color: var(--wine);
+  }
+
+  .info-row a {
+    color: inherit;
+  }
+
+  .note-inline {
+    display: inline-block;
+    margin-top: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--black);
+  }
+
+  .notes-list {
+    display: grid;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .notes-list li {
+    position: relative;
+    padding: 0.9rem 0 0.9rem 1.3rem;
+    border-bottom: 1px solid var(--gold);
+    font-weight: 500;
+    line-height: 1.7;
+  }
+
+  .notes-list li:last-child {
+    border-bottom: none;
+  }
+
+  .notes-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.75em;
+    width: 0.4rem;
+    height: 0.4rem;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+
+  @media (max-width: 760px) {
+    .info-row {
+      grid-template-columns: 1fr;
+      gap: 0.2rem;
+    }
+
+    .intro-card,
+    .info-card,
+    .notes-card {
+      width: calc(100% - 6px);
+      box-shadow:
+        0 0 0 3px var(--bg),
+        0 0 0 4px var(--gold);
+    }
+
+    .timeline-step {
+      grid-template-columns: 1fr;
+      gap: 0.3rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .content-column-wrapper {
+      width: 100%;
+      padding-inline: 0.75rem;
+    }
+
+    .hero-info {
+      display: grid;
+      width: 100%;
+    }
+
+    .about,
+    .menu,
+    .schedule,
+    .info,
+    .notes {
+      padding-inline: 0.25rem;
+    }
+
+    .dish-item {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+
+    .info-row dd {
+      font-size: 0.95rem;
+      overflow-wrap: anywhere;
+    }
+  }
+</style>
