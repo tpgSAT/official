@@ -1,7 +1,11 @@
 ---
 import Layout from "@layouts/Layout.astro";
+import { Image } from "astro:assets";
 import "@fontsource/shippori-mincho/500.css";
 import "@fontsource/shippori-mincho/700.css";
+
+import starImg from "@assets/events/2026/grand-maison-toukou/star.webp";
+import plateImg from "@assets/events/2026/grand-maison-toukou/plate.webp";
 
 const title = "グランメゾン東工";
 
@@ -9,10 +13,10 @@ const description =
   "ドラマ「グランメゾン東京」の料理を再現しながら交流する料理会「グランメゾン東工」を Taki Plaza B2F キッチンスペースで開催します！";
 
 const sessions = [
-  { label: "第1回", date: "12/15（火）" },
-  { label: "第2回", date: "12/22（火）" },
-  { label: "第3回", date: "1/5（火）" },
-  { label: "第4回", date: "1/19（火）" },
+  { label: "第1回", date: "12/15 (Tue)" },
+  { label: "第2回", date: "12/22 (Tue)" },
+  { label: "第3回", date: "1/5 (Tue)" },
+  { label: "第4回", date: "1/19 (Tue)" },
 ];
 
 const timeline = [
@@ -43,12 +47,23 @@ const timeline = [
   <div class="event-page">
     <div class="content-column-wrapper">
       <section class="hero">
-        <p class="kicker">Taki Plaza Gardener presents</p>
-        <div class="emblem" aria-hidden="false">
-          <div class="emblem-ring">
-            <h1 class="hero-title">グランメゾン<br /><span class="hero-title-sub">東工</span></h1>
-          </div>
+        <p class="kicker">GRAND MAISON TOKO</p>
+        <h1 class="hero-title">
+          グランメゾン<span class="title-star">★</span>東工
+        </h1>
+        <p class="stars" aria-hidden="true">
+          <Image src={starImg} alt="" class="stars-icon" />
+          <Image src={starImg} alt="" class="stars-icon" />
+          <Image src={starImg} alt="" class="stars-icon" />
+        </p>
+        <p class="hero-location">at Taki Plaza B2F キッチンスペース</p>
+
+        <div class="plate">
+          <Image src={plateImg} alt="お皿に盛られた一皿のイラスト" />
         </div>
+
+        <p class="hero-tagline">～最高の一皿を～</p>
+
         <p class="hero-copy">
           ドラマ『グランメゾン東京』の料理を、仲間と一緒に再現してみませんか？
         </p>
@@ -57,8 +72,8 @@ const timeline = [
           <div class="hero-datetime">
             <p>日時：</p>
             <div>
-              <p>全4回　12/15・12/22・1/5・1/19（火）</p>
-              <p>17:00〜20:00</p>
+              <p>全4回　12/15・12/22・1/5・1/19 (Tue)</p>
+              <p>17:00~20:00</p>
             </div>
           </div>
           <p>場所：Taki Plaza B2F キッチンスペース</p>
@@ -210,21 +225,16 @@ const timeline = [
                 {
                   sessions.map((session, i) => (
                     <>
-                      {session.label}　{session.date}
+                      {session.label}：{session.date} 17:00~20:00
                       {i < sessions.length - 1 && <br />}
                     </>
                   ))
                 }
                 <br />
                 <span class="note-inline">
-                  ※試作の結果により変わることがあります。11月中旬に決定予定です！
+                  ※試作の結果により変わることがあります。
                 </span>
               </dd>
-            </div>
-
-            <div class="info-row">
-              <dt>時間</dt>
-              <dd>17:00〜20:00</dd>
             </div>
 
             <div class="info-row">
@@ -240,8 +250,8 @@ const timeline = [
             <div class="info-row">
               <dt>問い合わせ</dt>
               <dd>
-                <a href="mailto:takiplazagardener.event@gmail.com">
-                  takiplazagardener.event@gmail.com
+                <a href="mailto:takiplazagardener.community@gmail.com">
+                  takiplazagardener.community@gmail.com
                 </a>
               </dd>
             </div>
@@ -250,7 +260,15 @@ const timeline = [
               <dt>主催</dt>
               <dd>Taki Plaza Gardener</dd>
             </div>
+
+            <div class="info-row">
+              <dt>後援</dt>
+              <dd><a href="https://www.kuramae.ne.jp/">蔵前工業会</a></dd>
+            </div>
           </dl>
+          <p class="info-footnote">
+            TPGはTaki Plaza運営委員会の下で活動しています。
+          </p>
         </div>
       </section>
 
@@ -258,11 +276,8 @@ const timeline = [
         <h2 class="tagline">参加にあたって</h2>
         <div class="notes-card">
           <ul class="notes-list">
-            <li>お申し込みの際に、食物アレルギーがないか確認させてください！</li>
-            <li>
-              生の肉はしっかり冷蔵・加熱してから使うなど、衛生面にも気をつけて運営します。
-            </li>
-            <li>品目や日程は試作の結果で変わることがあります（11月中旬に決定予定）。</li>
+            <li>お申し込みの際に、食物アレルギーがないか確認させていただきます。</li>
+            <li>品目や日程は試作の結果で変わることがあります。</li>
             <li>当日の詳しいご案内は、参加者の方に個別にお伝えします！</li>
           </ul>
         </div>
@@ -273,11 +288,13 @@ const timeline = [
 
 <style>
   .event-page {
-    --wine: #7a1626;
-    --gold: #c9a227;
-    --black: #141110;
+    --black: #1c1a16;
+    --line: #6b6150;
+    --olive: #c3cf2c;
     --white: #ffffff;
-    --bg: #f7efe0;
+    --bg: #f0ece1;
+    --meat: #a94256;
+    --sauce: #6b4226;
 
     position: relative;
     min-height: 100vh;
@@ -309,60 +326,78 @@ const timeline = [
   }
 
   .kicker {
-    margin: 0 0 1.75rem;
-    font-family: "Shippori Mincho", "Noto Sans JP Variable", serif;
+    margin: 0 0 0.5rem;
+    font-family: "Shippori Mincho", Georgia, serif;
     font-weight: 500;
-    font-size: clamp(0.7rem, 1.6vw, 0.85rem);
+    font-size: clamp(1rem, 2.6vw, 1.3rem);
     letter-spacing: 0.3em;
-    color: var(--wine);
-  }
-
-  .emblem {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1.75rem;
-  }
-
-  .emblem-ring {
-    position: relative;
-    display: grid;
-    place-items: center;
-    width: clamp(220px, 52vw, 320px);
-    aspect-ratio: 1;
-    padding: 1.4rem;
-    border: 3px double var(--gold);
-    border-radius: 50%;
-  }
-
-  .emblem-ring::before {
-    content: "";
-    position: absolute;
-    inset: 9px;
-    border: 1px solid var(--wine);
-    border-radius: 50%;
+    color: var(--olive);
   }
 
   .hero-title {
-    position: relative;
-    margin: 0;
+    margin: 0 0 0.5rem;
     font-family: "Shippori Mincho", "Noto Sans JP Variable", serif;
     font-weight: 700;
-    font-size: clamp(1.4rem, 5.6vw, 2rem);
-    line-height: 1.6;
-    letter-spacing: 0.16em;
+    font-size: clamp(2rem, 8vw, 3.4rem);
+    letter-spacing: 0.04em;
     color: var(--black);
   }
 
-  .hero-title-sub {
+  .title-star {
     display: inline-block;
+    margin: 0 0.02em;
+    font-size: 0.62em;
+    vertical-align: 0.08em;
+    color: var(--black);
+  }
+
+  .stars {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 0 0 1.25rem;
+  }
+
+  :global(.stars-icon) {
+    display: block;
+    width: clamp(1.1rem, 3vw, 1.4rem);
+    height: auto;
+  }
+
+  .hero-location {
+    margin: 0 0 1.75rem;
+    font-family: "Shippori Mincho", "Noto Sans JP Variable", serif;
+    font-weight: 500;
+    font-size: clamp(1rem, 2.4vw, 1.2rem);
+  }
+
+  .plate {
+    width: clamp(140px, 32vw, 190px);
+    margin: 0 auto 1.75rem;
+  }
+
+  .plate :global(img) {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .hero-tagline {
+    margin: 0 0 1.25rem;
+    font-family: "Shippori Mincho", "Noto Sans JP Variable", serif;
+    font-weight: 700;
+    font-size: clamp(1.2rem, 3.6vw, 1.5rem);
   }
 
   .hero-copy {
     margin: 0 auto 2rem;
     max-width: 28rem;
-    font-size: clamp(0.95rem, 2.3vw, 1.1rem);
+    font-size: clamp(0.9rem, 2.1vw, 1rem);
     font-weight: 500;
     letter-spacing: 0.02em;
+    color: var(--black);
+    opacity: 0.8;
   }
 
   .hero-info {
@@ -370,10 +405,8 @@ const timeline = [
     gap: 0.6rem;
     padding: 1.25rem 1.75rem;
     background: var(--white);
-    border: 1px solid var(--wine);
-    box-shadow:
-      0 0 0 4px var(--bg),
-      0 0 0 5px var(--gold);
+    border: 2px solid var(--line);
+    box-shadow: 6px 6px 0 var(--olive);
     font-weight: 500;
     text-align: left;
   }
@@ -390,17 +423,23 @@ const timeline = [
   }
 
   .tagline {
-    display: inline-flex;
-    align-items: center;
+    position: relative;
+    display: inline-block;
     margin: 0 0 2rem;
-    padding: 0.6em 1.4em 0.6em 1em;
-    clip-path: polygon(0 0, 100% 0, 91% 50%, 100% 100%, 0 100%);
-    background: var(--wine);
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--line);
     font-family: "Shippori Mincho", "Noto Sans JP Variable", serif;
     font-weight: 700;
-    font-size: clamp(1.25rem, 4vw, 1.6rem);
-    letter-spacing: 0.08em;
-    color: var(--white);
+    font-size: clamp(1.3rem, 4vw, 1.75rem);
+    letter-spacing: 0.04em;
+    color: var(--black);
+  }
+
+  .tagline::before {
+    content: "★";
+    margin-right: 0.45em;
+    color: var(--olive);
+    font-size: 0.7em;
   }
 
   .about,
@@ -420,14 +459,12 @@ const timeline = [
   .intro-card,
   .info-card,
   .notes-card {
-    width: calc(100% - 10px);
+    width: calc(100% - 6px);
     margin-inline: auto;
     padding: clamp(1.75rem, 5vw, 2.75rem);
     background: var(--white);
-    border: 1px solid var(--wine);
-    box-shadow:
-      0 0 0 4px var(--bg),
-      0 0 0 5px var(--gold);
+    border: 2px solid var(--line);
+    box-shadow: 6px 6px 0 var(--olive);
   }
 
   .intro-card p {
@@ -443,7 +480,6 @@ const timeline = [
   .menu-note {
     margin: -1rem 0 2rem;
     font-weight: 700;
-    color: var(--wine);
   }
 
   .dish-menu {
@@ -460,7 +496,7 @@ const timeline = [
     align-items: center;
     gap: 1.25rem;
     padding: 1.5rem 0;
-    border-bottom: 1px solid var(--gold);
+    border-bottom: 1px solid var(--line);
   }
 
   .dish-item:first-child {
@@ -483,12 +519,12 @@ const timeline = [
     place-items: center;
     width: 2.1rem;
     height: 2.1rem;
-    border: 1px solid var(--gold);
+    border: 1px solid var(--line);
     border-radius: 50%;
     font-family: "Shippori Mincho", "Noto Sans JP Variable", serif;
     font-weight: 700;
     font-size: 1rem;
-    color: var(--wine);
+    color: var(--black);
   }
 
   .dish-photo {
@@ -503,8 +539,8 @@ const timeline = [
     place-items: center;
     width: 4.6rem;
     height: 4.6rem;
-    background: radial-gradient(circle, rgba(201, 162, 39, 0.12), transparent 70%);
-    border: 1px solid var(--gold);
+    background: rgba(195, 207, 44, 0.12);
+    border: 1px solid var(--line);
     border-radius: 50%;
   }
 
@@ -514,7 +550,7 @@ const timeline = [
   }
 
   .photo-ink {
-    stroke: var(--wine);
+    stroke: var(--line);
     stroke-width: 4;
     stroke-linecap: round;
     stroke-linejoin: round;
@@ -522,20 +558,20 @@ const timeline = [
 
   .photo-ring {
     fill: none;
-    stroke: var(--gold);
+    stroke: var(--olive);
     stroke-width: 2;
   }
 
   .photo-dot {
-    fill: var(--wine);
+    fill: var(--olive);
   }
 
   .photo-label {
     margin: 0;
     font-size: 0.62rem;
     letter-spacing: 0.04em;
-    color: var(--wine);
-    opacity: 0.85;
+    color: var(--black);
+    opacity: 0.6;
   }
 
   .dish-body h3 {
@@ -556,7 +592,6 @@ const timeline = [
     margin: 1.5rem 0 0;
     text-align: right;
     letter-spacing: 0.02em;
-    color: var(--wine);
   }
 
   .timeline {
@@ -572,7 +607,7 @@ const timeline = [
     grid-template-columns: 7rem 1fr;
     gap: 1rem;
     padding: 1rem 0;
-    border-bottom: 1px solid var(--gold);
+    border-bottom: 1px solid var(--line);
   }
 
   .timeline-step:first-child {
@@ -587,7 +622,6 @@ const timeline = [
     margin: 0;
     font-family: "Shippori Mincho", "Noto Sans JP Variable", serif;
     font-weight: 500;
-    color: var(--wine);
     font-size: 0.95rem;
   }
 
@@ -606,7 +640,7 @@ const timeline = [
   .info-list {
     display: grid;
     gap: 1rem;
-    margin: 0;
+    margin: 0 0 1.5rem;
   }
 
   .info-row {
@@ -614,7 +648,7 @@ const timeline = [
     grid-template-columns: 8rem 1fr;
     gap: 1rem;
     padding-bottom: 0.75rem;
-    border-bottom: 1px solid var(--gold);
+    border-bottom: 1px solid var(--line);
   }
 
   .info-row:last-child {
@@ -629,7 +663,6 @@ const timeline = [
   .info-row dd {
     margin: 0;
     font-weight: 600;
-    color: var(--wine);
   }
 
   .info-row a {
@@ -641,7 +674,15 @@ const timeline = [
     margin-top: 0.4rem;
     font-size: 0.85rem;
     font-weight: 500;
-    color: var(--black);
+    opacity: 0.75;
+  }
+
+  .info-footnote {
+    margin: 0;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.78rem;
+    opacity: 0.7;
   }
 
   .notes-list {
@@ -655,7 +696,7 @@ const timeline = [
   .notes-list li {
     position: relative;
     padding: 0.9rem 0 0.9rem 1.3rem;
-    border-bottom: 1px solid var(--gold);
+    border-bottom: 1px solid var(--line);
     font-weight: 500;
     line-height: 1.7;
   }
@@ -671,7 +712,7 @@ const timeline = [
     top: 0.75em;
     width: 0.4rem;
     height: 0.4rem;
-    background: var(--gold);
+    background: var(--olive);
     border-radius: 50%;
   }
 
@@ -684,10 +725,8 @@ const timeline = [
     .intro-card,
     .info-card,
     .notes-card {
-      width: calc(100% - 6px);
-      box-shadow:
-        0 0 0 3px var(--bg),
-        0 0 0 4px var(--gold);
+      width: calc(100% - 4px);
+      box-shadow: 4px 4px 0 var(--olive);
     }
 
     .timeline-step {
