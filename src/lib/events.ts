@@ -22,6 +22,7 @@ type ExternalEventLink = {
 
 export type Event = EventBase & (InternalEventLink | ExternalEventLink);
 
+import takiSurviro2026Thumb from "@assets/events/2026/taki-survivor/thumbnail.png"
 import koudaisai2026Thumb from "@assets/events/2026/koudaisai/thumbnail.png"
 import takiSportsDay2026Thumb from "@assets/events/2026/taki-sports-day/thumbnail.webp";
 import wakabasai2026Thumb from "@assets/events/2026/wakabasai/thumbnail.png";
@@ -34,6 +35,15 @@ import stainedglassThumb from "@assets/events/2025/stainedglass/poster.webp";
 import freshmanMeetupThumb from "@assets/events/2025/freshman-meetup/thumbnail.png";
 
 export const events: Event[] = [
+  {
+    title: "TAKIサバイバー",
+    titleEn: "Taki Survivor",
+    year: 2026,
+    path: "/2026/TAKIsurvivor/",
+    thumbnail: takiSurviro2026Thumb,
+    date: "2026-11-9",
+    time: "17:00~20:00",
+  },
   {
     title: "ボドゲカフェ: ボボボーボ・ボードゲ",
     titleEn: "Board game Cafe: Bobobo-bo Bo-ard game",
